@@ -78,9 +78,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
+  /* padding-left: 46px;
+  padding-right: 46px; */
+  overflow-x: hidden;
+  scrollbar-width: thin; /* For Firefox */
 }
-
 body,
 input,
 textarea,
@@ -93,6 +96,9 @@ button {
 body {
   background-color: rgb(244, 243, 243);
   color: var(--white-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 input,
@@ -185,7 +191,8 @@ img {
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1168px;
-  margin-inline: 1.5rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
 .grid {
@@ -879,7 +886,7 @@ p.experience__description{
   right: 1rem; 
   bottom: 8rem; 
   background-color: hsla(0, 0%, 98%, 1);
-  display: inline-flex; 
+  display: none; /* Hidden by default on mobile */
   padding: 6px; 
   color: black;
   backdrop-filter: blur(16px); 
@@ -894,8 +901,7 @@ p.experience__description{
   transform: translateY(-0.5rem); /* Moves the button upward on hover */
 }
 
-/* Show Scroll Up */
-
+/* Show Scroll Up - Only on tablets and larger devices */
 .show-scroll{
   bottom: 8rem;
 }
@@ -905,18 +911,433 @@ p.experience__description{
 /* For small devices */
 @media screen and (max-width: 320px){
   .container{
-    margin-inline: 1rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 100%;
   }
-  .info__img{
-    width: 430px;
+  
+  /* Navigation adjustments */
+  .nav {
+    width: calc(100% - 2rem);
+    max-width: 320px;
+    padding: 0.75rem 1rem;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  .nav{
+  
+  .nav__list {
+    gap: 0.75rem;
+  }
+  
+  .nav__link {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Home section - Perfil */
+  .perfil {
+    height: auto;
+    min-height: 400px;
+    padding: 1rem 0.75rem;
+    margin-inline: 0;
+  }
+  
+  .perfil__img {
+    width: 250px;
+    position: relative;
+  }
+  
+  .perfil__name {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  
+  .perfil__button {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
+  .perfil__button .button {
+    width: 100%;
     padding: 1rem;
+    font-size: 0.875rem;
   }
+  
+  /* Info section */
+  .info {
+    margin-inline: 0;
+  }
+  
+  .info__name {
+    font-size: 1.5rem;
+  }
+  
+  .info__image {
+    height: 250px;
+    margin-left: 0;
+    margin-inline: auto;
+  }
+  
+  .info__img {
+    width: 280px;
+  }
+  
+  .info__description {
+    font-size: 0.875rem;
+  }
+  
+  .info .button {
+    height: auto;
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* About section */
+  .about {
+    margin-inline: 0;
+  }
+  
+  .about__name {
+    font-size: 0.938rem;
+  }
+  
+  .about__image {
+    height: 250px;
+    margin-left: 0;
+    margin-inline: auto;
+  }
+  
+  .about__img {
+    width: 280px;
+    margin-left: 0;
+    transform: translate(0);
+  }
+  
+  /* Skills */
+  .skills {
+    margin-inline: 0;
+  }
+  
+  .skills__title {
+    font-size: 1.25rem;
+  }
+  
+  .skills__item {
+    width: 2rem;
+  }
+  
+  .skills__items {
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  /* Projects */
+  .projects__card {
+    padding: 1rem;
+    margin-inline: 0;
+  }
+  
+  .projects__name {
+    font-size: 1rem;
+  }
+  
+  .projects__description,
+  .project__discription {
+    font-size: 0.813rem;
+  }
+  
+  .projects__skills {
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .projects__skill {
+    width: 0.875rem;
+  }
+  
+  /* Services */
+  .services__card {
+    padding: 3rem 1rem 2rem;
+    margin-inline: 0;
+  }
+  
+  .services__name {
+    font-size: 1rem;
+  }
+  
+  .services__description {
+    font-size: 0.813rem;
+  }
+  
+  /* Experience */
+  .experience__card {
+    margin-inline: 0;
+  }
+  
+  .experience__company {
+    font-size: 1.25rem;
+  }
+  
+  .experiance__profession {
+    font-size: 1rem;
+  }
+  
+  .experiance__date,
+  .experiance__description {
+    font-size: 0.813rem;
+  }
+  
+  /* Contact */
+  .contact__input {
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .contact__area {
+    height: 8rem;
+  }
+  
+  /* Footer */
+  .footer {
+    padding-block: 2rem 3rem; /* Reduced bottom padding since scroll-up is hidden */
+  }
+  
+  .footer__links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .footer__logo {
+    font-size: 1.5rem;
+    margin-left: 0;
+  }
+  
+  .footer__social {
+    gap: 1rem;
+  }
+  
+  .footer__social-link {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Scroll up button - Hidden on mobile */
+  .scrollup {
+    display: none !important;
+  }
+}
 
-  .info__image{
-    
-    height: 368px;
+/* For devices between 321px and 480px */
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  .container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 100%;
+  }
+  
+  /* Navigation */
+  .nav {
+    width: calc(100% - 2rem);
+    max-width: 450px;
+    padding: 0.875rem 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .nav__list {
+    gap: 1rem;
+  }
+  
+  .nav__link {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.3rem;
+  }
+  
+  /* Perfil */
+  .perfil {
+    height: auto;
+    min-height: 450px;
+    margin-inline: 0;
+  }
+  
+  .perfil__img {
+    width: 300px;
+  }
+  
+  .perfil__name {
+    font-size: 2rem;
+  }
+  
+  .perfil__button {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  .perfil__button .button {
+    width: 100%;
+  }
+  
+  /* Info */
+  .info {
+    margin-inline: 0;
+  }
+  
+  .info__name {
+    font-size: 1.75rem;
+  }
+  
+  .info__image {
+    height: 280px;
+    margin-left: 0;
+    margin-inline: auto;
+  }
+  
+  .info__img {
+    width: 320px;
+  }
+  
+  /* About */
+  .about {
+    margin-inline: 0;
+  }
+  
+  .about__image {
+    height: 280px;
+    margin-left: 0;
+    margin-inline: auto;
+  }
+  
+  .about__img {
+    width: 320px;
+    margin-left: 0;
+    transform: translate(0);
+  }
+  
+  /* Skills */
+  .skills {
+    margin-inline: 0;
+  }
+  
+  .skills__item {
+    width: 2.25rem;
+  }
+  
+  /* All cards */
+  .projects__card,
+  .services__card,
+  .experiance__data {
+    margin-inline: 0;
+  }
+  
+  /* Footer */
+  .footer {
+    padding-block: 2rem 3rem;
+  }
+  
+  .footer__logo {
+    margin-left: 0;
+  }
+  
+  /* Scroll up button - Hidden on mobile */
+  .scrollup {
+    display: none !important;
+  }
+}
+
+/* For medium devices (481px - 639px) */
+@media screen and (min-width: 481px) and (max-width: 639px) {
+  .container {
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    max-width: 100%;
+  }
+  
+  /* Perfil */
+  .perfil {
+    height: auto;
+    min-height: 500px;
+    margin-inline: 0;
+  }
+  
+  .perfil__img {
+    width: 340px;
+  }
+  
+  .perfil__name {
+    font-size: 2.25rem;
+  }
+  
+  .perfil__button {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+  
+  .perfil__button .button {
+    width: 100%;
+  }
+  
+  /* Info */
+  .info {
+    margin-inline: 0;
+  }
+  
+  .info__image {
+    height: 320px;
+    margin-left: 0;
+    margin-inline: auto;
+  }
+  
+  .info__img {
+    width: 360px;
+  }
+  
+  /* About */
+  .about {
+    margin-inline: 0;
+  }
+  
+  .about__image {
+    height: 320px;
+    margin-left: 0;
+    margin-inline: auto;
+  }
+  
+  .about__img {
+    width: 360px;
+    margin-left: 20px;
+  }
+  
+  /* Skills */
+  .skills {
+    margin-inline: 0;
+  }
+  
+  /* All cards */
+  .projects__card,
+  .services__card,
+  .experiance__data {
+    margin-inline: 0;
+  }
+  
+  /* Footer */
+  .footer {
+    padding-block: 2rem 3rem;
+  }
+  
+  .footer__logo {
+    margin-left: 0;
+  }
+  
+  /* Scroll up button - Hidden on mobile */
+  .scrollup {
+    display: none !important;
   }
 }
 
@@ -948,6 +1369,16 @@ p.experience__description{
     grid-template-columns: 380px;
     justify-content: center;
   }
+  
+  /* Footer */
+  .footer {
+    padding-block: 2rem 3rem;
+  }
+  
+  /* Scroll up button - Hidden on tablets below 768px */
+  .scrollup {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -955,7 +1386,7 @@ p.experience__description{
       display: grid;
       grid-template-columns: repeat(2, 350px);
       align-items: flex-start;
-      gap: 20px; /* Optional: Adds space between grid items */
+      gap: 20px;
   }
   .info__img{
     width: 315px;
@@ -993,6 +1424,11 @@ p.experience__description{
 
 .footer__logo{
   margin-left: 100px;
+}
+
+/* Show scroll-up button on tablets and above */
+.scrollup {
+  display: inline-flex;
 }
 }
 
@@ -1145,6 +1581,11 @@ p.experience__description{
     width: 100%;
   
   }
+  
+  /* Show scroll-up button on desktop */
+  .scrollup {
+    display: inline-flex;
+  }
 }
 
 @media  screen  and (min-width: 1500px){
@@ -1171,6 +1612,7 @@ p.experience__description{
 
   .scrollup{
     right: 4rem;
+    display: inline-flex;
   }
 
   .info__img{
@@ -1204,5 +1646,3 @@ p.experience__description{
 }
   
 }
-
-
