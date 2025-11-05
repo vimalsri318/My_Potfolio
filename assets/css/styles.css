@@ -860,6 +860,8 @@ p.experience__description{
   text-align: center;
   font-size: var(--small-font-size);
   color: var(--text-color);
+  margin-bottom: 68px;
+	
 }
 
 /*=============== SCROLL BAR ===============*/
