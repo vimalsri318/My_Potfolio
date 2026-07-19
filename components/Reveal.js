@@ -14,7 +14,8 @@ export default function Reveal({ children, delay = 0, className = '' }) {
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add('is-visible')
-          observer.disconnect()
+        } else {
+          el.classList.remove('is-visible')
         }
       },
       { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }

@@ -55,9 +55,6 @@ const projects = [
 
 export default function Projects() {
   const [active, setActive] = useState(null)
-  const [hovered, setHovered] = useState(null)
-
-  const currentProject = hovered || active
 
   useEffect(() => {
     const rows = document.querySelectorAll('.project-row')
@@ -102,7 +99,7 @@ export default function Projects() {
                 key={project.id}
                 src={project.image}
                 alt={project.title}
-                className={`projects-image-frame__img ${currentProject?.id === project.id ? 'is-visible' : ''}`}
+                className={`projects-image-frame__img ${active?.id === project.id ? 'is-visible' : ''}`}
               />
             ))}
           </div>
@@ -115,9 +112,7 @@ export default function Projects() {
               <div
                 key={project.id}
                 data-id={project.id}
-                className={`project-row ${currentProject?.id === project.id ? 'is-active' : ''}`}
-                onMouseEnter={() => setHovered(project)}
-                onMouseLeave={() => setHovered(null)}
+                className={`project-row ${active?.id === project.id ? 'is-active' : ''}`}
               >
                 {/* Left: name + category */}
                 <div className="project-row__left">
@@ -125,6 +120,13 @@ export default function Projects() {
                   <span className="project-row__sep">—</span>
                   <span className="project-row__category">{project.category}</span>
                 </div>
+
+                {/* Mobile Image (hidden on desktop) */}
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="project-row__mobile-img" 
+                />
 
                 {/* Centre: intentional gap where image floats */}
                 <div className="project-row__center" />

@@ -6,10 +6,8 @@ export default function About() {
     <section className="section" id="about">
       <div className="container about">
         <div className="side-label" aria-hidden="true">
-          <span className="side-label__arrow">⤵</span>
-          {'About'.split('').map((ch, i) => (
-            <span key={i}>{ch}</span>
-          ))}
+          <span className="side-label__arrow">↘</span>
+          <span>ABOUT</span>
         </div>
 
         <Reveal>
