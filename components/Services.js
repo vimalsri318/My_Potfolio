@@ -3,47 +3,53 @@ import Reveal from './Reveal'
 const services = [
   {
     id: 1,
-    icon: 'ri-code-box-line',
-    title: 'Web Development',
+    kicker: 'Build fast, ship faster',
+    title: 'Web Development.',
     description:
-      'Building responsive, high-performance websites tailored to client needs using modern frameworks like React, HTML, CSS, and JavaScript.',
+      'Responsive, high-performance websites tailored to client needs using modern frameworks.',
+    tags: ['#REACT', '#NEXTJS', '#TAILWIND'],
   },
   {
     id: 2,
-    icon: 'ri-vidicon-line',
-    title: 'AR/VR Development',
+    kicker: 'Step inside the screen',
+    title: 'AR/VR Development.',
     description:
-      'Creating immersive augmented and virtual reality experiences for applications in e-commerce, gaming, and education using tools like AR.js and Unity.',
+      'Immersive augmented and virtual reality experiences for e-commerce, gaming, and education.',
+    tags: ['#ARJS', '#UNITY', '#3D'],
   },
   {
     id: 3,
-    icon: 'ri-pencil-ruler-2-line',
-    title: 'UI/UX Design',
+    kicker: 'Pixels with purpose',
+    title: 'UI/UX Design.',
     description:
-      'Designing intuitive and visually appealing interfaces with tools like Figma and Photoshop, ensuring seamless user experiences across devices.',
+      'Intuitive, visually appealing interfaces ensuring seamless user experiences across devices.',
+    tags: ['#FIGMA', '#PHOTOSHOP'],
   },
 ]
 
 export default function Services() {
   return (
-    <section className="section section--light" id="services">
+    <section className="section" id="services">
       <div className="container">
-        <div className="section__header">
-          <Reveal>
-            <span className="eyebrow">Services</span>
-            <h2 className="headline">What I can do for you.</h2>
-          </Reveal>
-        </div>
-
-        <div className="services__grid">
-          {services.map((service, index) => (
-            <Reveal key={service.id} delay={index * 100}>
-              <article className="service-card">
-                <div className="service-card__icon">
-                  <i className={service.icon}></i>
+        <p className="mono" style={{ color: 'var(--ink-soft)', marginBottom: 26 }}>
+          What I do ⎯ pick your flavour <span style={{ color: 'var(--accent)' }}>↗</span>
+        </p>
+        <div className="cards">
+          {services.map((service, i) => (
+            <Reveal key={service.id} delay={i * 90}>
+              <article className="card">
+                <span className="card__kicker">
+                  {service.kicker} <span className="arrow">↗</span>
+                </span>
+                <p className="card__description">{service.description}</p>
+                <div className="card__tags">
+                  {service.tags.map(tag => (
+                    <span key={tag} className="tag">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <h3 className="service-card__name">{service.title}</h3>
-                <p className="service-card__description">{service.description}</p>
+                <h3 className="card__title">{service.title}</h3>
               </article>
             </Reveal>
           ))}

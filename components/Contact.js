@@ -18,7 +18,7 @@ export default function Contact() {
       )
 
       setMessage('Message sent ✅')
-      setMessageColor('#30d158')
+      setMessageColor('#1a7f37')
       e.target.reset()
 
       setTimeout(() => {
@@ -26,24 +26,40 @@ export default function Contact() {
       }, 5000)
     } catch (error) {
       setMessage('Message failed to send. Please try again.')
-      setMessageColor('#ff453a')
+      setMessageColor('#c1121f')
       console.error('EmailJS error:', error)
     }
   }
 
   return (
-    <section className="section section--dark" id="contact">
+    <section className="section" id="contact">
       <div className="container">
-        <div className="contact__wrap">
-          <Reveal>
-            <span className="eyebrow">Contact</span>
-            <h2 className="headline">Let&apos;s build something.</h2>
-            <p className="subhead" style={{ marginTop: 14 }}>
-              Have a project in mind? Send a message and I&apos;ll get back to you.
-            </p>
-          </Reveal>
+        {/* big Garnier-style CTAs */}
+        <Reveal>
+          <div className="cta" style={{ marginBottom: 'clamp(48px, 8vw, 90px)' }}>
+            <a href="#contact-form" className="cta__button">
+              <span>I want a website</span>
+              <span className="arrow">↗</span>
+            </a>
+            <a
+              href="/assets/pdf/Vimalsrinivasan_Resume.pdf"
+              download
+              target="_blank"
+              rel="noreferrer"
+              className="cta__button"
+            >
+              <span>Download my CV</span>
+              <span className="arrow">↗</span>
+            </a>
+          </div>
+        </Reveal>
 
-          <Reveal delay={120}>
+        <Reveal delay={100}>
+          <div className="contact-card">
+            <h2 className="contact-card__title">Let&apos;s talk.</h2>
+            <p className="contact-card__sub">
+              Have a project in mind? Send a message ⎯ I&apos;ll get back to you.
+            </p>
             <form className="contact__form" id="contact-form" onSubmit={sendEmail}>
               <div className="contact__group">
                 <input
@@ -67,12 +83,9 @@ export default function Contact() {
                 className="contact__input contact__area"
                 required
               ></textarea>
-              <div>
-                <button type="submit" className="btn btn--primary">
-                  Send message
-                </button>
-              </div>
-              {/* style only applied when a message exists — avoids SSR/client mismatch */}
+              <button type="submit" className="contact__submit">
+                Send message ↗
+              </button>
               <p
                 className="contact__message"
                 style={message ? { color: messageColor } : undefined}
@@ -81,8 +94,8 @@ export default function Contact() {
                 {message}
               </p>
             </form>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

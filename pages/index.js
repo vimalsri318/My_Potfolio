@@ -1,14 +1,13 @@
 import Head from 'next/head'
 import Navigation from '../components/Navigation'
 import Home from '../components/Home'
+import Ticker from '../components/Ticker'
 import About from '../components/About'
 import Projects from '../components/Projects'
-import Skills from '../components/Skills'
 import Services from '../components/Services'
 import Experience from '../components/Experience'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import ScrollUp from '../components/ScrollUp'
 
 export default function Portfolio() {
   return (
@@ -26,15 +25,26 @@ export default function Portfolio() {
       <Navigation />
       <main className="main">
         <Home />
+        <Ticker
+          items={[
+            'SUPER CREATIVE 🔥',
+            'WEB ⎯ AR/VR ⎯ DESIGN',
+            'SUPER CREATIVE 🔥',
+            'WEB ⎯ AR/VR ⎯ DESIGN',
+          ]}
+        />
         <About />
         <Projects />
-        <Skills />
+        <Ticker
+          items={[
+            'HTML ⎯ CSS ⎯ JAVASCRIPT ⎯ REACT ⎯ TAILWIND ⎯ SASS ⎯ FIGMA ⎯ UNITY ⎯ GIT ⎯ PYTHON ⎯ MONGODB ⎯ FIREBASE ⎯',
+          ]}
+        />
         <Services />
         <Experience />
         <Contact />
       </main>
       <Footer />
-      <ScrollUp />
     </>
   )
 }

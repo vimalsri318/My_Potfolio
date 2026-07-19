@@ -29,31 +29,26 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section className="section section--light" id="experience">
+    <section className="section" id="experience">
       <div className="container">
-        <div className="section__header">
-          <Reveal>
-            <span className="eyebrow">Experience</span>
-            <h2 className="headline">Where I&apos;ve worked.</h2>
-          </Reveal>
-        </div>
-
-        <div className="experience__list">
-          {experiences.map((exp, index) => (
-            <Reveal key={exp.id} delay={index * 80}>
-              <article className="experience__item">
-                <div>
-                  <h3 className="experience__company">{exp.company}</h3>
-                  <span className="experience__date">{exp.date}</span>
+        <p className="mono" style={{ color: 'var(--ink-soft)', marginBottom: 26 }}>
+          Where I&apos;ve worked
+        </p>
+        <Reveal>
+          <div className="exp__list">
+            {experiences.map(exp => (
+              <article key={exp.id} className="exp__row">
+                <h3 className="exp__company">{exp.company}</h3>
+                <div className="exp__meta">
+                  {exp.position}
+                  <br />
+                  {exp.date}
                 </div>
-                <div>
-                  <p className="experience__role">{exp.position}</p>
-                  <p className="experience__description">{exp.description}</p>
-                </div>
+                <p className="exp__description">{exp.description}</p>
               </article>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   )
