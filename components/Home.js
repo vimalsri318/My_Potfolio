@@ -1,86 +1,68 @@
-export default function Home() {
-  return (
-    <section className="home section" id="home">
-      <div className="home__container container grid">
-        {/* Profile */}
-        <div className="perfil">
-          <img src="/assets/img/home-perfil.png" alt="Vimal Srinivasan Profile" className="perfil__img" />
-          <div className="perfil__data">
-            <h1 className="perfil__name" style={{color: 'linear-gradient(to right, #0090f7, #ba62fc, #f2416b)'}}>
-              Vimal Srinivasan
-            </h1>
-            <div className="perfil__button">
-              <a href="#projects" className="button">Projects</a>
-              <a href="#services" className="button button__black">Services</a>
-            </div>
-          </div>
-        </div>
+import { useEffect, useRef } from 'react'
 
-        {/* Info */}
-        <div className="info">
-          <div className="info__data">
-            <div className="info__circle"></div>
-            <h1 className="info__name">VimalSrinivasan</h1>
-          </div>
-          <div className="info__image">
-            <img src="/assets/img/1000071216-02 (1).jpeg" alt="Vimal Srinivasan" className="info__img" />
-          </div>
-          <p className="info__description">
-            Web & AR/VR Developer passionate about immersive, user-friendly digital solutions.
-          </p>
-          <a href="/assets/pdf/Vimalsrinivasan_Resume.pdf" download target="_blank" className="button button__black">
+// Hero — "AR horizon". Giant gradient name over a receding wireframe
+// floor, scroll-scrubbed: the content scales down and fades as you scroll,
+// like Apple's product intros.
+export default function Home() {
+  const contentRef = useRef(null)
+
+  useEffect(() => {
+    const el = contentRef.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        const progress = Math.min(window.scrollY / (window.innerHeight * 0.72), 1)
+        el.style.opacity = String(1 - progress)
+        el.style.transform = `scale(${1 - progress * 0.12}) translateY(${progress * -46}px)`
+        ticking = false
+      })
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <section className="hero" id="home">
+      <div className="hero__glow hero__glow--violet" aria-hidden="true"></div>
+      <div className="hero__glow hero__glow--blue" aria-hidden="true"></div>
+      <div className="hero__floor" aria-hidden="true"></div>
+
+      <div className="hero__content" ref={contentRef}>
+        <p className="hero__eyebrow">Web &amp; AR/VR Developer</p>
+        <h1 className="display hero__name">
+          Vimal
+          <br />
+          Srinivasan
+        </h1>
+        <p className="hero__tagline">
+          Passionate about immersive, user-friendly digital solutions.
+        </p>
+        <div className="hero__actions">
+          <a href="#projects" className="btn btn--primary">
+            See my work
+          </a>
+          <a
+            href="/assets/pdf/Vimalsrinivasan_Resume.pdf"
+            download
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn--glass"
+          >
             Download CV
           </a>
         </div>
-
-        {/* About */}
-        <div className="about">
-          <h3 className="about__name">
-            VimalSrinivasan - <b>Web & AR/VR Developer</b>
-          </h3>
-          <p className="about__description">
-            Based in Coimbatore, I bring years of experience in web development and design across industries.
-          </p>
-          <div className="about__social">
-            <a href="https://www.linkedin.com/in/vimalsrinivasan-r/" target="_blank" className="about__link">
-              <i className="ri-linkedin-box-line"></i>
-            </a>
-            <a href="https://github.com/vimalsri318" target="_blank" className="about__link">
-              <i className="ri-github-line"></i>
-            </a>
-            <a href="https://www.behance.net/vimalsrinivasan" target="_blank" className="about__link">
-              <i className="ri-behance-line"></i>
-            </a>
-          </div>
-          <div className="about__image">
-            <img src="/assets/img/about-perfil.png" alt="About Vimal Srinivasan" className="about__img" />
-          </div>
-          <p className="about__note">
-            I Love crafting engaging websites and advancing AR/VR experiences.
-          </p>
-          <a href="#contact" className="button">Contact Me</a>
-        </div>
-
-        {/* Skills */}
-        <div className="skills">
-          <h2 className="skills__title">Skills</h2>
-          <div className="skills__items">
-            <img src="/assets/img/skills-html.svg" alt="HTML" className="skills__item" />
-            <img src="/assets/img/skills-css.svg" alt="CSS" className="skills__item" />
-            <img src="/assets/img/skills-javascript.svg" alt="JavaScript" className="skills__item" />
-            <img src="/assets/img/skills-react.svg" alt="React" className="skills__item" />
-            <img src="/assets/img/skills-git.svg" alt="Git" className="skills__item" />
-            <img src="/assets/img/skills-github.svg" alt="GitHub" className="skills__item" />
-            <img src="/assets/img/skills-sass.svg" alt="Sass" className="skills__item" />
-            <img src="/assets/img/skills-tailwind-css.svg" alt="Tailwind CSS" className="skills__item" />
-            <img src="/assets/img/skills-figma.svg" alt="Figma" className="skills__item" />
-            <img src="/assets/img/skills-photoshop.svg" alt="Photoshop" className="skills__item" />
-          </div>
-          <p className="skills_discription" style={{color: '#555555'}}>
-            Skilled in web tech and design tools for responsive, scalable apps.
-          </p>
-        </div>
       </div>
+
+      <a href="#about" className="hero__scroll" aria-label="Scroll down">
+        <i className="ri-arrow-down-line"></i>
+      </a>
     </section>
   )
 }
