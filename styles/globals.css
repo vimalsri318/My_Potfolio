@@ -12,7 +12,7 @@
   --white: #ffffff;
 
   /* Type */
-  --font-display: var(--font-gloock), "Times New Roman", serif;
+  --font-display: var(--font-chonburi), "Times New Roman", serif;
   --font-mono: var(--font-space-mono), "SF Mono", Menlo, monospace;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
@@ -181,6 +181,53 @@ textarea {
   color: var(--accent);
 }
 
+/* expanding LINK TREE tray */
+.linktray {
+  position: fixed;
+  top: 84px;
+  right: 16px;
+  z-index: 99;
+  min-width: 240px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+  box-shadow: 0 14px 44px rgba(12, 12, 12, 0.14);
+  transform-origin: top right;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-snap), transform 0.35s var(--ease-snap);
+}
+
+.linktray.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.linktray__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.linktray__item:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
 .badge-copy {
   position: fixed;
   right: 16px;
@@ -194,14 +241,29 @@ textarea {
   font-size: 0.72rem;
 }
 
-/*=============== HERO ===============*/
+/*=============== HERO (pinned — content scrolls over it) ===============*/
 .hero {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 0;
   min-height: 100svh;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+
+/* everything after the hero rides on top of it */
+.page-body {
+  position: relative;
+  z-index: 1;
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -18px 50px rgba(12, 12, 12, 0.28);
+  overflow: clip; /* rounds corners without breaking position: sticky inside */
 }
 
 /* giant name marquee behind the portrait */
@@ -284,8 +346,7 @@ textarea {
 
 .ticker__track {
   display: inline-flex;
-  animation: marquee 18s linear infinite;
-  will-change: transform;
+  will-change: transform; /* translated by scroll position, not by time */
 }
 
 .ticker__track span {
@@ -357,12 +418,32 @@ textarea {
 }
 
 /*=============== PROJECTS (hover-reveal rows) ===============*/
-.projects__header {
+.projects__layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(28px, 6vw, 90px);
+  align-items: start;
+}
+
+/* the label column pins while the rows scroll past it */
+.projects__aside {
+  position: sticky;
+  top: 110px;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: clamp(30px, 5vw, 54px);
+  flex-direction: column;
+  gap: 22px;
+}
+
+@media (max-width: 720px) {
+  .projects__layout {
+    grid-template-columns: 1fr;
+  }
+  .projects__aside {
+    position: static;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
 }
 
 .projects__list {

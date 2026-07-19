@@ -1,7 +1,8 @@
-import { Gloock, Space_Mono } from 'next/font/google'
+import { Chonburi, Space_Mono } from 'next/font/google'
 import '../styles/globals.css'
 
-const gloock = Gloock({
+// Chonburi — free stand-in for Altissima's psychedelic reverse-contrast look
+const chonburi = Chonburi({
   subsets: ['latin'],
   weight: '400',
   display: 'swap',
@@ -18,7 +19,7 @@ export default function App({ Component, pageProps }) {
     <>
       <style jsx global>{`
         html {
-          --font-gloock: ${gloock.style.fontFamily};
+          --font-chonburi: ${chonburi.style.fontFamily};
           --font-space-mono: ${spaceMono.style.fontFamily};
         }
       `}</style>

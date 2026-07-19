@@ -25,26 +25,31 @@ export default function Portfolio() {
       <Navigation />
       <main className="main">
         <Home />
-        <Ticker
-          items={[
-            'SUPER CREATIVE 🔥',
-            'WEB ⎯ AR/VR ⎯ DESIGN',
-            'SUPER CREATIVE 🔥',
-            'WEB ⎯ AR/VR ⎯ DESIGN',
-          ]}
-        />
-        <About />
-        <Projects />
-        <Ticker
-          items={[
-            'HTML ⎯ CSS ⎯ JAVASCRIPT ⎯ REACT ⎯ TAILWIND ⎯ SASS ⎯ FIGMA ⎯ UNITY ⎯ GIT ⎯ PYTHON ⎯ MONGODB ⎯ FIREBASE ⎯',
-          ]}
-        />
-        <Services />
-        <Experience />
-        <Contact />
+        {/* rides over the pinned hero */}
+        <div className="page-body">
+          <Ticker
+            speed={0.6}
+            items={[
+              'SUPER CREATIVE 🔥',
+              'WEB ⎯ AR/VR ⎯ DESIGN',
+              'SUPER CREATIVE 🔥',
+              'WEB ⎯ AR/VR ⎯ DESIGN',
+            ]}
+          />
+          <About />
+          <Projects />
+          <Ticker
+            speed={0.4}
+            items={[
+              'HTML ⎯ CSS ⎯ JAVASCRIPT ⎯ REACT ⎯ TAILWIND ⎯ SASS ⎯ FIGMA ⎯ UNITY ⎯ GIT ⎯ PYTHON ⎯ MONGODB ⎯ FIREBASE ⎯',
+            ]}
+          />
+          <Services />
+          <Experience />
+          <Contact />
+          <Footer />
+        </div>
       </main>
-      <Footer />
     </>
   )
 }

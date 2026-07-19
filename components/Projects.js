@@ -61,36 +61,39 @@ export default function Projects() {
   return (
     <section className="section" id="projects">
       <div className="container">
-        <div className="projects__header">
-          <div className="side-label" aria-hidden="true">
-            <span className="side-label__arrow">⤵</span>
-            {'Projects'.split('').map((ch, i) => (
-              <span key={i}>{ch}</span>
-            ))}
+        <div className="projects__layout">
+          {/* pinned label — the rows scroll past it */}
+          <div className="projects__aside">
+            <div className="side-label" aria-hidden="true">
+              <span className="side-label__arrow">⤵</span>
+              {'Projects'.split('').map((ch, i) => (
+                <span key={i}>{ch}</span>
+              ))}
+            </div>
+            <p className="mono" style={{ color: 'var(--ink-soft)' }}>
+              Hover to peek
+            </p>
           </div>
-          <p className="mono" style={{ color: 'var(--ink-soft)' }}>
-            Recent work ⎯ hover to peek
-          </p>
-        </div>
 
-        <Reveal>
-          <div className="projects__list" onMouseMove={onMove}>
-            {projects.map(project => (
-              <a
-                key={project.id}
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className="project-row"
-                onMouseEnter={() => setActive(project)}
-                onMouseLeave={() => setActive(null)}
-              >
-                <h3 className="project-row__name">{project.title}</h3>
-                <span className="project-row__cta">Visit project ↗</span>
-              </a>
-            ))}
-          </div>
-        </Reveal>
+          <Reveal>
+            <div className="projects__list" onMouseMove={onMove}>
+              {projects.map(project => (
+                <a
+                  key={project.id}
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-row"
+                  onMouseEnter={() => setActive(project)}
+                  onMouseLeave={() => setActive(null)}
+                >
+                  <h3 className="project-row__name">{project.title}</h3>
+                  <span className="project-row__cta">Visit project ↗</span>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </div>
 
       {/* cursor-following preview */}
