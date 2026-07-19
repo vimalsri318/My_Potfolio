@@ -1,8 +1,7 @@
-import { Chonburi, Space_Mono } from 'next/font/google'
+import { Shrikhand, Space_Mono, Inter } from 'next/font/google'
 import '../styles/globals.css'
 
-// Chonburi — free stand-in for Altissima's psychedelic reverse-contrast look
-const chonburi = Chonburi({
+const shrikhand = Shrikhand({
   subsets: ['latin'],
   weight: '400',
   display: 'swap',
@@ -14,13 +13,32 @@ const spaceMono = Space_Mono({
   display: 'swap',
 })
 
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
+})
+
 export default function App({ Component, pageProps }) {
   return (
     <>
       <style jsx global>{`
         html {
-          --font-chonburi: ${chonburi.style.fontFamily};
+          --font-shrikhand: ${shrikhand.style.fontFamily};
           --font-space-mono: ${spaceMono.style.fontFamily};
+          --font-inter: ${inter.style.fontFamily};
+          --font-batangas: 'Batangas', sans-serif;
+        }
+        @font-face {
+          font-family: 'Batangas';
+          src: url('/assets/fonts/Batangas.otf') format('opentype');
+          font-weight: 700;
+          font-style: normal;
+          font-display: block;
+        }
+        .display {
+          font-family: 'Batangas', sans-serif !important;
+          font-weight: 700;
         }
       `}</style>
       <Component {...pageProps} />
