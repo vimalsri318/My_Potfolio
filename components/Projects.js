@@ -1,57 +1,6 @@
 import { useState, useEffect } from 'react'
 import Reveal from './Reveal'
-
-const projects = [
-  {
-    id: 1,
-    title: 'D-MART Analysis',
-    category: 'Data analysis & Web app',
-    image: '/assets/img/ANALYSIS.png',
-    link: 'https://ltqapcfmatgt2.mocha.app/',
-  },
-  {
-    id: 2,
-    title: 'Carspace',
-    category: 'E-commerce & Hybrid Web app',
-    image: '/assets/img/Carspace.png',
-    link: 'https://secondhandcarapp.web.app/',
-  },
-  {
-    id: 3,
-    title: 'D7 Sports',
-    category: 'VR & Motion Graphics',
-    image: '/assets/img/D7.png',
-    link: 'https://drive.google.com/file/d/18_hxmycJTo6qIy9MebsEbzJyGbl6s_Tz/view?usp=sharing',
-  },
-  {
-    id: 4,
-    title: 'Interior Design Prototype',
-    category: '3D Web & Interactive prototype',
-    image: '/assets/img/White and Brown Minimalist Interior Desktop Prototype.gif',
-    link: '#',
-  },
-  {
-    id: 5,
-    title: 'AR Mart',
-    category: 'Immersive Web & AR mockups',
-    image: '/assets/img/AR_Mart.png',
-    link: '#',
-  },
-  {
-    id: 6,
-    title: 'PricePulse',
-    category: 'Web application & design',
-    image: '/assets/img/Comapre_website.png',
-    link: '#',
-  },
-  {
-    id: 7,
-    title: 'Namwear T-shirt Design',
-    category: 'Merchandising & Branding',
-    image: '/assets/img/namwear-design.png',
-    link: 'https://www.figma.com/proto/TX6zJj6Lz5934ZjVsanK5M/vs?page-id=0%3A1&node-id=984-372&viewport=-20038%2C-5262%2C0.31&t=zYGrmhAeN2Xhj9fw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1004%3A291&show-proto-sidebar=1',
-  },
-]
+import projects from '../data/projects'
 
 export default function Projects() {
   const [active, setActive] = useState(null)
@@ -133,13 +82,13 @@ export default function Projects() {
 
                 {/* Right: CTA */}
                 <a
-                  href={project.link}
+                  href={project.link || '#'}
                   target="_blank"
                   rel="noreferrer"
                   className="project-row__cta"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  {project.link === '#' ? 'Contact for details' : 'Visit project ↗'}
+                  {project.link ? 'Visit project ↗' : 'Contact for details'}
                 </a>
               </div>
             ))}
