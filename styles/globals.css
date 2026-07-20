@@ -1241,3 +1241,14 @@ textarea {
     gap: 12px;
   }
 }
+
+/*=============== COURSES PAGE ===============*/
+.course-card__soon {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+}

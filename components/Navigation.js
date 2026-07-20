@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const LINKS = [
+  { label: 'Courses', href: '/courses', internal: true },
   { label: 'GitHub', href: 'https://github.com/vimalsri318' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vimalsrinivasan-r/' },
   { label: 'Instagram', href: 'https://www.instagram.com/vimal_sri_718/' },
@@ -61,8 +62,8 @@ export default function Navigation() {
           <a
             key={link.label}
             href={link.href}
-            target="_blank"
-            rel="noreferrer"
+            target={link.internal ? undefined : '_blank'}
+            rel={link.internal ? undefined : 'noreferrer'}
             className="linktray__item"
             onClick={() => setOpen(false)}
           >
