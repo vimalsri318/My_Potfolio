@@ -4,27 +4,27 @@
 const services = [
   {
     id: 1,
-    kicker: 'Build fast, ship faster',
-    title: 'Web Development.',
+    kicker: 'Intelligence, shipped',
+    title: 'AI & ML Development.',
     description:
-      'Responsive, high-performance websites tailored to client needs using modern frameworks.',
-    tags: ['#REACT', '#NEXTJS', '#TAILWIND'],
+      'Machine-learning models, data pipelines and AI products — designed, trained and shipped to production.',
+    tags: ['#PYTHON', '#ML', '#LLMS'],
   },
   {
     id: 2,
-    kicker: 'Step inside the screen',
-    title: 'AR/VR Development.',
+    kicker: 'Chatbots that know your business',
+    title: 'RAG Chatbots.',
     description:
-      'Immersive augmented and virtual reality experiences for e-commerce, gaming, and education.',
-    tags: ['#ARJS', '#UNITY', '#3D'],
+      'Retrieval-augmented chatbots grounded in your own data — built for clients and running in production.',
+    tags: ['#RAG', '#LANGCHAIN', '#VECTORDB'],
   },
   {
     id: 3,
-    kicker: 'Pixels with purpose',
-    title: 'UI/UX Design.',
+    kicker: 'Idea to deploy, end to end',
+    title: 'Full-Stack Engineering.',
     description:
-      'Intuitive, visually appealing interfaces ensuring seamless user experiences across devices.',
-    tags: ['#FIGMA', '#PHOTOSHOP'],
+      'Complete web applications — frontend, backend, data and deployment — built as one coherent product.',
+    tags: ['#REACT', '#NEXTJS', '#FASTAPI'],
   },
 ]
 

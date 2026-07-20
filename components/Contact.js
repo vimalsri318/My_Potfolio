@@ -38,7 +38,7 @@ export default function Contact() {
         <Reveal>
           <div className="cta" style={{ marginBottom: 'clamp(48px, 8vw, 90px)' }}>
             <a href="#contact-form" className="cta__button">
-              <span>I want a website</span>
+              <span>I want an AI solution</span>
               <span className="arrow">↗</span>
             </a>
             <a
@@ -58,7 +58,7 @@ export default function Contact() {
           <div className="contact-card">
             <h2 className="contact-card__title">Let&apos;s talk.</h2>
             <p className="contact-card__sub">
-              Have a project in mind? Send a message ⎯ I&apos;ll get back to you.
+              Have an AI product, chatbot or website in mind? Send a message ⎯ I&apos;ll get back to you.
             </p>
             <form className="contact__form" id="contact-form" onSubmit={sendEmail}>
               <div className="contact__group">

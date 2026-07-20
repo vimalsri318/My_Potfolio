@@ -5,23 +5,23 @@
 const courses = [
   {
     id: 1,
-    slug: 'web-development-fundamentals',
-    title: 'Web Development Fundamentals',
-    kicker: 'From zero to your first site',
+    slug: 'ai-development-fundamentals',
+    title: 'AI Development Fundamentals',
+    kicker: 'From zero to your first model',
     description:
-      'HTML, CSS, JavaScript and modern tooling — everything needed to build and ship a real website.',
-    tags: ['#HTML', '#CSS', '#JAVASCRIPT'],
+      'Python, machine-learning basics and LLM APIs — everything needed to start building real AI products.',
+    tags: ['#PYTHON', '#ML', '#LLMS'],
     available: false,
     link: '',
   },
   {
     id: 2,
-    slug: 'ar-vr-for-the-web',
-    title: 'AR/VR for the Web',
-    kicker: 'Step inside the screen',
+    slug: 'production-rag-chatbots',
+    title: 'Production RAG Chatbots',
+    kicker: 'Chatbots that know your data',
     description:
-      'Build immersive AR and VR experiences that run in the browser — no app store required.',
-    tags: ['#WEBAR', '#UNITY', '#3D'],
+      'Design, build and deploy retrieval-augmented chatbots — from vector search to a client-ready production system.',
+    tags: ['#RAG', '#LANGCHAIN', '#VECTORDB'],
     available: false,
     link: '',
   },

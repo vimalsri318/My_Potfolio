@@ -38,9 +38,9 @@ export default function Home() {
       </div>
 
       <p className="hero__caption">
-        Web &amp; AR/VR developer based in Coimbatore, India.
+        AI developer &amp; architect based in Coimbatore, India.
       </p>
-      <span className="hero__badge">AR / VR</span>
+      <span className="hero__badge">AI / ML</span>
     </section>
   )
 }

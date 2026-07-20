@@ -13,11 +13,11 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>Vimal Srinivasan — Web & AR/VR Developer</title>
+        <title>Vimal Srinivasan — AI Developer & Architect</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
-          content="Vimal Srinivasan — Web & AR/VR developer based in Coimbatore. Immersive, user-friendly digital experiences."
+          content="Vimal Srinivasan — AI developer & architect based in Coimbatore. AI/ML products, production RAG chatbots and end-to-end full-stack systems."
         />
         <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>
@@ -30,10 +30,10 @@ export default function Portfolio() {
           <Ticker
             speed={0.6}
             items={[
-              'SUPER CREATIVE 🔥',
-              'WEB ⎯ AR/VR ⎯ DESIGN',
-              'SUPER CREATIVE 🔥',
-              'WEB ⎯ AR/VR ⎯ DESIGN',
+              'PRODUCTION READY 🔥',
+              'AI ⎯ ML ⎯ FULL-STACK',
+              'PRODUCTION READY 🔥',
+              'AI ⎯ ML ⎯ FULL-STACK',
             ]}
           />
           <About />
@@ -41,7 +41,7 @@ export default function Portfolio() {
           <Ticker
             speed={0.4}
             items={[
-              'HTML ⎯ CSS ⎯ JAVASCRIPT ⎯ REACT ⎯ TAILWIND ⎯ SASS ⎯ FIGMA ⎯ UNITY ⎯ GIT ⎯ PYTHON ⎯ MONGODB ⎯ FIREBASE ⎯',
+              'PYTHON ⎯ LLMS ⎯ RAG ⎯ LANGCHAIN ⎯ MACHINE LEARNING ⎯ REACT ⎯ NEXTJS ⎯ NODE ⎯ FASTAPI ⎯ MONGODB ⎯ FIREBASE ⎯ GIT ⎯',
             ]}
           />
           <Services />

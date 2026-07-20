@@ -33,7 +33,7 @@ export default function Navigation() {
     <>
       <header className="topbar">
         <p className="topbar__tagline">
-          Web &amp; AR/VR developer, building immersive digital experiences.
+          AI developer &amp; architect, building production-ready intelligent systems.
         </p>
         <nav className="topbar__links">
           <a href="/#projects" className="topbar__link">

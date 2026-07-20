@@ -14,7 +14,7 @@ export default function CoursesPage() {
         <title>Courses — Vimal Srinivasan</title>
         <meta
           name="description"
-          content="Courses and digital products by Vimal Srinivasan — learn web, AR/VR and design."
+          content="Courses and digital products by Vimal Srinivasan — learn AI development, RAG chatbots and full-stack engineering."
         />
         <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>

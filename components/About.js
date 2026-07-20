@@ -13,11 +13,11 @@ export default function About() {
         <Reveal>
           <TextGenerateEffect
             className="about__statement"
-            words="Vimal (he/him) is a **web & AR/VR developer** with a passion for immersive, user-friendly digital solutions. Based in **Coimbatore, India**, he brings years of experience in web development and design across industries — crafting engaging websites and advancing AR/VR experiences."
+            words="Vimal (he/him) is an **AI developer & architect** building intelligent, production-ready systems. Based in **Coimbatore, India**, he has worked across **AI & ML products** — from data-driven platforms to **RAG chatbots** running in production for clients — alongside end-to-end full-stack engineering. Web & AR/VR began as a hobby, and it still shapes how his products look and feel."
           />
 
           <p className="about__crosspath">
-            Building at the crosspaths of web ⎯ AR/VR ⎯ design.
+            Building at the crosspaths of AI ⎯ full-stack ⎯ product.
           </p>
 
           <div className="about__role">
