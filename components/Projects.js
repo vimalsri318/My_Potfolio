@@ -5,28 +5,75 @@ import projects from '../data/projects'
 
 export default function Projects() {
   const [active, setActive] = useState(null)
+  const [ratios, setRatios] = useState({})
   const router = useRouter()
 
+  // Deterministic scroll trigger: the row whose centre is closest to the
+  // viewport centre is the active one — projects can never be skipped,
+  // no matter how fast the user scrolls. Driven by scroll events, with an
+  // IntersectionObserver as a fallback for environments that throttle them.
   useEffect(() => {
-    const rows = document.querySelectorAll('.project-row')
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = Number(entry.target.getAttribute('data-id'))
-            const project = projects.find((p) => p.id === id)
-            if (project) setActive(project)
-          }
-        })
-      },
-      {
-        rootMargin: '-40% 0px -40% 0px',
-        threshold: 0,
-      }
-    )
+    const rows = Array.from(document.querySelectorAll('.project-row'))
+    if (rows.length === 0) return
+    let ticking = false
 
+    const update = () => {
+      ticking = false
+      const viewportCenter = window.innerHeight / 2
+      let bestId = null
+      let bestDist = Infinity
+      rows.forEach((row) => {
+        const rect = row.getBoundingClientRect()
+        const dist = Math.abs(rect.top + rect.height / 2 - viewportCenter)
+        if (dist < bestDist) {
+          bestDist = dist
+          bestId = Number(row.getAttribute('data-id'))
+        }
+      })
+      if (bestId !== null) {
+        setActive((prev) =>
+          prev?.id === bestId ? prev : projects.find((p) => p.id === bestId)
+        )
+      }
+    }
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(update)
+      }
+    }
+
+    const observer = new IntersectionObserver(update, {
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+    })
     rows.forEach((row) => observer.observe(row))
-    return () => observer.disconnect()
+
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll, { passive: true })
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
+  // Remember each image's natural ratio so the frame can match it
+  const recordRatio = (id, img) => {
+    const { naturalWidth, naturalHeight } = img
+    if (!naturalWidth || !naturalHeight) return
+    setRatios((r) => (r[id] ? r : { ...r, [id]: naturalWidth / naturalHeight }))
+  }
+
+  const handleImageLoad = (id) => (e) => recordRatio(id, e.target)
+
+  // Cached images can finish loading before hydration, so onLoad never
+  // fires for them — pick their ratios up here instead.
+  useEffect(() => {
+    document.querySelectorAll('.projects-image-frame__img').forEach((img) => {
+      if (img.complete) recordRatio(Number(img.dataset.id), img)
+    })
   }, [])
 
   return (
@@ -42,17 +89,26 @@ export default function Projects() {
 
       {/* Content area */}
       <div className="projects-body">
-        {/* Sticky centre image column */}
+        {/* Sticky image column — aligned to the rows' image slot */}
         <div className="projects-image-col" aria-hidden="true">
-          <div className="projects-image-frame">
-            {projects.map((project) => (
-              <img
-                key={project.id}
-                src={project.image}
-                alt={project.title}
-                className={`projects-image-frame__img ${active?.id === project.id ? 'is-visible' : ''}`}
-              />
-            ))}
+          <div className="projects-image-slot">
+            <div
+              className="projects-image-frame"
+              style={{
+                aspectRatio: (active && ratios[active.id]) || 16 / 10,
+              }}
+            >
+              {projects.map((project) => (
+                <img
+                  key={project.id}
+                  data-id={project.id}
+                  src={project.image}
+                  alt={project.title}
+                  onLoad={handleImageLoad(project.id)}
+                  className={`projects-image-frame__img ${active?.id === project.id ? 'is-visible' : ''}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 

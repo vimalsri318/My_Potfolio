@@ -30,6 +30,13 @@
 
   /* Motion */
   --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Projects section — shared by the rows grid and the floating image,
+     so the image always sits exactly in the rows' centre slot.
+     Left column gets more fr than the right → image sits right of centre. */
+  --proj-img-w: clamp(280px, 36vw, 520px);
+  --proj-cols: 1.35fr var(--proj-img-w) 0.65fr;
+  --proj-col-gap: clamp(20px, 3vw, 48px);
 }
 
 /*=============== BASE ===============*/
@@ -523,28 +530,35 @@ textarea {
   padding: 0 clamp(20px, 4vw, 56px);
 }
 
-/* ── Centre sticky image column ── */
+/* ── Floating sticky image, aligned to the rows' centre slot ── */
 .projects-image-col {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(240px, 28vw, 360px);
+  left: clamp(20px, 4vw, 56px);
+  right: clamp(20px, 4vw, 56px);
+  display: grid;
+  grid-template-columns: var(--proj-cols);
+  column-gap: var(--proj-col-gap);
   pointer-events: none;
   z-index: 5;
 }
 
+.projects-image-slot {
+  grid-column: 2;
+}
+
 .projects-image-frame {
   position: sticky;
-  /* 50vh centres in viewport; subtract half the title bar (~80px) */
-  top: calc(50vh - 220px);
+  /* 50vh centres in viewport; subtract roughly half the frame height */
+  top: calc(50vh - 200px);
   width: 100%;
-  height: clamp(280px, 36vw, 440px);
+  /* height comes from the active image's own aspect-ratio (inline style) */
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 28px 70px rgba(12, 12, 12, 0.22);
   background: var(--ink);
+  transition: aspect-ratio 0.4s var(--ease-snap);
 }
 
 .projects-image-frame__img {
@@ -554,7 +568,7 @@ textarea {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   transform: scale(0.96);
 }
 
@@ -573,10 +587,10 @@ textarea {
 
 .project-row {
   display: grid;
-  /* left | centre gap (image) | right */
-  grid-template-columns: 1fr clamp(240px, 28vw, 360px) 1fr;
+  /* left | image slot | right — same template as .projects-image-col */
+  grid-template-columns: var(--proj-cols);
   align-items: center;
-  gap: 0 clamp(20px, 3vw, 48px);
+  gap: 0 var(--proj-col-gap);
   padding: clamp(28px, 4vw, 44px) 0;
   border-bottom: 1px solid var(--line);
   transition: background-color 0.3s ease;
