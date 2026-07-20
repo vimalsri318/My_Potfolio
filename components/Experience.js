@@ -7,7 +7,7 @@ const experiences = [
     position: 'Software Developer',
     date: 'March 2024 - Present',
     description:
-      'Developed a Mobile,Labtop and Tv friendly Ott software for Audio Syncronization, Using Web and App development',
+      'Developed a mobile-, laptop- and TV-friendly OTT platform for audio synchronization, using web and app development.',
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const experiences = [
     position: 'Frontend Developer',
     date: 'Feb 2024 to Present',
     description:
-      'Created Frontend design and functionalies for our collage website using React,Tailwind,MySql',
+      'Created the frontend design and functionality for our college website using React, Tailwind and MySQL.',
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const experiences = [
     position: 'Web Development',
     date: 'March 2024 - July 2024',
     description:
-      'Developed a Full website from scratch using HTML, CSS, JS for the couching comapy "RV Tech Learn" and hosted it i GoDaddy',
+      'Developed a full website from scratch using HTML, CSS and JS for the coaching company "RV Tech Learn" and hosted it on GoDaddy.',
   },
 ]
 
