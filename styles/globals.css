@@ -600,8 +600,38 @@ textarea {
   border-top: 1px solid var(--line);
 }
 
+/* Active row — inverts to black so it's obvious which project
+   the floating image belongs to */
 .project-row.is-active {
-  /* Removed gray background container per user request */
+  background: var(--ink);
+  /* bleed slightly past the text edges without shifting the layout */
+  padding-inline: clamp(16px, 2vw, 28px);
+  margin-inline: calc(-1 * clamp(16px, 2vw, 28px));
+  border-radius: 14px;
+  border-bottom-color: transparent;
+}
+
+.project-row.is-active .project-row__title {
+  color: var(--white);
+}
+
+.project-row.is-active .project-row__sep {
+  color: var(--white);
+}
+
+.project-row.is-active .project-row__category {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.project-row.is-active .project-row__cta {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.project-row.is-active .project-row__cta:hover {
+  background: var(--white);
+  color: var(--ink);
+  border-color: var(--white);
 }
 
 /* Left column — all inline on one line */
@@ -632,6 +662,7 @@ textarea {
   opacity: 0.35;
   color: var(--ink);
   flex-shrink: 0;
+  transition: color 0.3s ease;
 }
 
 .project-row__category {
@@ -644,6 +675,7 @@ textarea {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s ease;
 }
 
 /* Centre slot — intentionally empty, image floats here */
