@@ -35,10 +35,10 @@ export default function Navigation() {
           Web &amp; AR/VR developer, building immersive digital experiences.
         </p>
         <nav className="topbar__links">
-          <a href="#projects" className="topbar__link">
+          <a href="/#projects" className="topbar__link">
             Projects
           </a>
-          <a href="#contact" className="topbar__link">
+          <a href="/#contact" className="topbar__link">
             Contact
           </a>
           <button

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Reveal from './Reveal'
 import projects from '../data/projects'
 
 export default function Projects() {
   const [active, setActive] = useState(null)
+  const router = useRouter()
 
   useEffect(() => {
     const rows = document.querySelectorAll('.project-row')
@@ -62,6 +64,12 @@ export default function Projects() {
                 key={project.id}
                 data-id={project.id}
                 className={`project-row ${active?.id === project.id ? 'is-active' : ''}`}
+                role="link"
+                tabIndex={0}
+                onClick={() => router.push(`/projects/${project.slug}`)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') router.push(`/projects/${project.slug}`)
+                }}
               >
                 {/* Left: name + category */}
                 <div className="project-row__left">
@@ -81,15 +89,19 @@ export default function Projects() {
                 <div className="project-row__center" />
 
                 {/* Right: CTA */}
-                <a
-                  href={project.link || '#'}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-row__cta"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {project.link ? 'Visit project ↗' : 'Contact for details'}
-                </a>
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-row__cta"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Visit project ↗
+                  </a>
+                ) : (
+                  <span className="project-row__cta">View details →</span>
+                )}
               </div>
             ))}
           </div>

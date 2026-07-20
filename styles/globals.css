@@ -1036,3 +1036,208 @@ textarea {
     transform: none !important;
   }
 }
+
+/*=============== PROJECT DETAIL PAGE ===============*/
+.project-row {
+  cursor: pointer;
+}
+
+.project-detail {
+  padding-top: clamp(110px, 14vw, 160px);
+  padding-bottom: clamp(70px, 10vw, 120px);
+  background: var(--paper);
+  min-height: 100vh;
+}
+
+.project-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin-bottom: clamp(32px, 5vw, 56px);
+  transition: color 0.25s ease;
+}
+
+.project-detail__back:hover {
+  color: var(--ink);
+}
+
+.project-detail__header {
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.project-detail__meta-line {
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.project-detail__dot {
+  font-size: 0.5em;
+  vertical-align: middle;
+  margin-inline: 10px;
+}
+
+.project-detail__title {
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.project-detail__summary {
+  max-width: 640px;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.project-detail__hero {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: clamp(40px, 6vw, 70px);
+  background: var(--white);
+}
+
+.project-detail__hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(48px, 7vw, 90px);
+}
+
+.project-detail__cell {
+  padding: clamp(20px, 3vw, 32px) clamp(14px, 2vw, 24px);
+}
+
+.project-detail__cell + .project-detail__cell {
+  border-left: 1px solid var(--line);
+}
+
+.project-detail__cell p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.project-detail__label {
+  color: var(--ink-soft);
+}
+
+.project-detail__live {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.project-detail__section {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) 3fr;
+  gap: 24px;
+  padding-block: clamp(32px, 5vw, 56px);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-detail__text p {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 680px;
+}
+
+.project-detail__text p + p {
+  margin-top: 18px;
+}
+
+.project-detail__highlights {
+  list-style: none;
+}
+
+.project-detail__highlights li {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding-block: 14px;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: var(--ink);
+  border-bottom: 1px solid var(--grid-line);
+}
+
+.project-detail__highlights li:last-child {
+  border-bottom: none;
+}
+
+.project-detail__hl-index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.project-detail__gallery {
+  display: grid;
+  gap: 20px;
+}
+
+.project-detail__gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+.project-detail__next {
+  display: block;
+  padding-top: clamp(40px, 6vw, 70px);
+  text-decoration: none;
+}
+
+.project-detail__next .project-detail__label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.project-detail__next-title {
+  font-size: clamp(2rem, 6vw, 4.4rem);
+  color: var(--ink);
+  transition: opacity 0.25s ease;
+}
+
+.project-detail__next:hover .project-detail__next-title {
+  opacity: 0.55;
+}
+
+.project-detail__next-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-snap);
+}
+
+.project-detail__next:hover .project-detail__next-arrow {
+  transform: translateX(10px);
+}
+
+@media (max-width: 768px) {
+  .project-detail__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-detail__cell:nth-child(odd) {
+    border-left: none;
+  }
+
+  .project-detail__cell:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .project-detail__section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
