@@ -1,13 +1,5 @@
 import { useState, useEffect } from 'react'
 
-const LINKS = [
-  { id: 'home', label: 'Home', icon: 'ri-home-line' },
-  { id: 'projects', label: 'Projects', icon: 'ri-folder-line' },
-  { id: 'services', label: 'Services', icon: 'ri-file-edit-line' },
-  { id: 'experience', label: 'Experience', icon: 'ri-honour-line' },
-  { id: 'contact', label: 'Contact', icon: 'ri-send-plane-line' },
-]
-
 export default function Navigation() {
   const [activeLink, setActiveLink] = useState('home')
 
@@ -18,7 +10,7 @@ export default function Navigation() {
 
       sections.forEach(current => {
         const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 80
+        const sectionTop = current.offsetTop - 58
         const sectionId = current.getAttribute('id')
 
         if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
@@ -27,31 +19,39 @@ export default function Navigation() {
       })
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <nav className="nav">
-      <div className="nav__inner">
-        <a href="#home" className="nav__logo">
-          Vimal Srinivasan
-        </a>
-        <ul className="nav__list">
-          {LINKS.map(link => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                aria-label={link.label}
-                className={`nav__link ${activeLink === link.id ? 'active-link' : ''}`}
-              >
-                <span>{link.label}</span>
-                <i className={link.icon}></i>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="nav__list">
+        <li>
+          <a href="#home" className={`nav__link ${activeLink === 'home' ? 'active-link' : ''}`}>
+            <i className="ri-home-line"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#projects" className={`nav__link ${activeLink === 'projects' ? 'active-link' : ''}`}>
+            <i className="ri-folder-line"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#services" className={`nav__link ${activeLink === 'services' ? 'active-link' : ''}`}>
+            <i className="ri-file-edit-line"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#experience" className={`nav__link ${activeLink === 'experience' ? 'active-link' : ''}`}>
+            <i className="ri-honour-line"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" className={`nav__link ${activeLink === 'contact' ? 'active-link' : ''}`}>
+            <i className="ri-send-plane-line"></i>
+          </a>
+        </li>
+      </ul>
     </nav>
   )
 }
