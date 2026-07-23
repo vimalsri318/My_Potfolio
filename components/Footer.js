@@ -75,7 +75,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className="footer__copy">© 2025 Vimal Srinivasan. All rights reserved.</p>
+        <p className="footer__copy">© {new Date().getFullYear()} Vimal Srinivasan. All rights reserved.</p>
       </div>
     </footer>
   )

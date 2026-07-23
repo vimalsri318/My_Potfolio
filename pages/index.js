@@ -8,6 +8,8 @@ import Services from '../components/Services'
 import Experience from '../components/Experience'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import ComingSoon from '../components/ComingSoon'
+import { siteConfig } from '../data/site'
 
 export default function Portfolio() {
   return (
@@ -27,26 +29,34 @@ export default function Portfolio() {
         <Home />
         {/* rides over the pinned hero */}
         <div className="page-body">
-          <Ticker
-            speed={0.6}
-            items={[
-              'PRODUCTION READY 🔥',
-              'AI ⎯ ML ⎯ FULL-STACK',
-              'PRODUCTION READY 🔥',
-              'AI ⎯ ML ⎯ FULL-STACK',
-            ]}
-          />
-          <About />
-          <Projects />
-          <Ticker
-            speed={0.4}
-            items={[
-              'PYTHON ⎯ LLMS ⎯ RAG ⎯ LANGCHAIN ⎯ MACHINE LEARNING ⎯ REACT ⎯ NEXTJS ⎯ NODE ⎯ FASTAPI ⎯ MONGODB ⎯ FIREBASE ⎯ GIT ⎯',
-            ]}
-          />
-          <Services />
-          <Experience />
-          <Contact />
+          {siteConfig.comingSoon ? (
+            // Site is still being built — hero + "cooking" panel only.
+            // Research stays live and reachable from the panel's CTA.
+            <ComingSoon />
+          ) : (
+            <>
+              <Ticker
+                speed={0.6}
+                items={[
+                  'PRODUCTION READY 🔥',
+                  'AI ⎯ ML ⎯ FULL-STACK',
+                  'PRODUCTION READY 🔥',
+                  'AI ⎯ ML ⎯ FULL-STACK',
+                ]}
+              />
+              <About />
+              <Projects />
+              <Ticker
+                speed={0.4}
+                items={[
+                  'PYTHON ⎯ LLMS ⎯ RAG ⎯ LANGCHAIN ⎯ MACHINE LEARNING ⎯ REACT ⎯ NEXTJS ⎯ NODE ⎯ FASTAPI ⎯ MONGODB ⎯ FIREBASE ⎯ GIT ⎯',
+                ]}
+              />
+              <Services />
+              <Experience />
+              <Contact />
+            </>
+          )}
           <Footer />
         </div>
       </main>

@@ -8,6 +8,9 @@ out/
 # production
 build/
 
+# interactive apps: build artifacts (the published copy lives in public/)
+interactive/*/dist/
+
 # misc
 .DS_Store
 .claude/

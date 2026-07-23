@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { siteConfig } from '../data/site'
+
+const { comingSoon } = siteConfig
 
 const LINKS = [
+  { label: 'Research', href: '/research', internal: true },
   { label: 'Courses', href: '/courses', internal: true },
   { label: 'GitHub', href: 'https://github.com/vimalsri318' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vimalsrinivasan-r/' },
@@ -14,6 +18,7 @@ const LINKS = [
 export default function Navigation() {
   const [open, setOpen] = useState(false)
   const trayRef = useRef(null)
+  const year = new Date().getFullYear()
 
   useEffect(() => {
     if (!open) return
@@ -32,48 +37,64 @@ export default function Navigation() {
   return (
     <>
       <header className="topbar">
-        <p className="topbar__tagline">
-          AI developer &amp; architect, building production-ready intelligent systems.
-        </p>
+        <div className="topbar__brand">
+          <a href="/" className="topbar__logo" aria-label="Home — Vimal Srinivasan">
+            VS<span className="topbar__logo-dot">.</span>
+          </a>
+          <p className="topbar__tagline">
+            AI developer &amp; architect, building production-ready intelligent systems.
+          </p>
+        </div>
         <nav className="topbar__links">
-          <a href="/#projects" className="topbar__link">
-            Projects
+          {!comingSoon && (
+            <a href="/#projects" className="topbar__link">
+              Projects
+            </a>
+          )}
+          <a href="/research" className="topbar__link">
+            Research
           </a>
-          <a href="/#contact" className="topbar__link">
-            Contact
-          </a>
-          <button
-            type="button"
-            className="topbar__link"
-            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-            aria-expanded={open}
-            onClick={e => {
-              e.stopPropagation()
-              setOpen(v => !v)
-            }}
-          >
-            🔗 Link tree
-          </button>
+          {!comingSoon && (
+            <a href="/#contact" className="topbar__link">
+              Contact
+            </a>
+          )}
+          {!comingSoon && (
+            <button
+              type="button"
+              className="topbar__link"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              aria-expanded={open}
+              onClick={e => {
+                e.stopPropagation()
+                setOpen(v => !v)
+              }}
+            >
+              🔗 Link tree
+            </button>
+          )}
         </nav>
       </header>
 
-      <div ref={trayRef} className={`linktray ${open ? 'is-open' : ''}`}>
-        {LINKS.map(link => (
-          <a
-            key={link.label}
-            href={link.href}
-            target={link.internal ? undefined : '_blank'}
-            rel={link.internal ? undefined : 'noreferrer'}
-            className="linktray__item"
-            onClick={() => setOpen(false)}
-          >
-            <span>{link.label}</span>
-            <span>↗</span>
-          </a>
-        ))}
-      </div>
+      {!comingSoon && (
+        <div ref={trayRef} className={`linktray ${open ? 'is-open' : ''}`}>
+          {LINKS.map(link => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.internal ? undefined : '_blank'}
+              rel={link.internal ? undefined : 'noreferrer'}
+              className="linktray__item"
+              onClick={() => setOpen(false)}
+            >
+              <span>{link.label}</span>
+              <span>↗</span>
+            </a>
+          ))}
+        </div>
+      )}
 
-      <span className="badge-copy">©2025</span>
+      <span className="badge-copy">©{year}</span>
     </>
   )
 }
