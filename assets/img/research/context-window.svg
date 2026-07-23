@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1120"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- kicker -->
+  <text x="80" y="120" font-family="'Courier New', monospace" font-size="20" letter-spacing="4" fill="#8B5CF6">LLMS &#183; CONTEXT WINDOWS</text>
+
+  <!-- headline -->
+  <text x="80" y="205" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#F8FAFC">Lost in the</text>
+  <text x="80" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="url(#accent)">middle.</text>
+
+  <text x="80" y="360" font-family="Arial, sans-serif" font-size="26" fill="#94A3B8">Why AI repaints your image instead of editing it.</text>
+
+  <!-- transcript: first + last bright, middle faded -->
+  <g>
+    <!-- user 1 (bright) -->
+    <rect x="470" y="420" width="230" height="46" rx="14" fill="#8B5CF6"/>
+    <!-- ai 1 (bright) -->
+    <rect x="470" y="420" width="0" height="0"/>
+    <rect x="760" y="420" width="270" height="46" rx="14" fill="#1F2937" stroke="#334155"/>
+
+    <!-- middle turns (faded) -->
+    <rect x="470" y="486" width="200" height="40" rx="12" fill="#8B5CF6" opacity="0.28"/>
+    <rect x="790" y="486" width="240" height="40" rx="12" fill="#1F2937" opacity="0.4"/>
+    <rect x="470" y="540" width="180" height="40" rx="12" fill="#8B5CF6" opacity="0.16"/>
+    <rect x="810" y="540" width="220" height="40" rx="12" fill="#1F2937" opacity="0.28"/>
+  </g>
+
+  <!-- "most attention" markers -->
+  <circle cx="440" cy="443" r="6" fill="#8B5CF6"/>
+  <text x="1050" y="448" font-family="'Courier New', monospace" font-size="15" fill="#64748B">start &#8593;</text>
+
+  <!-- bottom label -->
+  <text x="80" y="560" font-family="'Courier New', monospace" font-size="17" letter-spacing="1" fill="#64748B">INTERACTIVE WALKTHROUGH</text>
+  <line x1="80" y1="575" x2="300" y2="575" stroke="#7C3AED" stroke-width="3"/>
+</svg>
