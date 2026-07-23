@@ -4,6 +4,9 @@ import Link from 'next/link'
 import Navigation from './Navigation'
 import Footer from './Footer'
 import Reveal from './Reveal'
+import FeedbackForm from './FeedbackForm'
+import LikeButton from './LikeButton'
+import { useTrackView } from '../hooks/useTrackView'
 
 // Renders one research/learning entry as a full, shareable article.
 // Pass an entry (and the next one) as props — the `body` blocks in
@@ -148,6 +151,8 @@ function Block({ block }) {
 }
 
 export default function ResearchDetail({ entry, nextEntry }) {
+  useTrackView(entry?.slug)
+
   if (!entry) return null
 
   const hasResources = entry.resources && entry.resources.length > 0
@@ -273,6 +278,15 @@ export default function ResearchDetail({ entry, nextEntry }) {
               </span>
             </Link>
           )}
+
+          {/* Feedback Form */}
+          <section className="project-detail__section" style={{ marginTop: '80px', borderTop: '1px solid var(--line)', paddingTop: '40px' }}>
+            <div className="research-detail__engagement">
+              <LikeButton path={`/research/${entry.slug}`} />
+            </div>
+            
+            <FeedbackForm path={`/research/${entry.slug}`} />
+          </section>
         </div>
       </main>
 

@@ -1,6 +1,11 @@
 [build]
-  command = "npm run build"
-  publish = ".next"
+  # Skip Next.js build entirely and just create an empty folder
+  command = "mkdir -p netlify_out"
+  publish = "netlify_out"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+[[redirects]]
+  # Redirect all traffic from this Netlify site to the new Vercel site
+  from = "/*"
+  to = "https://vimalsrinivasan.vercel.app/:splat"
+  status = 301
+  force = true

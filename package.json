@@ -10,14 +10,21 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@supabase/supabase-js": "^2.110.8",
+    "adm-zip": "^0.6.0",
+    "cloudinary": "^2.10.0",
+    "formidable": "^3.5.4",
     "motion": "^12.42.2",
+    "multer": "^2.2.0",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "scrollreveal": "^4.0.9"
   },
   "devDependencies": {
+    "dotenv": "^17.4.2",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5"
+    "eslint-config-next": "14.2.5",
+    "pg": "^8.22.0"
   }
 }

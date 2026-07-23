@@ -3,10 +3,15 @@ import Link from 'next/link'
 import Navigation from './Navigation'
 import Footer from './Footer'
 import Reveal from './Reveal'
+import FeedbackForm from './FeedbackForm'
+import LikeButton from './LikeButton'
+import { useTrackView } from '../hooks/useTrackView'
 
 // One page layout for every project — pass a project (and the next one)
 // as props and it renders the full case study.
 export default function ProjectDetail({ project, nextProject }) {
+  useTrackView(project?.slug)
+
   if (!project) return null
 
   return (
@@ -114,6 +119,15 @@ export default function ProjectDetail({ project, nextProject }) {
               </span>
             </Link>
           )}
+
+          {/* Feedback Form */}
+          <section className="project-detail__section" style={{ marginTop: '80px', borderTop: '1px solid var(--line)', paddingTop: '40px' }}>
+            <div className="project-detail__engagement">
+              <LikeButton path={`/projects/${project.slug}`} />
+            </div>
+            
+            <FeedbackForm path={`/projects/${project.slug}`} />
+          </section>
         </div>
       </main>
 

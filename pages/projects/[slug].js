@@ -1,5 +1,5 @@
 import ProjectDetail from '../../components/ProjectDetail'
-import projects, { getProjectBySlug, getNextProject } from '../../data/projects'
+import { getProjects, getProjectBySlug, getNextProject } from '../../lib/contentStore'
 
 export default function ProjectPage({ project, nextProject }) {
   return <ProjectDetail project={project} nextProject={nextProject} />
@@ -7,7 +7,7 @@ export default function ProjectPage({ project, nextProject }) {
 
 export function getStaticPaths() {
   return {
-    paths: projects.map((p) => ({ params: { slug: p.slug } })),
+    paths: getProjects().map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
   }
 }
@@ -15,7 +15,6 @@ export function getStaticPaths() {
 export function getStaticProps({ params }) {
   const project = getProjectBySlug(params.slug)
   if (!project) return { notFound: true }
-
   return {
     props: {
       project,
