@@ -22,6 +22,7 @@ export default function ResearchManager() {
     try {
       const res = await fetch('/api/admin/research')
       const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Failed to load research')
       setItems([...data].sort((a, b) => new Date(b.date) - new Date(a.date)))
     } catch (e) { setError(String(e)) }
     setLoading(false)

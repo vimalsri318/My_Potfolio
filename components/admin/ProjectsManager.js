@@ -20,7 +20,9 @@ export default function ProjectsManager() {
     setLoading(true)
     try {
       const res = await fetch('/api/admin/projects')
-      setItems(await res.json())
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Failed to load projects')
+      setItems(data)
     } catch (e) { setError(String(e)) }
     setLoading(false)
   }
