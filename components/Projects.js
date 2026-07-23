@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Reveal from './Reveal'
-import projects from '../data/projects'
 
-export default function Projects() {
+export default function Projects({ projects = [] }) {
   const [active, setActive] = useState(null)
   const [ratios, setRatios] = useState({})
   const router = useRouter()

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
 import Reveal from '../../components/Reveal'
-import { getAllResearch } from '../../data/research'
+import { getResearchSorted } from '../../lib/contentStore'
 
 function formatDate(iso) {
   if (!iso) return ''
@@ -16,7 +16,7 @@ function formatDate(iso) {
   })
 }
 
-// Research & learnings index. Everything comes from data/research.js —
+// Research & learnings index. Everything comes from Supabase —
 // add an entry there and it shows up here automatically, newest first.
 export default function ResearchPage({ entries }) {
   return (
@@ -105,7 +105,7 @@ export default function ResearchPage({ entries }) {
 export function getStaticProps() {
   return {
     props: {
-      entries: getAllResearch(),
+      entries: getResearchSorted(),
     },
   }
 }

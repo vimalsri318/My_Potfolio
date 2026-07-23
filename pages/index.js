@@ -10,8 +10,20 @@ import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import ComingSoon from '../components/ComingSoon'
 import { siteConfig } from '../data/site'
+import { useTrackView } from '../hooks/useTrackView'
+import { getProjects } from '../lib/contentStore'
 
-export default function Portfolio() {
+export function getStaticProps() {
+  return {
+    props: {
+      projects: getProjects(),
+    },
+  }
+}
+
+export default function Portfolio({ projects }) {
+  useTrackView('home')
+  
   return (
     <>
       <Head>
@@ -45,7 +57,7 @@ export default function Portfolio() {
                 ]}
               />
               <About />
-              <Projects />
+              <Projects projects={projects} />
               <Ticker
                 speed={0.4}
                 items={[
