@@ -73,6 +73,18 @@ function InteractiveStage({ src, title }) {
           allowFullScreen
         />
       </div>
+      <div className="research-stage__mobile-card">
+        <h3>Interactive Walkthrough</h3>
+        <p>This experience is best viewed on a larger screen. Tap below to open it in a new tab.</p>
+        <a
+          href={src}
+          target="_blank"
+          rel="noreferrer"
+          className="button button__black"
+        >
+          Open Walkthrough
+        </a>
+      </div>
       <p className="research-stage__hint mono">
         Scroll and click inside to move through the stages — or open full screen for the full experience.
       </p>

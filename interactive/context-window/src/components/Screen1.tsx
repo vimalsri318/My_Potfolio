@@ -30,7 +30,7 @@ export default function Screen1() {
         </p>
       </div>
 
-      <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl overflow-hidden flex flex-col h-[300px] sm:h-[400px]">
+      <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl overflow-hidden flex flex-col h-[400px] sm:h-[500px]">
         <div className="p-4 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 text-center text-sm font-medium text-slate-500 flex justify-between items-center">
           <span>Under the hood</span>
           <span className="text-xs bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded-md">{turns} turns</span>
