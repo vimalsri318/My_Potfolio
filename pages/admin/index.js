@@ -36,7 +36,7 @@ function groupBy(rows, keyFn, { limit = 8, labelFn } = {}) {
     if (!key) return
     if (!map.has(key)) map.set(key, { key, label: labelFn ? labelFn(r, key) : key, views: 0, visitors: new Set() })
     const b = map.get(key)
-    b.views += 1
+    b.views += 1 + (r.revisit_count || 0)
     if (r.visitor_id) b.visitors.add(r.visitor_id)
   })
   return [...map.values()]
@@ -130,7 +130,7 @@ export async function getServerSideProps() {
     rows.forEach((v) => {
       const path = v.path || `/${v.slug || 'unknown'}`
       const row = ensure(path, v.slug)
-      row.views += 1
+      row.views += 1 + (v.revisit_count || 0)
       if (v.visitor_id) row.visitors.add(v.visitor_id)
       if (v.duration_ms > 0) row.durations.push(v.duration_ms)
       if (typeof v.max_scroll === 'number') row.scrolls.push(v.max_scroll)
@@ -164,7 +164,7 @@ export async function getServerSideProps() {
       if (!v.created_at) return
       const i = idxByDate[new Date(v.created_at).toISOString().slice(0, 10)]
       if (i !== undefined) {
-        days[i].views += 1
+        days[i].views += 1 + (v.revisit_count || 0)
         if (v.visitor_id) days[i].visitors.add(v.visitor_id)
       }
     })
@@ -215,7 +215,7 @@ export async function getServerSideProps() {
 
     const totals = {
       uniqueVisitors,
-      views: rows.length,
+      views: rows.reduce((sum, r) => sum + 1 + (r.revisit_count || 0), 0),
       likes: (likes || []).length,
       sessions,
       pagesPerSession: sessions ? Math.round((sessionedViews.length / sessions) * 10) / 10 : 0,

@@ -101,7 +101,7 @@ export default async function handler(req, res) {
     if (body.visitorId) {
       const { data: existing } = await supabase
         .from('page_views')
-        .select('id')
+        .select('id, revisit_count')
         .eq('visitor_id', str(body.visitorId, 100))
         .eq('path', str(body.path, 300) || '/')
         .gte('created_at', new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString()) // last 24h
@@ -110,6 +110,11 @@ export default async function handler(req, res) {
         .maybeSingle()
 
       if (existing) {
+        await supabase
+          .from('page_views')
+          .update({ revisit_count: (existing.revisit_count || 0) + 1 })
+          .eq('id', existing.id)
+
         return send(res, 200, { id: existing.id })
       }
     }
