@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
+import { supabasePublic } from '../lib/supabasePublic'
 
 export default function Contact() {
   const [message, setMessage] = useState('')
@@ -8,26 +9,48 @@ export default function Contact() {
   const sendEmail = async e => {
     e.preventDefault()
 
+    // Grab the values before the form resets — used for the Supabase copy.
+    const form = e.target
+    const payload = {
+      name: form.user_name?.value?.trim() || null,
+      email: form.user_email?.value?.trim() || null,
+      message: form.user_message?.value?.trim() || '',
+      path: typeof window !== 'undefined' ? window.location.pathname : null,
+    }
+
+    // 1. Durable capture first: store in Supabase so the message reaches the
+    //    admin Messages tab even if email delivery fails. This is the source
+    //    of truth for whether the message "got through".
+    let stored = false
+    if (payload.message) {
+      try {
+        const { error } = await supabasePublic.from('contact_messages').insert(payload)
+        if (error) console.error('contact store error:', error.message)
+        else stored = true
+      } catch (err) {
+        console.error('contact store error:', err)
+      }
+    }
+
+    // 2. Best-effort email notification via EmailJS (runs before reset so the
+    //    form fields are still populated). A failure here is logged, not fatal.
+    let emailed = false
     try {
       const emailjs = (await import('@emailjs/browser')).default
-      await emailjs.sendForm(
-        'service_xrxe1zu',
-        'template_6fmag4b',
-        '#contact-form',
-        'pkXRGXYYMgUNYmOjk'
-      )
+      await emailjs.sendForm('service_xrxe1zu', 'template_6fmag4b', '#contact-form', 'pkXRGXYYMgUNYmOjk')
+      emailed = true
+    } catch (error) {
+      console.error('EmailJS error:', error)
+    }
 
+    if (stored || emailed) {
       setMessage('Message sent ✅')
       setMessageColor('#1a7f37')
-      e.target.reset()
-
-      setTimeout(() => {
-        setMessage('')
-      }, 5000)
-    } catch (error) {
+      form.reset()
+      setTimeout(() => setMessage(''), 5000)
+    } else {
       setMessage('Message failed to send. Please try again.')
       setMessageColor('#c1121f')
-      console.error('EmailJS error:', error)
     }
   }
 

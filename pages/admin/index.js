@@ -4,12 +4,14 @@ import Analytics from '../../components/admin/Analytics'
 import SectionsManager from '../../components/admin/SectionsManager'
 import ProjectsManager from '../../components/admin/ProjectsManager'
 import ResearchManager from '../../components/admin/ResearchManager'
+import MessagesManager from '../../components/admin/MessagesManager'
 
 const TABS = [
   { id: 'dashboard', label: 'Dashboard' },
   { id: 'sections', label: 'Sections' },
   { id: 'projects', label: 'Projects' },
   { id: 'research', label: 'Research' },
+  { id: 'messages', label: "Let's talk" },
 ]
 
 // The dashboard fetches raw-ish rows for this many days and aggregates them on
@@ -83,6 +85,7 @@ export default function AdminDashboard(analytics) {
       {tab === 'sections' && <SectionsManager />}
       {tab === 'projects' && <ProjectsManager />}
       {tab === 'research' && <ResearchManager />}
+      {tab === 'messages' && <MessagesManager />}
     </AdminShell>
   )
 }

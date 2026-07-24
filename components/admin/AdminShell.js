@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import PublishBar from './PublishBar'
+import NewSince from './NewSince'
 
 // The admin chrome + all admin styling. Matches the site's light
 // "paper & ink" editorial theme (see styles/globals.css). Local-only.
@@ -36,7 +37,10 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         </div>
       </header>
 
-      <main className="adm-main">{children}</main>
+      <main className="adm-main">
+        <NewSince onGo={onSelect} />
+        {children}
+      </main>
 
       <style jsx global>{`
         .adm {
@@ -354,6 +358,42 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         /* Item analytics section */
         .adm-item__eyebrow { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase;
           letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; }
+
+        /* "New since your last visit" banner */
+        .adm-new { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+          flex-wrap: wrap; background: var(--white); border: 1px solid var(--ink);
+          border-radius: 12px; padding: 12px 16px; margin-bottom: 28px;
+          box-shadow: 0 2px 0 rgba(12,12,12,.04); }
+        .adm-new__left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .adm-new__dot { width: 9px; height: 9px; border-radius: 50%; background: #d1900a; flex: none;
+          box-shadow: 0 0 0 3px rgba(209,144,10,.16); }
+        .adm-new__title { font-weight: 600; font-size: 14px; }
+        .adm-new__chips { display: flex; gap: 8px; flex-wrap: wrap; }
+        .adm-new__chip { font-family: var(--font-mono); font-size: 12px; color: var(--ink);
+          background: rgba(12,12,12,.05); border: 1px solid var(--line); border-radius: 999px;
+          padding: 4px 11px; cursor: default; }
+        .adm-new__chip b { font-family: var(--font-body); font-weight: 700; }
+        .adm-new__chip.is-link { cursor: pointer; transition: .15s; }
+        .adm-new__chip.is-link:hover { background: var(--ink); color: var(--on-accent); border-color: var(--ink); }
+        .adm-new__seen { background: transparent; border: none; cursor: pointer; white-space: nowrap;
+          font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em;
+          color: var(--muted); text-decoration: underline; padding: 6px 4px; }
+        .adm-new__seen:hover { color: var(--ink); }
+
+        /* Messages ("Let's talk") */
+        .adm-msgs { display: flex; flex-direction: column; gap: 12px; }
+        .adm-msg { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; }
+        .adm-msg.is-new { border-color: rgba(209,144,10,.5); box-shadow: 0 0 0 3px rgba(209,144,10,.08); }
+        .adm-msg__top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+          flex-wrap: wrap; margin-bottom: 8px; }
+        .adm-msg__who { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+        .adm-msg__name { font-weight: 600; font-size: 15px; }
+        .adm-msg__email { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-decoration: none; }
+        .adm-msg__email:hover { color: var(--ink); text-decoration: underline; }
+        .adm-msg__meta { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono);
+          font-size: 11.5px; color: var(--muted); }
+        .adm-msg__body { margin: 0 0 12px; white-space: pre-wrap; font-size: 14.5px; line-height: 1.5; }
+        .adm-msg__reply { padding: 7px 13px; }
 
         .adm-notice { background: rgba(12,12,12,.04); border: 1px solid var(--line);
           color: var(--ink); border-radius: 6px; padding: 12px 16px; font-size: 13.5px; margin-bottom: 24px; }
