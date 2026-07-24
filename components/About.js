@@ -18,7 +18,7 @@ export default function About() {
           <Reveal className="about__content">
             <TextGenerateEffect
               className="about__statement"
-              words="Vimal (he/him) is an **AI developer & architect** building intelligent, production-ready systems. Based in **Coimbatore, India**, he has worked across **AI & ML products** — from data-driven platforms to **RAG chatbots** running in production for clients — alongside end-to-end full-stack engineering. Web & AR/VR began as a hobby, and it still shapes how his products look and feel"
+              words="I ship **products, not prototypes**. Web apps, mobile apps, full-stack builds that go from idea to something **real people use**. Based in **Coimbatore**, I work end-to-end — front to back, web to mobile — and bring **AI** in where it actually earns its place: chatbots, fine-tuned models, systems that feel intelligent instead of bolted-on. Web and AR/VR started as side projects, and they're still why I care as much about **how something feels** to use as whether it works."
             />
 
             <p className="about__crosspath">
