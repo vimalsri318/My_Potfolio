@@ -95,6 +95,25 @@ export default async function handler(req, res) {
     }
 
     // Default: a page view.
+    // De-duplicate: if this visitor/session has already viewed this exact path
+    // recently, don't insert a new row. Return the existing row's ID so the
+    // client can still update its engagement (max scroll/duration).
+    if (body.visitorId) {
+      const { data: existing } = await supabase
+        .from('page_views')
+        .select('id')
+        .eq('visitor_id', str(body.visitorId, 100))
+        .eq('path', str(body.path, 300) || '/')
+        .gte('created_at', new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString()) // last 24h
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle()
+
+      if (existing) {
+        return send(res, 200, { id: existing.id })
+      }
+    }
+
     const { data, error } = await supabase
       .from('page_views')
       .insert({
