@@ -4,6 +4,8 @@ import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
 import Reveal from '../../components/Reveal'
 import { getResearchSorted } from '../../lib/contentStore'
+import { getVisibility } from '../../lib/visibility'
+import { useTrackView } from '../../hooks/useTrackView'
 
 function formatDate(iso) {
   if (!iso) return ''
@@ -19,6 +21,8 @@ function formatDate(iso) {
 // Research & learnings index. Everything comes from Supabase —
 // add an entry there and it shows up here automatically, newest first.
 export default function ResearchPage({ entries }) {
+  useTrackView('research')
+
   return (
     <>
       <Head>
@@ -102,10 +106,11 @@ export default function ResearchPage({ entries }) {
   )
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const { hiddenResearch } = await getVisibility()
+  const entries = getResearchSorted().filter((r) => !hiddenResearch.includes(r.slug))
   return {
-    props: {
-      entries: getResearchSorted(),
-    },
+    props: { entries },
+    revalidate: 15, // ISR: reflect admin publish/unpublish toggles quickly
   }
 }

@@ -13,6 +13,25 @@ export async function uploadFile(file, folder) {
   return (await res.json()).path
 }
 
+// ── Toggle switch ────────────────────────────────────────────────────
+export function Toggle({ checked, onChange, disabled, labels }) {
+  return (
+    <span className="adm-toggle-wrap">
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        disabled={disabled}
+        className={`adm-toggle ${checked ? 'is-on' : ''}`}
+        onClick={() => onChange(!checked)}
+      >
+        <span className="adm-toggle__knob" />
+      </button>
+      {labels && <span className={`adm-toggle__label ${checked ? 'is-on' : ''}`}>{checked ? labels[0] : labels[1]}</span>}
+    </span>
+  )
+}
+
 // ── Field wrapper ────────────────────────────────────────────────────
 export function Field({ label, hint, children, wide }) {
   return (

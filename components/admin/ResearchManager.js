@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Field, TextInput, TextArea, StringList, PairList, ImageUpload, Button } from './ui'
+import { Field, TextInput, TextArea, StringList, PairList, ImageUpload, Button, Toggle } from './ui'
 import BlockEditor from './BlockEditor'
+import { usePublishFlags } from './usePublishFlags'
 
 const EMPTY = {
   slug: '', title: '', topic: '', date: '', readingTime: '', tags: [],
@@ -8,6 +9,7 @@ const EMPTY = {
 }
 
 export default function ResearchManager() {
+  const { isPublished, toggle: togglePublish, busy: pubBusy } = usePublishFlags('research')
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [editing, setEditing] = useState(null)
@@ -136,6 +138,8 @@ export default function ResearchManager() {
               </div>
             </div>
             <div className="adm-card__actions">
+              <Toggle checked={isPublished(r.slug)} disabled={pubBusy === r.slug}
+                onChange={() => togglePublish(r.slug)} labels={['Live', 'Hidden']} />
               <Button onClick={() => startEdit(r)}>Edit</Button>
               <a className="adm-btn adm-btn--ghost" href={`/research/${r.slug}`} target="_blank" rel="noreferrer">View ↗</a>
               <button type="button" className="adm-btn adm-btn--danger" onClick={() => remove(r)}>Delete</button>

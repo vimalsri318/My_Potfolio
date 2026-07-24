@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { siteConfig } from '../data/site'
-
-const { comingSoon } = siteConfig
+import { supabasePublic } from '../lib/supabasePublic'
 
 const LINKS = [
   { label: 'Research', href: '/research', internal: true },
@@ -14,11 +13,37 @@ const LINKS = [
   { label: 'My resume', href: '/assets/pdf/Vimalsrinivasan_Resume.pdf' },
 ]
 
-// Fixed chrome: top pill bar with an expanding LINK TREE tray + © badge
-export default function Navigation() {
+// Fixed chrome: top pill bar with an expanding LINK TREE tray + © badge.
+// `sections` (from the home page's getStaticProps) drives which links show;
+// other pages fetch the flags client-side so the nav stays consistent.
+export default function Navigation({ sections: sectionsProp = null }) {
   const [open, setOpen] = useState(false)
+  const [sections, setSections] = useState(sectionsProp)
   const trayRef = useRef(null)
   const year = new Date().getFullYear()
+
+  useEffect(() => {
+    if (sectionsProp) return
+    let active = true
+    ;(async () => {
+      try {
+        const { data } = await supabasePublic.from('site_sections').select('key, enabled')
+        if (!active || !data) return
+        const map = {}
+        data.forEach((s) => { map[s.key] = s.enabled })
+        setSections(map)
+      } catch {
+        /* keep file defaults */
+      }
+    })()
+    return () => { active = false }
+  }, [sectionsProp])
+
+  // Before flags load, fall back to the file default (coming-soon) so we
+  // never briefly flash links that should be hidden.
+  const comingSoon = sections ? sections.coming_soon !== false : siteConfig.comingSoon
+  const showProjects = !comingSoon && sections?.projects !== false
+  const showContact = !comingSoon && sections?.contact !== false
 
   useEffect(() => {
     if (!open) return
@@ -46,7 +71,7 @@ export default function Navigation() {
           </p>
         </div>
         <nav className="topbar__links">
-          {!comingSoon && (
+          {showProjects && (
             <a href="/#projects" className="topbar__link">
               Projects
             </a>
@@ -54,7 +79,7 @@ export default function Navigation() {
           <a href="/research" className="topbar__link">
             Research
           </a>
-          {!comingSoon && (
+          {showContact && (
             <a href="/#contact" className="topbar__link">
               Contact
             </a>

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Navigation from './Navigation'
@@ -28,6 +28,7 @@ function formatDate(iso) {
 // first, then read the write-up below.
 function InteractiveStage({ src, title }) {
   const frameRef = useRef(null)
+  const [active, setActive] = useState(false)
 
   const openFullscreen = () => {
     const el = frameRef.current
@@ -68,25 +69,25 @@ function InteractiveStage({ src, title }) {
           </a>
         </div>
       </div>
-      <div ref={frameRef} className="research-stage__frame">
+      <div ref={frameRef} className={`research-stage__frame ${active ? 'is-active' : ''}`}>
         <iframe
           src={src}
           title={title || 'Interactive walkthrough'}
           allow="fullscreen"
           allowFullScreen
         />
-      </div>
-      <div className="research-stage__mobile-card">
-        <h3>Interactive Walkthrough</h3>
-        <p>This experience is best viewed on a larger screen. Tap below to open it in a new tab.</p>
-        <a
-          href={src}
-          target="_blank"
-          rel="noreferrer"
-          className="button button__black"
-        >
-          Open Walkthrough
-        </a>
+        {/* Mobile: the iframe is inert until tapped, so a touch-drag scrolls
+            the page past the card. A tap activates it for scrolling inside. */}
+        {!active && (
+          <button
+            type="button"
+            className="research-stage__activate"
+            onClick={() => setActive(true)}
+            aria-label="Interact with the walkthrough"
+          >
+            <span className="research-stage__activate-icon" aria-hidden="true">⤢</span>
+          </button>
+        )}
       </div>
       <p className="research-stage__hint mono">
         Scroll and click inside to move through the stages — or open full screen for the full experience.
