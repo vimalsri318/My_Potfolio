@@ -1,167 +1,89 @@
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import Reveal from './Reveal'
+import { useRef, useEffect } from 'react'
+import Link from 'next/link'
+
+// Horizontal strip of cards. Each card is collapsed to a narrow slice of its
+// image; hovering (or keyboard-focusing) a card expands THAT card in place to
+// the full image, sliding the rest of the row along. No modal, no new card —
+// the same card just grows. Clicking a card opens its detail page.
+//
+// The expanded width is the image's full width at the card's height, so the
+// whole image shows edge-to-edge with no letterboxing. Because that depends on
+// each image's aspect ratio, it's measured once the image loads and re-applied
+// on resize, written to the card as a CSS variable the hover rule reads.
+const MAX_EXPAND_VW = 0.82
 
 export default function Projects({ projects = [] }) {
-  const [active, setActive] = useState(null)
-  const [ratios, setRatios] = useState({})
-  const router = useRouter()
+  const trackRef = useRef(null)
+  const ratios = useRef({})
 
-  // Deterministic scroll trigger: the row whose centre is closest to the
-  // viewport centre is the active one — projects can never be skipped,
-  // no matter how fast the user scrolls. Driven by scroll events, with an
-  // IntersectionObserver as a fallback for environments that throttle them.
-  useEffect(() => {
-    const rows = Array.from(document.querySelectorAll('.project-row'))
-    if (rows.length === 0) return
-    let ticking = false
-
-    const update = () => {
-      ticking = false
-      const viewportCenter = window.innerHeight / 2
-      let bestId = null
-      let bestDist = Infinity
-      rows.forEach((row) => {
-        const rect = row.getBoundingClientRect()
-        const dist = Math.abs(rect.top + rect.height / 2 - viewportCenter)
-        if (dist < bestDist) {
-          bestDist = dist
-          bestId = Number(row.getAttribute('data-id'))
-        }
-      })
-      if (bestId !== null) {
-        setActive((prev) =>
-          prev?.id === bestId ? prev : projects.find((p) => p.id === bestId)
-        )
-      }
-    }
-
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true
-        requestAnimationFrame(update)
-      }
-    }
-
-    const observer = new IntersectionObserver(update, {
-      threshold: [0, 0.25, 0.5, 0.75, 1],
+  const applyWidths = () => {
+    const track = trackRef.current
+    if (!track) return
+    const maxExpand = window.innerWidth * MAX_EXPAND_VW
+    track.querySelectorAll('.proj-card').forEach((card) => {
+      const ratio = ratios.current[card.dataset.id]
+      if (!ratio) return
+      const full = Math.round(card.clientHeight * ratio)
+      card.style.setProperty('--w-exp', `${Math.min(maxExpand, full)}px`)
     })
-    rows.forEach((row) => observer.observe(row))
-
-    update()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll, { passive: true })
-    return () => {
-      observer.disconnect()
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [])
-
-  // Remember each image's natural ratio so the frame can match it
-  const recordRatio = (id, img) => {
-    const { naturalWidth, naturalHeight } = img
-    if (!naturalWidth || !naturalHeight) return
-    setRatios((r) => (r[id] ? r : { ...r, [id]: naturalWidth / naturalHeight }))
   }
 
-  const handleImageLoad = (id) => (e) => recordRatio(id, e.target)
+  const handleLoad = (id) => (e) => {
+    const { naturalWidth, naturalHeight } = e.target
+    if (naturalWidth && naturalHeight) {
+      ratios.current[id] = naturalWidth / naturalHeight
+      applyWidths()
+    }
+  }
 
-  // Cached images can finish loading before hydration, so onLoad never
-  // fires for them — pick their ratios up here instead.
+  // Cached images can finish before hydration, so onLoad never fires for them —
+  // seed their ratios here. Then keep the expanded widths correct on resize.
   useEffect(() => {
-    document.querySelectorAll('.projects-image-frame__img').forEach((img) => {
-      if (img.complete) recordRatio(Number(img.dataset.id), img)
+    const track = trackRef.current
+    if (!track) return
+    track.querySelectorAll('.proj-card__img').forEach((img) => {
+      if (img.complete && img.naturalWidth) {
+        ratios.current[img.dataset.id] = img.naturalWidth / img.naturalHeight
+      }
     })
+    applyWidths()
+
+    const onResize = () => applyWidths()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
   }, [])
 
   return (
-    <section id="projects" className="projects-section">
-      {/* Sticky title bar — full width */}
-      <div className="projects-title-bar">
-        <div className="projects-title-inner">
-          <h2 className="projects__title">
-            <span className="projects__title-arrow">↘</span> Projects
-          </h2>
-        </div>
+    <section id="projects" className="proj">
+      <div className="proj__head">
+        <h2 className="proj__title">Get to know my work.</h2>
+        <p className="proj__hint">Hover a project to see the full picture.</p>
       </div>
 
-      {/* Content area */}
-      <div className="projects-body">
-        {/* Sticky image column — aligned to the rows' image slot */}
-        <div className="projects-image-col" aria-hidden="true">
-          <div className="projects-image-slot">
-            <div
-              className="projects-image-frame"
-              style={{
-                aspectRatio: (active && ratios[active.id]) || 16 / 10,
-              }}
-            >
-              {projects.map((project) => (
-                <img
-                  key={project.id}
-                  data-id={project.id}
-                  src={project.image}
-                  alt={project.title}
-                  onLoad={handleImageLoad(project.id)}
-                  className={`projects-image-frame__img ${active?.id === project.id ? 'is-visible' : ''}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Rows */}
-        <Reveal>
-          <div className="projects-rows">
-            {projects.map((project) => (
-              <div
-                key={project.id}
+      <ul className="proj-track" ref={trackRef}>
+        {projects.map((project) => (
+          <li key={project.id} className="proj-card" data-id={project.id}>
+            <Link href={`/projects/${project.slug}`} className="proj-card__btn">
+              <img
+                className="proj-card__img"
                 data-id={project.id}
-                className={`project-row ${active?.id === project.id ? 'is-active' : ''}`}
-                role="link"
-                tabIndex={0}
-                onClick={() => router.push(`/projects/${project.slug}`)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') router.push(`/projects/${project.slug}`)
-                }}
-              >
-                {/* Left: name + category */}
-                <div className="project-row__left">
-                  <span className="project-row__title">{project.title}</span>
-                  <span className="project-row__sep">—</span>
-                  <span className="project-row__category">{project.category}</span>
-                </div>
-
-                {/* Mobile Image (hidden on desktop) */}
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="project-row__mobile-img" 
-                />
-
-                {/* Centre: intentional gap where image floats */}
-                <div className="project-row__center" />
-
-                {/* Right: CTA */}
-                {project.link ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-row__cta"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Visit project ↗
-                  </a>
-                ) : (
-                  <span className="project-row__cta">View details →</span>
-                )}
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                onLoad={handleLoad(project.id)}
+              />
+              <span className="proj-card__scrim" aria-hidden="true" />
+              <span className="proj-card__top">
+                <span className="proj-card__eyebrow">{project.category}</span>
+                <span className="proj-card__title">{project.title}</span>
+              </span>
+              <span className="proj-card__cta">
+                View project <span aria-hidden="true">→</span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }

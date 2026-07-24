@@ -64,7 +64,7 @@ export default function Navigation({ sections: sectionsProp = null }) {
       <header className="topbar">
         <div className="topbar__brand">
           <a href="/" className="topbar__logo" aria-label="Home — Vimal Srinivasan">
-            VS<span className="topbar__logo-dot">.</span>
+            VS
           </a>
           <p className="topbar__tagline">
             AI developer &amp; architect, building production-ready intelligent systems.

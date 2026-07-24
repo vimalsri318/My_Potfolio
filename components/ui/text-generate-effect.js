@@ -84,6 +84,7 @@ function TextGenerateEffect({
         {wordsArray.map((word, idx) => (
           <motion.span
             key={`${word.text}-${idx}`}
+            className={word.isBold ? "tge-emph" : undefined}
             style={{
               opacity: 0,
               display: "inline-block",
