@@ -126,7 +126,8 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         .adm-card__meta { color: var(--muted); font-family: var(--font-mono); font-size: 11.5px;
           text-transform: uppercase; letter-spacing: .04em; margin-top: 5px;
           display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .adm-card__actions { display: flex; gap: 8px; padding: 16px 18px; margin-top: auto; }
+        .adm-card__actions { display: flex; gap: 8px; padding: 16px 18px; margin-top: auto; align-items: center; }
+        .adm-card__publish { padding: 0 18px; display: flex; }
         .adm-badge { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: .05em;
           color: var(--ink); border: 1px solid var(--line);
           background: rgba(12,12,12,.05); padding: 2px 7px; border-radius: 999px; }
@@ -141,7 +142,7 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         .adm-editor__top .adm-h2 { flex: 0 1 auto; }
         .adm-editor__actions { margin-left: auto; display: flex; gap: 10px; }
         .adm-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; margin-bottom: 4px; }
-        .adm-grid2--wide { align-items: start; margin-top: 8px; }
+        .adm-grid2--wide { align-items: start; margin-top: 8px; margin-bottom: 20px; }
         @media (max-width: 760px) { .adm-grid2 { grid-template-columns: 1fr; } }
 
         .adm-field { display: flex; flex-direction: column; gap: 7px; margin: 14px 0; }
@@ -214,6 +215,8 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
 
         /* Analytics */
         .adm-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 26px; }
+        /* Two stat rows stack tighter than a row followed by a panel. */
+        .adm-stats + .adm-stats { margin-top: -12px; }
         @media (max-width: 700px) { .adm-stats { grid-template-columns: repeat(2,1fr); } }
         .adm-stat { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 20px; }
         .adm-stat__value { font-family: var(--font-batangas); font-size: 36px; line-height: 1; }
@@ -226,12 +229,49 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         .adm-bar__nums { color: var(--muted); font-family: var(--font-mono); font-size: 12px; white-space: nowrap; }
         .adm-bar__track { height: 8px; background: rgba(12,12,12,.07); border-radius: 999px; overflow: hidden; }
         .adm-bar__fill { height: 100%; background: var(--ink); border-radius: 999px; }
+        .adm-tag { display: inline-block; background: rgba(12,12,12,.07); border-radius: 3px;
+          padding: 1px 5px; font-size: 10px; text-transform: uppercase; letter-spacing: .05em;
+          color: var(--muted); margin-right: 4px; vertical-align: 1px; }
+        .adm-split { display: flex; height: 10px; border-radius: 999px; overflow: hidden;
+          background: rgba(12,12,12,.07); }
+        .adm-split__seg { height: 100%; }
         .adm-feedback { display: flex; flex-direction: column; gap: 12px; max-height: 460px; overflow: auto; }
         .adm-feedback__item { background: var(--panel-2); border: 1px solid var(--line-soft); border-radius: 6px; padding: 14px; }
         .adm-feedback__meta { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-bottom: 8px;
           text-transform: uppercase; letter-spacing: .04em; }
         .adm-feedback__msg { margin: 0 0 8px; white-space: pre-wrap; font-size: 14px; }
         .adm-feedback__author { font-size: 13px; font-weight: 600; }
+
+        /* Toggle switch */
+        .adm-toggle-wrap { display: inline-flex; align-items: center; gap: 10px; }
+        .adm-toggle { width: 42px; height: 24px; border-radius: 999px; padding: 0;
+          border: 1px solid var(--line); background: #e4e4df; cursor: pointer;
+          position: relative; transition: .18s; flex: none; }
+        .adm-toggle__knob { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px;
+          border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: .18s; }
+        .adm-toggle.is-on { background: var(--ink); border-color: var(--ink); }
+        .adm-toggle.is-on .adm-toggle__knob { left: 22px; }
+        .adm-toggle:disabled { opacity: .5; cursor: default; }
+        .adm-toggle__label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+          letter-spacing: .05em; color: var(--muted); }
+        .adm-toggle__label.is-on { color: var(--ink); }
+
+        /* Sections list */
+        .adm-toggle-rows { display: flex; flex-direction: column; gap: 10px; }
+        .adm-toggle-row { display: flex; align-items: center; justify-content: space-between;
+          gap: 16px; background: var(--white); border: 1px solid var(--line);
+          border-radius: 10px; padding: 16px 20px; }
+        .adm-toggle-row--master { border-color: var(--ink); }
+        .adm-toggle-row__title { font-weight: 600; }
+        .adm-toggle-row__hint { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+
+        /* Simple chart */
+        .adm-chart { width: 100%; height: auto; display: block; }
+        .adm-chart__axis { fill: var(--muted); font-family: var(--font-mono); font-size: 9px; }
+        .adm-chart-legend { display: flex; gap: 16px; margin-top: 10px; font-family: var(--font-mono);
+          font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+        .adm-chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
+        .adm-chart-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
 
         .adm-notice { background: rgba(12,12,12,.04); border: 1px solid var(--line);
           color: var(--ink); border-radius: 6px; padding: 12px 16px; font-size: 13.5px; margin-bottom: 24px; }

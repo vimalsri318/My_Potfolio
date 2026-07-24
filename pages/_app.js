@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import '../styles/globals.css'
+import { useTrackClicks } from '../hooks/useTrackClicks'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -8,6 +9,10 @@ const inter = Inter({
 })
 
 export default function App({ Component, pageProps }) {
+  // One delegated listener for the whole site — every link and CTA is tracked
+  // without each component having to opt in.
+  useTrackClicks()
+
   return (
     <>
       <style jsx global>{`

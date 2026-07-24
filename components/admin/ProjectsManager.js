@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Field, TextInput, TextArea, StringList, ImageUpload, Button } from './ui'
+import { Field, TextInput, TextArea, StringList, ImageUpload, Button, Toggle } from './ui'
+import { usePublishFlags } from './usePublishFlags'
 
 const EMPTY = {
   slug: '', title: '', category: '', year: '', role: '', image: '',
@@ -7,6 +8,7 @@ const EMPTY = {
 }
 
 export default function ProjectsManager() {
+  const { isPublished, toggle: togglePublish, busy: pubBusy } = usePublishFlags('project')
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [editing, setEditing] = useState(null) // null | 'new' | id
@@ -123,6 +125,10 @@ export default function ProjectsManager() {
             <div className="adm-card__body">
               <div className="adm-card__title">{p.title}</div>
               <div className="adm-card__meta">{p.category} · {p.year}</div>
+            </div>
+            <div className="adm-card__publish">
+              <Toggle checked={isPublished(p.slug)} disabled={pubBusy === p.slug}
+                onChange={() => togglePublish(p.slug)} labels={['Live', 'Hidden']} />
             </div>
             <div className="adm-card__actions">
               <Button onClick={() => startEdit(p)}>Edit</Button>

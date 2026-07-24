@@ -4,10 +4,13 @@ import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
 import Reveal from '../../components/Reveal'
 import courses from '../../data/courses'
+import { useTrackView } from '../../hooks/useTrackView'
 
 // Courses & digital products. Content lives in data/courses.js —
 // flip `available` to true there when a course launches.
 export default function CoursesPage() {
+  useTrackView('courses')
+
   return (
     <>
       <Head>

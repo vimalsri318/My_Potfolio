@@ -9,19 +9,24 @@ import Experience from '../components/Experience'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import ComingSoon from '../components/ComingSoon'
-import { siteConfig } from '../data/site'
 import { useTrackView } from '../hooks/useTrackView'
 import { getProjects } from '../lib/contentStore'
+import { getVisibility } from '../lib/visibility'
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const { sections, hiddenProjects } = await getVisibility()
+  const projects = getProjects().filter((p) => !hiddenProjects.includes(p.slug))
   return {
     props: {
-      projects: getProjects(),
+      projects,
+      comingSoon: sections.coming_soon,
+      sections,
     },
+    revalidate: 15, // ISR: pick up admin visibility toggles within ~15s
   }
 }
 
-export default function Portfolio({ projects }) {
+export default function Portfolio({ projects, comingSoon, sections = {} }) {
   useTrackView('home')
   
   return (
@@ -36,12 +41,12 @@ export default function Portfolio({ projects }) {
         <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>
 
-      <Navigation />
+      <Navigation sections={sections} />
       <main className="main">
         <Home />
         {/* rides over the pinned hero */}
         <div className="page-body">
-          {siteConfig.comingSoon ? (
+          {comingSoon ? (
             // Site is still being built — hero + "cooking" panel only.
             // Research stays live and reachable from the panel's CTA.
             <ComingSoon />
@@ -56,17 +61,17 @@ export default function Portfolio({ projects }) {
                   'AI ⎯ ML ⎯ FULL-STACK',
                 ]}
               />
-              <About />
-              <Projects projects={projects} />
+              {sections.about && <About />}
+              {sections.projects && <Projects projects={projects} />}
               <Ticker
                 speed={0.4}
                 items={[
                   'PYTHON ⎯ LLMS ⎯ RAG ⎯ LANGCHAIN ⎯ MACHINE LEARNING ⎯ REACT ⎯ NEXTJS ⎯ NODE ⎯ FASTAPI ⎯ MONGODB ⎯ FIREBASE ⎯ GIT ⎯',
                 ]}
               />
-              <Services />
-              <Experience />
-              <Contact />
+              {sections.services && <Services />}
+              {sections.experience && <Experience />}
+              {sections.contact && <Contact />}
             </>
           )}
           <Footer />
