@@ -15,7 +15,7 @@ import { getVisibility } from '../lib/visibility'
 
 export async function getStaticProps() {
   const { sections, hiddenProjects } = await getVisibility()
-  const projects = getProjects().filter((p) => !hiddenProjects.includes(p.slug))
+  const projects = (await getProjects()).filter((p) => !hiddenProjects.includes(p.slug))
   return {
     props: {
       projects,

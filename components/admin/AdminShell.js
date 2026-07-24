@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import PublishBar from './PublishBar'
 
 // The admin chrome + all admin styling. Matches the site's light
 // "paper & ink" editorial theme (see styles/globals.css). Local-only.
@@ -29,7 +30,10 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
             </button>
           ))}
         </nav>
-        <Link href="/" className="adm-top__back">View site ↗</Link>
+        <div className="adm-top__right">
+          <PublishBar />
+          <Link href="/" className="adm-top__back">View site ↗</Link>
+        </div>
       </header>
 
       <main className="adm-main">{children}</main>
@@ -80,10 +84,23 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         }
         .adm-tab:hover { color: var(--ink); background: rgba(12,12,12,.05); }
         .adm-tab.is-active { color: var(--on-accent); background: var(--ink); }
-        .adm-top__back { margin-left: auto; color: var(--muted);
+        .adm-top__right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+        .adm-top__back { color: var(--muted);
           text-decoration: none; font-family: var(--font-mono); font-size: 12px;
-          text-transform: uppercase; letter-spacing: .06em; }
+          text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
         .adm-top__back:hover { color: var(--ink); }
+
+        /* Publish (Draft -> Live) control */
+        .adm-publish { display: flex; align-items: center; gap: 10px; }
+        .adm-publish__dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+        .adm-publish__dot.is-clean { background: #1a7f37; box-shadow: 0 0 0 3px rgba(26,127,55,.14); }
+        .adm-publish__dot.is-pending { background: #d1900a; box-shadow: 0 0 0 3px rgba(209,144,10,.16); }
+        .adm-publish__state { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+          letter-spacing: .05em; color: var(--muted); white-space: nowrap; }
+        .adm-publish__btn { padding: 7px 13px; }
+        .adm-publish__btn:disabled { opacity: .45; }
+        .adm-publish__msg { font-family: var(--font-mono); font-size: 11px; color: var(--muted); white-space: nowrap; }
+        @media (max-width: 720px) { .adm-publish__state { display: none; } }
 
         .adm-main { max-width: 1080px; margin: 0 auto; padding: 40px 28px 120px; }
 
@@ -126,11 +143,25 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         .adm-card__meta { color: var(--muted); font-family: var(--font-mono); font-size: 11.5px;
           text-transform: uppercase; letter-spacing: .04em; margin-top: 5px;
           display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .adm-card__actions { display: flex; gap: 8px; padding: 16px 18px; margin-top: auto; align-items: center; }
-        .adm-card__publish { padding: 0 18px; display: flex; }
+        .adm-card__actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 18px 18px;
+          margin-top: auto; align-items: center; }
+        /* Cards are narrow — keep the four actions compact so none overflow. */
+        .adm-card .adm-card__actions .adm-btn { padding: 8px 12px; }
+        .adm-card__del { margin-left: auto; }
+        .adm-card__publish { padding: 10px 18px 0; display: flex; align-items: center; gap: 10px; }
+        .adm-card__publish-label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+          letter-spacing: .06em; color: var(--muted); }
         .adm-badge { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: .05em;
           color: var(--ink); border: 1px solid var(--line);
           background: rgba(12,12,12,.05); padding: 2px 7px; border-radius: 999px; }
+
+        /* Draft/Live status pill */
+        .adm-status { font-family: var(--font-mono); font-size: 9.5px; text-transform: uppercase;
+          letter-spacing: .06em; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line);
+          white-space: nowrap; }
+        .adm-status.is-live { color: #1a7f37; border-color: rgba(26,127,55,.35); background: rgba(26,127,55,.08); }
+        .adm-status.is-draft, .adm-status.is-modified { color: #8a5a00;
+          border-color: rgba(209,144,10,.4); background: rgba(209,144,10,.1); }
 
         .adm-rows { display: flex; flex-direction: column; gap: 10px; }
         .adm-row { display: flex; align-items: center; justify-content: space-between;
@@ -214,6 +245,30 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         .adm-interactive__actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 8px; }
 
         /* Analytics */
+        .adm-dot-c { width: 9px; height: 9px; border-radius: 2px; display: inline-block;
+          margin-right: 7px; vertical-align: 0; flex: none; }
+        .adm-h3 .adm-dot-c { vertical-align: 1px; }
+
+        /* Filter bar */
+        .adm-filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 14px; margin-bottom: 24px; }
+        .adm-seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--white); }
+        .adm-seg__btn { border: none; background: transparent; cursor: pointer;
+          font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .04em;
+          padding: 8px 14px; color: var(--muted); transition: .15s; }
+        .adm-seg__btn:hover { color: var(--ink); }
+        .adm-seg__btn.is-active { background: var(--ink); color: var(--on-accent); }
+        .adm-select { display: flex; flex-direction: column; gap: 5px; }
+        .adm-select__label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+          letter-spacing: .07em; color: var(--muted); }
+        .adm-select__input { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink);
+          background: var(--white); border: 1px solid var(--line); border-radius: 8px;
+          padding: 8px 10px; cursor: pointer; min-width: 130px; }
+        .adm-select__input:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(12,12,12,.08); }
+        .adm-filters__reset { align-self: flex-end; background: transparent; border: none; cursor: pointer;
+          font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); text-decoration: underline;
+          padding: 8px 4px; }
+        .adm-filters__reset:hover { color: var(--ink); }
+
         .adm-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 26px; }
         /* Two stat rows stack tighter than a row followed by a panel. */
         .adm-stats + .adm-stats { margin-top: -12px; }
@@ -265,6 +320,29 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
         .adm-toggle-row__title { font-weight: 600; }
         .adm-toggle-row__hint { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
 
+        /* Donut chart */
+        .adm-donut { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .adm-donut__svg { width: 132px; height: 132px; flex: none; }
+        .adm-donut__center-v { font-family: var(--font-batangas); font-size: 30px; fill: var(--ink); }
+        .adm-donut__center-l { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase;
+          letter-spacing: .06em; fill: var(--muted); }
+        .adm-donut__legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column;
+          gap: 9px; flex: 1; min-width: 150px; }
+        .adm-donut__row { display: flex; align-items: center; gap: 9px; font-size: 13px; }
+        .adm-donut__sw { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+        .adm-donut__label { color: var(--ink); }
+        .adm-donut__val { margin-left: auto; color: var(--muted); font-family: var(--font-mono);
+          font-size: 11.5px; white-space: nowrap; }
+
+        /* Trend chart + hover tooltip */
+        .adm-trend { position: relative; }
+        .adm-trend__tip { position: absolute; top: 4px; transform: translateX(-50%);
+          background: var(--ink); color: var(--paper); padding: 7px 10px; border-radius: 7px;
+          font-family: var(--font-mono); font-size: 11px; line-height: 1.5; pointer-events: none;
+          white-space: nowrap; z-index: 2; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+        .adm-trend__tip b { color: #fff; }
+        .adm-trend__tip-date { color: rgba(255,255,255,.6); margin-bottom: 1px; }
+
         /* Simple chart */
         .adm-chart { width: 100%; height: auto; display: block; }
         .adm-chart__axis { fill: var(--muted); font-family: var(--font-mono); font-size: 9px; }
@@ -272,6 +350,10 @@ export default function AdminShell({ tabs, active, onSelect, children }) {
           font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
         .adm-chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
         .adm-chart-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+        /* Item analytics section */
+        .adm-item__eyebrow { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase;
+          letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; }
 
         .adm-notice { background: rgba(12,12,12,.04); border: 1px solid var(--line);
           color: var(--ink); border-radius: 6px; padding: 12px 16px; font-size: 13.5px; margin-bottom: 24px; }

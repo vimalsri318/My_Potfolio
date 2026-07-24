@@ -2,6 +2,11 @@ import { guardAdmin } from '../../../lib/adminGuard'
 
 // Reads/writes the visibility state in Supabase using the service_role key
 // (server-side, local admin only). Section toggles + per-item published.
+//
+// The admin edits the DRAFT copy (`enabled_draft` / `published_draft`), so
+// toggles stay local until you hit Publish (pages/api/admin/publish.js copies
+// draft -> live). GET returns the draft-effective value in the usual fields so
+// the managers show what you're staging.
 function adminDb() {
   const { createClient } = require('@supabase/supabase-js')
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
@@ -21,14 +26,26 @@ export default async function handler(req, res) {
       db.from('content_flags').select('*'),
     ])
     if (e1 || e2) return res.status(500).json({ error: (e1 || e2).message })
-    return res.status(200).json({ sections: sections || [], content: content || [] })
+    // Surface the draft-effective value as `enabled` / `published` so the admin
+    // UI edits the draft, and keep the raw live values for status comparison.
+    const secs = (sections || []).map((s) => ({
+      ...s,
+      enabled: s.enabled_draft != null ? s.enabled_draft : s.enabled,
+      enabled_live: s.enabled,
+    }))
+    const flags = (content || []).map((f) => ({
+      ...f,
+      published: f.published_draft != null ? f.published_draft : f.published,
+      published_live: f.published,
+    }))
+    return res.status(200).json({ sections: secs, content: flags })
   }
 
   if (req.method === 'POST') {
     const { kind } = req.body || {}
     if (kind === 'section') {
       const { key: secKey, enabled } = req.body
-      const { error } = await db.from('site_sections').update({ enabled: !!enabled }).eq('key', secKey)
+      const { error } = await db.from('site_sections').update({ enabled_draft: !!enabled }).eq('key', secKey)
       if (error) return res.status(500).json({ error: error.message })
       return res.status(200).json({ ok: true })
     }
@@ -37,7 +54,7 @@ export default async function handler(req, res) {
       if (!type || !slug) return res.status(400).json({ error: 'type and slug are required' })
       const { error } = await db
         .from('content_flags')
-        .upsert({ type, slug, published: !!published }, { onConflict: 'type,slug' })
+        .upsert({ type, slug, published_draft: !!published }, { onConflict: 'type,slug' })
       if (error) return res.status(500).json({ error: error.message })
       return res.status(200).json({ ok: true })
     }

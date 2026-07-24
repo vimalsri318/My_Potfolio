@@ -32,6 +32,19 @@ export function Toggle({ checked, onChange, disabled, labels }) {
   )
 }
 
+// ── Draft/Live status badge ──────────────────────────────────────────
+// draft = never published · modified = published but has unpublished edits ·
+// live = published and in sync. Drives the small pill on manager cards.
+export function StatusBadge({ status }) {
+  const map = {
+    draft: ['Draft', 'is-draft'],
+    modified: ['Unpublished edits', 'is-modified'],
+    live: ['Live', 'is-live'],
+  }
+  const [label, cls] = map[status] || map.live
+  return <span className={`adm-status ${cls}`}>{label}</span>
+}
+
 // ── Field wrapper ────────────────────────────────────────────────────
 export function Field({ label, hint, children, wide }) {
   return (

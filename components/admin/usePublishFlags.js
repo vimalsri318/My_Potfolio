@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 
 // Loads per-item published flags from the visibility API and provides a
 // toggle. `type` is 'project' | 'research'. Missing flag = published (true).
-// Toggling writes to Supabase; the live site reflects it within ~15s (ISR).
+// Toggling edits the DRAFT flag — it shows locally right away and reaches
+// production only when you Publish.
 export function usePublishFlags(type) {
   const [flags, setFlags] = useState({}) // slug -> boolean (published)
   const [busy, setBusy] = useState('')

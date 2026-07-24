@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Field, TextInput, TextArea, StringList, PairList, ImageUpload, Button, Toggle } from './ui'
+import { Field, TextInput, TextArea, StringList, PairList, ImageUpload, Button, Toggle, StatusBadge } from './ui'
 import BlockEditor from './BlockEditor'
 import { usePublishFlags } from './usePublishFlags'
+import ItemAnalytics from './ItemAnalytics'
 
 const EMPTY = {
   slug: '', title: '', topic: '', date: '', readingTime: '', tags: [],
@@ -16,6 +17,7 @@ export default function ResearchManager() {
   const [draft, setDraft] = useState(EMPTY)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [analytics, setAnalytics] = useState(null) // { slug, title } | null
 
   useEffect(() => { load() }, [])
 
@@ -55,12 +57,16 @@ export default function ResearchManager() {
   }
 
   async function remove(r) {
-    if (!confirm(`Delete "${r.title}"? This rewrites research.json.`)) return
+    if (!confirm(`Delete "${r.title}"? This removes it from the backend now — it disappears locally, and from production on the next publish/revalidate.`)) return
     await fetch(`/api/admin/research/${r.id}`, { method: 'DELETE' })
     load()
   }
 
   if (loading) return <p className="adm-muted">Loading research…</p>
+
+  if (analytics) {
+    return <ItemAnalytics type="research" slug={analytics.slug} title={analytics.title} onBack={() => setAnalytics(null)} />
+  }
 
   if (editing !== null) {
     const iv = draft.interactive || {}
@@ -123,7 +129,7 @@ export default function ResearchManager() {
       <div className="adm-section-head">
         <div>
           <h2 className="adm-h2">Research</h2>
-          <p className="adm-muted">{items.length} posts · saved to data/research.json</p>
+          <p className="adm-muted">{items.length} posts · edits stage as draft — Publish to go live</p>
         </div>
         <Button variant="primary" onClick={startNew}>+ New post</Button>
       </div>
@@ -135,12 +141,14 @@ export default function ResearchManager() {
               <div className="adm-card__meta">
                 {r.topic ? `${r.topic} · ` : ''}{r.date}
                 {r.interactive?.src && <span className="adm-badge">interactive</span>}
+                <StatusBadge status={r._status} />
               </div>
             </div>
             <div className="adm-card__actions">
               <Toggle checked={isPublished(r.slug)} disabled={pubBusy === r.slug}
-                onChange={() => togglePublish(r.slug)} labels={['Live', 'Hidden']} />
+                onChange={() => togglePublish(r.slug)} labels={['Visible', 'Hidden']} />
               <Button onClick={() => startEdit(r)}>Edit</Button>
+              <Button onClick={() => setAnalytics({ slug: r.slug, title: r.title })}>Analytics</Button>
               <a className="adm-btn adm-btn--ghost" href={`/research/${r.slug}`} target="_blank" rel="noreferrer">View ↗</a>
               <button type="button" className="adm-btn adm-btn--danger" onClick={() => remove(r)}>Delete</button>
             </div>

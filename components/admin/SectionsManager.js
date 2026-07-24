@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Toggle } from './ui'
 
-// Section-level visibility. Toggles write to Supabase and the live site
-// reflects them within the ISR window (~15s) — no git push needed.
+// Section-level visibility. Toggles edit the DRAFT state, so changes show on
+// the local site immediately and only reach production when you hit Publish.
 const HINTS = {
   coming_soon: 'When ON, the homepage shows only the hero + “cooking” panel. Turn OFF to reveal the sections below.',
   about: 'The About section on the homepage.',
@@ -60,7 +60,7 @@ export default function SectionsManager() {
       <div className="adm-section-head">
         <div>
           <h2 className="adm-h2">Sections</h2>
-          <p className="adm-muted">Show or hide homepage sections · changes go live in ~15s</p>
+          <p className="adm-muted">Show or hide homepage sections · staged as draft — Publish to go live</p>
         </div>
       </div>
       {error && <div className="adm-error adm-error--bar">{error}</div>}

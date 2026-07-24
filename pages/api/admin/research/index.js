@@ -1,18 +1,14 @@
 import { guardAdmin } from '../../../../lib/adminGuard'
-import { readCollection, createItem } from '../../../../lib/contentStore'
+import { adminList, adminCreate } from '../../../../lib/contentStore'
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (!guardAdmin(req, res)) return
-
-  if (req.method === 'GET') {
-    return res.status(200).json(readCollection('research'))
+  try {
+    if (req.method === 'GET') return res.status(200).json(await adminList('research'))
+    if (req.method === 'POST') return res.status(201).json(await adminCreate('research', req.body))
+  } catch (e) {
+    return res.status(500).json({ error: String(e.message || e) })
   }
-
-  if (req.method === 'POST') {
-    const created = createItem('research', req.body)
-    return res.status(201).json(created)
-  }
-
   res.setHeader('Allow', ['GET', 'POST'])
   return res.status(405).end()
 }

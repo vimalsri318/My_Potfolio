@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Field, TextInput, TextArea, StringList, ImageUpload, Button, Toggle } from './ui'
+import { Field, TextInput, TextArea, StringList, ImageUpload, Button, Toggle, StatusBadge } from './ui'
 import { usePublishFlags } from './usePublishFlags'
+import ItemAnalytics from './ItemAnalytics'
 
 const EMPTY = {
   slug: '', title: '', category: '', year: '', role: '', image: '',
@@ -15,6 +16,7 @@ export default function ProjectsManager() {
   const [draft, setDraft] = useState(EMPTY)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [analytics, setAnalytics] = useState(null) // { slug, title } | null
 
   useEffect(() => { load() }, [])
 
@@ -51,12 +53,16 @@ export default function ProjectsManager() {
   }
 
   async function remove(p) {
-    if (!confirm(`Delete "${p.title}"? This rewrites projects.json.`)) return
+    if (!confirm(`Delete "${p.title}"? This removes it from the backend now — it disappears locally, and from production on the next publish/revalidate.`)) return
     await fetch(`/api/admin/projects/${p.id}`, { method: 'DELETE' })
     load()
   }
 
   if (loading) return <p className="adm-muted">Loading projects…</p>
+
+  if (analytics) {
+    return <ItemAnalytics type="project" slug={analytics.slug} title={analytics.title} onBack={() => setAnalytics(null)} />
+  }
 
   if (editing !== null) {
     return (
@@ -112,7 +118,7 @@ export default function ProjectsManager() {
       <div className="adm-section-head">
         <div>
           <h2 className="adm-h2">Projects</h2>
-          <p className="adm-muted">{items.length} projects · saved to data/projects.json</p>
+          <p className="adm-muted">{items.length} projects · edits stage as draft — Publish to go live</p>
         </div>
         <Button variant="primary" onClick={startNew}>+ New project</Button>
       </div>
@@ -124,16 +130,18 @@ export default function ProjectsManager() {
             </div>
             <div className="adm-card__body">
               <div className="adm-card__title">{p.title}</div>
-              <div className="adm-card__meta">{p.category} · {p.year}</div>
+              <div className="adm-card__meta">{p.category} · {p.year} <StatusBadge status={p._status} /></div>
             </div>
             <div className="adm-card__publish">
+              <span className="adm-card__publish-label">On site</span>
               <Toggle checked={isPublished(p.slug)} disabled={pubBusy === p.slug}
-                onChange={() => togglePublish(p.slug)} labels={['Live', 'Hidden']} />
+                onChange={() => togglePublish(p.slug)} labels={['Visible', 'Hidden']} />
             </div>
             <div className="adm-card__actions">
               <Button onClick={() => startEdit(p)}>Edit</Button>
+              <Button onClick={() => setAnalytics({ slug: p.slug, title: p.title })}>Analytics</Button>
               <a className="adm-btn adm-btn--ghost" href={`/projects/${p.slug}`} target="_blank" rel="noreferrer">View ↗</a>
-              <button type="button" className="adm-btn adm-btn--danger" onClick={() => remove(p)}>Delete</button>
+              <button type="button" className="adm-btn adm-btn--danger adm-card__del" onClick={() => remove(p)}>Delete</button>
             </div>
           </div>
         ))}

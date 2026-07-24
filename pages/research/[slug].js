@@ -6,24 +6,24 @@ export default function ResearchEntryPage({ entry, nextEntry }) {
   return <ResearchDetail entry={entry} nextEntry={nextEntry} />
 }
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   return {
-    paths: getResearchSorted().map((r) => ({ params: { slug: r.slug } })),
+    paths: (await getResearchSorted()).map((r) => ({ params: { slug: r.slug } })),
     fallback: 'blocking',
   }
 }
 
 export async function getStaticProps({ params }) {
-  const entry = getResearchBySlug(params.slug)
-  if (!entry) return { notFound: true }
+  const entry = await getResearchBySlug(params.slug)
+  if (!entry) return { notFound: true, revalidate: 15 }
 
   // Unpublished posts 404 (and drop out of "next read" rotation).
   const { hiddenResearch } = await getVisibility()
   if (hiddenResearch.includes(entry.slug)) return { notFound: true, revalidate: 15 }
 
-  let nextEntry = getNextResearch(params.slug)
+  let nextEntry = await getNextResearch(params.slug)
   if (nextEntry && hiddenResearch.includes(nextEntry.slug)) {
-    const visible = getResearchSorted().filter((r) => !hiddenResearch.includes(r.slug) && r.slug !== entry.slug)
+    const visible = (await getResearchSorted()).filter((r) => !hiddenResearch.includes(r.slug) && r.slug !== entry.slug)
     nextEntry = visible[0] || null
   }
 

@@ -108,7 +108,7 @@ export default function ResearchPage({ entries }) {
 
 export async function getStaticProps() {
   const { hiddenResearch } = await getVisibility()
-  const entries = getResearchSorted().filter((r) => !hiddenResearch.includes(r.slug))
+  const entries = (await getResearchSorted()).filter((r) => !hiddenResearch.includes(r.slug))
   return {
     props: { entries },
     revalidate: 15, // ISR: reflect admin publish/unpublish toggles quickly
