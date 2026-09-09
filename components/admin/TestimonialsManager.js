@@ -56,6 +56,25 @@ export default function TestimonialsManager() {
 
   const set = (key, val) => setDraft((prev) => ({ ...prev, [key]: val }))
 
+  async function fetchCompanyLogo() {
+    const q = draft.company?.trim()
+    if (!q) {
+      alert('Please enter a Company name first.')
+      return
+    }
+    try {
+      const res = await fetch(`/api/testimonials/company-logo?query=${encodeURIComponent(q)}`)
+      const data = await res.json()
+      if (data.found && data.logoUrl) {
+        set('avatar_url', data.logoUrl)
+      } else {
+        alert('Could not auto-fetch logo. Try entering the company domain like "company.com" in the company field.')
+      }
+    } catch {
+      alert('Failed to fetch company logo.')
+    }
+  }
+
   async function save() {
     if (!draft.name?.trim() || !draft.content?.trim()) {
       setError('Client name and testimonial content are required.')
@@ -220,7 +239,18 @@ export default function TestimonialsManager() {
             </label>
           </Field>
 
-          <Field label="Client Photo / Avatar" hint="Upload headshot or paste image URL" wide>
+          <Field label="Client Photo / Company Logo" hint="Upload headshot or auto-fetch company logo from web" wide>
+            <div style={{ marginBottom: 8 }}>
+              <button
+                type="button"
+                className="adm-btn adm-btn--ghost"
+                onClick={fetchCompanyLogo}
+                style={{ fontSize: '0.8rem', padding: '6px 14px' }}
+                title="Automatically fetch logo for company name entered above"
+              >
+                🏢 Auto-Fetch Company Logo from Web
+              </button>
+            </div>
             <ImageUpload value={draft.avatar_url} onChange={(v) => set('avatar_url', v)} folder="testimonials" />
           </Field>
 
