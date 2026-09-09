@@ -10,6 +10,7 @@ const HINTS = {
   services: 'The Services section.',
   experience: 'The Experience section.',
   contact: 'The Contact section + its nav link.',
+  testimonials: 'The Testimonials section on the homepage showing approved client reviews.',
 }
 
 export default function SectionsManager() {

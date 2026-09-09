@@ -7,26 +7,29 @@ import Projects from '../components/Projects'
 import Services from '../components/Services'
 import Experience from '../components/Experience'
 import Contact from '../components/Contact'
+import Testimonials from '../components/Testimonials'
 import Footer from '../components/Footer'
 import ComingSoon from '../components/ComingSoon'
 import { useTrackView } from '../hooks/useTrackView'
-import { getProjects } from '../lib/contentStore'
+import { getProjects, getTestimonials } from '../lib/contentStore'
 import { getVisibility } from '../lib/visibility'
 
 export async function getStaticProps() {
   const { sections, hiddenProjects } = await getVisibility()
   const projects = (await getProjects()).filter((p) => !hiddenProjects.includes(p.slug))
+  const testimonials = await getTestimonials()
   return {
     props: {
       projects,
       comingSoon: sections.coming_soon,
       sections,
+      testimonials,
     },
     revalidate: 15, // ISR: pick up admin visibility toggles within ~15s
   }
 }
 
-export default function Portfolio({ projects, comingSoon, sections = {} }) {
+export default function Portfolio({ projects, comingSoon, sections = {}, testimonials = [] }) {
   useTrackView('home')
   
   return (
@@ -71,6 +74,7 @@ export default function Portfolio({ projects, comingSoon, sections = {} }) {
               />
               {sections.services && <Services />}
               {sections.experience && <Experience />}
+              {sections.testimonials && <Testimonials items={testimonials} />}
               {sections.contact && <Contact />}
             </>
           )}

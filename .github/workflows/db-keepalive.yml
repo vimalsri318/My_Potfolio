@@ -1,0 +1,52 @@
+name: Supabase Database Keep-Alive
+
+# Prevents Supabase free-tier project from pausing after 7 days of inactivity.
+# Runs twice daily (every 12 hours) and on manual dispatch.
+on:
+  schedule:
+    # Runs at 04:00 and 16:00 UTC daily (approx 09:30 & 21:30 IST)
+    - cron: '0 4,16 * * *'
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    name: Ping Supabase Database
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        env:
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "::error::NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is not set in GitHub repository secrets."
+            echo "Please go to Repo Settings -> Secrets and variables -> Actions and add them."
+            exit 1
+          fi
+
+          echo "Pinging Supabase database endpoint at $SUPABASE_URL..."
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X GET "$SUPABASE_URL/rest/v1/site_sections?select=key&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json")
+
+          HTTP_BODY=$(echo "$RESPONSE" | sed '$d')
+          HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
+
+          echo "HTTP Status: $HTTP_STATUS"
+          echo "Response: $HTTP_BODY"
+
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "Database ping successful! Supabase is active and healthy."
+          else
+            echo "::error::Ping failed with status code $HTTP_STATUS."
+            exit 1
+          fi
+
+      - name: Optional Ping to Site Health Endpoint
+        env:
+          SITE_URL: ${{ secrets.PORTFOLIO_SITE_URL }}
+        if: ${{ env.SITE_URL != '' }}
+        run: |
+          echo "Pinging site health endpoint at $SITE_URL/api/keepalive..."
+          curl -s -f "$SITE_URL/api/keepalive" || true

@@ -5,12 +5,14 @@ import SectionsManager from '../../components/admin/SectionsManager'
 import ProjectsManager from '../../components/admin/ProjectsManager'
 import ResearchManager from '../../components/admin/ResearchManager'
 import MessagesManager from '../../components/admin/MessagesManager'
+import TestimonialsManager from '../../components/admin/TestimonialsManager'
 
 const TABS = [
   { id: 'dashboard', label: 'Dashboard' },
   { id: 'sections', label: 'Sections' },
   { id: 'projects', label: 'Projects' },
   { id: 'research', label: 'Research' },
+  { id: 'testimonials', label: 'Testimonials' },
   { id: 'messages', label: "Let's talk" },
 ]
 
@@ -85,6 +87,7 @@ export default function AdminDashboard(analytics) {
       {tab === 'sections' && <SectionsManager />}
       {tab === 'projects' && <ProjectsManager />}
       {tab === 'research' && <ResearchManager />}
+      {tab === 'testimonials' && <TestimonialsManager />}
       {tab === 'messages' && <MessagesManager />}
     </AdminShell>
   )
