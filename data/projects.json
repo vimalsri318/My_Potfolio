@@ -64,6 +64,71 @@
     ]
   },
   {
+    "id": 11,
+    "slug": "jaisathya",
+    "title": "JaiSathya Inc.",
+    "category": "Enterprise Holding & In-Place Visual CMS",
+    "year": "2025",
+    "role": "Lead Full-Stack Architect & Visual CMS Engineer",
+    "image": "/assets/img/projects/jaisathya/jaisathya-live.png",
+    "gallery": [
+      "/assets/img/projects/jaisathya/jaisathya-live.png",
+      "/assets/img/projects/jaisathya/dataeq-dashboard.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475306/jaisathya/brand-manam-hero.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475313/jaisathya/kaanchi/kaanchi-dining-room.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475340/jaisathya/malgudi/malgudi-storefront.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475307/jaisathya/cricket-gear.jpg"
+    ],
+    "link": "https://www.jaisathya.com/",
+    "domain": "jaisathya.com",
+    "tagline": "Founder-Led Multi-Vertical Holding Ecosystem with Live Visual CMS",
+    "badge": "Client Project • Live in Production",
+    "glowColor": "rgba(217, 119, 6, 0.22)",
+    "tech": [
+      "React",
+      "Tailwind CSS",
+      "Vite",
+      "Visual In-Place CMS",
+      "Cloudinary API",
+      "PostgreSQL"
+    ],
+    "summary": "Full-scale corporate platform engineered for a multi-vertical US holding company — featuring an innovative in-place Visual CMS that lets non-technical stakeholders edit text, imagery, and layout directly on the live rendered website canvas.",
+    "description": [
+      "JaiSathya Inc. is a US-based, founder-led holding company operating eight diverse business verticals across North America — including flagship restaurants (Manam, Kaanchi, Malgudi Cafe), food distribution, real estate assets, wellness meal kits (Ayuryum), brand consulting, DataEQ enterprise governance technology, and The Philadelphians professional cricket club.",
+      "Engineered a bespoke, state-of-the-art Visual CMS from scratch. Unlike traditional CMS dashboards with disconnected forms or rigid section-by-section fields, this custom administrative engine enables the client to edit copy, media assets, and structural blocks directly from the actual live website design with instantaneous live preview and seamless persistence.",
+      "Built a high-performance web architecture supporting multiple multi-brand portals, high-fidelity media pipelines via Cloudinary, and enterprise data governance showcases with sub-second page delivery across all viewports."
+    ],
+    "features": [
+      {
+        "title": "Direct Visual In-Place CMS",
+        "desc": "Empowers the client to click and edit any text, image, or brand showcase directly on the live visual layout without separate admin forms."
+      },
+      {
+        "title": "Multi-Vertical Holding Architecture",
+        "desc": "Unified digital presence orchestrating 8 distinct business units across hospitality, technology, real estate, and sports."
+      },
+      {
+        "title": "Optimized Media Pipeline",
+        "desc": "Real-time Cloudinary image transforms, responsive picture sets, and high-DPI asset delivery for stunning visual fidelity."
+      },
+      {
+        "title": "Enterprise Security & Performance",
+        "desc": "Role-based administrative authentication, granular content revision control, and sub-second load times."
+      }
+    ],
+    "metrics": [
+      { "value": "8", "label": "Enterprise Verticals" },
+      { "value": "100%", "label": "Visual In-Place Editing" },
+      { "value": "<1s", "label": "Load Performance" }
+    ],
+    "highlights": [
+      "Custom-engineered Visual In-Place CMS allowing on-page design editing without section forms",
+      "Multi-brand corporate architecture connecting hospitality, sports, real estate, and tech",
+      "Automated Cloudinary media pipeline and asset optimization",
+      "Seamless editorial typography and responsive UX engineered for desktop, tablet, and mobile"
+    ]
+  },
+  {
     "id": 2,
     "slug": "carspace",
     "title": "Carspace",
