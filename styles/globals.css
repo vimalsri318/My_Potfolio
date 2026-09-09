@@ -1942,18 +1942,21 @@ textarea {
 /*=============== CLIENT TESTIMONIAL SUBMISSION PAGE ===============*/
 .t-page {
   min-height: 100vh;
-  background-color: var(--body-color, #0a0a0a);
-  color: var(--ink, #f5f5f5);
-  font-family: var(--font-inter), sans-serif;
-  padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 32px);
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 4vw, 36px);
   display: flex;
   flex-direction: column;
 }
 
 .t-header {
-  max-width: 680px;
+  max-width: 720px;
   width: 100%;
-  margin: 0 auto clamp(24px, 4vw, 40px);
+  margin: 0 auto clamp(24px, 4vw, 36px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1961,10 +1964,16 @@ textarea {
 
 .t-back {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--ink-soft);
   text-decoration: none;
-  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
 }
 .t-back:hover {
   color: var(--ink);
@@ -1973,83 +1982,88 @@ textarea {
 .t-badge {
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
-  color: var(--accent, #f59e0b);
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  box-shadow: 0 2px 8px rgba(12, 12, 12, 0.04);
 }
 
 .t-container {
-  max-width: 680px;
+  max-width: 720px;
   width: 100%;
   margin: 0 auto;
 }
 
 .t-card {
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--line, rgba(255, 255, 255, 0.1));
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: 20px;
-  padding: clamp(24px, 5vw, 44px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
+  padding: clamp(28px, 6vw, 52px);
+  box-shadow: 0 20px 60px rgba(12, 12, 12, 0.08);
 }
 
 .t-success-card {
   text-align: center;
-  padding-block: clamp(40px, 8vw, 64px);
-  animation: fadeInUp 0.5s var(--ease-snap, ease-out) forwards;
+  padding-block: clamp(48px, 8vw, 72px);
+  animation: fadeInUp 0.5s var(--ease-snap) forwards;
 }
 
 .t-success-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 20px;
-  color: #22c55e;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  color: #1a7f37;
 }
 
 .t-intro {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
 }
 
 .t-title {
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 10px;
+  line-height: 1.1;
+  margin-bottom: 12px;
   color: var(--ink);
 }
 
 .t-sub {
   color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
 .t-error {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #f87171;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  margin-bottom: 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  margin-bottom: 24px;
 }
 
 .t-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
 .t-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 18px;
 }
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   .t-grid {
     grid-template-columns: 1fr;
   }
@@ -2058,249 +2072,426 @@ textarea {
 .t-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .t-label {
   font-family: var(--font-mono);
   font-size: 0.76rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--ink-soft);
+  color: var(--ink);
 }
 
 .t-req {
-  color: #ef4444;
+  color: #c1121f;
+}
+
+.t-hint {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
 }
 
 .t-input,
 .t-textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-family: var(--font-inter), inherit;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--ink);
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.t-input::placeholder,
+.t-textarea::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.7;
 }
 
 .t-input:focus,
 .t-textarea:focus {
   border-color: var(--ink);
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--white);
 }
 
 .t-stars {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 0;
+  gap: 8px;
+  padding: 6px 0;
 }
 
 .t-star-btn {
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(12, 12, 12, 0.18);
   cursor: pointer;
   padding: 0;
-  transition: transform 0.15s, color 0.15s;
+  transition: transform 0.15s ease, color 0.15s ease;
 }
 
 .t-star-btn:hover {
-  transform: scale(1.18);
+  transform: scale(1.2);
 }
 
 .t-star-btn.is-active {
-  color: #f59e0b;
+  color: #eab308;
 }
 
 .t-rating-text {
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  font-weight: 700;
   color: var(--ink-soft);
-  margin-left: 10px;
+  margin-left: 12px;
+}
+
+/* Avatar / Logo Section */
+.t-avatar-section {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.t-avatar-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.t-avatar-tab {
+  background: none;
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: all 0.2s ease;
+}
+
+.t-avatar-tab.is-active {
+  background: var(--white);
+  border-color: var(--line);
+  color: var(--ink);
+  box-shadow: 0 2px 6px rgba(12, 12, 12, 0.05);
+}
+
+.t-logo-box,
+.t-upload-box,
+.t-url-box {
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.t-logo-loading {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  padding: 12px 0;
+}
+
+.t-logo-detected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(12, 12, 12, 0.04);
+}
+
+.t-logo-detected__preview {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.t-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.t-logo-detected__info {
+  flex: 1;
+}
+
+.t-logo-detected__title {
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.t-logo-detected__sub {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+}
+
+.t-logo-use-btn {
+  background: var(--ink);
+  color: var(--white);
+  border: 1px solid var(--ink);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.t-logo-use-btn.is-selected {
+  background: #1a7f37;
+  border-color: #1a7f37;
+}
+
+.t-logo-empty {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
 }
 
 .t-photo-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .t-photo-preview,
 .t-photo-placeholder {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--line);
 }
 
 .t-photo-placeholder {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-mono);
   font-weight: 700;
+  font-size: 1.1rem;
   color: var(--ink-soft);
 }
 
 .t-upload-btn {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--white);
   border: 1px solid var(--line);
   color: var(--ink);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(12, 12, 12, 0.04);
 }
 .t-upload-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--paper);
+}
+
+.t-avatar-active-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.t-active-avatar-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.t-clear-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #dc2626;
+  cursor: pointer;
 }
 
 .t-actions {
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
 .t-submit-btn {
   width: 100%;
-  padding: 16px;
-  border-radius: 12px;
-  border: none;
-  background: var(--ink, #ffffff);
-  color: var(--body-color, #0a0a0a);
+  padding: 18px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
   font-family: var(--font-mono);
   font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  transition: transform 0.2s var(--ease-snap), opacity 0.2s;
+  transition: all 0.3s var(--ease-snap);
+  box-shadow: 0 6px 20px rgba(12, 12, 12, 0.12);
 }
 
 .t-submit-btn:hover:not(:disabled) {
+  background: var(--white);
+  color: var(--ink);
   transform: translateY(-2px);
-  opacity: 0.95;
+  box-shadow: 0 12px 28px rgba(12, 12, 12, 0.15);
 }
 
 .t-submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+}
+
+.t-btn-ghost {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.t-btn-ghost:hover {
+  background: var(--paper);
 }
 
 .t-note {
-  margin-top: 12px;
-  font-size: 0.78rem;
+  margin-top: 14px;
+  font-size: 0.8rem;
   color: var(--ink-soft);
   text-align: center;
 }
 
-.t-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-}
-.t-btn--primary {
-  background: var(--ink);
-  color: var(--body-color);
-  border: 1px solid var(--ink);
-}
-.t-btn--ghost {
-  background: none;
-  border: 1px solid var(--line);
-  color: var(--ink);
-}
-
 /*=============== PORTFOLIO TESTIMONIALS SECTION ===============*/
 .testimonials-section {
-  padding-block: clamp(48px, 8vw, 90px);
+  padding-block: clamp(56px, 8vw, 100px);
 }
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 22px;
 }
 
 .testimonial-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--line, rgba(255, 255, 255, 0.08));
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: 16px;
-  padding: clamp(24px, 4vw, 36px);
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s var(--ease-snap), border-color 0.3s, box-shadow 0.3s;
+  min-height: 280px;
+  box-shadow: 0 4px 20px rgba(12, 12, 12, 0.04);
+  transition: transform 0.4s var(--ease-snap), box-shadow 0.4s var(--ease-snap);
 }
 
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px) rotate(-0.5deg);
+  box-shadow: 0 18px 40px rgba(12, 12, 12, 0.1);
 }
 
 .testimonial-card.is-featured {
-  border-color: rgba(245, 158, 11, 0.35);
-  background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1.5px solid var(--ink);
+  box-shadow: 0 8px 30px rgba(12, 12, 12, 0.08);
 }
 
 .testimonial-card__quote-mark {
-  font-family: serif;
-  font-size: 2.8rem;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.15);
-  margin-bottom: 6px;
+  font-family: var(--font-batangas), Georgia, serif;
+  font-size: 3.4rem;
+  line-height: 0.7;
+  color: rgba(12, 12, 12, 0.15);
+  margin-bottom: 14px;
 }
 
 .testimonial-card__content {
-  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.6;
+  color: var(--ink);
   margin-bottom: 24px;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .testimonial-card__stars {
-  color: #f59e0b;
-  font-size: 0.95rem;
+  color: #eab308;
+  font-size: 1rem;
   letter-spacing: 2px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .testimonial-card__author {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line, rgba(255, 255, 255, 0.08));
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  margin-top: auto;
 }
 
 .testimonial-card__avatar {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.testimonial-card__avatar--company {
+  border-radius: 10px;
+  object-fit: contain;
+  padding: 4px;
+  background: var(--white);
 }
 
 .testimonial-card__avatar-fallback {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.04));
+  background: var(--paper);
   border: 1px solid var(--line);
   display: flex;
   align-items: center;
@@ -2313,7 +2504,7 @@ textarea {
 
 .testimonial-card__name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--ink);
   display: flex;
   align-items: center;
@@ -2331,18 +2522,22 @@ textarea {
 }
 
 .testimonial-card__title {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--ink-soft);
   margin-top: 2px;
 }
 
 .testimonial-card__project-badge {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--accent, #f59e0b);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
   display: inline-block;
   margin-top: 6px;
 }

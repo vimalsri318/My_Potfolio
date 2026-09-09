@@ -36,6 +36,11 @@ export default function Testimonials({ items = [] }) {
         <div className="testimonials-grid">
           {items.map((item, index) => {
             const hasAvatar = !!item.avatar_url
+            const isCompanyLogo =
+              item.avatar_url &&
+              (item.avatar_url.includes('unavatar.io') ||
+                item.avatar_url.includes('google.com/s2/favicons') ||
+                item.avatar_url.includes('favicon'))
             const initials = (item.name || 'C')
               .split(' ')
               .map((w) => w[0])
@@ -60,7 +65,7 @@ export default function Testimonials({ items = [] }) {
                       <img
                         src={item.avatar_url}
                         alt={item.name}
-                        className="testimonial-card__avatar"
+                        className={`testimonial-card__avatar ${isCompanyLogo ? 'testimonial-card__avatar--company' : ''}`}
                         loading="lazy"
                       />
                     ) : (
