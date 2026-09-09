@@ -15,9 +15,14 @@
 :root {
   /* Color */
   --paper: #f1f1ee;
+  --apple-bg: #f5f5f7;
+  --apple-card: #ffffff;
+  --apple-text-primary: #1d1d1f;
+  --apple-text-secondary: #6e6e73;
+  --apple-link: #0066cc;
   --ink: #0c0c0c;
   --ink-soft: #55554f;
-  --line: rgba(12, 12, 12, 0.14);
+  --line: rgba(12, 12, 12, 0.12);
   --grid-line: rgba(12, 12, 12, 0.055);
   --accent: var(--ink);
   --white: #ffffff;
@@ -46,12 +51,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--paper);
-  /* graph paper */
-  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 32px 32px;
-  color: var(--ink);
+  background-color: var(--apple-bg);
+  color: var(--apple-text-primary);
   font-size: 1rem;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -300,18 +301,19 @@ textarea {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* everything after the hero rides on top of it */
 .page-body {
   position: relative;
   z-index: 1;
-  background-color: var(--paper);
-  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-color: var(--apple-bg);
   border-radius: 28px 28px 0 0;
-  box-shadow: 0 -18px 50px rgba(12, 12, 12, 0.28);
+  box-shadow: 0 -18px 50px rgba(12, 12, 12, 0.12);
   overflow: clip; /* rounds corners without breaking position: sticky inside */
 }
 
@@ -598,190 +600,340 @@ textarea {
   }
 }
 
-/*=============== PROJECTS — hover-to-expand strip ===============*/
-.proj {
-  background: #ffffff;
-  background-image: none;
+/*=============== APPLE-STYLE WHITE CARD SHOWCASE ===============*/
+.apple-projects-section {
   position: relative;
-  padding: clamp(56px, 8vw, 110px) 0;
-  --card-h: clamp(360px, 52vh, 520px);
-  --card-collapsed: clamp(196px, 20vw, 268px);
+  padding: clamp(70px, 9vw, 130px) 0;
+  background-color: var(--apple-bg);
 }
 
-.proj__head {
-  padding: 0 clamp(20px, 4vw, 56px);
-  margin-bottom: clamp(28px, 4vw, 48px);
+.apple-projects-container {
+  max-width: min(92vw, 1360px);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 40px);
 }
 
-.proj__title {
-  font-family: var(--font-inter), sans-serif;
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-  color: var(--ink);
+/* ── Section Header (Apple 'Switch to Mac.' Style) ── */
+.apple-projects-head {
+  max-width: 900px;
+  margin-bottom: clamp(36px, 5vw, 64px);
 }
 
-.proj__hint {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 0.95rem;
-  color: var(--ink-soft);
-  margin-top: 12px;
-}
-
-/* ── Strip ── */
-.proj-track {
-  list-style: none;
-  margin: 0;
-  padding: 8px clamp(20px, 4vw, 56px);
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-.proj-track::-webkit-scrollbar {
-  display: none;
-}
-
-/* ── Card ── */
-.proj-card {
-  flex: 0 0 auto;
-  width: var(--card-collapsed);
-  height: var(--card-h);
-  /* siblings slide over as the hovered card grows */
-  transition: width 0.55s var(--ease-snap);
-}
-
-/* Expand the hovered / focused card to its image's full width.
-   --w-exp is measured per card in JS; the fallback covers first paint. */
-.proj-card:hover,
-.proj-card:focus-within {
-  width: var(--w-exp, 68vw);
-}
-
-.proj-card__btn {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--ink);
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.proj-card__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  /* cover so the collapsed card shows a centred slice; once the card is
-     expanded to the image's own ratio, cover reveals the whole image. */
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Dark wash so the top label stays legible over any image */
-.proj-card__scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.72) 0%,
-    rgba(0, 0, 0, 0.32) 24%,
-    rgba(0, 0, 0, 0) 48%
-  );
-  pointer-events: none;
-}
-
-.proj-card__top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: clamp(20px, 2vw, 26px);
-}
-
-.proj-card__eyebrow {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.proj-card__title {
-  font-family: var(--font-inter), sans-serif;
-  font-size: clamp(1.25rem, 1.5vw, 1.6rem);
+.apple-projects-eyebrow {
+  font-size: 0.82rem;
   font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-}
-
-/* CTA fades in only once the card is expanded */
-.proj-card__cta {
-  position: absolute;
-  left: clamp(20px, 2vw, 26px);
-  bottom: clamp(20px, 2vw, 26px);
-  display: inline-flex;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--apple-text-secondary);
+  margin-bottom: 12px;
+  display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+}
+
+.apple-dot {
+  font-size: 0.5rem;
   color: var(--ink);
-  background: #ffffff;
+  opacity: 0.5;
+}
+
+.apple-projects-title {
+  font-family: var(--font-batangas), -apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-display), sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--apple-text-primary);
+}
+
+/* ── Project Cards List ── */
+.apple-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 44px);
+}
+
+/* ── Apple Big White Card ── */
+.apple-project-card {
+  background: var(--apple-card);
+  border-radius: clamp(24px, 3vw, 34px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.03),
+    0 1px 4px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  min-height: 480px;
+  transition: transform 0.4s var(--ease-snap), box-shadow 0.4s var(--ease-snap);
+}
+
+.apple-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 18px 48px -12px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Alternating rows */
+.apple-project-card.is-reversed {
+  grid-template-columns: 1.15fr 1fr;
+}
+
+.apple-project-card.is-reversed .apple-card-media {
+  order: 1;
+}
+
+.apple-project-card.is-reversed .apple-card-content {
+  order: 2;
+}
+
+/* ── Card Content Column ── */
+.apple-card-content {
+  padding: clamp(36px, 5vw, 68px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.apple-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--apple-text-secondary);
+}
+
+.apple-card-index {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--apple-text-primary);
+}
+
+.apple-card-meta-sep,
+.apple-card-meta-dot {
+  opacity: 0.4;
+}
+
+.apple-card-category {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.apple-card-year {
+  color: var(--apple-text-secondary);
+}
+
+.apple-card-title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-display), sans-serif;
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--apple-text-primary);
+  margin-top: 2px;
+}
+
+.apple-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.apple-card-title a:hover {
+  opacity: 0.85;
+}
+
+.apple-card-tagline {
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  font-weight: 500;
+  color: var(--apple-text-primary);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.apple-card-desc {
+  font-size: clamp(0.96rem, 1.1vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--apple-text-secondary);
+}
+
+/* Tech Tags */
+.apple-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 6px;
+}
+
+.apple-tech-tag {
+  font-size: 0.76rem;
+  padding: 5px 12px;
   border-radius: 999px;
-  padding: 11px 20px;
+  background: #f5f5f7;
+  color: var(--apple-text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Apple Action Links */
+.apple-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.apple-link-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--apple-link);
+  text-decoration: none;
+  transition: gap 0.25s ease, opacity 0.2s;
+}
+
+.apple-link-primary:hover {
+  text-decoration: underline;
+  gap: 9px;
+}
+
+.apple-chevron {
+  font-size: 1.35rem;
+  line-height: 1;
+  display: inline-block;
+  transform: translateY(-1px);
+}
+
+.apple-link-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--apple-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.apple-link-secondary:hover {
+  color: var(--apple-text-primary);
+  text-decoration: underline;
+}
+
+.apple-arrow {
+  font-size: 0.88rem;
+}
+
+/* ── Card Media Column ── */
+.apple-card-media {
+  padding: clamp(24px, 4vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.apple-media-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.apple-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fbfbfd;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 
+    0 16px 36px -10px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.5s var(--ease-snap), box-shadow 0.5s var(--ease-snap);
+}
+
+.apple-project-card:hover .apple-img-wrapper {
+  transform: scale(1.02);
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.apple-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.65s var(--ease-snap);
+}
+
+.apple-img-hover-pill {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--apple-text-primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.3s ease, transform 0.3s var(--ease-snap);
+  transform: translateY(6px);
+  transition: all 0.3s var(--ease-snap);
 }
 
-.proj-card:hover .proj-card__cta,
-.proj-card:focus-within .proj-card__cta {
+.apple-project-card:hover .apple-img-hover-pill {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
 
-.proj-card__cta span {
-  transition: transform 0.3s var(--ease-snap);
-}
-
-.proj-card:hover .proj-card__cta span {
-  transform: translateX(4px);
-}
-
-/* Visible keyboard focus */
-.proj-card__btn:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: -3px;
-}
-
-/* ── Mobile: no hover, so cards sit a touch wider and tap-through ── */
-@media (max-width: 768px) {
-  .proj {
-    --card-collapsed: clamp(230px, 72vw, 300px);
+/* ── Responsive Adaptations ── */
+@media (max-width: 960px) {
+  .apple-project-card,
+  .apple-project-card.is-reversed {
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
 
-  .proj-card__cta {
-    opacity: 1;
-    transform: none;
+  .apple-card-media,
+  .apple-project-card.is-reversed .apple-card-media {
+    order: 1;
+    padding: 24px 24px 0;
+  }
+
+  .apple-card-content,
+  .apple-project-card.is-reversed .apple-card-content {
+    order: 2;
+    padding: 28px 24px 36px;
+  }
+
+  .apple-projects-list {
+    gap: 28px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .proj-card {
-    transition: none;
+@media (max-width: 640px) {
+  .projects-actions {
+    width: 100%;
+  }
+
+  .projects-cta-primary,
+  .projects-cta-secondary {
+    flex: 1;
+    justify-content: center;
   }
 }
 
