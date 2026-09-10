@@ -19,6 +19,7 @@ interactive/*/dist/
 # claude code / agent tooling (local only)
 .agents/
 skills-lock.json
+tmp/
 
 # debug
 npm-debug.log*

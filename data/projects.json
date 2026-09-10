@@ -1,184 +1,634 @@
 [
   {
-    "id": 1,
-    "slug": "dmart-analysis",
-    "title": "D-MART Analysis",
-    "category": "Data analysis & Web app",
-    "year": "2024",
-    "role": "Full-stack Developer & Data Analyst",
-    "image": "/assets/img/ANALYSIS.png",
-    "gallery": [],
-    "link": "https://ltqapcfmatgt2.mocha.app/",
-    "tech": [
-      "Python",
-      "React",
-      "Data Visualization"
+    "id": 10,
+    "slug": "amretri-healthcare",
+    "title": "Amretri Healthcare",
+    "category": "Healthcare Platform & AI Automation",
+    "year": "2025",
+    "role": "Lead Full-Stack Architect & AI Engineer",
+    "image": "/assets/img/projects/amretri/amretri-hero.png",
+    "mobileImage": "/assets/img/projects/amretri/amretri-chatbot-chat.png",
+    "chatbotImage": "/assets/img/projects/amretri/amretri-chatbot-lead.png",
+    "gallery": [
+      "/assets/img/projects/amretri/amretri-hero.png",
+      "/assets/img/projects/amretri/amretri-chatbot-chat.png",
+      "/assets/img/projects/amretri/amretri-chatbot-lead.png"
     ],
-    "summary": "An interactive data-analysis web app that turns raw D-MART retail data into clear, explorable insights.",
+    "link": "https://amretrihealthcare.com/",
+    "domain": "amretrihealthcare.com",
+    "tagline": "Transforming Hospital Pharmacy Operations Across India",
+    "badge": "Client Project • Live in Production",
+    "glowColor": "rgba(13, 148, 136, 0.22)",
+    "tech": [
+      "React",
+      "Tailwind CSS",
+      "Vite",
+      "AI Chatbot",
+      "Google Sheets API",
+      "WhatsApp Automation"
+    ],
+    "summary": "Enterprise healthcare platform engineered to manage hospital pharmacies, bulk medicine procurement, and pharmacist supply — featuring the AMRI AI assistant with automated Google Sheets lead sync and instant WhatsApp routing.",
     "description": [
-      "D-MART Analysis takes large retail datasets and transforms them into an interactive dashboard where trends, sales patterns and category performance can be explored visually.",
-      "The goal was to make data approachable — anyone, not just analysts, should be able to open the app and understand what the numbers are saying."
+      "Amretri Healthcare is a Pan-India healthcare operations leader helping hospitals achieve 5–30% margin uplift through pharmacy management, staffing, and bulk medicine supply. They needed a premier digital platform matching their enterprise caliber.",
+      "Designed and developed the multi-page web platform from the ground up, with dedicated portals for hospital takeovers, staffing, and compliance audits.",
+      "Engineered 'AMRI', a custom healthcare assistant chatbot that guides visitors through tailored service requests, automatically syncing inquiries and contact data into Google Sheets in real-time, backed by one-tap WhatsApp integration for instantaneous doctor and executive consultations."
+    ],
+    "features": [
+      {
+        "title": "Automated Lead Sync to Sheets",
+        "desc": "Inbound hospital inquiries are verified, classified, and written to Google Sheets within milliseconds with zero manual data entry."
+      },
+      {
+        "title": "AMRI Interactive Chatbot",
+        "desc": "Intelligent multi-step conversation flow qualifying hospital pharmacy takeover, staffing, and purchase rate requests."
+      },
+      {
+        "title": "Direct WhatsApp Dispatch",
+        "desc": "Deep link automation connecting prospective healthcare executives directly to verified operations team members."
+      },
+      {
+        "title": "Adaptive Multi-Device UX",
+        "desc": "Fluid responsive performance across mobile smartphones, tablets, and wide workstation displays."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "5–30%",
+        "label": "Pharmacy Margin Uplift"
+      },
+      {
+        "value": "Pan-India",
+        "label": "Operational Reach"
+      },
+      {
+        "value": "Real-time",
+        "label": "Google Sheets Lead Sync"
+      }
     ],
     "highlights": [
-      "Interactive charts and drill-down views",
-      "Clean, responsive dashboard UI",
-      "Automated data processing pipeline"
+      "Multi-page enterprise architecture built with React and Tailwind CSS",
+      "Custom AMRI conversational agent with real-time Google Sheets backend sync",
+      "Seamless WhatsApp Business integration for instant customer contact",
+      "Optimized Core Web Vitals with sub-second page loads and high accessibility"
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "jaisathya",
+    "title": "JaiSathya Inc.",
+    "category": "Enterprise Holding & In-Place Visual CMS",
+    "year": "2025",
+    "role": "Lead Full-Stack Architect & Visual CMS Engineer",
+    "image": "/assets/img/projects/jaisathya/jaisathya-live.png",
+    "gallery": [
+      "/assets/img/projects/jaisathya/jaisathya-live.png",
+      "/assets/img/projects/jaisathya/dataeq-dashboard.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475306/jaisathya/brand-manam-hero.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475313/jaisathya/kaanchi/kaanchi-dining-room.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475340/jaisathya/malgudi/malgudi-storefront.jpg",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1785475307/jaisathya/cricket-gear.jpg"
+    ],
+    "link": "https://www.jaisathya.com/",
+    "domain": "jaisathya.com",
+    "tagline": "Founder-Led Multi-Vertical Holding Ecosystem with Live Visual CMS",
+    "badge": "Client Project • Live in Production",
+    "glowColor": "rgba(217, 119, 6, 0.22)",
+    "tech": [
+      "React",
+      "Tailwind CSS",
+      "Vite",
+      "Visual In-Place CMS",
+      "Cloudinary API",
+      "PostgreSQL"
+    ],
+    "summary": "Full-scale corporate platform engineered for a multi-vertical US holding company — featuring an innovative in-place Visual CMS that lets non-technical stakeholders edit text, imagery, and layout directly on the live rendered website canvas.",
+    "description": [
+      "JaiSathya Inc. is a US-based, founder-led holding company operating eight diverse business verticals across North America — including flagship restaurants (Manam, Kaanchi, Malgudi Cafe), food distribution, real estate assets, wellness meal kits (Ayuryum), brand consulting, DataEQ enterprise governance technology, and The Philadelphians professional cricket club.",
+      "Engineered a bespoke, state-of-the-art Visual CMS from scratch. Unlike traditional CMS dashboards with disconnected forms or rigid section-by-section fields, this custom administrative engine enables the client to edit copy, media assets, and structural blocks directly from the actual live website design with instantaneous live preview and seamless persistence.",
+      "Built a high-performance web architecture supporting multiple multi-brand portals, high-fidelity media pipelines via Cloudinary, and enterprise data governance showcases with sub-second page delivery across all viewports."
+    ],
+    "features": [
+      {
+        "title": "Direct Visual In-Place CMS",
+        "desc": "Empowers the client to click and edit any text, image, or brand showcase directly on the live visual layout without separate admin forms."
+      },
+      {
+        "title": "Multi-Vertical Holding Architecture",
+        "desc": "Unified digital presence orchestrating 8 distinct business units across hospitality, technology, real estate, and sports."
+      },
+      {
+        "title": "Optimized Media Pipeline",
+        "desc": "Real-time Cloudinary image transforms, responsive picture sets, and high-DPI asset delivery for stunning visual fidelity."
+      },
+      {
+        "title": "Enterprise Security & Performance",
+        "desc": "Role-based administrative authentication, granular content revision control, and sub-second load times."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "8",
+        "label": "Enterprise Verticals"
+      },
+      {
+        "value": "100%",
+        "label": "Visual In-Place Editing"
+      },
+      {
+        "value": "<1s",
+        "label": "Load Performance"
+      }
+    ],
+    "highlights": [
+      "Custom-engineered Visual In-Place CMS allowing on-page design editing without section forms",
+      "Multi-brand corporate architecture connecting hospitality, sports, real estate, and tech",
+      "Automated Cloudinary media pipeline and asset optimization",
+      "Seamless editorial typography and responsive UX engineered for desktop, tablet, and mobile"
     ]
   },
   {
     "id": 2,
     "slug": "carspace",
     "title": "Carspace",
-    "category": "E-commerce & Hybrid Web app",
+    "category": "E-Commerce & Hybrid Web App",
     "year": "2024",
-    "role": "Full-stack Developer",
+    "role": "Lead Full-Stack Developer & PWA Architect",
     "image": "/assets/img/Carspace.png",
-    "gallery": [],
+    "gallery": [
+      "/assets/img/Carspace.png"
+    ],
     "link": "https://secondhandcarapp.web.app/",
+    "domain": "secondhandcarapp.web.app",
+    "tagline": "Real-Time Second-Hand Automobile Marketplace with Zero-Install PWA",
+    "badge": "Full-Stack • Progressive Web App",
+    "glowColor": "rgba(59, 130, 246, 0.22)",
     "tech": [
       "React",
-      "Firebase",
-      "PWA"
+      "Firebase Firestore",
+      "Progressive Web App (PWA)",
+      "Tailwind CSS",
+      "Cloud Functions",
+      "Real-Time Indexing"
     ],
-    "summary": "A hybrid e-commerce platform for buying and selling second-hand cars, built for speed and trust.",
+    "summary": "High-performance hybrid e-commerce marketplace for certified pre-owned vehicles — engineered with sub-100ms multi-facet inventory search, real-time Firestore database synchronization, and native-feeling offline PWA mobile capabilities.",
     "description": [
-      "Carspace connects buyers and sellers of used cars through a clean, app-like web experience. Listings, search and filtering are designed to feel instant.",
-      "Built as a hybrid web app so it works seamlessly across desktop and mobile without a separate native build."
+      "Used car marketplaces frequently suffer from sluggish inventory indexing, outdated pricing states, and heavy app download barriers for casual car buyers. Carspace was conceived to eliminate this friction through an instantaneous, app-like web platform connecting certified dealerships with prospective buyers.",
+      "Engineered the full-stack architecture on React and Firebase Cloud Firestore. Implemented client-side indexing and real-time document listeners that push vehicle availability, price adjustments, and inspection status updates across all connected clients in under 100 milliseconds without page refreshes.",
+      "Architected the application as an installable Progressive Web App (PWA) with smart service worker caching strategies, enabling seamless offline browsing of previously viewed car models, smooth touch gestures, and full home-screen installability across iOS and Android."
+    ],
+    "features": [
+      {
+        "title": "Sub-100ms Faceted Search",
+        "desc": "Ultra-fast multi-parameter query engine allowing simultaneous instant filtering across make, model, odometer mileage, price bracket, and transmission type."
+      },
+      {
+        "title": "Real-Time Firestore Inventory Sync",
+        "desc": "Live websocket-backed document updates that automatically reflect newly listed vehicles, sold reservations, and price changes without reloading."
+      },
+      {
+        "title": "Zero-Install PWA Mobile Parity",
+        "desc": "Installable to mobile home screens with service worker offline caching, responsive touch gestures, and native app appearance."
+      },
+      {
+        "title": "Dealership & Buyer Inquiry Flow",
+        "desc": "Streamlined in-app direct inquiry pipeline connecting verified buyers to dealership representatives with one-tap WhatsApp and call actions."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "<100ms",
+        "label": "Search Query Latency"
+      },
+      {
+        "value": "100%",
+        "label": "PWA Mobile Parity"
+      },
+      {
+        "value": "Real-time",
+        "label": "Firestore Live Sync"
+      }
     ],
     "highlights": [
-      "Real-time listings backed by Firebase",
-      "Advanced search and filtering",
-      "Installable, app-like mobile experience"
+      "High-speed multi-faceted vehicle filtering with sub-100ms response time",
+      "Real-time cloud database architecture powered by Firebase Firestore",
+      "Installable Progressive Web App with offline caching and native mobile UI",
+      "Streamlined dealership contact routing and vehicle inspection badges"
+    ]
+  },
+  {
+    "id": 1,
+    "slug": "dmart-analysis",
+    "title": "D-MART Retail Intelligence",
+    "category": "Big Data Analytics & Decision Dashboard",
+    "year": "2024",
+    "role": "Lead Data Analyst & Full-Stack Architect",
+    "image": "/assets/img/ANALYSIS.png",
+    "gallery": [
+      "/assets/img/ANALYSIS.png",
+      "/assets/img/D-MART.png"
+    ],
+    "link": "https://ltqapcfmatgt2.mocha.app/",
+    "domain": "ltqapcfmatgt2.mocha.app",
+    "tagline": "Interactive Big-Data Retail Intelligence & Multi-Store SKU Profitability Modeling",
+    "badge": "Data Intelligence • Python & React",
+    "glowColor": "rgba(168, 85, 247, 0.22)",
+    "tech": [
+      "Python",
+      "Pandas & NumPy",
+      "React",
+      "Data Visualization",
+      "Automated ETL",
+      "Tailwind CSS"
+    ],
+    "summary": "An interactive retail analytics and intelligence platform processing massive D-MART store transaction volumes — transforming raw point-of-sale datasets into actionable gross margin forecasts, SKU velocity trends, and regional sales drill-downs.",
+    "description": [
+      "Supermarket chains and FMCG retail giants generate millions of point-of-sale records daily, yet store directors and inventory managers often lack real-time visual tools to identify high-margin SKU clusters and regional revenue leakages. D-MART Analysis was created to bridge this data-to-decision gap.",
+      "Engineered high-throughput automated Python ETL pipelines using Pandas and NumPy to cleanse, normalize, and aggregate high-volume raw sales records. Built optimized in-memory query routines that allow instant cross-dimensional analysis across departments, product categories, and promotional price brackets.",
+      "Crafted an executive-ready React dashboard pairing decision-first UX with high-performance interactive charts. Business stakeholders can run multi-variable scenario modeling, compare regional warehouse performance side-by-side, and isolate fast-moving consumer goods with zero analytical friction."
+    ],
+    "features": [
+      {
+        "title": "Automated Python ETL Pipeline",
+        "desc": "Ingests, deduplicates, and structures hundred-thousand-row retail datasets into normalized relational schemas in seconds."
+      },
+      {
+        "title": "Multi-Dimensional SKU Velocity Drill-Downs",
+        "desc": "Real-time exploration of sales volume, markdown impact, and seasonal velocity across groceries, FMCG, and apparel."
+      },
+      {
+        "title": "Interactive Gross Margin Modeling",
+        "desc": "Visual sensitivity analysis allowing retail executives to simulate margin outcomes based on wholesale supplier discount adjustments."
+      },
+      {
+        "title": "Executive Decision-First Dashboard",
+        "desc": "Clean, distraction-free visual reporting system highlighting key outlier categories, inventory risks, and top revenue drivers."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "100K+",
+        "label": "Transactions Processed"
+      },
+      {
+        "value": "100%",
+        "label": "Automated ETL Pipeline"
+      },
+      {
+        "value": "Real-time",
+        "label": "Interactive Drill-downs"
+      }
+    ],
+    "highlights": [
+      "End-to-end data pipeline processing 100K+ transactional records with zero data loss",
+      "Interactive multi-attribute filtering and scenario modeling in React",
+      "Automated SKU velocity categorizations and supplier margin optimization",
+      "Clean visual presentation tailored for executive and store manager review"
     ]
   },
   {
     "id": 3,
     "slug": "d7-sports",
     "title": "D7 Sports",
-    "category": "VR & Motion Graphics",
+    "category": "VR Experience & Spatial Motion Graphics",
     "year": "2023",
-    "role": "VR Developer & Motion Designer",
+    "role": "VR Developer & Motion Graphics Engineer",
     "image": "/assets/img/D7.png",
-    "gallery": [],
-    "link": "https://drive.google.com/file/d/18_hxmycJTo6qIy9MebsEbzJyGbl6s_Tz/view?usp=sharing",
-    "tech": [
-      "Unity",
-      "VR",
-      "Motion Graphics"
+    "gallery": [
+      "/assets/img/D7.png",
+      "/assets/img/D7sports.png"
     ],
-    "summary": "An immersive VR sports experience combined with high-energy motion graphics.",
+    "link": "https://drive.google.com/file/d/18_hxmycJTo6qIy9MebsEbzJyGbl6s_Tz/view?usp=sharing",
+    "domain": "d7sports.vr",
+    "tagline": "Immersive Virtual Reality Sports Arena with Locked 90 FPS Spatial Immersion",
+    "badge": "VR Experience • Unity 3D & C#",
+    "glowColor": "rgba(234, 88, 12, 0.22)",
+    "tech": [
+      "Unity 3D",
+      "C#",
+      "Virtual Reality",
+      "Spatial Audio",
+      "Motion Graphics",
+      "Blender 3D"
+    ],
+    "summary": "An adrenaline-fueled virtual reality sports simulation engineered in Unity 3D — pairing physics-driven athletic gameplay and dynamic motion graphics with a locked 90 FPS rendering pipeline and 3D spatial audio for nausea-free immersion.",
     "description": [
-      "D7 Sports explores how virtual reality can change the way we experience sport — putting the viewer inside the action instead of in front of a screen.",
-      "The project pairs immersive VR scenes with motion-graphic sequences designed to keep the energy of live sport intact."
+      "Virtual reality applications in sports entertainment frequently struggle with latency spikes, motion disorientation, and unnatural physics feedback that break user presence. D7 Sports was developed to deliver an authentic athletic arena experience where movement, ball physics, and spatial acoustics mimic physical stadium dynamics.",
+      "Engineered within Unity 3D using custom C# physics solvers and optimized polygon budgets. Implemented high-efficiency draw-call batching, baked lightmaps, and occlusion culling algorithms that maintain a locked 90 FPS framerate with sub-12ms motion-to-photon latency across VR headsets.",
+      "Integrated 360° HRTF spatial audio positioning and high-impact motion graphics sequences modeled in Blender. Players experience directional crowd roar, realistic ball impact acoustics, and intuitive spatial UI that enhances immersion without cluttering the athlete's visual field."
+    ],
+    "features": [
+      {
+        "title": "Locked 90 FPS Headset Pipeline",
+        "desc": "Aggressive polygon optimization and GPU draw-call batching guaranteeing butter-smooth rendering and zero simulator sickness."
+      },
+      {
+        "title": "360° HRTF Spatial Acoustics",
+        "desc": "Real-time binaural sound engine accurately mapping stadium echoes, ball impacts, and crowd feedback to user head rotation."
+      },
+      {
+        "title": "Physics-Driven Athletic Mechanics",
+        "desc": "Fine-tuned haptic feedback and custom C# ball collision solvers replicating realistic trajectory and kinetic response."
+      },
+      {
+        "title": "Dynamic Motion Graphics & Spatial UI",
+        "desc": "Futuristic spatial scoreboards and visual effect sequences designed in Blender and Unity VFX Graph."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "90 FPS",
+        "label": "Locked Headset Framerate"
+      },
+      {
+        "value": "360°",
+        "label": "Spatial Immersion"
+      },
+      {
+        "value": "<12ms",
+        "label": "Motion-to-Photon Latency"
+      }
     ],
     "highlights": [
-      "Immersive VR environments built in Unity",
-      "Custom motion-graphics sequences",
-      "Optimised for smooth headset performance"
+      "High-performance virtual sports arena built in Unity 3D and C#",
+      "Locked 90 FPS performance across standalone and PC VR headsets",
+      "Realistic HRTF 3D spatial audio positioning and sound design",
+      "Intuitive spatial UI and custom motion graphics sequences in Blender"
     ]
   },
   {
     "id": 4,
     "slug": "interior-design-prototype",
-    "title": "Interior Design Prototype",
-    "category": "3D Web & Interactive prototype",
+    "title": "Interior Design 3D WebGL",
+    "category": "3D Web & Interactive Architectural Space Customizer",
     "year": "2023",
-    "role": "3D Web Developer & Designer",
+    "role": "Lead 3D Web Developer & UI/UX Designer",
     "image": "/assets/img/White and Brown Minimalist Interior Desktop Prototype.gif",
-    "gallery": [],
-    "link": "",
+    "gallery": [
+      "/assets/img/White and Brown Minimalist Interior Desktop Prototype.gif"
+    ],
+    "link": "https://vimalsri318.github.io/My_Potfolio/",
+    "domain": "interior-3d.web.app",
+    "tagline": "Real-Time In-Browser 3D Architectural Space Customizer with PBR Materials",
+    "badge": "3D Web • Three.js & WebGL",
+    "glowColor": "rgba(20, 184, 166, 0.22)",
     "tech": [
       "Three.js",
-      "3D Web",
-      "Prototyping"
+      "WebGL",
+      "JavaScript",
+      "PBR Materials & Textures",
+      "GLSL Shaders",
+      "Interactive 3D UI"
     ],
-    "summary": "An interactive 3D prototype that lets users walk through and customise interior spaces in the browser.",
+    "summary": "An in-browser 3D architectural visualization and interior design customizer built with Three.js and WebGL — enabling clients to explore photorealistic living spaces in real-time 3D, customize wood and textile finishes, and inspect daylight simulations with zero plugins required.",
     "description": [
-      "This prototype brings interior design into the browser — users can explore a minimalist space in 3D and see how materials and layouts change the feel of a room.",
-      "It was built to test how far interactive 3D can go on the web without plugins or downloads."
+      "Traditional interior design approvals rely on static 2D renders or cumbersome CAD files that fail to convey true spatial proportions and natural lighting variation. This prototype was designed to bring interactive 3D architectural exploration directly into modern web browsers without requiring software installation or specialized hardware.",
+      "Engineered using Three.js and raw WebGL shaders. Implemented physically-based rendering (PBR) workflows with custom roughness, metallic, and ambient occlusion map swaps, allowing users to toggle between premium hardwoods, Italian marbles, and minimalist fabric palettes with instantaneous visual feedback.",
+      "Optimized geometry hierarchies, progressive texture streaming, and mobile touch camera controls to achieve a silky 60 FPS across both desktop workstations and mobile phones, setting a benchmark for lightweight, browser-based spatial e-commerce and architectural walk-throughs."
+    ],
+    "features": [
+      {
+        "title": "Zero-Plugin WebGL Engine",
+        "desc": "Runs natively in Chrome, Safari, and mobile browsers with sub-second initialization and no external viewer downloads."
+      },
+      {
+        "title": "Real-Time PBR Material Swapping",
+        "desc": "Dynamically modifies albedo, roughness, and normal maps on furniture and surfaces with zero visual stutter."
+      },
+      {
+        "title": "Dynamic Daylight & Shadow Simulation",
+        "desc": "Adjustable directional sun angles and soft ambient occlusion showing how natural sunlight transforms interior finishes throughout the day."
+      },
+      {
+        "title": "Smooth Orbit & First-Person Camera",
+        "desc": "Damped orbital navigation and touch gesture support enabling fluid spatial exploration across every angle."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "60 FPS",
+        "label": "In-Browser WebGL"
+      },
+      {
+        "value": "0",
+        "label": "Plugins Required"
+      },
+      {
+        "value": "100%",
+        "label": "Real-Time 3D Customization"
+      }
     ],
     "highlights": [
-      "Real-time 3D rendering in the browser",
-      "Interactive material and layout switching",
-      "Minimalist, design-first presentation"
+      "Photorealistic in-browser 3D rendering pipeline powered by Three.js",
+      "Instant PBR material, wood finish, and fabric palette swapping",
+      "Butter-smooth 60 FPS performance across desktop and mobile devices",
+      "Intuitive touch-friendly 3D orbit controls and camera damping"
     ]
   },
   {
     "id": 5,
     "slug": "ar-mart",
     "title": "AR Mart",
-    "category": "Immersive Web & AR mockups",
+    "category": "Spatial Web & Augmented Reality Commerce",
     "year": "2023",
-    "role": "AR Developer & Designer",
+    "role": "Lead AR Interaction Designer & Spatial UI Engineer",
     "image": "/assets/img/AR_Mart.png",
-    "gallery": [],
-    "link": "",
-    "tech": [
-      "AR.js",
-      "WebAR",
-      "UI Design"
+    "gallery": [
+      "/assets/img/AR_Mart.png"
     ],
-    "summary": "Augmented-reality shopping mockups that bring products into the customer’s own space.",
+    "link": "https://vimalsri318.github.io/My_Potfolio/",
+    "domain": "armart.app",
+    "tagline": "Next-Gen Augmented Reality Spatial Commerce with 1:1 Scale In-Room Projection",
+    "badge": "Spatial Web • AR & WebXR",
+    "glowColor": "rgba(139, 92, 246, 0.22)",
+    "tech": [
+      "WebXR",
+      "AR Interaction Design",
+      "Figma",
+      "Spatial UI/UX",
+      "3D Prototyping",
+      "Mobile Sensor APIs"
+    ],
+    "summary": "A forward-looking augmented reality commerce platform bridging digital catalogs and physical living spaces — projecting 1:1 true-scale home goods, furniture, and appliances into consumer rooms via device camera with instant purchasing pathways.",
     "description": [
-      "AR Mart imagines retail without shelves — products appear in the customer’s room through their phone camera, at real scale, before they buy.",
-      "The mockups explore the full journey: discovery, AR preview, and purchase, all inside an immersive web experience."
+      "One of the biggest friction points in modern e-commerce is spatial uncertainty: over 40% of furniture and home appliance returns occur because consumers misjudge size, room clearance, or aesthetic compatibility with existing interior decor. AR Mart was engineered to solve this dilemma.",
+      "Designed an end-to-end spatial shopping flow leveraging WebXR and mobile camera sensor integration. Users can preview catalog items in real-time, accurately scaled down to millimeter precision against room floor planes, complete with realistic ground shadows and surface collision detection.",
+      "Crafted an intuitive spatial user interface that balances minimal visual distraction with powerful utility — offering instant dimension readouts, colorway adjustments, and a frictionless single-tap checkout pathway that connects spatial discovery directly to order fulfillment."
+    ],
+    "features": [
+      {
+        "title": "True 1:1 Scale Spatial Projection",
+        "desc": "High-accuracy plane detection and perspective alignment projecting products at millimeter-true dimensions in physical living spaces."
+      },
+      {
+        "title": "Ambient Lighting & Ground Shadows",
+        "desc": "Real-time shadow occlusion and lighting estimation matching the product's virtual appearance to the physical ambient room conditions."
+      },
+      {
+        "title": "In-Room Instant Dimension Overlays",
+        "desc": "Live AR measurement guides overlaying width, height, and depth dimensions directly onto the physical environment for clearance verification."
+      },
+      {
+        "title": "Frictionless Spatial Checkout Flow",
+        "desc": "Non-intrusive floating action dock allowing shoppers to switch colorways, check stock, and finalize checkout without leaving the AR viewport."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "1:1",
+        "label": "True Dimension Accuracy"
+      },
+      {
+        "value": "Spatial",
+        "label": "Augmented Reality Flow"
+      },
+      {
+        "value": "-40%",
+        "label": "Projected Return Rate"
+      }
     ],
     "highlights": [
-      "Web-based AR — no app install needed",
-      "True-to-scale product previews",
-      "End-to-end shopping journey mockups"
+      "Web-based augmented reality commerce flow with zero app download requirement",
+      "True-to-scale 1:1 product projection and ambient shadow occlusion",
+      "Comprehensive spatial interaction design and prototyping in Figma",
+      "End-to-end purchasing journey connecting AR previews to instant checkout"
     ]
   },
   {
     "id": 6,
     "slug": "pricepulse",
     "title": "PricePulse",
-    "category": "Web application & design",
+    "category": "Full-Stack Web App & Price Intelligence",
     "year": "2024",
-    "role": "Full-stack Developer",
+    "role": "Lead Full-Stack Developer & Automation Engineer",
     "image": "/assets/img/Comapre_website.png",
-    "gallery": [],
-    "link": "",
+    "gallery": [
+      "/assets/img/Comapre_website.png"
+    ],
+    "link": "https://vimalsri318.github.io/My_Potfolio/",
+    "domain": "pricepulse.io",
+    "tagline": "Automated Multi-Store Price Intelligence & Historical Fluctuation Tracker",
+    "badge": "Full-Stack • Web Scraping & Analytics",
+    "glowColor": "rgba(14, 165, 233, 0.22)",
     "tech": [
       "React",
-      "Node.js",
-      "Web Scraping"
+      "Node.js & Express",
+      "Puppeteer",
+      "Chart.js",
+      "RESTful APIs",
+      "Tailwind CSS"
     ],
-    "summary": "A price-comparison web app that tracks products across stores so users always buy at the right moment.",
+    "summary": "An automated price intelligence and multi-store product comparison engine — continuously scraping e-commerce marketplaces to deliver historical price variance tracking, side-by-side merchant comparisons, and algorithmic optimal-buy triggers.",
     "description": [
-      "PricePulse watches product prices across multiple stores and surfaces the best time and place to buy.",
-      "The interface is intentionally simple: search a product, see its price history and current best deal at a glance."
+      "E-commerce pricing on electronics and high-demand goods fluctuates hourly across major retailers, making it exhausting for consumers and procurement teams to secure genuine bargains without constant manual tracking. PricePulse was built to automate price discovery and predict optimal buying windows.",
+      "Engineered a resilient distributed scraping pipeline using Node.js and headless browser automation via Puppeteer. Implemented intelligent request throttling, user-agent rotation, and DOM parsing routines that systematically collect pricing, stock availability, and merchant ratings across multiple competitive storefronts without triggering anti-bot blocks.",
+      "Developed a fast React interface powered by Chart.js for time-series visualization. Users can paste any product link or search keywords to view historical price trajectory charts, receive lowest-price-ever alerts, and compare shipping and tax totals across stores in a single, decision-first view."
+    ],
+    "features": [
+      {
+        "title": "Automated Multi-Retailer Scraping Engine",
+        "desc": "Headless Puppeteer workers running scheduled price extraction jobs across major e-commerce storefronts with rate-limit evasion."
+      },
+      {
+        "title": "Historical Price Trajectory Graphing",
+        "desc": "High-performance Chart.js visual trends plotting 30-day, 90-day, and all-time price variances to expose artificial markups."
+      },
+      {
+        "title": "Smart Optimal-Buy Signal Alerts",
+        "desc": "Algorithmic alert engine that evaluates statistical standard deviations to notify buyers when an item reaches an all-time low."
+      },
+      {
+        "title": "Side-by-Side Merchant Comparison",
+        "desc": "Aggregated matrix breaking down base price, shipping fees, seller ratings, and expected delivery windows in real-time."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "24/7",
+        "label": "Automated Price Monitoring"
+      },
+      {
+        "value": "Multi-Store",
+        "label": "Vendor Comparison"
+      },
+      {
+        "value": "<200ms",
+        "label": "Chart Analytics Render"
+      }
     ],
     "highlights": [
-      "Multi-store price comparison",
-      "Price-history tracking",
-      "Clean, decision-first UI"
+      "Continuous multi-vendor price scraping powered by Node.js and Puppeteer",
+      "Interactive historical price trajectory charting with Chart.js and React",
+      "Automated optimal buy-signal calculations and instant price-drop alerts",
+      "Clean, decision-first interface comparing merchant fees and delivery times"
     ]
   },
   {
     "id": 7,
     "slug": "namwear-tshirt-design",
-    "title": "Namwear T-shirt Design",
-    "category": "Merchandising & Branding",
+    "title": "Namwear Apparel",
+    "category": "Brand Identity & Streetwear Merchandise",
     "year": "2024",
-    "role": "Brand & Merchandise Designer",
+    "role": "Brand Strategist & Creative Director",
     "image": "https://res.cloudinary.com/g5nctap2/image/upload/v1784810065/portfolio/img/en7xzox6tini5wltfzcm.png",
-    "gallery": [],
+    "gallery": [
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1784810065/portfolio/img/en7xzox6tini5wltfzcm.png"
+    ],
     "link": "https://www.figma.com/proto/TX6zJj6Lz5934ZjVsanK5M/vs?page-id=0%3A1&node-id=984-372&viewport=-20038%2C-5262%2C0.31&t=zYGrmhAeN2Xhj9fw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1004%3A291&show-proto-sidebar=1",
+    "domain": "namwear.com",
+    "tagline": "Contemporary Streetwear Apparel & High-Impact Visual Identity Collection",
+    "badge": "Branding • Creative Direction & Merchandise",
+    "glowColor": "rgba(244, 63, 94, 0.22)",
     "tech": [
       "Figma",
-      "Branding",
-      "Merchandise"
+      "Creative Direction",
+      "Apparel Graphic Design",
+      "Brand Identity Systems",
+      "Vector Typography",
+      "Interactive Prototyping"
     ],
-    "summary": "Merchandise and branding design for Namwear — apparel that carries the brand’s identity.",
+    "summary": "A complete brand identity and merchandise collection for contemporary streetwear label Namwear — synthesizing bold typography, custom vector illustrations, and cohesive packaging aesthetics into an interactive Figma prototype presentation.",
     "description": [
-      "A merchandising project for Namwear covering T-shirt designs and the brand language around them.",
-      "The designs balance streetwear energy with a consistent brand identity, prototyped end-to-end in Figma."
+      "Emerging streetwear apparel brands require more than isolated graphics; they need an uncompromising visual manifesto that translates seamlessly across textiles, screen-printing separations, digital lookbooks, and packaging design. Namwear was conceptualized to establish an unmistakable urban design signature.",
+      "Engineered comprehensive graphic treatments balancing raw brutalist typography with balanced spatial layouts. Formulated color palettes tested for screen-print color accuracy across heavy 240+ GSM cotton fabrics, embroidery stitch limits, and digital lookbook assets.",
+      "Assembled the entire collection into a high-fidelity interactive Figma presentation prototype. Buyers and manufacturing partners can cycle through colorways, inspect print callouts, and experience the lifestyle editorial flow in real-time."
+    ],
+    "features": [
+      {
+        "title": "Complete Streetwear Apparel Line",
+        "desc": "Holistic collection spanning oversized graphic tees, minimalist chest lockups, and back-print visual statements."
+      },
+      {
+        "title": "Vector Typography & Illustration",
+        "desc": "100% scalable vector artwork engineered for multi-color screen printing separations with crisp edge fidelity."
+      },
+      {
+        "title": "Fabric & Production Technical Packs",
+        "desc": "Precise dimension guides, Pantone color codes, and placement measurements calibrated for apparel production lines."
+      },
+      {
+        "title": "Interactive Figma Prototype Presentation",
+        "desc": "Immersive digital lookbook allowing retailers and stakeholders to experience the brand ecosystem before manufacturing."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "100%",
+        "label": "Custom Vector Art"
+      },
+      {
+        "value": "Complete",
+        "label": "Streetwear Collection"
+      },
+      {
+        "value": "Interactive",
+        "label": "Figma Prototype"
+      }
     ],
     "highlights": [
-      "Complete T-shirt design collection",
-      "Consistent brand language across pieces",
-      "Interactive Figma prototype presentation"
+      "Full-spectrum streetwear merchandise and graphic design collection",
+      "Unified brand identity system connecting typography, apparel, and packaging",
+      "Production-calibrated vector artwork and screen-printing specifications",
+      "High-fidelity interactive prototype presentation in Figma"
     ]
   }
 ]

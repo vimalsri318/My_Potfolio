@@ -37,6 +37,9 @@ export default function ProjectDetail({ project, nextProject }) {
               {project.category} <span className="project-detail__dot">●</span> {project.year}
             </p>
             <h1 className="display project-detail__title">{project.title}</h1>
+            {project.tagline && (
+              <p className="project-detail__tagline">{project.tagline}</p>
+            )}
             <p className="project-detail__summary">{project.summary}</p>
           </header>
 
@@ -47,6 +50,20 @@ export default function ProjectDetail({ project, nextProject }) {
             </div>
           </Reveal>
 
+          {/* Key Metrics Bar (Apple Style) */}
+          {project.metrics && project.metrics.length > 0 && (
+            <Reveal>
+              <div className="project-detail__metrics-bar">
+                {project.metrics.map((m, i) => (
+                  <div key={i} className="project-detail__metric-item">
+                    <span className="project-detail__metric-val">{m.value}</span>
+                    <span className="project-detail__metric-label">{m.label}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          )}
+
           {/* Meta grid */}
           <div className="project-detail__grid">
             <div className="project-detail__cell">
@@ -55,7 +72,7 @@ export default function ProjectDetail({ project, nextProject }) {
             </div>
             <div className="project-detail__cell">
               <span className="mono project-detail__label">Tech</span>
-              <p>{project.tech.join(' — ')}</p>
+              <p>{Array.isArray(project.tech) ? project.tech.join(' — ') : project.tech}</p>
             </div>
             <div className="project-detail__cell">
               <span className="mono project-detail__label">Year</span>
@@ -76,35 +93,58 @@ export default function ProjectDetail({ project, nextProject }) {
           </div>
 
           {/* Overview */}
-          <section className="project-detail__section">
-            <span className="mono project-detail__label">Overview</span>
-            <div className="project-detail__text">
-              {project.description.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </div>
-          </section>
+          {project.description && project.description.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">Overview</span>
+              <div className="project-detail__text">
+                {Array.isArray(project.description) ? (
+                  project.description.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))
+                ) : (
+                  <p>{project.description}</p>
+                )}
+              </div>
+            </section>
+          )}
+
+          {/* Architecture & Features */}
+          {project.features && project.features.length > 0 && (
+            <section className="project-detail__section project-detail__features-section">
+              <span className="mono project-detail__label">Architecture & Features</span>
+              <div className="project-detail__features-grid">
+                {project.features.map((f, i) => (
+                  <div key={i} className="project-detail__feature-card">
+                    <h4 className="project-detail__feature-title">{f.title}</h4>
+                    <p className="project-detail__feature-desc">{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Highlights */}
-          <section className="project-detail__section">
-            <span className="mono project-detail__label">Highlights</span>
-            <ul className="project-detail__highlights">
-              {project.highlights.map((item, i) => (
-                <li key={i}>
-                  <span className="project-detail__hl-index">0{i + 1}</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
+          {project.highlights && project.highlights.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">Highlights</span>
+              <ul className="project-detail__highlights">
+                {project.highlights.map((item, i) => (
+                  <li key={i}>
+                    <span className="project-detail__hl-index">0{i + 1}</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
-          {/* Gallery (optional — add image paths to `gallery` in data/projects.js) */}
-          {project.gallery.length > 0 && (
+          {/* Gallery */}
+          {Array.isArray(project.gallery) && project.gallery.length > 0 && (
             <section className="project-detail__section">
               <span className="mono project-detail__label">Gallery</span>
               <div className="project-detail__gallery">
                 {project.gallery.map((src, i) => (
-                  <img key={i} src={src} alt={`${project.title} — ${i + 1}`} />
+                  <img key={i} src={src} alt={`${project.title} — ${i + 1}`} loading="lazy" />
                 ))}
               </div>
             </section>
