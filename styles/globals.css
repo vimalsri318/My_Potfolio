@@ -1360,7 +1360,7 @@ textarea {
 .project-detail {
   padding-top: clamp(110px, 14vw, 160px);
   padding-bottom: clamp(70px, 10vw, 120px);
-  background: var(--paper);
+  background: #f5f5f7;
   min-height: 100vh;
 }
 
@@ -1396,22 +1396,33 @@ textarea {
 .project-detail__title {
   font-size: clamp(2.6rem, 8vw, 6rem);
   color: var(--ink);
-  margin-bottom: 22px;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.project-detail__tagline {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 .project-detail__summary {
-  max-width: 640px;
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-  line-height: 1.55;
+  max-width: 720px;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
   color: var(--ink-soft);
 }
 
 .project-detail__hero {
-  border: 1px solid var(--line);
-  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
   overflow: hidden;
-  margin-bottom: clamp(40px, 6vw, 70px);
-  background: var(--white);
+  margin-bottom: clamp(36px, 5vw, 60px);
+  background: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
 }
 
 .project-detail__hero img {
@@ -1420,12 +1431,56 @@ textarea {
   height: auto;
 }
 
+/* Key Metrics Bar (Apple Style) */
+.project-detail__metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.project-detail__metric-item {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  padding: clamp(22px, 3vw, 30px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-detail__metric-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.project-detail__metric-val {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.project-detail__metric-label {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .project-detail__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  margin-bottom: clamp(48px, 7vw, 90px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  margin-bottom: clamp(48px, 7vw, 80px);
 }
 
 .project-detail__cell {
@@ -1433,7 +1488,7 @@ textarea {
 }
 
 .project-detail__cell + .project-detail__cell {
-  border-left: 1px solid var(--line);
+  border-left: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 .project-detail__cell p {
@@ -1448,9 +1503,52 @@ textarea {
 }
 
 .project-detail__live {
-  color: var(--ink);
+  color: #0066cc;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.project-detail__live:hover {
   text-decoration: underline;
-  text-underline-offset: 3px;
+}
+
+/* Architecture Features Grid */
+.project-detail__features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.project-detail__feature-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 18px;
+  padding: clamp(20px, 2.5vw, 26px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-detail__feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.project-detail__feature-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.project-detail__feature-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
 }
 
 .project-detail__section {
