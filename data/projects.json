@@ -218,60 +218,71 @@
   {
     "id": 1,
     "slug": "dmart-analysis",
-    "title": "D-MART Analysis",
-    "category": "Data Analysis & Web App",
+    "title": "D-MART Retail Intelligence",
+    "category": "Big Data Analytics & Decision Dashboard",
     "year": "2024",
-    "role": "Full-stack Developer & Data Analyst",
+    "role": "Lead Data Analyst & Full-Stack Architect",
     "image": "/assets/img/ANALYSIS.png",
-    "gallery": [],
+    "gallery": [
+      "/assets/img/ANALYSIS.png",
+      "/assets/img/D-MART.png"
+    ],
     "link": "https://ltqapcfmatgt2.mocha.app/",
     "domain": "ltqapcfmatgt2.mocha.app",
-    "tagline": "Interactive Big-Data Retail Intelligence & Visualization",
+    "tagline": "Interactive Big-Data Retail Intelligence & Multi-Store SKU Profitability Modeling",
     "badge": "Data Intelligence • Python & React",
-    "glowColor": "rgba(168, 85, 247, 0.20)",
+    "glowColor": "rgba(168, 85, 247, 0.22)",
     "tech": [
       "Python",
+      "Pandas & NumPy",
       "React",
       "Data Visualization",
-      "Pandas"
+      "Automated ETL",
+      "Tailwind CSS"
     ],
-    "summary": "An interactive data-analysis web platform that turns raw D-MART retail transactions into intuitive, visual trends and category insights for decision-makers.",
+    "summary": "An interactive retail analytics and intelligence platform processing massive D-MART store transaction volumes — transforming raw point-of-sale datasets into actionable gross margin forecasts, SKU velocity trends, and regional sales drill-downs.",
     "description": [
-      "D-MART Analysis processes massive retail sales datasets and transforms them into an interactive executive dashboard where revenue trends, SKU velocity, and regional performance can be analyzed.",
-      "Engineered automated ETL data processing pipelines and intuitive drill-down charts so stakeholders can uncover hidden profit drivers without needing data science expertise."
+      "Supermarket chains and FMCG retail giants generate millions of point-of-sale records daily, yet store directors and inventory managers often lack real-time visual tools to identify high-margin SKU clusters and regional revenue leakages. D-MART Analysis was created to bridge this data-to-decision gap.",
+      "Engineered high-throughput automated Python ETL pipelines using Pandas and NumPy to cleanse, normalize, and aggregate high-volume raw sales records. Built optimized in-memory query routines that allow instant cross-dimensional analysis across departments, product categories, and promotional price brackets.",
+      "Crafted an executive-ready React dashboard pairing decision-first UX with high-performance interactive charts. Business stakeholders can run multi-variable scenario modeling, compare regional warehouse performance side-by-side, and isolate fast-moving consumer goods with zero analytical friction."
     ],
     "features": [
       {
-        "title": "Interactive Metric Drill-downs",
-        "desc": "Explore revenue, discount impact, and customer purchase patterns with live filtering."
+        "title": "Automated Python ETL Pipeline",
+        "desc": "Ingests, deduplicates, and structures hundred-thousand-row retail datasets into normalized relational schemas in seconds."
       },
       {
-        "title": "Automated ETL Pipeline",
-        "desc": "Cleanses, normalizes, and indexes raw CSV/database records seamlessly."
+        "title": "Multi-Dimensional SKU Velocity Drill-Downs",
+        "desc": "Real-time exploration of sales volume, markdown impact, and seasonal velocity across groceries, FMCG, and apparel."
       },
       {
-        "title": "Decision-First UI",
-        "desc": "Designed with minimal noise and maximum clarity for retail managers."
+        "title": "Interactive Gross Margin Modeling",
+        "desc": "Visual sensitivity analysis allowing retail executives to simulate margin outcomes based on wholesale supplier discount adjustments."
+      },
+      {
+        "title": "Executive Decision-First Dashboard",
+        "desc": "Clean, distraction-free visual reporting system highlighting key outlier categories, inventory risks, and top revenue drivers."
       }
     ],
     "metrics": [
       {
         "value": "100K+",
-        "label": "Data Points Analyzed"
+        "label": "Transactions Processed"
       },
       {
         "value": "100%",
-        "label": "Automated Pipeline"
+        "label": "Automated ETL Pipeline"
       },
       {
-        "value": "Interactive",
-        "label": "Visual Drill-downs"
+        "value": "Real-time",
+        "label": "Interactive Drill-downs"
       }
     ],
     "highlights": [
-      "Interactive charts and multi-dimensional drill-down views",
-      "Clean, high-performance responsive analytics dashboard",
-      "Automated data aggregation pipeline in Python"
+      "End-to-end data pipeline processing 100K+ transactional records with zero data loss",
+      "Interactive multi-attribute filtering and scenario modeling in React",
+      "Automated SKU velocity categorizations and supplier margin optimization",
+      "Clean visual presentation tailored for executive and store manager review"
     ]
   },
   {
