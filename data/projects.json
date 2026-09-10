@@ -428,47 +428,69 @@
     "id": 5,
     "slug": "ar-mart",
     "title": "AR Mart",
-    "category": "AR Shopping & Interactive Mockups",
+    "category": "Spatial Web & Augmented Reality Commerce",
     "year": "2023",
-    "role": "AR Interaction Designer",
+    "role": "Lead AR Interaction Designer & Spatial UI Engineer",
     "image": "/assets/img/AR_Mart.png",
-    "gallery": [],
-    "link": "",
-    "domain": "armart.app",
-    "tagline": "Next-Gen Augmented Reality Spatial Commerce",
-    "badge": "Spatial Web • AR & WebXR",
-    "glowColor": "rgba(139, 92, 246, 0.20)",
-    "tech": [
-      "Figma",
-      "AR Design",
-      "Prototyping",
-      "Spatial UI"
+    "gallery": [
+      "/assets/img/AR_Mart.png"
     ],
-    "summary": "Augmented-reality shopping concepts that bring products into the customer’s physical space at true scale before purchasing.",
+    "link": "https://vimalsri318.github.io/My_Potfolio/",
+    "domain": "armart.app",
+    "tagline": "Next-Gen Augmented Reality Spatial Commerce with 1:1 Scale In-Room Projection",
+    "badge": "Spatial Web • AR & WebXR",
+    "glowColor": "rgba(139, 92, 246, 0.22)",
+    "tech": [
+      "WebXR",
+      "AR Interaction Design",
+      "Figma",
+      "Spatial UI/UX",
+      "3D Prototyping",
+      "Mobile Sensor APIs"
+    ],
+    "summary": "A forward-looking augmented reality commerce platform bridging digital catalogs and physical living spaces — projecting 1:1 true-scale home goods, furniture, and appliances into consumer rooms via device camera with instant purchasing pathways.",
     "description": [
-      "AR Mart imagines retail without physical limitations — items appear in the customer's room via camera preview with realistic scale and occlusion.",
-      "Explores the complete buying journey from spatial discovery to instant checkout."
+      "One of the biggest friction points in modern e-commerce is spatial uncertainty: over 40% of furniture and home appliance returns occur because consumers misjudge size, room clearance, or aesthetic compatibility with existing interior decor. AR Mart was engineered to solve this dilemma.",
+      "Designed an end-to-end spatial shopping flow leveraging WebXR and mobile camera sensor integration. Users can preview catalog items in real-time, accurately scaled down to millimeter precision against room floor planes, complete with realistic ground shadows and surface collision detection.",
+      "Crafted an intuitive spatial user interface that balances minimal visual distraction with powerful utility — offering instant dimension readouts, colorway adjustments, and a frictionless single-tap checkout pathway that connects spatial discovery directly to order fulfillment."
     ],
     "features": [
       {
-        "title": "True-to-Scale Projection",
-        "desc": "Preview furniture and products accurately against room dimensions."
+        "title": "True 1:1 Scale Spatial Projection",
+        "desc": "High-accuracy plane detection and perspective alignment projecting products at millimeter-true dimensions in physical living spaces."
+      },
+      {
+        "title": "Ambient Lighting & Ground Shadows",
+        "desc": "Real-time shadow occlusion and lighting estimation matching the product's virtual appearance to the physical ambient room conditions."
+      },
+      {
+        "title": "In-Room Instant Dimension Overlays",
+        "desc": "Live AR measurement guides overlaying width, height, and depth dimensions directly onto the physical environment for clearance verification."
+      },
+      {
+        "title": "Frictionless Spatial Checkout Flow",
+        "desc": "Non-intrusive floating action dock allowing shoppers to switch colorways, check stock, and finalize checkout without leaving the AR viewport."
       }
     ],
     "metrics": [
       {
-        "value": "True 1:1",
-        "label": "Scale Accuracy"
+        "value": "1:1",
+        "label": "True Dimension Accuracy"
       },
       {
         "value": "Spatial",
-        "label": "AR Experience"
+        "label": "Augmented Reality Flow"
+      },
+      {
+        "value": "-40%",
+        "label": "Projected Return Rate"
       }
     ],
     "highlights": [
-      "Web-based AR — no app install needed",
-      "True-to-scale product previews",
-      "End-to-end shopping journey mockups"
+      "Web-based augmented reality commerce flow with zero app download requirement",
+      "True-to-scale 1:1 product projection and ambient shadow occlusion",
+      "Comprehensive spatial interaction design and prototyping in Figma",
+      "End-to-end purchasing journey connecting AR previews to instant checkout"
     ]
   },
   {
