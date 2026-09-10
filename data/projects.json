@@ -52,9 +52,18 @@
       }
     ],
     "metrics": [
-      { "value": "5–30%", "label": "Pharmacy Margin Uplift" },
-      { "value": "Pan-India", "label": "Operational Reach" },
-      { "value": "Real-time", "label": "Google Sheets Lead Sync" }
+      {
+        "value": "5–30%",
+        "label": "Pharmacy Margin Uplift"
+      },
+      {
+        "value": "Pan-India",
+        "label": "Operational Reach"
+      },
+      {
+        "value": "Real-time",
+        "label": "Google Sheets Lead Sync"
+      }
     ],
     "highlights": [
       "Multi-page enterprise architecture built with React and Tailwind CSS",
@@ -117,9 +126,18 @@
       }
     ],
     "metrics": [
-      { "value": "8", "label": "Enterprise Verticals" },
-      { "value": "100%", "label": "Visual In-Place Editing" },
-      { "value": "<1s", "label": "Load Performance" }
+      {
+        "value": "8",
+        "label": "Enterprise Verticals"
+      },
+      {
+        "value": "100%",
+        "label": "Visual In-Place Editing"
+      },
+      {
+        "value": "<1s",
+        "label": "Load Performance"
+      }
     ],
     "highlights": [
       "Custom-engineered Visual In-Place CMS allowing on-page design editing without section forms",
@@ -134,48 +152,67 @@
     "title": "Carspace",
     "category": "E-Commerce & Hybrid Web App",
     "year": "2024",
-    "role": "Full-stack Developer",
+    "role": "Lead Full-Stack Developer & PWA Architect",
     "image": "/assets/img/Carspace.png",
-    "gallery": [],
+    "gallery": [
+      "/assets/img/Carspace.png"
+    ],
     "link": "https://secondhandcarapp.web.app/",
     "domain": "secondhandcarapp.web.app",
-    "tagline": "Real-Time Second-Hand Automobile Marketplace",
+    "tagline": "Real-Time Second-Hand Automobile Marketplace with Zero-Install PWA",
     "badge": "Full-Stack • Progressive Web App",
-    "glowColor": "rgba(59, 130, 246, 0.20)",
+    "glowColor": "rgba(59, 130, 246, 0.22)",
     "tech": [
       "React",
-      "Firebase",
-      "PWA",
-      "Tailwind CSS"
+      "Firebase Firestore",
+      "Progressive Web App (PWA)",
+      "Tailwind CSS",
+      "Cloud Functions",
+      "Real-Time Indexing"
     ],
-    "summary": "A hybrid e-commerce platform for buying and selling certified used cars, engineered with instant filtering, real-time inventory sync, and installable PWA mobile capabilities.",
+    "summary": "High-performance hybrid e-commerce marketplace for certified pre-owned vehicles — engineered with sub-100ms multi-facet inventory search, real-time Firestore database synchronization, and native-feeling offline PWA mobile capabilities.",
     "description": [
-      "Carspace connects used car buyers and dealerships through an instant, app-like web experience. Listings, search and price filtering are designed to respond instantaneously.",
-      "Built as a hybrid web application with Progressive Web App (PWA) offline capabilities, providing an installable mobile app experience without requiring native app store downloads."
+      "Used car marketplaces frequently suffer from sluggish inventory indexing, outdated pricing states, and heavy app download barriers for casual car buyers. Carspace was conceived to eliminate this friction through an instantaneous, app-like web platform connecting certified dealerships with prospective buyers.",
+      "Engineered the full-stack architecture on React and Firebase Cloud Firestore. Implemented client-side indexing and real-time document listeners that push vehicle availability, price adjustments, and inspection status updates across all connected clients in under 100 milliseconds without page refreshes.",
+      "Architected the application as an installable Progressive Web App (PWA) with smart service worker caching strategies, enabling seamless offline browsing of previously viewed car models, smooth touch gestures, and full home-screen installability across iOS and Android."
     ],
     "features": [
       {
-        "title": "Instant Search & Multi-Filter",
-        "desc": "Sub-100ms multi-parameter search across make, model, price, and mileage."
+        "title": "Sub-100ms Faceted Search",
+        "desc": "Ultra-fast multi-parameter query engine allowing simultaneous instant filtering across make, model, odometer mileage, price bracket, and transmission type."
       },
       {
-        "title": "Firebase Real-Time DB",
-        "desc": "Live inventory updates when listings are added, sold, or modified."
+        "title": "Real-Time Firestore Inventory Sync",
+        "desc": "Live websocket-backed document updates that automatically reflect newly listed vehicles, sold reservations, and price changes without reloading."
       },
       {
-        "title": "Installable PWA Experience",
-        "desc": "Home-screen installable with offline caching and native mobile gesture support."
+        "title": "Zero-Install PWA Mobile Parity",
+        "desc": "Installable to mobile home screens with service worker offline caching, responsive touch gestures, and native app appearance."
+      },
+      {
+        "title": "Dealership & Buyer Inquiry Flow",
+        "desc": "Streamlined in-app direct inquiry pipeline connecting verified buyers to dealership representatives with one-tap WhatsApp and call actions."
       }
     ],
     "metrics": [
-      { "value": "<100ms", "label": "Search Query Latency" },
-      { "value": "PWA", "label": "Mobile Installable" },
-      { "value": "Real-time", "label": "Firebase Sync" }
+      {
+        "value": "<100ms",
+        "label": "Search Query Latency"
+      },
+      {
+        "value": "100%",
+        "label": "PWA Mobile Parity"
+      },
+      {
+        "value": "Real-time",
+        "label": "Firestore Live Sync"
+      }
     ],
     "highlights": [
-      "Real-time inventory backed by Firebase Firestore",
-      "Advanced multi-attribute search and facet filtering",
-      "Progressive Web App with zero-install mobile parity"
+      "High-speed multi-faceted vehicle filtering with sub-100ms response time",
+      "Real-time cloud database architecture powered by Firebase Firestore",
+      "Installable Progressive Web App with offline caching and native mobile UI",
+      "Streamlined dealership contact routing and vehicle inspection badges"
     ]
   },
   {
@@ -218,9 +255,18 @@
       }
     ],
     "metrics": [
-      { "value": "100K+", "label": "Data Points Analyzed" },
-      { "value": "100%", "label": "Automated Pipeline" },
-      { "value": "Interactive", "label": "Visual Drill-downs" }
+      {
+        "value": "100K+",
+        "label": "Data Points Analyzed"
+      },
+      {
+        "value": "100%",
+        "label": "Automated Pipeline"
+      },
+      {
+        "value": "Interactive",
+        "label": "Visual Drill-downs"
+      }
     ],
     "highlights": [
       "Interactive charts and multi-dimensional drill-down views",
@@ -264,8 +310,14 @@
       }
     ],
     "metrics": [
-      { "value": "90 FPS", "label": "Smooth VR Rendering" },
-      { "value": "360°", "label": "Spatial Immersion" }
+      {
+        "value": "90 FPS",
+        "label": "Smooth VR Rendering"
+      },
+      {
+        "value": "360°",
+        "label": "Spatial Immersion"
+      }
     ],
     "highlights": [
       "Immersive VR environments built in Unity",
@@ -309,8 +361,14 @@
       }
     ],
     "metrics": [
-      { "value": "60 FPS", "label": "WebGL Performance" },
-      { "value": "0", "label": "Plugins Required" }
+      {
+        "value": "60 FPS",
+        "label": "WebGL Performance"
+      },
+      {
+        "value": "0",
+        "label": "Plugins Required"
+      }
     ],
     "highlights": [
       "Real-time 3D rendering with Three.js",
@@ -350,8 +408,14 @@
       }
     ],
     "metrics": [
-      { "value": "True 1:1", "label": "Scale Accuracy" },
-      { "value": "Spatial", "label": "AR Experience" }
+      {
+        "value": "True 1:1",
+        "label": "Scale Accuracy"
+      },
+      {
+        "value": "Spatial",
+        "label": "AR Experience"
+      }
     ],
     "highlights": [
       "Web-based AR — no app install needed",
@@ -391,8 +455,14 @@
       }
     ],
     "metrics": [
-      { "value": "Daily", "label": "Automated Scraping" },
-      { "value": "Multi-store", "label": "Price Comparison" }
+      {
+        "value": "Daily",
+        "label": "Automated Scraping"
+      },
+      {
+        "value": "Multi-store",
+        "label": "Price Comparison"
+      }
     ],
     "highlights": [
       "Multi-store price comparison",
