@@ -8,7 +8,7 @@ export default function Projects({ projects = [] }) {
         {/* Section Header (Inspired by Apple 'Switch to Mac.') */}
         <div className="apple-projects-head">
           <p className="apple-projects-eyebrow">
-            Selected Work <span className="apple-dot">●</span> 01–0{projects.length}
+            Selected Work <span className="apple-dot">●</span> 01–{String(projects.length).padStart(2, '0')}
           </p>
           <h2 className="apple-projects-title">Get to know my work.</h2>
         </div>
