@@ -80,6 +80,25 @@ export default function ProjectDetail({ project, nextProject }) {
             </Reveal>
           )}
 
+          {/* Product film — the narrated walkthrough, with sound and controls */}
+          {project.film && (
+            <Reveal>
+              <section className="project-detail__film">
+                <span className="mono project-detail__label">Product film</span>
+                <div className="project-detail__film-frame">
+                  <video
+                    src={project.film}
+                    poster={project.filmPoster || project.cover || project.image}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    aria-label={`${project.title} — product film`}
+                  />
+                </div>
+              </section>
+            </Reveal>
+          )}
+
           {/* Meta grid */}
           <div className="project-detail__grid">
             <div className="project-detail__cell">
@@ -124,10 +143,68 @@ export default function ProjectDetail({ project, nextProject }) {
             </section>
           )}
 
+          {/* The problem */}
+          {Array.isArray(project.challenge) && project.challenge.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">The problem</span>
+              <div className="project-detail__text">
+                {project.challenge.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Architecture — a diagram plus the numbered flow through it */}
+          {project.architecture && (
+            <section
+              className="project-detail__section project-detail__section--wide"
+              style={project.accent ? { '--card-accent': project.accent } : undefined}
+            >
+              <span className="mono project-detail__label">Architecture</span>
+              {project.architecture.image && (
+                <figure className="project-detail__figure">
+                  <a href={project.architecture.image} target="_blank" rel="noreferrer">
+                    <img src={project.architecture.image} alt={project.architecture.alt || `${project.title} architecture`} loading="lazy" />
+                  </a>
+                  {project.architecture.caption && <figcaption>{project.architecture.caption}</figcaption>}
+                </figure>
+              )}
+              {Array.isArray(project.architecture.steps) && project.architecture.steps.length > 0 && (
+                <ol className="project-detail__steps">
+                  {project.architecture.steps.map((step, i) => (
+                    <li key={i} className="project-detail__step">
+                      <span className="mono project-detail__step-index">{String(i + 1).padStart(2, '0')}</span>
+                      <h4 className="project-detail__feature-title">{step.title}</h4>
+                      <p className="project-detail__feature-desc">{step.desc}</p>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </section>
+          )}
+
+          {/* Inside the product — captioned screens */}
+          {Array.isArray(project.screens) && project.screens.length > 0 && (
+            <section className="project-detail__section project-detail__section--wide">
+              <span className="mono project-detail__label">Inside the product</span>
+              <div className="project-detail__screens">
+                {project.screens.map((screen, i) => (
+                  <figure key={i} className={`project-detail__figure${screen.wide ? ' project-detail__figure--wide' : ''}`}>
+                    <a href={screen.src} target="_blank" rel="noreferrer">
+                      <img src={screen.src} alt={screen.alt || screen.caption || `${project.title} — ${i + 1}`} loading="lazy" />
+                    </a>
+                    {screen.caption && <figcaption>{screen.caption}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Architecture & Features */}
           {project.features && project.features.length > 0 && (
             <section className="project-detail__section project-detail__features-section">
-              <span className="mono project-detail__label">Architecture & Features</span>
+              <span className="mono project-detail__label">{project.architecture ? 'Features' : 'Architecture & Features'}</span>
               <div className="project-detail__features-grid">
                 {project.features.map((f, i) => (
                   <div key={i} className="project-detail__feature-card">
@@ -147,6 +224,36 @@ export default function ProjectDetail({ project, nextProject }) {
                 {project.highlights.map((item, i) => (
                   <li key={i}>
                     <span className="project-detail__hl-index">0{i + 1}</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Key decisions & trade-offs */}
+          {Array.isArray(project.decisions) && project.decisions.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">Key decisions</span>
+              <div className="project-detail__features-grid project-detail__features-grid--pairs">
+                {project.decisions.map((d, i) => (
+                  <div key={i} className="project-detail__feature-card">
+                    <h4 className="project-detail__feature-title">{d.title}</h4>
+                    <p className="project-detail__feature-desc">{d.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* What's next */}
+          {Array.isArray(project.roadmap) && project.roadmap.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">What&apos;s next</span>
+              <ul className="project-detail__highlights">
+                {project.roadmap.map((item, i) => (
+                  <li key={i}>
+                    <span className="project-detail__hl-index">→</span>
                     {item}
                   </li>
                 ))}

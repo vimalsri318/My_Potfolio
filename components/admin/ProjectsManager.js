@@ -7,7 +7,7 @@ import { KINDS } from '../../data/catalogue'
 const EMPTY = {
   slug: '', title: '', category: '', year: '', role: '', image: '',
   link: '', summary: '', tech: [], description: [''], highlights: [''], gallery: [],
-  tagline: '', kind: '', status: '', accent: '', cover: '', video: '',
+  tagline: '', kind: '', status: '', accent: '', cover: '', video: '', film: '', filmPoster: '',
 }
 
 export default function ProjectsManager() {
@@ -99,6 +99,8 @@ export default function ProjectsManager() {
           <Field label="Tagline" hint="one line under the title on the card"><TextInput value={draft.tagline} onChange={(v) => set('tagline', v)} placeholder="What it does, in a sentence" /></Field>
           <Field label="Accent colour" hint="hex — status dot and glows"><TextInput value={draft.accent} onChange={(v) => set('accent', v)} placeholder="#7C3AED" /></Field>
           <Field label="Motion clip" hint="mp4 path — rendered from video/ (see video/README.md)"><TextInput value={draft.video} onChange={(v) => set('video', v)} placeholder="/assets/video/projects/<slug>.mp4" /></Field>
+          <Field label="Product film" hint="optional narrated mp4 — shown with controls on the case study"><TextInput value={draft.film} onChange={(v) => set('film', v)} placeholder="/assets/video/films/<slug>.mp4" /></Field>
+          <Field label="Film poster" hint="jpg shown before play — falls back to the cover"><TextInput value={draft.filmPoster} onChange={(v) => set('filmPoster', v)} placeholder="/assets/video/films/<slug>-poster.jpg" /></Field>
         </div>
 
         <Field label="Card cover" hint="16:10 image for the Work grid — falls back to the hero image" wide>

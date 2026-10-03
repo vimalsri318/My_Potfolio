@@ -452,7 +452,7 @@
     "slug": "amretri-healthcare",
     "title": "Amretri Healthcare",
     "category": "Healthcare Platform & AI Automation",
-    "year": "2025",
+    "year": "2026",
     "role": "Lead Full-Stack Architect & AI Engineer",
     "image": "https://res.cloudinary.com/g5nctap2/image/upload/v1788967840/portfolio/img/ly1buwqapr0oklng5qdd.png",
     "mobileImage": "/assets/img/projects/amretri/amretri-chatbot-chat.png",
@@ -463,66 +463,164 @@
     ],
     "link": "https://amretrihealthcare.com/",
     "domain": "amretrihealthcare.com",
-    "tagline": "Transforming Hospital Pharmacy Operations Across India",
+    "tagline": "An in-browser lead assistant and a Google Sheets backend — no servers to run",
     "badge": "Client Project • Live in Production",
     "glowColor": "rgba(13, 148, 136, 0.22)",
     "tech": [
-      "React",
-      "Tailwind CSS",
-      "Vite",
-      "AI Chatbot",
-      "Google Sheets API",
-      "WhatsApp Automation"
+      "TanStack Start",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Google Apps Script",
+      "Google Sheets",
+      "WhatsApp deep links",
+      "Vercel"
     ],
-    "summary": "Enterprise healthcare platform engineered to manage hospital pharmacies, bulk medicine procurement, and pharmacist supply — featuring the AMRI AI assistant with automated Google Sheets lead sync and instant WhatsApp routing.",
+    "summary": "A 14-page website for a hospital pharmacy operator, with AMRI — a chat assistant that qualifies leads entirely in the visitor's browser — and a backend made of one Google Sheet and one Apps Script instead of a server and database.",
     "description": [
-      "Amretri Healthcare is a Pan-India healthcare operations leader helping hospitals achieve 5–30% margin uplift through pharmacy management, staffing, and bulk medicine supply. They needed a premier digital platform matching their enterprise caliber.",
-      "Designed and developed the multi-page web platform from the ground up, with dedicated portals for hospital takeovers, staffing, and compliance audits.",
-      "Engineered 'AMRI', a custom healthcare assistant chatbot that guides visitors through tailored service requests, automatically syncing inquiries and contact data into Google Sheets in real-time, backed by one-tap WhatsApp integration for instantaneous doctor and executive consultations."
+      "Amretri Healthcare runs hospital pharmacies, supplies pharmacists and buys medicines in bulk for hospitals across India, and has done since 2009. Their buyers are hospital owners and administrators, and the sales team needs a few hard facts — hospital, city, beds, monthly pharmacy sales — before a call is worth making.",
+      "I designed and built the whole thing: a 14-page TanStack Start site (home, about, six service pages, pharmacist registration, blog, contact and legal pages), AMRI, the chat assistant on the homepage, and a backend that is nothing more than a Google Sheet and one Apps Script web app.",
+      "The constraint shaped every decision: a services company with no engineers on staff. Whatever I shipped had to cost close to nothing to run, and the team had to be able to work it from tools they already use — Google Sheets and WhatsApp."
     ],
     "features": [
       {
-        "title": "Automated Lead Sync to Sheets",
-        "desc": "Inbound hospital inquiries are verified, classified, and written to Google Sheets within milliseconds with zero manual data entry."
+        "title": "AMRI chat assistant",
+        "desc": "Identifies the visitor, answers from a 52-question knowledge base and runs six guided lead flows — all client-side, with no model or API call per message."
       },
       {
-        "title": "AMRI Interactive Chatbot",
-        "desc": "Intelligent multi-step conversation flow qualifying hospital pharmacy takeover, staffing, and purchase rate requests."
+        "title": "Google Sheets as the CRM",
+        "desc": "The chat's welcome step and every site form land as rows: one tab per form type, created on first use, with new columns added automatically."
       },
       {
-        "title": "Direct WhatsApp Dispatch",
-        "desc": "Deep link automation connecting prospective healthcare executives directly to verified operations team members."
+        "title": "A blog with no CMS",
+        "desc": "Posts are rows (title, category, date, read time, author, HTML body). The blog fetches them at runtime, so publishing needs no redeploy; three built-in posts render if the sheet is unreachable."
       },
       {
-        "title": "Adaptive Multi-Device UX",
-        "desc": "Fluid responsive performance across mobile smartphones, tablets, and wide workstation displays."
+        "title": "WhatsApp hand-off",
+        "desc": "Finished intakes become a pre-filled wa.me message, and a WhatsApp button floats right above the chat launcher."
+      },
+      {
+        "title": "Safety-aware answers",
+        "desc": "Answers about licences and medico-legal topics automatically carry a note that final regulatory decisions need a qualified professional."
+      },
+      {
+        "title": "SEO groundwork",
+        "desc": "Per-page titles and descriptions, canonical URLs, a sitemap, and schema.org MedicalBusiness and FAQPage data on the homepage."
       }
     ],
     "metrics": [
       {
-        "value": "5–30%",
-        "label": "Pharmacy Margin Uplift"
+        "value": "0",
+        "label": "App servers or databases to run"
       },
       {
-        "value": "Pan-India",
-        "label": "Operational Reach"
+        "value": "52",
+        "label": "Curated answers across 11 service areas"
       },
       {
-        "value": "Real-time",
-        "label": "Google Sheets Lead Sync"
+        "value": "6",
+        "label": "Guided lead-capture flows"
+      },
+      {
+        "value": "1",
+        "label": "Apps Script behind every form and the blog"
       }
     ],
-    "highlights": [
-      "Multi-page enterprise architecture built with React and Tailwind CSS",
-      "Custom AMRI conversational agent with real-time Google Sheets backend sync",
-      "Seamless WhatsApp Business integration for instant customer contact",
-      "Optimized Core Web Vitals with sub-second page loads and high accessibility"
-    ],
+    "highlights": [],
     "kind": "commerce",
     "status": "Live",
     "accent": "#0D9488",
     "cover": "/assets/img/projects/amretri/cover.jpg",
-    "video": "/assets/video/projects/amretri-healthcare.mp4"
+    "video": "/assets/video/projects/amretri-healthcare.mp4",
+    "film": "/assets/video/films/amretri-healthcare.mp4",
+    "filmPoster": "/assets/video/films/amretri-healthcare-poster.jpg",
+    "challenge": [
+      "Hospital buyers don't fill in long forms. They ask specific questions — “can you take over my pharmacy?”, “I need two night-shift pharmacists” — and expect an answer straight away.",
+      "The usual fix is a hosted chatbot, a backend, a database and an LLM bill. For a team with nobody to maintain it, that is a monthly cost and a system that slowly breaks.",
+      "So the brief became: answer the common questions instantly, turn intent into a qualified lead, and put every lead where the team already works — without anything to host."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/amretri/case/architecture.jpg",
+      "alt": "AMRI system architecture: the website and chat widget run in the visitor's browser, post JSON to a Google Apps Script web app that writes to a Google Sheet, and hand completed briefs to WhatsApp.",
+      "caption": "Everything left of the Apps Script runs in the visitor's browser. The dashed box is the next phase.",
+      "steps": [
+        {
+          "title": "Identify",
+          "desc": "Before the first message AMRI asks for a name and email. The visitor is remembered in localStorage, and the contact is posted to the sheet as an Inquiries row."
+        },
+        {
+          "title": "Route",
+          "desc": "Every message hits intent rules first. Phrases about takeovers, staffing, purchase rates, setups, licences or a callback start the matching lead flow."
+        },
+        {
+          "title": "Answer",
+          "desc": "Everything else is token-matched against 52 reviewed Q&As in 11 service sections, with a confidence threshold. Below it, AMRI offers the menu or a human instead of guessing."
+        },
+        {
+          "title": "Qualify",
+          "desc": "Each flow asks 3–7 questions one at a time and validates the answer — contacts need 8+ digits or an @, and a bare “yes” is rejected. FAQ questions mid-flow are answered without losing the place."
+        },
+        {
+          "title": "Hand off",
+          "desc": "The completed brief becomes a pre-filled WhatsApp message to the Amretri team — one tap from the visitor."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/amretri/case/chat-flow.jpg",
+        "wide": true,
+        "caption": "AMRI end to end: identify the visitor → answer a free-text question → run the pharmacy-takeover intake → hand the brief to WhatsApp."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/home.jpg",
+        "caption": "Homepage, with AMRI's launcher bottom-right."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/solutions.jpg",
+        "caption": "Six service lines, each with its own page and enquiry form."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/service-page.jpg",
+        "caption": "Service page for hospital pharmacy acquisition and management."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/proposal-form.jpg",
+        "caption": "Its proposal form posts straight to the sheet."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/sheets-backend.jpg",
+        "caption": "Every form → one Apps Script → a tab per form type."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/blog-from-sheet.jpg",
+        "caption": "The blog reads the Blogs tab as JSON: a row is a post."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Rules before models",
+        "desc": "Buyers ask a narrow set of questions whose answers carry commercial and compliance weight. A rule engine gives the same reviewed answer every time, instantly and for free — and it's the right first layer even once a model is added."
+      },
+      {
+        "title": "A spreadsheet instead of a server",
+        "desc": "One Apps Script replaces the API and the database. doPost routes each form to its own tab and grows columns for new fields, so adding a form needs no backend change. doGet serves the blog."
+      },
+      {
+        "title": "Meet the team where it works",
+        "desc": "Leads arrive as sheet rows and WhatsApp messages, not in a dashboard nobody opens. There was nothing new for the team to learn."
+      },
+      {
+        "title": "Trade-offs, stated plainly",
+        "desc": "Apps Script redirects break CORS for JSON posts, so forms send with mode: 'no-cors' and confirm optimistically. The web-app URL is public by design, so spam filtering in the script is the next hardening step."
+      }
+    ],
+    "roadmap": [
+      "An on-device small language model (WebLLM on WebGPU) to phrase answers and handle questions the rules miss — weights cached in the browser, still no server or API key.",
+      "Semantic search over the knowledge base with in-browser embeddings, replacing token overlap.",
+      "Log completed intake briefs to the sheet as well as WhatsApp, so every qualified lead is on record.",
+      "Spam protection on the Apps Script endpoint (honeypot field and rate limiting)."
+    ]
   },
   {
     "id": 11,

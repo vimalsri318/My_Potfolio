@@ -1920,6 +1920,25 @@ textarea {
   height: auto;
 }
 
+.project-detail__film {
+  display: grid;
+  gap: 14px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.project-detail__film-frame {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0a222b;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+.project-detail__film-frame video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 .project-detail__status {
   display: inline-block;
   margin-right: 12px;
@@ -2103,6 +2122,10 @@ textarea {
   width: 100%;
 }
 
+.project-detail__features-grid--pairs {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
 .project-detail__feature-card {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.07);
@@ -2186,6 +2209,64 @@ textarea {
   border: 1px solid var(--line);
 }
 
+/* Full-width case-study sections (diagrams, screens): label above, content spans */
+.project-detail__section--wide {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.project-detail__figure {
+  margin: 0;
+}
+
+.project-detail__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.project-detail__figure figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.project-detail__steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.project-detail__step {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 18px;
+  padding: clamp(18px, 2.2vw, 24px);
+}
+
+.project-detail__step-index {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+  color: var(--card-accent, var(--ink-soft));
+}
+
+.project-detail__screens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.project-detail__figure--wide {
+  grid-column: 1 / -1;
+}
+
 .project-detail__next {
   display: block;
   padding-top: clamp(40px, 6vw, 70px);
@@ -2232,6 +2313,10 @@ textarea {
   .project-detail__section {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .project-detail__screens {
+    grid-template-columns: 1fr;
   }
 }
 
