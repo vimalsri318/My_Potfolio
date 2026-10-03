@@ -1,12 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Reveal from './Reveal'
 import { supabasePublic } from '../lib/supabasePublic'
+import services, { steps } from '../data/services'
+import { INTEREST_EVENT } from '../lib/interest'
+
+const OPTIONS = [...services.map((s) => s.title), 'Something else']
+const WHATSAPP = 'https://wa.me/918270942966?text=Hi%20Vimal%2C%20I%27d%20like%20to%20talk%20about%20a%20project'
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [message, setMessage] = useState('')
   const [messageColor, setMessageColor] = useState('')
+  // What the visitor wants built. Pre-selected by "Request this" / "Build me
+  // one like this" buttons (event) or a ?interest= link from another page.
+  const [interest, setInterest] = useState('')
+  const [extra, setExtra] = useState('') // a "Something like <Project>" option
+
+  useEffect(() => {
+    const pick = (value) => {
+      if (!value) return
+      if (!OPTIONS.includes(value)) setExtra(value)
+      setInterest(value)
+      setIsSuccess(false)
+    }
+    pick(new URLSearchParams(window.location.search).get('interest'))
+    const onInterest = (e) => pick(e.detail)
+    window.addEventListener(INTEREST_EVENT, onInterest)
+    return () => window.removeEventListener(INTEREST_EVENT, onInterest)
+  }, [])
+
+  const options = extra ? [extra, ...OPTIONS] : OPTIONS
 
   const sendEmail = async e => {
     e.preventDefault()
@@ -14,10 +38,11 @@ export default function Contact() {
 
     // Grab the values before the form resets — used for the Supabase copy.
     const form = e.target
+    const body = form.user_message?.value?.trim() || ''
     const payload = {
       name: form.user_name?.value?.trim() || null,
       email: form.user_email?.value?.trim() || null,
-      message: form.user_message?.value?.trim() || '',
+      message: interest && body ? `Interested in: ${interest}\n\n${body}` : body,
       path: typeof window !== 'undefined' ? window.location.pathname : null,
     }
 
@@ -40,7 +65,12 @@ export default function Contact() {
     let emailed = false
     try {
       const emailjs = (await import('@emailjs/browser')).default
-      await emailjs.sendForm('service_xrxe1zu', 'template_6fmag4b', '#contact-form', 'pkXRGXYYMgUNYmOjk')
+      await emailjs.send(
+        'service_xrxe1zu',
+        'template_6fmag4b',
+        { user_name: payload.name, user_email: payload.email, user_message: payload.message },
+        'pkXRGXYYMgUNYmOjk'
+      )
       emailed = true
     } catch (error) {
       console.error('EmailJS error:', error)
@@ -49,6 +79,7 @@ export default function Contact() {
     if (stored || emailed) {
       setIsSuccess(true)
       setIsSubmitting(false)
+      setInterest('')
       form.reset()
     } else {
       setMessage('Message failed to send. Please try again.')
@@ -59,25 +90,23 @@ export default function Contact() {
 
   return (
     <section className="section" id="contact">
-      <div className="container">
-        {/* big Garnier-style CTAs */}
-        <Reveal>
-          <div className="cta" style={{ marginBottom: 'clamp(48px, 8vw, 90px)' }}>
-            <a href="#contact-form" className="cta__button">
-              <span>I want an AI solution</span>
-              <span className="arrow">↗</span>
-            </a>
-            <a
-              href="/assets/pdf/Vimalsrinivasan_Resume.pdf"
-              download
-              target="_blank"
-              rel="noreferrer"
-              className="cta__button"
-            >
-              <span>Download my CV</span>
-              <span className="arrow">↗</span>
-            </a>
-          </div>
+      <div className="container contact">
+        <Reveal className="contact__aside">
+          <p className="contact__eyebrow">How it works</p>
+          <ol className="contact__steps">
+            {steps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+          <a
+            href="/assets/pdf/Vimalsrinivasan_Resume.pdf"
+            download
+            target="_blank"
+            rel="noreferrer"
+            className="contact__cv"
+          >
+            Download my CV <span aria-hidden="true">↗</span>
+          </a>
         </Reveal>
 
         <Reveal delay={100}>
@@ -98,11 +127,27 @@ export default function Contact() {
               </div>
             ) : (
               <>
-                <h2 className="contact-card__title">Let&apos;s talk.</h2>
+                <h2 className="contact-card__title">Start a project.</h2>
                 <p className="contact-card__sub">
-                  Have an AI product, chatbot or website in mind? Send a message ⎯ I&apos;ll get back to you.
+                  Tell me what you want to build ⎯ I&apos;ll get back to you with a plan.
                 </p>
                 <form className="contact__form" id="contact-form" onSubmit={sendEmail}>
+                  <fieldset className="contact__interest">
+                    <legend className="contact__legend">What do you need?</legend>
+                    <div className="contact__chips">
+                      {options.map((o) => (
+                        <button
+                          key={o}
+                          type="button"
+                          className="contact__chip"
+                          aria-pressed={interest === o}
+                          onClick={() => setInterest(interest === o ? '' : o)}
+                        >
+                          {o}
+                        </button>
+                      ))}
+                    </div>
+                  </fieldset>
                   <div className="contact__group">
                     <input
                       type="text"
@@ -121,13 +166,18 @@ export default function Contact() {
                   </div>
                   <textarea
                     name="user_message"
-                    placeholder="Message"
+                    placeholder="What are you building, and by when?"
                     className="contact__input contact__area"
                     required
                   ></textarea>
-                  <button type="submit" className="contact__submit" disabled={isSubmitting}>
-                    {isSubmitting ? 'Sending...' : 'Send message ↗'}
-                  </button>
+                  <div className="contact__actions">
+                    <button type="submit" className="contact__submit" disabled={isSubmitting}>
+                      {isSubmitting ? 'Sending…' : 'Send project brief ↗'}
+                    </button>
+                    <a href={WHATSAPP} target="_blank" rel="noreferrer" className="contact__alt">
+                      or message me on WhatsApp
+                    </a>
+                  </div>
                   <p
                     className="contact__message"
                     style={message ? { color: messageColor } : undefined}

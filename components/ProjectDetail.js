@@ -6,6 +6,8 @@ import Reveal from './Reveal'
 import FeedbackForm from './FeedbackForm'
 import LikeButton from './LikeButton'
 import { useTrackView } from '../hooks/useTrackView'
+import { kindLabel } from '../data/catalogue'
+import { interestHref } from '../lib/interest'
 
 // One page layout for every project — pass a project (and the next one)
 // as props and it renders the full case study.
@@ -34,7 +36,9 @@ export default function ProjectDetail({ project, nextProject }) {
           {/* Header */}
           <header className="project-detail__header">
             <p className="mono project-detail__meta-line">
-              {project.category} <span className="project-detail__dot">●</span> {project.year}
+              {project.status && <span className="project-detail__status">{project.status}</span>}
+              {project.kind ? kindLabel(project.kind) : project.category}{' '}
+              <span className="project-detail__dot">●</span> {project.year}
             </p>
             <h1 className="display project-detail__title">{project.title}</h1>
             {project.tagline && (
@@ -46,7 +50,19 @@ export default function ProjectDetail({ project, nextProject }) {
           {/* Hero image */}
           <Reveal>
             <div className="project-detail__hero">
-              <img src={project.image} alt={project.title} />
+              {project.video ? (
+                <video
+                  src={project.video}
+                  poster={project.cover || project.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={`${project.title} in motion`}
+                />
+              ) : (
+                <img src={project.image} alt={project.title} />
+              )}
             </div>
           </Reveal>
 
@@ -87,7 +103,7 @@ export default function ProjectDetail({ project, nextProject }) {
                   </a>
                 </p>
               ) : (
-                <p>Available on request</p>
+                <p>Private build — demo on request</p>
               )}
             </div>
           </div>
@@ -149,6 +165,30 @@ export default function ProjectDetail({ project, nextProject }) {
               </div>
             </section>
           )}
+
+          {/* Order one like it */}
+          <section className="project-detail__order" style={project.accent ? { '--card-accent': project.accent } : undefined}>
+            <div>
+              <p className="mono project-detail__label">Want something like this?</p>
+              <h2 className="project-detail__order-title">I can build one for you.</h2>
+              <p className="project-detail__order-text">
+                Tell me what you have in mind — I&apos;ll reply with questions, a plan and a quote.
+              </p>
+            </div>
+            <div className="project-detail__order-actions">
+              <a href={interestHref(`Something like ${project.title}`)} className="project-detail__order-cta">
+                Build me one like this <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href="https://wa.me/918270942966?text=Hi%20Vimal%2C%20I%27d%20like%20to%20talk%20about%20a%20project"
+                target="_blank"
+                rel="noreferrer"
+                className="project-detail__order-alt"
+              >
+                or WhatsApp me
+              </a>
+            </div>
+          </section>
 
           {/* Next project */}
           {nextProject && (

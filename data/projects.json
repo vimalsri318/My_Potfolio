@@ -1,18 +1,465 @@
 [
   {
+    "id": 20,
+    "slug": "influnet",
+    "title": "Influnet",
+    "kind": "saas",
+    "status": "Live",
+    "accent": "#E5197D",
+    "category": "Creator Marketing Platform",
+    "year": "2026",
+    "role": "Product Engineer — web, mobile & backend",
+    "image": "/assets/img/projects/influnet/hero.jpg",
+    "cover": "/assets/img/projects/influnet/cover.jpg",
+    "video": "/assets/video/projects/influnet.mp4",
+    "gallery": [
+      "/assets/img/projects/influnet/hero.jpg",
+      "/assets/img/projects/influnet/mobile.jpg"
+    ],
+    "link": "https://influnet.io",
+    "domain": "influnet.io",
+    "tagline": "Find real creators. Run every collab to the finish.",
+    "badge": "Live product • Web + iOS/Android",
+    "glowColor": "rgba(229, 25, 125, 0.22)",
+    "tech": [
+      "Next.js 16",
+      "TypeScript",
+      "Supabase",
+      "Expo / React Native",
+      "Stream Chat",
+      "Razorpay",
+      "Turborepo"
+    ],
+    "summary": "An influencer-marketing platform where brands post campaigns, shortlist creators who have proved they own their accounts, agree terms in writing and pay stage by stage — on the web and in a native mobile app.",
+    "description": [
+      "Creators and brands mostly meet in Instagram DMs and email threads, where replies take hours or days and deals fall through. Influnet replaces that with one link: a creator puts their Influnet profile in their bio, a brand taps it, and a collaboration request lands instantly.",
+      "I built it as a Turborepo monorepo — a Next.js 16 web app with its API routes, a separate marketing site, and an Expo / React Native app for iOS and Android — on top of Supabase for auth, Postgres and row-level security.",
+      "Every collaboration moves through a 12-stage pipeline with a Kanban workspace, real-time chat on Stream, written terms and Razorpay payment gates, with an admin approval flow on top."
+    ],
+    "features": [
+      {
+        "title": "Verified creator profiles",
+        "desc": "Creators prove they own their social accounts before brands can shortlist them, with live follower, view and engagement stats on a shareable link-in-bio page."
+      },
+      {
+        "title": "12-stage campaign pipeline",
+        "desc": "Every collab moves from request to brief, terms, content, approval and payout on a Kanban workspace both sides can see."
+      },
+      {
+        "title": "Chat and notifications",
+        "desc": "Stream-powered chat with persisted history and an in-app notification bell, so requests get answered in minutes instead of days."
+      },
+      {
+        "title": "Payment gates",
+        "desc": "Razorpay payments are released stage by stage against agreed deliverables, with written terms attached to every deal."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "12",
+        "label": "Stage campaign pipeline"
+      },
+      {
+        "value": "3",
+        "label": "Apps in one monorepo"
+      },
+      {
+        "value": "870+",
+        "label": "Commits shipped"
+      }
+    ],
+    "highlights": [
+      "Turborepo monorepo: Next.js web app, marketing site and Expo mobile app sharing one backend",
+      "Supabase Postgres with row-level security and a documented PII lockdown",
+      "End-to-end Playwright suites covering requests, chat, freemium limits and access guards",
+      "Phone OTP sign-in through a Supabase edge function"
+    ]
+  },
+  {
+    "id": 23,
+    "slug": "buziness-os",
+    "title": "Buziness OS",
+    "kind": "ai",
+    "status": "Live",
+    "accent": "#0F766E",
+    "category": "AI-Native Business Command Centre",
+    "year": "2026",
+    "role": "Full-Stack & AI Engineer",
+    "image": "/assets/img/projects/buziness-os/hero.jpg",
+    "cover": "/assets/img/projects/buziness-os/cover.jpg",
+    "video": "/assets/video/projects/buziness-os.mp4",
+    "gallery": [
+      "/assets/img/projects/buziness-os/hero.jpg",
+      "/assets/img/projects/buziness-os/mobile.jpg"
+    ],
+    "link": "https://buziness365.up.railway.app",
+    "domain": "buziness365.up.railway.app",
+    "tagline": "Run your business from one intelligent operating system",
+    "badge": "Live • AI agents in production",
+    "glowColor": "rgba(15, 118, 110, 0.22)",
+    "tech": [
+      "Next.js 15",
+      "React 19",
+      "Tailwind CSS 4",
+      "Neon Postgres",
+      "Gemini",
+      "Railway"
+    ],
+    "summary": "A modular business OS that joins lead sourcing, contacts, AI calling, meetings and campaigns into one pipeline — with an AI sourcing agent, meeting bots that write the minutes, and recommendations built from the pipeline you actually have.",
+    "description": [
+      "Small businesses run sales across WhatsApp, email, calls, meetings and ads, with nothing connecting them. Buziness OS puts every stage in one workspace: sourcing, leads, contacts, contact centre, voice agents, meetings, campaigns, Meta ads and workflows.",
+      "An AI sourcing agent researches prospects and shows its trace so you can see how each lead was found. A meeting agent joins calls, ingests the transcript and writes minutes of meeting with Gemini when the call ends.",
+      "Everything shares one pipeline on Neon Postgres, deployed on Railway, so a sourced lead becomes a contact, a call, a meeting and a campaign recommendation without re-typing anything."
+    ],
+    "features": [
+      {
+        "title": "AI sourcing agent",
+        "desc": "Researches prospects from a short brief and shows a readable trace of how each lead was found — no invented data presented as findings."
+      },
+      {
+        "title": "Meeting agent",
+        "desc": "Sends a bot to the call, ingests the transcript and generates minutes of meeting automatically when it ends."
+      },
+      {
+        "title": "One pipeline",
+        "desc": "Sourcing, leads, contacts, calling and meetings share one record, so every module sees the same customer."
+      },
+      {
+        "title": "Campaign recommendations",
+        "desc": "Meta-ads suggestions built from the leads and conversations already in the pipeline."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "12",
+        "label": "Workspace modules"
+      },
+      {
+        "value": "Auto",
+        "label": "Minutes after every meeting"
+      },
+      {
+        "value": "1",
+        "label": "Pipeline for every channel"
+      }
+    ],
+    "highlights": [
+      "Marketing site, workspace and legal pages shipped as one Next.js app",
+      "Meeting bot lifecycle, webhooks and transcript ingestion hardened for production",
+      "Pre-demo preflight checks and Railway private networking for the database",
+      "Live vs demo inspector on the AI modules so prospects can see real runs"
+    ]
+  },
+  {
+    "id": 21,
+    "slug": "mithra-whole-foods",
+    "title": "Mithra Whole Foods",
+    "kind": "commerce",
+    "status": "Client build",
+    "accent": "#2E7D32",
+    "category": "Headless Grocery E-Commerce",
+    "year": "2026",
+    "role": "Full-Stack Engineer — storefront, commerce backend & CMS",
+    "image": "/assets/img/projects/mithra-whole-foods/cover.jpg",
+    "cover": "/assets/img/projects/mithra-whole-foods/cover.jpg",
+    "video": "/assets/video/projects/mithra-whole-foods.mp4",
+    "gallery": [
+      "/assets/img/projects/mithra-whole-foods/cover.jpg"
+    ],
+    "link": "",
+    "domain": "mithrawholefoods.com",
+    "tagline": "Traditional foods, sold through a modern headless store",
+    "badge": "Client project • Launching",
+    "glowColor": "rgba(46, 125, 50, 0.22)",
+    "tech": [
+      "Next.js 15",
+      "Medusa v2",
+      "PostgreSQL (Neon)",
+      "Stripe",
+      "Tailwind CSS",
+      "Turborepo"
+    ],
+    "summary": "A complete grocery store for millets, cold-pressed oils, ghee and traditional foods — Next.js storefront on a Medusa v2 commerce backend with cart, checkout, Stripe payments, search, wishlist and a custom homepage CMS.",
+    "description": [
+      "Mithra Whole Foods sells traditional, chemical-free foods and needed to move off an ageing template store onto something that feels premium and converts.",
+      "I rebuilt it as a headless store: a Next.js 15 storefront talking to a Medusa v2 backend on PostgreSQL. The full commerce path works end to end — catalogue, optimistic cart, customer accounts, multi-step checkout, Stripe payments, order history, wishlist and an in-house search engine with no external search service.",
+      "A custom homepage CMS module with an admin live-preview page lets the client change banners and featured collections without a developer."
+    ],
+    "features": [
+      {
+        "title": "Optimistic cart",
+        "desc": "The cart updates instantly, then reconciles with the backend and rolls back with a clear message if something is out of stock."
+      },
+      {
+        "title": "Four-step checkout",
+        "desc": "Address, shipping, payment and review, with Stripe payments and order confirmation."
+      },
+      {
+        "title": "In-house search",
+        "desc": "Product search runs inside the Medusa backend — fast, free and no third-party index to keep in sync."
+      },
+      {
+        "title": "Homepage CMS",
+        "desc": "A custom Medusa module plus a live-preview admin page for banners, offers and featured products."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "End-to-end",
+        "label": "Cart → checkout → payment"
+      },
+      {
+        "value": "Headless",
+        "label": "Medusa v2 commerce core"
+      },
+      {
+        "value": "0",
+        "label": "Paid search services"
+      }
+    ],
+    "highlights": [
+      "pnpm + Turborepo monorepo with storefront and commerce backend",
+      "Stripe payments, customer auth and address book",
+      "Production audit, QA report and deployment runbook delivered with the build",
+      "Client's own wordmark traced to SVG and real product photography throughout"
+    ]
+  },
+  {
+    "id": 22,
+    "slug": "tecstellar-command-center",
+    "title": "Tecstellar Command Center",
+    "kind": "saas",
+    "status": "Internal tool",
+    "accent": "#2B8CC4",
+    "category": "Operations Console & Contact Centre",
+    "year": "2026",
+    "role": "Lead Engineer — product, frontend & telephony",
+    "image": "/assets/img/projects/tecstellar-command-center/hero.jpg",
+    "cover": "/assets/img/projects/tecstellar-command-center/cover.jpg",
+    "video": "/assets/video/projects/tecstellar-command-center.mp4",
+    "gallery": [
+      "/assets/img/projects/tecstellar-command-center/hero.jpg",
+      "/assets/img/projects/tecstellar-command-center/agent.jpg"
+    ],
+    "link": "",
+    "domain": "tcc.tecstellar.com",
+    "tagline": "One console for every app we ship",
+    "badge": "Internal platform • Tecstellar",
+    "glowColor": "rgba(43, 140, 196, 0.22)",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Firebase Firestore",
+      "D3",
+      "TeleCMI"
+    ],
+    "summary": "A command centre for a portfolio of consumer apps: agents work call queues, supervisors manage access and escalations, and owners see users, revenue, funnels and SLA health across every app on one screen.",
+    "description": [
+      "Tecstellar runs several consumer apps — RealBroks, IronDrobe and more on the way. Users, payments, tickets and follow-ups were spread across separate dashboards, one per app.",
+      "TCC pulls them into one console with three role-based views. Agents get a focused 3-step call panel driven entirely by keyboard shortcuts; supervisors manage team access, language and state allocation and an escalations inbox; owners get an all-apps dashboard with funnel, leaderboard, churn and an India map built with D3.",
+      "Operational data syncs live across browsers through Firestore, and calls are placed through TeleCMI with explicit safety modes before production dialling is switched on."
+    ],
+    "features": [
+      {
+        "title": "Keyboard-first agent workspace",
+        "desc": "1–5 for status, Q–I for outcome, Enter to save, S to skip, T to raise a ticket — agents never reach for the mouse."
+      },
+      {
+        "title": "Queue-based access",
+        "desc": "Supervisors tick which queues each agent can see, with live coverage gaps and reachable-user counts per language and state."
+      },
+      {
+        "title": "Owner dashboard",
+        "desc": "Users, MRR, dues, funnel, agent leaderboard, churn and SLA health across every app."
+      },
+      {
+        "title": "Geography view",
+        "desc": "A D3 map of India with state boundaries and circles sized by user count."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "3",
+        "label": "Role-based consoles"
+      },
+      {
+        "value": "1",
+        "label": "Screen for every app"
+      },
+      {
+        "value": "Live",
+        "label": "Firestore sync across agents"
+      }
+    ],
+    "highlights": [
+      "Runs on Firestore or fully offline on localStorage — chosen automatically",
+      "Customer data layer split from TCC-owned data so the real app databases can be swapped in later",
+      "Mid-call reroute and escalation wired to a live supervisor queue",
+      "TeleCMI calling with documented dialling safety modes"
+    ]
+  },
+  {
+    "id": 25,
+    "slug": "casa-harmony",
+    "title": "Casa Harmony",
+    "kind": "saas",
+    "status": "Client build",
+    "accent": "#9F1239",
+    "category": "Multi-Tenant ERP & Service Desk",
+    "year": "2026",
+    "role": "Full-Stack Engineer — FastAPI, PostgreSQL & Next.js",
+    "image": "/assets/img/projects/casa-harmony/cover.jpg",
+    "cover": "/assets/img/projects/casa-harmony/cover.jpg",
+    "video": "/assets/video/projects/casa-harmony.mp4",
+    "gallery": [
+      "/assets/img/projects/casa-harmony/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Enterprise accounting for homeowner associations",
+    "badge": "Client project • ERP",
+    "glowColor": "rgba(159, 18, 57, 0.22)",
+    "tech": [
+      "FastAPI",
+      "PostgreSQL 16",
+      "SQLAlchemy 2",
+      "Next.js 15",
+      "TypeScript",
+      "Docker"
+    ],
+    "summary": "A secure multi-tenant service desk and ERP for homeowner associations, modelled on Oracle E-Business Suite — configurable chart of accounts, double-entry general ledger, and database-enforced tenant isolation.",
+    "description": [
+      "Homeowner associations need real accounting — dues, receivables, general ledger — plus a service desk, without one association ever seeing another’s data.",
+      "Casa Harmony enforces isolation at the database: every tenant table carries a tenant_id and PostgreSQL row-level security. The chart of accounts follows Oracle’s Key Flexfield model with configurable segments, value sets and cross-validation rules.",
+      "An Accounts Receivable subledger posts balanced double-entry journals to the GL — the pattern future AP, cash and fixed-asset subledgers follow. Security scaffolding covers TOTP MFA, field-level encryption, immutable audit logs, card tokenisation and CCPA data-subject flows."
+    ],
+    "features": [
+      {
+        "title": "Row-level security",
+        "desc": "Tenant isolation enforced by PostgreSQL itself, not just application code."
+      },
+      {
+        "title": "Oracle-style chart of accounts",
+        "desc": "Key Flexfield segments (6 by default, up to 15), qualifiers, value sets and validated code combinations."
+      },
+      {
+        "title": "Double-entry subledgers",
+        "desc": "Accounts Receivable posts balanced journals to the general ledger."
+      },
+      {
+        "title": "Compliance scaffolding",
+        "desc": "TOTP MFA, field-level encryption at rest, audit logging, card tokenisation and CCPA flows."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "RLS",
+        "label": "On every tenant table"
+      },
+      {
+        "value": "6 → 15",
+        "label": "Configurable COA segments"
+      },
+      {
+        "value": "MFA",
+        "label": "TOTP for every admin"
+      }
+    ],
+    "highlights": [
+      "FastAPI + SQLAlchemy 2 + Alembic migrations on PostgreSQL 16",
+      "Superadmin and per-association sysadmin roles",
+      "Compliance control map and TLS guidance documented with the code",
+      "Docker Compose locally, Render blueprint for deployment"
+    ]
+  },
+  {
+    "id": 24,
+    "slug": "wassupos",
+    "title": "WassupOS",
+    "kind": "ai",
+    "status": "Client build",
+    "accent": "#2563EB",
+    "category": "WhatsApp AI CRM — Multi-Tenant SaaS",
+    "year": "2026",
+    "role": "Full-Stack Engineer — platform, auth & voice agent",
+    "image": "/assets/img/projects/wassupos/cover.jpg",
+    "cover": "/assets/img/projects/wassupos/cover.jpg",
+    "video": "/assets/video/projects/wassupos.mp4",
+    "gallery": [
+      "/assets/img/projects/wassupos/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "A CRM that lives inside WhatsApp, run by AI",
+    "badge": "Client project • SaaS",
+    "glowColor": "rgba(37, 99, 235, 0.22)",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "React Three Fiber",
+      "Python voice agent"
+    ],
+    "summary": "A multi-tenant WhatsApp CRM SaaS: a platform-admin console that switches features on per company, secure role-aware auth, usage tracking, and a Python voice agent — fronted by a scroll-synced 3D landing page.",
+    "description": [
+      "Businesses in India sell on WhatsApp, but their CRM lives somewhere else. WassupOS is a SaaS foundation for running leads, campaigns, bulk messaging and workflows from WhatsApp, with AI doing the first response.",
+      "The platform admin can onboard companies, turn individual features on or off per tenant, manage integrations, billing and audit logs. Backend guards enforce those switches on every API route, not just in the UI.",
+      "Auth uses httpOnly cookies, short-lived access tokens with refresh-token rotation, bcrypt and rate-limited login. A separate Python voice agent handles calls, with a cost analysis for Tamil-language voice."
+    ],
+    "features": [
+      {
+        "title": "Per-tenant feature switches",
+        "desc": "Ads, bulk messaging, campaigns, workflows and leads are enabled per company and enforced server-side."
+      },
+      {
+        "title": "Hardened auth",
+        "desc": "Refresh-token rotation, httpOnly cookies, Zod validation, rate limiting, audit logs and secure headers."
+      },
+      {
+        "title": "Platform admin console",
+        "desc": "Companies, features, integrations, billing, audit logs and settings in one place."
+      },
+      {
+        "title": "Voice agent",
+        "desc": "A Python voice bot with a key pool and preflight checks, costed for Tamil-language calling."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "Multi-tenant",
+        "label": "Isolated per company"
+      },
+      {
+        "value": "5",
+        "label": "Feature-guarded APIs"
+      },
+      {
+        "value": "3D",
+        "label": "Scroll-synced landing"
+      }
+    ],
+    "highlights": [
+      "Prisma models for tenants, features, integrations, usage logs, audit logs and refresh tokens",
+      "Dockerised with documented deployment security notes",
+      "One continuous scroll-synced particle orb built with React Three Fiber",
+      "Separate Platform Admin and Company login flows"
+    ]
+  },
+  {
     "id": 10,
     "slug": "amretri-healthcare",
     "title": "Amretri Healthcare",
     "category": "Healthcare Platform & AI Automation",
     "year": "2025",
     "role": "Lead Full-Stack Architect & AI Engineer",
-    "image": "/assets/img/projects/amretri/amretri-hero.png",
+    "image": "https://res.cloudinary.com/g5nctap2/image/upload/v1788967840/portfolio/img/ly1buwqapr0oklng5qdd.png",
     "mobileImage": "/assets/img/projects/amretri/amretri-chatbot-chat.png",
     "chatbotImage": "/assets/img/projects/amretri/amretri-chatbot-lead.png",
     "gallery": [
-      "/assets/img/projects/amretri/amretri-hero.png",
-      "/assets/img/projects/amretri/amretri-chatbot-chat.png",
-      "/assets/img/projects/amretri/amretri-chatbot-lead.png"
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1788967956/portfolio/img/d4uehvsprosr93u6385f.png",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1788967966/portfolio/img/axf9unegmezou5d7zwk0.png"
     ],
     "link": "https://amretrihealthcare.com/",
     "domain": "amretrihealthcare.com",
@@ -70,7 +517,12 @@
       "Custom AMRI conversational agent with real-time Google Sheets backend sync",
       "Seamless WhatsApp Business integration for instant customer contact",
       "Optimized Core Web Vitals with sub-second page loads and high accessibility"
-    ]
+    ],
+    "kind": "commerce",
+    "status": "Live",
+    "accent": "#0D9488",
+    "cover": "/assets/img/projects/amretri/cover.jpg",
+    "video": "/assets/video/projects/amretri-healthcare.mp4"
   },
   {
     "id": 11,
@@ -144,6 +596,451 @@
       "Multi-brand corporate architecture connecting hospitality, sports, real estate, and tech",
       "Automated Cloudinary media pipeline and asset optimization",
       "Seamless editorial typography and responsive UX engineered for desktop, tablet, and mobile"
+    ],
+    "kind": "commerce",
+    "status": "Live",
+    "accent": "#D97706",
+    "cover": "/assets/img/projects/jaisathya/cover.jpg",
+    "video": "/assets/video/projects/jaisathya.mp4"
+  },
+  {
+    "id": 26,
+    "slug": "email-finder",
+    "title": "Email Finder",
+    "kind": "ai",
+    "status": "Internal tool",
+    "accent": "#4F46E5",
+    "category": "Evidence-Based Contact Discovery Engine",
+    "year": "2026",
+    "role": "Engineer — crawling, inference & verification",
+    "image": "/assets/img/projects/email-finder/cover.jpg",
+    "cover": "/assets/img/projects/email-finder/cover.jpg",
+    "video": "/assets/video/projects/email-finder.mp4",
+    "gallery": [
+      "/assets/img/projects/email-finder/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Finds a work email — and tells you how much to trust it",
+    "badge": "Service • Railway web + worker",
+    "glowColor": "rgba(79, 70, 229, 0.22)",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Background workers",
+      "Vitest"
+    ],
+    "summary": "Give it a name and a company website; it gathers evidence across seven tiers — free ones first — infers the domain’s email pattern, and only reports an address as certain as the evidence allows.",
+    "description": [
+      "Most email finders guess a pattern and hope. This engine gathers evidence and weighs it: DNS and MX records, a relevance-scored site crawl, sitemaps, GitHub commit authors, linked PDFs like staff directories, and the Internet Archive for blocked sites.",
+      "Paid tiers — search queries, a browser transport for JavaScript-heavy or firewalled pages, and mail-server verification — only run when the free tiers cannot settle the question.",
+      "Results keep three claims separate on purpose: published, inferred and verified, because each one fails in a different way. It runs as a web app plus a background worker on Railway."
+    ],
+    "features": [
+      {
+        "title": "Seven evidence tiers",
+        "desc": "Free sources first; paid search, browser and verification only when needed — costs stay predictable."
+      },
+      {
+        "title": "Pattern inference",
+        "desc": "Learns the domain’s email format from any name/address pairs it finds, then ranks a candidate ladder."
+      },
+      {
+        "title": "Honest confidence",
+        "desc": "Published, inferred and verified are reported separately — never more certain than the evidence."
+      },
+      {
+        "title": "Catch-all detection",
+        "desc": "Detects domains that accept every address before trusting a mail-server “yes”."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "7",
+        "label": "Evidence tiers"
+      },
+      {
+        "value": "4",
+        "label": "Free tiers before any spend"
+      },
+      {
+        "value": "3",
+        "label": "Separate claims per result"
+      }
+    ],
+    "highlights": [
+      "Web app and worker deployed as separate Railway services",
+      "Worker waits for the database instead of crashing on cold starts",
+      "Drizzle migrations with separate local and production configs",
+      "Unit-tested inference with Vitest"
+    ]
+  },
+  {
+    "id": 27,
+    "slug": "reframe",
+    "title": "Reframe",
+    "kind": "ai",
+    "status": "Prototype",
+    "accent": "#B45309",
+    "category": "AI Reading Experience",
+    "year": "2026",
+    "role": "Product Engineer & Designer",
+    "image": "/assets/img/projects/reframe/cover.jpg",
+    "cover": "/assets/img/projects/reframe/cover.jpg",
+    "video": "/assets/video/projects/reframe.mp4",
+    "gallery": [
+      "/assets/img/projects/reframe/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Read anything, beautifully — without a word rewritten",
+    "badge": "Own product • Prototype",
+    "glowColor": "rgba(180, 83, 9, 0.22)",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Claude Haiku",
+      "Tailwind CSS",
+      "Apps Script"
+    ],
+    "summary": "Paste an article, PDF or link and get back a lossless, visual reading experience — headings, callouts, definitions and comparisons made explicit — while every word stays the author’s own.",
+    "description": [
+      "AI summaries lose the author’s voice and quietly drop detail. Reframe takes the opposite promise: it never rewrites your material, it re-architects it.",
+      "The source is first split deterministically, with no model involved. Each section is then classified and laid out as the visual block that fits it — a callout, a definition, a comparison table — using a low-cost Claude Haiku profile.",
+      "Without an API key the app runs in a clearly flagged demo mode on deterministic heuristics, so it always works and costs nothing to try. Analytics and feedback flow to a Google Sheet through Apps Script."
+    ],
+    "features": [
+      {
+        "title": "Lossless by design",
+        "desc": "Every word in a text block is the source author’s — nothing paraphrased or summarised away."
+      },
+      {
+        "title": "Deterministic segmentation",
+        "desc": "Structure is found before any model runs, so output stays stable and cheap."
+      },
+      {
+        "title": "Demo mode",
+        "desc": "Works with no key and no cost, clearly labelled in the interface."
+      },
+      {
+        "title": "Feedback loop",
+        "desc": "Usage and feedback events land in a Google Sheet via an Apps Script webhook."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "0",
+        "label": "Words rewritten"
+      },
+      {
+        "value": "Haiku",
+        "label": "Low-cost model profile"
+      },
+      {
+        "value": "Demo",
+        "label": "Runs without an API key"
+      }
+    ],
+    "highlights": [
+      "Product brain with vision, MVP scope, metric gates and decision log",
+      "Model choice documented as an architecture decision record",
+      "Graceful no-key fallback for demos",
+      "Next.js app with pnpm workspace"
+    ]
+  },
+  {
+    "id": 28,
+    "slug": "black-hole",
+    "title": "Black Hole",
+    "kind": "apps",
+    "status": "Open source",
+    "accent": "#E8590C",
+    "category": "Private Clipboard — macOS & Android",
+    "year": "2026",
+    "role": "Creator — Rust core, desktop & mobile",
+    "image": "/assets/img/projects/black-hole/cover.jpg",
+    "cover": "/assets/img/projects/black-hole/cover.jpg",
+    "video": "/assets/video/projects/black-hole.mp4",
+    "gallery": [
+      "/assets/img/projects/black-hole/cover.jpg"
+    ],
+    "link": "https://github.com/vimalsri318/Shared-ClipBoard",
+    "domain": "github.com/vimalsri318/Shared-ClipBoard",
+    "tagline": "Throw in. Pull out. Anywhere.",
+    "badge": "Open source • MIT",
+    "glowColor": "rgba(232, 89, 12, 0.22)",
+    "tech": [
+      "Rust",
+      "macOS",
+      "Android",
+      "Local network P2P",
+      "QR pairing"
+    ],
+    "summary": "A private clipboard between your Mac and your phone. Copy on the Mac and it is on your phone a second later — over your own Wi-Fi, with no account, no relay server, and everything expiring on both devices.",
+    "description": [
+      "Moving a link or a screenshot from laptop to phone usually means messaging yourself. Black Hole makes it automatic: copy on the Mac and it appears on the phone, no app to open first.",
+      "Devices pair once with a 6-digit code and a QR scan, then talk directly over the local network — nothing passes through a server and no third party ever sees what you copy.",
+      "Items expire after 30 minutes on both devices at once unless pinned. Text, links and images all move the same way, with notifications on both ends."
+    ],
+    "features": [
+      {
+        "title": "No middleman",
+        "desc": "Direct device-to-device transfer on your own Wi-Fi. No account, no cloud."
+      },
+      {
+        "title": "Expires everywhere",
+        "desc": "A 30-minute default expiry that clears both devices at once; pin what you want to keep."
+      },
+      {
+        "title": "Images too",
+        "desc": "Screenshots and photos move like text, with thumbnails on the shelf."
+      },
+      {
+        "title": "One-time pairing",
+        "desc": "A 6-digit code and QR code on the Mac, one scan on the phone."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "0",
+        "label": "Servers in the path"
+      },
+      {
+        "value": "30 min",
+        "label": "Default expiry"
+      },
+      {
+        "value": "2",
+        "label": "Platforms: macOS + Android"
+      }
+    ],
+    "highlights": [
+      "Shared Rust core with CLI, desktop and mobile front ends",
+      "Respects Android’s background-clipboard limits with a one-tap send",
+      "Desktop app at v0.1.2",
+      "MIT licensed"
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "streak-doctor",
+    "title": "Streak Doctor",
+    "kind": "apps",
+    "status": "Open source",
+    "accent": "#216E39",
+    "category": "Developer CLI on npm",
+    "year": "2026",
+    "role": "Creator",
+    "image": "/assets/img/projects/streak-doctor/cover.jpg",
+    "cover": "/assets/img/projects/streak-doctor/cover.jpg",
+    "video": "/assets/video/projects/streak-doctor.mp4",
+    "gallery": [
+      "/assets/img/projects/streak-doctor/cover.jpg"
+    ],
+    "link": "https://github.com/vimalsri318/Streak_Monitor_Tool",
+    "domain": "npx streak-doctor",
+    "tagline": "You pushed today. The square is grey. This tells you why.",
+    "badge": "Open source • Published on npm",
+    "glowColor": "rgba(33, 110, 57, 0.22)",
+    "tech": [
+      "TypeScript",
+      "Node.js CLI",
+      "GitHub API",
+      "pnpm workspaces",
+      "Vitest"
+    ],
+    "summary": "A GitHub accountability CLI built around one question streak counters ignore: why didn’t that contribution count? Run npx streak-doctor <username> to diagnose it — and see the contribution grid right in your terminal.",
+    "description": [
+      "Streak tracking is a crowded category. Diagnosis isn’t. GitHub silently drops contributions for many reasons — wrong commit email, a fork, a non-default branch — and nothing tells you which.",
+      "Streak Doctor checks a user’s recent activity against the live GitHub API and explains why a square stayed grey. Version 0.4.0 added a heatmap command that draws the profile contribution grid in the terminal.",
+      "It’s published to npm, so anyone can run it with npx — no install, no sign-up."
+    ],
+    "features": [
+      {
+        "title": "Diagnosis, not counting",
+        "desc": "Explains exactly why a contribution didn’t count on your profile."
+      },
+      {
+        "title": "Terminal heatmap",
+        "desc": "streak-doctor heatmap draws the GitHub contribution grid in your terminal."
+      },
+      {
+        "title": "Zero install",
+        "desc": "npx streak-doctor <username> works for anyone, right now."
+      },
+      {
+        "title": "Core + CLI packages",
+        "desc": "Diagnosis logic lives in a separate core package, ready for other front ends."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "v0.4.0",
+        "label": "Published on npm"
+      },
+      {
+        "value": "1",
+        "label": "Command to run"
+      },
+      {
+        "value": "0",
+        "label": "Sign-ups needed"
+      }
+    ],
+    "highlights": [
+      "pnpm workspace with streak-doctor and streak-doctor-core packages",
+      "Architecture decisions recorded as ADRs",
+      "Non-obvious GitHub contribution rules documented as a knowledge base",
+      "Tested with Vitest"
+    ]
+  },
+  {
+    "id": 30,
+    "slug": "slate",
+    "title": "Slate",
+    "kind": "apps",
+    "status": "Prototype",
+    "accent": "#475569",
+    "category": "Voice-First Activity Log",
+    "year": "2026",
+    "role": "Creator — product, AI pipeline & mobile web",
+    "image": "/assets/img/projects/slate/cover.jpg",
+    "cover": "/assets/img/projects/slate/cover.jpg",
+    "video": "/assets/video/projects/slate.mp4",
+    "gallery": [
+      "/assets/img/projects/slate/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Say what you did. It files itself.",
+    "badge": "Own product • Prototype",
+    "glowColor": "rgba(71, 85, 105, 0.22)",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Groq Whisper",
+      "Web Speech API",
+      "Supabase",
+      "Expo"
+    ],
+    "summary": "Hold one button and talk. Slate transcribes the ramble, splits it into separate activities, works out which day each belongs to, closes todos you already wrote down and pulls out what you spent — all in the background.",
+    "description": [
+      "Logging your day is tedious, so nobody does it. Slate turns it into one gesture: hold, talk for as long as you like, let go.",
+      "Transcription runs on Whisper large-v3-turbo and reasoning on an open 120B model, both on Groq’s free tier, with a rotating key pool and a live usage monitor. You are only asked a question when getting it wrong would corrupt the log.",
+      "It ships today as a web app that looks and behaves like the Android app, so it works on a phone over the local network, with a native Expo app in progress."
+    ],
+    "features": [
+      {
+        "title": "One-button capture",
+        "desc": "Hold to talk, release to file — no forms, no categories to pick."
+      },
+      {
+        "title": "Ramble splitting",
+        "desc": "One recording becomes separate activities, each placed on the right day."
+      },
+      {
+        "title": "Todo closing",
+        "desc": "Matches what you did against todos you already wrote down and ticks them off."
+      },
+      {
+        "title": "Spend extraction",
+        "desc": "Pulls amounts you mention into a spending log automatically."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "1",
+        "label": "Button to log a day"
+      },
+      {
+        "value": "₹0",
+        "label": "Model cost on free tiers"
+      },
+      {
+        "value": "Async",
+        "label": "You never wait"
+      }
+    ],
+    "highlights": [
+      "Self-signed HTTPS dev server so the phone microphone works over LAN",
+      "Groq key-pool rotation with live usage tracking",
+      "Research notes on Android capture surfaces and the path to native",
+      "Monetisation and strategy documented alongside the code"
+    ]
+  },
+  {
+    "id": 31,
+    "slug": "ardor",
+    "title": "Ardor",
+    "kind": "apps",
+    "status": "In development",
+    "accent": "#9333EA",
+    "category": "Accountability Companion App",
+    "year": "2026",
+    "role": "Founder & Engineer",
+    "image": "/assets/img/projects/ardor/cover.jpg",
+    "cover": "/assets/img/projects/ardor/cover.jpg",
+    "video": "/assets/video/projects/ardor.mp4",
+    "gallery": [
+      "/assets/img/projects/ardor/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "The companion that follows up until you actually do the thing",
+    "badge": "Own product • Mobile",
+    "glowColor": "rgba(147, 51, 234, 0.22)",
+    "tech": [
+      "Expo SDK",
+      "React Native",
+      "TypeScript",
+      "Next.js",
+      "Supabase"
+    ],
+    "summary": "An accountability app with a companion character, Ardy, that checks in, follows up and grows with you — built on a pure TypeScript engine with more than a thousand tests, plus a marketing site and waitlist.",
+    "description": [
+      "To-do apps remember what you planned; they don’t care whether you did it. Ardor is built around follow-through: Ardy checks in, nudges and celebrates until the task is actually done.",
+      "The scheduling and follow-up engine is pure TypeScript with no platform imports, covered by over 1,000 tests, so the same logic can serve Android, iOS, web and desktop.",
+      "A Next.js pre-launch site runs the waitlist, and a product “brain” documents vision, timeline, architecture, retention and metric gates for every phase."
+    ],
+    "features": [
+      {
+        "title": "Follow-through engine",
+        "desc": "Check-ins and follow-ups that adapt until the task is done, not just reminded."
+      },
+      {
+        "title": "Ardy the companion",
+        "desc": "A character with moods and growth levels that reacts to your progress."
+      },
+      {
+        "title": "Tested core",
+        "desc": "Pure TypeScript engine with 1,000+ tests and no side effects."
+      },
+      {
+        "title": "Waitlist site",
+        "desc": "Next.js and Supabase pre-launch site with a waitlist."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "1,000+",
+        "label": "Engine tests"
+      },
+      {
+        "value": "4",
+        "label": "Target platforms, one engine"
+      },
+      {
+        "value": "Phased",
+        "label": "Metric-gated roadmap"
+      }
+    ],
+    "highlights": [
+      "Expo / React Native app in strict TypeScript",
+      "Notification bridge isolated behind its own service layer",
+      "Architecture decision records for every major choice",
+      "Marketing, retention and metrics playbooks in the product brain"
     ]
   },
   {

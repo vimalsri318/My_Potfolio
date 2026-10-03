@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 // Scroll-triggered reveal via IntersectionObserver.
 // Elements already in the viewport reveal immediately on mount,
 // so the page is never blank on first paint.
-export default function Reveal({ children, delay = 0, className = '' }) {
+export default function Reveal({ children, delay = 0, className = '', as: Tag = 'div' }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -26,12 +26,12 @@ export default function Reveal({ children, delay = 0, className = '' }) {
   }, [])
 
   return (
-    <div
+    <Tag
       ref={ref}
       className={`reveal ${className}`.trim()}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
-    </div>
+    </Tag>
   )
 }

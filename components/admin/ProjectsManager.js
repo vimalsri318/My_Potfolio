@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react'
 import { Field, TextInput, TextArea, StringList, ImageUpload, Button, Toggle, StatusBadge } from './ui'
 import { usePublishFlags } from './usePublishFlags'
 import ItemAnalytics from './ItemAnalytics'
+import { KINDS } from '../../data/catalogue'
 
 const EMPTY = {
   slug: '', title: '', category: '', year: '', role: '', image: '',
   link: '', summary: '', tech: [], description: [''], highlights: [''], gallery: [],
+  tagline: '', kind: '', status: '', accent: '', cover: '', video: '',
 }
 
 export default function ProjectsManager() {
@@ -85,6 +87,23 @@ export default function ProjectsManager() {
           <Field label="Role"><TextInput value={draft.role} onChange={(v) => set('role', v)} placeholder="Full-stack Developer" /></Field>
           <Field label="Live link" hint="leave empty for 'Available on request'"><TextInput value={draft.link} onChange={(v) => set('link', v)} placeholder="https://…" /></Field>
         </div>
+
+        <div className="adm-grid2">
+          <Field label="Catalogue group" hint="the Work filter this project sits under">
+            <select className="adm-input" value={draft.kind || ''} onChange={(e) => set('kind', e.target.value)}>
+              <option value="">More (no group)</option>
+              {KINDS.map((k) => <option key={k.id} value={k.id}>{k.label}</option>)}
+            </select>
+          </Field>
+          <Field label="Status" hint="badge on the card — Live, Client build, Open source…"><TextInput value={draft.status} onChange={(v) => set('status', v)} placeholder="Live" /></Field>
+          <Field label="Tagline" hint="one line under the title on the card"><TextInput value={draft.tagline} onChange={(v) => set('tagline', v)} placeholder="What it does, in a sentence" /></Field>
+          <Field label="Accent colour" hint="hex — status dot and glows"><TextInput value={draft.accent} onChange={(v) => set('accent', v)} placeholder="#7C3AED" /></Field>
+          <Field label="Motion clip" hint="mp4 path — rendered from video/ (see video/README.md)"><TextInput value={draft.video} onChange={(v) => set('video', v)} placeholder="/assets/video/projects/<slug>.mp4" /></Field>
+        </div>
+
+        <Field label="Card cover" hint="16:10 image for the Work grid — falls back to the hero image" wide>
+          <ImageUpload value={draft.cover} onChange={(v) => set('cover', v)} folder="img" />
+        </Field>
 
         <Field label="Summary" hint="one-line teaser shown in the card & header" wide>
           <TextArea value={draft.summary} onChange={(v) => set('summary', v)} rows={2} />

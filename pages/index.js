@@ -46,7 +46,7 @@ export default function Portfolio({ projects, comingSoon, sections = {}, testimo
 
       <Navigation sections={sections} />
       <main className="main">
-        <Home />
+        <Home showActions={!comingSoon} />
         {/* rides over the pinned hero */}
         <div className="page-body">
           {comingSoon ? (
@@ -72,7 +72,7 @@ export default function Portfolio({ projects, comingSoon, sections = {}, testimo
                   'PYTHON ⎯ LLMS ⎯ RAG ⎯ LANGCHAIN ⎯ MACHINE LEARNING ⎯ REACT ⎯ NEXTJS ⎯ NODE ⎯ FASTAPI ⎯ MONGODB ⎯ FIREBASE ⎯ GIT ⎯',
                 ]}
               />
-              {sections.services && <Services />}
+              {sections.services && <Services projects={projects} />}
               {sections.experience && <Experience />}
               {sections.testimonials && <Testimonials items={testimonials} />}
               {sections.contact && <Contact />}
