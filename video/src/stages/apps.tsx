@@ -198,14 +198,14 @@ export const BlackHoleStage = () => {
   );
 };
 
-// ── Streak Doctor: diagnosis + heatmap in the terminal ──────────────
+// ── Streak Doctor: today's count + heatmap in the terminal ──────────
+// Lines match the real CLI's output (v0.4.0); diagnosis is not shipped yet.
 const SD = "#39d353";
-const CMD = "npx streak-doctor octocat";
+const CMD = "npx streak-doctor vimalsri318";
 const diag: [string, string, string][] = [
-  ["✗", "#ff7b72", "Mon  commit email isn't linked to the account"],
-  ["✗", "#ff7b72", "Wed  pushed to a fork, not the parent repo"],
-  ["✗", "#ff7b72", "Thu  branch isn't the default branch"],
-  ["✓", SD, "Today  counted"],
+  ["", "#8b949e", "vimalsri318  (GitHub day 2026-10-04 UTC)"],
+  ["●", "#d29922", "0 of 1 today — not there yet"],
+  ["", "#8b949e", "20h 40m left — GitHub's day ends 05:30 GMT+5:30"],
 ];
 const levels = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
 export const StreakDoctorStage = () => {
@@ -223,16 +223,16 @@ export const StreakDoctorStage = () => {
               <span style={{ color: SD }}>~ $</span> {typed}
               {frame < 44 && <span style={{ opacity: Math.floor(frame / 8) % 2 ? 0 : 1 }}>▌</span>}
             </div>
-            {frame > 44 && <div style={{ color: "#8b949e" }}>Checking the last 7 days for octocat…</div>}
             {diag.map(([mark, color, text], i) => {
               const t = ease(frame, 52 + i * 8, 62 + i * 8);
               return (
                 <div key={text} style={{ opacity: t }}>
-                  <span style={{ color }}>{mark}</span> {text}
+                  {mark && <span style={{ color }}>{mark} </span>}
+                  <span style={{ color: mark ? "#e6edf3" : color }}>{text}</span>
                 </div>
               );
             })}
-            <div style={{ marginTop: 22, opacity: ease(frame, 88, 96), color: "#8b949e" }}>$ streak-doctor heatmap</div>
+            <div style={{ marginTop: 22, opacity: ease(frame, 88, 96), color: "#8b949e" }}>$ streak-doctor heatmap vimalsri318</div>
             <div style={{ display: "grid", gridTemplateColumns: `repeat(${cols}, 1fr)`, gridAutoFlow: "column", gridTemplateRows: "repeat(7, 1fr)", gap: 5, marginTop: 12, width: 900 }}>
               {Array.from({ length: cols * 7 }).map((_, i) => {
                 const col = Math.floor(i / 7);

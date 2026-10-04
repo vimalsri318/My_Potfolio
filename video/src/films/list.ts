@@ -1,0 +1,23 @@
+// Projects that have a narrated film (public/films/<slug>/script.json).
+export const FILM_SLUGS: string[] = [
+  "influnet",
+  "buziness-os",
+  "mithra-whole-foods",
+  "tecstellar-command-center",
+  "casa-harmony",
+  "wassupos",
+  "jaisathya",
+  "email-finder",
+  "reframe",
+  "black-hole",
+  "streak-doctor",
+  "slate",
+  "ardor",
+  "carspace",
+  "dmart-analysis",
+  "d7-sports",
+  "interior-design-prototype",
+  "ar-mart",
+  "pricepulse",
+  "namwear-tshirt-design",
+];

@@ -36,3 +36,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Film pipeline intermediates — regenerate with video/scripts/capture.mjs and film_vo.py
+video/public/films/_captures/
+video/public/films/*/vo/

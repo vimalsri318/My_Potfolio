@@ -63,3 +63,35 @@ ffmpeg -i out/amretri-amri-product-demo-voice.mp4 -c:v libx264 -preset slow -crf
 The closing scene shows the case-study page (`public/amretri/casestudy.jpg`,
 captured from the local portfolio) and its live URL — re-capture it if that
 page changes a lot.
+
+## Narrated product films (every project)
+
+`src/films/` is a data-driven film template. Each project has
+
+```
+public/films/<slug>/script.json   scenes (hook · intro · feature · flow · outro), narration lines,
+                                  media (screenshots, phones, the project's stage, terminal,
+                                  chat, cards) and the case-study `diagram`
+public/films/<slug>/case.json     case-study copy: challenge, steps, decisions, roadmap,
+                                  screens, scene captions, and `overrides` for top-level fields
+public/films/<slug>/media/        images the film and case study use
+```
+
+Scenes are timed to the measured voice (`timing.json`), so editing a line and
+re-running the narration is all it takes to re-cut a film.
+
+```bash
+node scripts/capture.mjs <url> public/films/_captures/<name>.jpg [--mobile] [--pre="<js>"] [--stay]
+python3 scripts/crop.py <slug> --batch "<capture> <name> <y> <h>; ..."
+python3 scripts/film_vo.py [slug ...]          # Kokoro narration (only changed lines)
+node scripts/preview.mjs <slug> preview.jpg     # two stills per scene, no full render
+node render_films.mjs [slug ...]                # film + web copy + diagram + scene stills
+cd .. && node scripts/upload_films.cjs [slug]   # web copy → Cloudinary (portfolio/films), poster URL
+node scripts/apply_case_studies.cjs [slug]      # merge into data/projects.json
+node scripts/stage_projects.js <slug> --overwrite   # draft in Supabase; publish from /admin
+```
+
+Content rules: every claim comes from the project's code or docs (or, for the
+2023–24 projects with no local code, from the original portfolio text and
+images). Screens with real customer data are never captured — demo workspaces,
+sample data, mock modes, or designed media instead.
