@@ -1,0 +1,19 @@
+{
+  "lines": {
+    "hook1": 135,
+    "hook2": 81,
+    "intro1": 159,
+    "min1": 190,
+    "outro1": 72,
+    "outro2": 73
+  },
+  "hashes": {
+    "hook1": "449b6cb7677c",
+    "hook2": "76489c3868e4",
+    "intro1": "061216fda34b",
+    "min1": "2fd67d57a2f9",
+    "outro1": "31aee346c4b5",
+    "outro2": "e5e49e99b52f"
+  },
+  "voice": "af_heart"
+}

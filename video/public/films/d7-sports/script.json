@@ -1,0 +1,100 @@
+{
+  "slug": "d7-sports",
+  "title": "D7 Sports",
+  "accent": "#111827",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Sports gear, [the way Apple sells phones.]",
+      "punch": "D7 Sports: a sports platform and [a store to match.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "Most sports stores are cluttered catalogues. D7 Sports set out to sell cricket gear the way Apple sells phones."
+        },
+        {
+          "id": "hook2",
+          "text": "It's a sports platform, with a store to match."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "D7 Sports",
+      "tagline": "A sports management platform and cricket-gear store.",
+      "badge": "2023 · React + MongoDB",
+      "media": {
+        "type": "image",
+        "src": "films/d7-sports/media/store.jpg",
+        "frame": "browser",
+        "url": "D7 Sports — store",
+        "srcWidth": 1600
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "It's built with React on the front end and MongoDB for data."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "The store",
+      "headline": "Every product line, [one clean row.]",
+      "bullets": [
+        "Bats, gloves, balls, shoes, kit bags, pads, helmets",
+        "Trade in old bats for store credit",
+        "What's new, right on the store page"
+      ],
+      "media": {
+        "type": "image",
+        "src": "films/d7-sports/media/store2.jpg",
+        "frame": "browser",
+        "url": "D7 Sports — store",
+        "srcWidth": 1600
+      },
+      "vo": [
+        {
+          "id": "store1",
+          "text": "Every product line sits in one clean row, from bats and gloves to helmets and kit bags, with a trade-in offer that turns old bats into credit."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "A sports platform, [with a store to match.]",
+      "stack": [
+        {
+          "icon": "monitor",
+          "title": "React",
+          "sub": "front end"
+        },
+        {
+          "icon": "database",
+          "title": "MongoDB",
+          "sub": "data"
+        },
+        {
+          "icon": "shopping-bag",
+          "title": "Storefront",
+          "sub": "cricket gear"
+        },
+        {
+          "icon": "activity",
+          "title": "Platform",
+          "sub": "sports management"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "A sports platform, with a store to match."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "overrides": {
+    "tech": ["Next.js 15", "Medusa v2", "Neon Postgres", "Stripe", "Tailwind CSS", "pnpm + Turborepo", "Vercel", "Railway"]
+  },
+  "challenge": [
+    "Mithra Whole Foods sells chemical-free traditional foods — millets, cold-pressed oils, ghee, jaggery — and it was running on an ageing template store that didn't feel premium, couldn't be extended, and needed a developer for every banner change.",
+    "The rebuild had to keep the full commerce path working end to end, stay cheap to run for a small brand, and hand day-to-day content back to the client."
+  ],
+  "architectureCaption": "A Next.js storefront on Vercel talks to a Medusa v2 backend on Railway, which owns the data in Neon Postgres and takes payments through Stripe.",
+  "steps": [
+    { "title": "Browse", "desc": "Category and product pages render from the Medusa Store API, with real product photography and the client's own wordmark traced to SVG." },
+    { "title": "Search", "desc": "/store/search runs inside the backend and returns product ids — no Meilisearch or Algolia to host, pay for or keep in sync." },
+    { "title": "Add to cart", "desc": "The cart context applies a local change first, reconciles with the backend, and rolls back with a toast if the backend rejects it." },
+    { "title": "Check out", "desc": "Address → shipping → payment → review, with Stripe through Medusa's payment provider and an order confirmation at the end." },
+    { "title": "Edit the homepage", "desc": "A custom homepage module with an admin live-preview page lets the client change banners and featured collections without a deploy." }
+  ],
+  "sceneCaptions": [
+    "The catalogue, browsable by category.",
+    "In-house search: results for 'rice'.",
+    "A product page with add to cart.",
+    "The cart, with free-delivery progress and a summary.",
+    "The same store on a phone.",
+    "Under the hood: storefront, Medusa, Neon and Stripe."
+  ],
+  "screens": [
+    { "src": "media/home.jpg", "caption": "The storefront homepage.", "first": true }
+  ],
+  "decisions": [
+    { "title": "Headless, on an open-source commerce core", "desc": "Medusa v2 provides orders, carts, customers and payments as a backend; the storefront is free to look like the brand instead of a template." },
+    { "title": "Search without a search service", "desc": "Meilisearch was removed in favour of an in-house search endpoint. For a catalogue this size it's fast enough, free, and has nothing to keep in sync." },
+    { "title": "Optimistic, but honest", "desc": "The cart feels instant, but the backend is the source of truth — a rejected change rolls back visibly instead of silently drifting." },
+    { "title": "Measure before migrating", "desc": "A slow store prompted 'should we move to Supabase?'. Measuring showed ~290 ms per query from the backend–database distance; a same-region link is 1–3 ms. The answer was region, not vendor." }
+  ],
+  "roadmap": [
+    "Co-locate the backend and database in one region to remove the ~290 ms per-query penalty.",
+    "Switch on the analytics and observability that are already built, then fix correctness gaps they surface.",
+    "Shipping automation through the Easyship fulfilment module.",
+    "Bring the UI back in line with the defined design system."
+  ]
+}

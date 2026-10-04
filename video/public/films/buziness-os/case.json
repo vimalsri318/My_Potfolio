@@ -1,0 +1,61 @@
+{
+  "overrides": {
+    "summary": "A multi-tenant revenue workspace for Indian sales teams: a pipeline, an evidence-based sourcing agent, a softphone contact centre and a meeting bot that writes the minutes — with plans, metered credits and two admin consoles on top.",
+    "tech": ["Next.js 15", "React 19", "Tailwind CSS 4", "Neon Postgres", "Gemini", "Meeting BaaS", "TeleCMI", "Railway"],
+    "description": [
+      "Small revenue teams run sales across a CRM, a dialler, a meeting notetaker and a lead database, with nothing connecting them. Buziness OS puts the working parts in one workspace per client company, with its own members, plan, modules, credits and data.",
+      "The real backends today are the pipeline, the sourcing agent (evidence-based email lookup), the contact centre (TeleCMI softphone with Gemini transcription) and the meeting notetaker (Meeting BaaS bots, minutes written by Gemini). Campaigns, omnichannel, voice agents and workflows are designed screens that only the demo workspace shows.",
+      "Underneath is the part that makes it sellable: every API route goes through one guard that resolves the workspace, checks the plan, module and role, rate-limits, and takes credits up front with an automatic refund on failure."
+    ],
+    "features": [
+      { "title": "Pipeline and contacts", "desc": "Leads move across stages on a board or table; contacts are derived from the same record, and the dashboard shows live counts for real workspaces." },
+      { "title": "Sourcing agent", "desc": "Finds and verifies a prospect's business email from evidence and shows a readable trace of how it got there — no invented data presented as findings." },
+      { "title": "Contact centre", "desc": "A TeleCMI softphone in the browser. Calls are recorded and transcribed with Gemini, charged once however many times transcription is retried." },
+      { "title": "Meeting notetaker", "desc": "Dispatches a Meeting BaaS bot to Google Meet, Zoom or Teams, ingests the transcript by webhook and writes minutes with Gemini when the call ends." },
+      { "title": "Plans, modules and credits", "desc": "Six plans, per-workspace grants and prices, a platform kill switch, a monthly allowance and a full credit ledger." },
+      { "title": "Two admin surfaces", "desc": "/admin for each workspace (members, roles, invites, usage, audit log) and /platform for the team that runs every workspace." }
+    ],
+    "metrics": [
+      { "value": "6", "label": "Plans with per-workspace grants" },
+      { "value": "3", "label": "AI and telephony services wired in" },
+      { "value": "6/6", "label": "Security findings fixed" }
+    ],
+    "highlights": []
+  },
+  "challenge": [
+    "Revenue teams at small Indian companies stitch together a CRM, a dialler, a meeting notetaker and a lead database. Every tool has its own login and its own copy of the customer, and nothing carries over when a lead becomes a call becomes a meeting.",
+    "The product also had to be sellable as SaaS from day one: many client companies on one deployment, each paying for different modules, with AI actions that cost real money and have to be metered, limited and refunded fairly."
+  ],
+  "architectureCaption": "One Next.js app on Railway. Every API route goes through the same guard before it reaches Neon Postgres or a paid AI service.",
+  "steps": [
+    { "title": "Resolve the workspace", "desc": "The guard blocks cross-site writes, resolves the session and workspace, and checks the workspace is active." },
+    { "title": "Check entitlement", "desc": "Modules resolve strongest-first: platform kill switch, platform override, the plan's module list, then the workspace admin's own switch." },
+    { "title": "Check the role", "desc": "Each route declares its access level — public, user, member, write, org admin or super admin — and the guard enforces it." },
+    { "title": "Charge up front", "desc": "Credits are taken with a single conditional UPDATE … WHERE balance ≥ cost, so balances never go negative and concurrent requests can't overspend." },
+    { "title": "Run, log, refund", "desc": "The handler runs; usage and outcome are logged. If it fails, the credits come back automatically." }
+  ],
+  "sceneCaptions": [
+    "Leads on one pipeline, from new to won.",
+    "The sourcing agent: evidence-based business-email lookup with a visible trace.",
+    "The contact centre: a browser softphone with Gemini transcription.",
+    "Workspace admin: plan, credits used, members and audit log.",
+    "The one guard every API route goes through.",
+    "Under the hood: one app, one guard, Neon Postgres and the AI services."
+  ],
+  "screens": [
+    { "src": "media/dashboard.jpg", "caption": "The dashboard in the one-click demo workspace (sample company, sample data).", "first": true },
+    { "src": "media/loop.jpg", "caption": "The marketing site explains the capture → understand → recommend → act loop." }
+  ],
+  "decisions": [
+    { "title": "One guard, not per-route checks", "desc": "Tenancy, entitlement, roles, rate limits, credits and logging live in a single api() wrapper. A route declares what it needs and never re-implements any of it." },
+    { "title": "Atomic credits with refunds", "desc": "A conditional UPDATE makes overspending impossible under concurrency, failed actions are refunded, and a call's transcription is charged once however often it's retried." },
+    { "title": "Least-privilege database role", "desc": "The app connects as a restricted role; migrations run with a separate privileged URL. A compromised app can't change the schema." },
+    { "title": "Be honest about what's real", "desc": "Modules without a backend show a 'not set up yet' state in real workspaces; only the sample-data demo shows their designed screens." }
+  ],
+  "roadmap": [
+    "Razorpay top-ups for credits (orders → webhook → ledger) and invoices, replacing manual top-ups.",
+    "Email delivery for invites and password resets, plus email verification and TOTP 2FA for platform admins.",
+    "Per-workspace telephony settings instead of one shared TeleCMI account.",
+    "Real backends for campaigns, omnichannel, voice agents and workflows."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "voice": "af_heart",
+  "speed": 1.0,
+  "fps": 30,
+  "lines": {
+    "hook1": 146,
+    "hook2": 84,
+    "tour1": 113,
+    "tour2": 133,
+    "tour3": 63,
+    "chat1": 180,
+    "chat2": 145,
+    "chat3": 201,
+    "chat4": 114,
+    "arch1": 62,
+    "arch2": 139,
+    "arch3": 210,
+    "arch4": 148,
+    "sheets1": 106,
+    "sheets2": 96,
+    "sheets3": 150,
+    "sheets4": 60,
+    "blog1": 51,
+    "blog2": 141,
+    "blog3": 44,
+    "outro1": 86,
+    "outro2": 95,
+    "outro3": 73
+  }
+}

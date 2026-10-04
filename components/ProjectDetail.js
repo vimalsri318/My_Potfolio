@@ -6,6 +6,8 @@ import Reveal from './Reveal'
 import FeedbackForm from './FeedbackForm'
 import LikeButton from './LikeButton'
 import { useTrackView } from '../hooks/useTrackView'
+import { kindLabel } from '../data/catalogue'
+import { interestHref } from '../lib/interest'
 
 // One page layout for every project — pass a project (and the next one)
 // as props and it renders the full case study.
@@ -34,7 +36,9 @@ export default function ProjectDetail({ project, nextProject }) {
           {/* Header */}
           <header className="project-detail__header">
             <p className="mono project-detail__meta-line">
-              {project.category} <span className="project-detail__dot">●</span> {project.year}
+              {project.status && <span className="project-detail__status">{project.status}</span>}
+              {project.kind ? kindLabel(project.kind) : project.category}{' '}
+              <span className="project-detail__dot">●</span> {project.year}
             </p>
             <h1 className="display project-detail__title">{project.title}</h1>
             {project.tagline && (
@@ -46,7 +50,19 @@ export default function ProjectDetail({ project, nextProject }) {
           {/* Hero image */}
           <Reveal>
             <div className="project-detail__hero">
-              <img src={project.image} alt={project.title} />
+              {project.video ? (
+                <video
+                  src={project.video}
+                  poster={project.cover || project.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={`${project.title} in motion`}
+                />
+              ) : (
+                <img src={project.image} alt={project.title} />
+              )}
             </div>
           </Reveal>
 
@@ -61,6 +77,25 @@ export default function ProjectDetail({ project, nextProject }) {
                   </div>
                 ))}
               </div>
+            </Reveal>
+          )}
+
+          {/* Product film — the narrated walkthrough, with sound and controls */}
+          {project.film && (
+            <Reveal>
+              <section className="project-detail__film">
+                <span className="mono project-detail__label">Product film</span>
+                <div className="project-detail__film-frame">
+                  <video
+                    src={project.film}
+                    poster={project.filmPoster || project.cover || project.image}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    aria-label={`${project.title} — product film`}
+                  />
+                </div>
+              </section>
             </Reveal>
           )}
 
@@ -87,7 +122,7 @@ export default function ProjectDetail({ project, nextProject }) {
                   </a>
                 </p>
               ) : (
-                <p>Available on request</p>
+                <p>Private build — demo on request</p>
               )}
             </div>
           </div>
@@ -108,10 +143,68 @@ export default function ProjectDetail({ project, nextProject }) {
             </section>
           )}
 
+          {/* The problem */}
+          {Array.isArray(project.challenge) && project.challenge.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">The problem</span>
+              <div className="project-detail__text">
+                {project.challenge.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Architecture — a diagram plus the numbered flow through it */}
+          {project.architecture && (
+            <section
+              className="project-detail__section project-detail__section--wide"
+              style={project.accent ? { '--card-accent': project.accent } : undefined}
+            >
+              <span className="mono project-detail__label">Architecture</span>
+              {project.architecture.image && (
+                <figure className="project-detail__figure">
+                  <a href={project.architecture.image} target="_blank" rel="noreferrer">
+                    <img src={project.architecture.image} alt={project.architecture.alt || `${project.title} architecture`} loading="lazy" />
+                  </a>
+                  {project.architecture.caption && <figcaption>{project.architecture.caption}</figcaption>}
+                </figure>
+              )}
+              {Array.isArray(project.architecture.steps) && project.architecture.steps.length > 0 && (
+                <ol className="project-detail__steps">
+                  {project.architecture.steps.map((step, i) => (
+                    <li key={i} className="project-detail__step">
+                      <span className="mono project-detail__step-index">{String(i + 1).padStart(2, '0')}</span>
+                      <h4 className="project-detail__feature-title">{step.title}</h4>
+                      <p className="project-detail__feature-desc">{step.desc}</p>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </section>
+          )}
+
+          {/* Inside the product — captioned screens */}
+          {Array.isArray(project.screens) && project.screens.length > 0 && (
+            <section className="project-detail__section project-detail__section--wide">
+              <span className="mono project-detail__label">Inside the product</span>
+              <div className="project-detail__screens">
+                {project.screens.map((screen, i) => (
+                  <figure key={i} className={`project-detail__figure${screen.wide ? ' project-detail__figure--wide' : ''}`}>
+                    <a href={screen.src} target="_blank" rel="noreferrer">
+                      <img src={screen.src} alt={screen.alt || screen.caption || `${project.title} — ${i + 1}`} loading="lazy" />
+                    </a>
+                    {screen.caption && <figcaption>{screen.caption}</figcaption>}
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Architecture & Features */}
           {project.features && project.features.length > 0 && (
             <section className="project-detail__section project-detail__features-section">
-              <span className="mono project-detail__label">Architecture & Features</span>
+              <span className="mono project-detail__label">{project.architecture ? 'Features' : 'Architecture & Features'}</span>
               <div className="project-detail__features-grid">
                 {project.features.map((f, i) => (
                   <div key={i} className="project-detail__feature-card">
@@ -138,6 +231,36 @@ export default function ProjectDetail({ project, nextProject }) {
             </section>
           )}
 
+          {/* Key decisions & trade-offs */}
+          {Array.isArray(project.decisions) && project.decisions.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">Key decisions</span>
+              <div className="project-detail__features-grid project-detail__features-grid--pairs">
+                {project.decisions.map((d, i) => (
+                  <div key={i} className="project-detail__feature-card">
+                    <h4 className="project-detail__feature-title">{d.title}</h4>
+                    <p className="project-detail__feature-desc">{d.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* What's next */}
+          {Array.isArray(project.roadmap) && project.roadmap.length > 0 && (
+            <section className="project-detail__section">
+              <span className="mono project-detail__label">What&apos;s next</span>
+              <ul className="project-detail__highlights">
+                {project.roadmap.map((item, i) => (
+                  <li key={i}>
+                    <span className="project-detail__hl-index">→</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           {/* Gallery */}
           {Array.isArray(project.gallery) && project.gallery.length > 0 && (
             <section className="project-detail__section">
@@ -149,6 +272,30 @@ export default function ProjectDetail({ project, nextProject }) {
               </div>
             </section>
           )}
+
+          {/* Order one like it */}
+          <section className="project-detail__order" style={project.accent ? { '--card-accent': project.accent } : undefined}>
+            <div>
+              <p className="mono project-detail__label">Want something like this?</p>
+              <h2 className="project-detail__order-title">I can build one for you.</h2>
+              <p className="project-detail__order-text">
+                Tell me what you have in mind — I&apos;ll reply with questions, a plan and a quote.
+              </p>
+            </div>
+            <div className="project-detail__order-actions">
+              <a href={interestHref(`Something like ${project.title}`)} className="project-detail__order-cta">
+                Build me one like this <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href="https://wa.me/918270942966?text=Hi%20Vimal%2C%20I%27d%20like%20to%20talk%20about%20a%20project"
+                target="_blank"
+                rel="noreferrer"
+                className="project-detail__order-alt"
+              >
+                or WhatsApp me
+              </a>
+            </div>
+          </section>
 
           {/* Next project */}
           {nextProject && (

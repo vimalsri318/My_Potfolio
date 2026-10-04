@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-video",
+  "private": true,
+  "description": "Remotion source for the portfolio showreel, per-project clips and catalogue covers. Isolated from the Next.js app (own deps), like interactive/.",
+  "scripts": {
+    "studio": "remotion studio --no-open",
+    "render:all": "node render.mjs"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/fonts": "4.0.532",
+    "@remotion/google-fonts": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.0",
+    "typescript": "5.6.3"
+  }
+}

@@ -1,75 +1,1138 @@
 [
   {
-    "id": 10,
-    "slug": "amretri-healthcare",
-    "title": "Amretri Healthcare",
-    "category": "Healthcare Platform & AI Automation",
-    "year": "2025",
-    "role": "Lead Full-Stack Architect & AI Engineer",
-    "image": "/assets/img/projects/amretri/amretri-hero.png",
-    "mobileImage": "/assets/img/projects/amretri/amretri-chatbot-chat.png",
-    "chatbotImage": "/assets/img/projects/amretri/amretri-chatbot-lead.png",
+    "id": 20,
+    "slug": "influnet",
+    "title": "Influnet",
+    "kind": "saas",
+    "status": "Live",
+    "accent": "#E5197D",
+    "category": "Creator Marketing Platform",
+    "year": "2026",
+    "role": "Product Engineer — web, mobile & backend",
+    "image": "/assets/img/projects/influnet/hero.jpg",
+    "cover": "/assets/img/projects/influnet/cover.jpg",
+    "video": "/assets/video/projects/influnet.mp4",
     "gallery": [
-      "/assets/img/projects/amretri/amretri-hero.png",
-      "/assets/img/projects/amretri/amretri-chatbot-chat.png",
-      "/assets/img/projects/amretri/amretri-chatbot-lead.png"
+      "/assets/img/projects/influnet/hero.jpg",
+      "/assets/img/projects/influnet/mobile.jpg"
     ],
-    "link": "https://amretrihealthcare.com/",
-    "domain": "amretrihealthcare.com",
-    "tagline": "Transforming Hospital Pharmacy Operations Across India",
-    "badge": "Client Project • Live in Production",
-    "glowColor": "rgba(13, 148, 136, 0.22)",
+    "link": "https://influnet.io",
+    "domain": "influnet.io",
+    "tagline": "Find real creators. Run every collab to the finish.",
+    "badge": "Live product • Web + iOS/Android",
+    "glowColor": "rgba(229, 25, 125, 0.22)",
     "tech": [
-      "React",
-      "Tailwind CSS",
-      "Vite",
-      "AI Chatbot",
-      "Google Sheets API",
-      "WhatsApp Automation"
+      "Next.js 16",
+      "TypeScript",
+      "Supabase",
+      "Expo / React Native",
+      "Stream Chat",
+      "Razorpay",
+      "Turborepo"
     ],
-    "summary": "Enterprise healthcare platform engineered to manage hospital pharmacies, bulk medicine procurement, and pharmacist supply — featuring the AMRI AI assistant with automated Google Sheets lead sync and instant WhatsApp routing.",
+    "summary": "An influencer-marketing platform where brands post campaigns, shortlist creators who have proved they own their accounts, agree terms in writing and pay stage by stage — on the web and in a native mobile app.",
     "description": [
-      "Amretri Healthcare is a Pan-India healthcare operations leader helping hospitals achieve 5–30% margin uplift through pharmacy management, staffing, and bulk medicine supply. They needed a premier digital platform matching their enterprise caliber.",
-      "Designed and developed the multi-page web platform from the ground up, with dedicated portals for hospital takeovers, staffing, and compliance audits.",
-      "Engineered 'AMRI', a custom healthcare assistant chatbot that guides visitors through tailored service requests, automatically syncing inquiries and contact data into Google Sheets in real-time, backed by one-tap WhatsApp integration for instantaneous doctor and executive consultations."
+      "Creators and brands mostly meet in Instagram DMs and email threads, where replies take hours or days and deals fall through. Influnet replaces that with one link: a creator puts their Influnet profile in their bio, a brand taps it, and a collaboration request lands instantly.",
+      "I built it as a Turborepo monorepo — a Next.js 16 web app with its API routes, a separate marketing site, and an Expo / React Native app for iOS and Android — on top of Supabase for auth, Postgres and row-level security.",
+      "Every collaboration moves through a 12-stage pipeline with a Kanban workspace, real-time chat on Stream, written terms and Razorpay payment gates, with an admin approval flow on top."
     ],
     "features": [
       {
-        "title": "Automated Lead Sync to Sheets",
-        "desc": "Inbound hospital inquiries are verified, classified, and written to Google Sheets within milliseconds with zero manual data entry."
+        "title": "Verified creator profiles",
+        "desc": "Creators prove they own their social accounts before brands can shortlist them, with live follower, view and engagement stats on a shareable link-in-bio page."
       },
       {
-        "title": "AMRI Interactive Chatbot",
-        "desc": "Intelligent multi-step conversation flow qualifying hospital pharmacy takeover, staffing, and purchase rate requests."
+        "title": "12-stage campaign pipeline",
+        "desc": "Every collab moves from request to brief, terms, content, approval and payout on a Kanban workspace both sides can see."
       },
       {
-        "title": "Direct WhatsApp Dispatch",
-        "desc": "Deep link automation connecting prospective healthcare executives directly to verified operations team members."
+        "title": "Chat and notifications",
+        "desc": "Stream-powered chat with persisted history and an in-app notification bell, so requests get answered in minutes instead of days."
       },
       {
-        "title": "Adaptive Multi-Device UX",
-        "desc": "Fluid responsive performance across mobile smartphones, tablets, and wide workstation displays."
+        "title": "Payment gates",
+        "desc": "Razorpay payments are released stage by stage against agreed deliverables, with written terms attached to every deal."
       }
     ],
     "metrics": [
       {
-        "value": "5–30%",
-        "label": "Pharmacy Margin Uplift"
+        "value": "12",
+        "label": "Stage campaign pipeline"
       },
       {
-        "value": "Pan-India",
-        "label": "Operational Reach"
+        "value": "3",
+        "label": "Apps in one monorepo"
       },
       {
-        "value": "Real-time",
-        "label": "Google Sheets Lead Sync"
+        "value": "870+",
+        "label": "Commits shipped"
       }
     ],
     "highlights": [
-      "Multi-page enterprise architecture built with React and Tailwind CSS",
-      "Custom AMRI conversational agent with real-time Google Sheets backend sync",
-      "Seamless WhatsApp Business integration for instant customer contact",
-      "Optimized Core Web Vitals with sub-second page loads and high accessibility"
+      "Turborepo monorepo: Next.js web app, marketing site and Expo mobile app sharing one backend",
+      "Supabase Postgres with row-level security and a documented PII lockdown",
+      "End-to-end Playwright suites covering requests, chat, freemium limits and access guards",
+      "Phone OTP sign-in through a Supabase edge function"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791081798/portfolio/films/influnet.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_16.43,w_1600,q_auto/v1791081798/portfolio/films/influnet.jpg",
+    "challenge": [
+      "Creators and brands mostly meet in Instagram DMs and email threads. Replies take hours or days, follower counts are easy to fake, and the terms of a deal live in someone's chat history — so collaborations stall or fall apart halfway.",
+      "Brands needed to know who they were actually talking to before they replied. Creators needed one place for every deal, and both sides needed a shared record of what was agreed and what had been paid."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/influnet/case/architecture.jpg",
+      "alt": "Influnet system architecture",
+      "caption": "Three apps in one Turborepo monorepo share a single Supabase backend. Chat and payments run on Stream and Razorpay.",
+      "steps": [
+        {
+          "title": "Prove it's you",
+          "desc": "Creators verify they own their social accounts. Unverified profiles show a neutral 'ownership not verified' label, and a business sees a warning before sending a request."
+        },
+        {
+          "title": "Request",
+          "desc": "A brand finds a creator through search or their link-in-bio profile and sends a collaboration request, which lands as an in-app notification."
+        },
+        {
+          "title": "Agree in writing",
+          "desc": "Accepting a request opens a project and a Stream chat. Terms, deliverables and budget are discussed and recorded inside the project."
+        },
+        {
+          "title": "Work the pipeline",
+          "desc": "The project moves through 12 stages — deposit, planning, shooting, editing, review, revisions, approval — with a 'whose turn' owner on each stage."
+        },
+        {
+          "title": "Get paid",
+          "desc": "Advance and final payments go through Razorpay. Only the signature-verified webhook can mark a payment as paid; the client never self-reports it."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/influnet/case/chooser.jpg",
+        "caption": "influnet.io asks one question first: creator or business?"
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/scene-1.jpg",
+        "caption": "Business landing page: shortlist creators who have proved they own their accounts."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/scene-2.jpg",
+        "caption": "Creator landing page: four questions answered before you reply to a brand."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/scene-3.jpg",
+        "caption": "The same product on the web and in the iOS / Android app."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/scene-4.jpg",
+        "caption": "How a collab moves from request to final payment."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/scene-5.jpg",
+        "caption": "Stage by stage: discussion, deposit, shooting, review, payment."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/scene-6.jpg",
+        "caption": "Under the hood: three apps, one Supabase backend."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Keep the stack, buy at the service level",
+        "desc": "No marketplace framework. Next.js and Supabase stay the core, and chat, payments and email are bought as services (Stream, Razorpay, Resend) instead of being rebuilt."
+      },
+      {
+        "title": "One app, scaled horizontally",
+        "desc": "The web app and its API routes deploy as one unit. When background work grows, the plan is to split out a worker — not to split frontend from backend."
+      },
+      {
+        "title": "The database enforces the rules",
+        "desc": "Row-level security decides who can read and write each table, and a documented PII lockdown keeps private fields out of public profiles. A bug in the UI can't leak data on its own."
+      },
+      {
+        "title": "Payments the client can't fake",
+        "desc": "Razorpay orders are created on the server and a signature-verified webhook is the only writer of 'paid'. Stage gates check that record, not anything the browser says."
+      }
+    ],
+    "roadmap": [
+      "Reviews and ratings on completed projects, written once per side and enforced by row-level security.",
+      "A completed-work showcase on each creator's public profile, feeding rating and completed count into discovery.",
+      "Per-project progress bars and a 'whose turn' label on both dashboards.",
+      "Admin-controlled runtime settings, agreed in principle and deferred until they're needed."
+    ]
+  },
+  {
+    "id": 23,
+    "slug": "buziness-os",
+    "title": "Buziness OS",
+    "kind": "ai",
+    "status": "Live",
+    "accent": "#0F766E",
+    "category": "AI-Native Business Command Centre",
+    "year": "2026",
+    "role": "Full-Stack & AI Engineer",
+    "image": "/assets/img/projects/buziness-os/hero.jpg",
+    "cover": "/assets/img/projects/buziness-os/cover.jpg",
+    "video": "/assets/video/projects/buziness-os.mp4",
+    "gallery": [
+      "/assets/img/projects/buziness-os/hero.jpg",
+      "/assets/img/projects/buziness-os/mobile.jpg"
+    ],
+    "link": "https://buziness365.up.railway.app",
+    "domain": "buziness365.up.railway.app",
+    "tagline": "Run your business from one intelligent operating system",
+    "badge": "Live • AI agents in production",
+    "glowColor": "rgba(15, 118, 110, 0.22)",
+    "tech": [
+      "Next.js 15",
+      "React 19",
+      "Tailwind CSS 4",
+      "Neon Postgres",
+      "Gemini",
+      "Meeting BaaS",
+      "TeleCMI",
+      "Railway"
+    ],
+    "summary": "A multi-tenant revenue workspace for Indian sales teams: a pipeline, an evidence-based sourcing agent, a softphone contact centre and a meeting bot that writes the minutes — with plans, metered credits and two admin consoles on top.",
+    "description": [
+      "Small revenue teams run sales across a CRM, a dialler, a meeting notetaker and a lead database, with nothing connecting them. Buziness OS puts the working parts in one workspace per client company, with its own members, plan, modules, credits and data.",
+      "The real backends today are the pipeline, the sourcing agent (evidence-based email lookup), the contact centre (TeleCMI softphone with Gemini transcription) and the meeting notetaker (Meeting BaaS bots, minutes written by Gemini). Campaigns, omnichannel, voice agents and workflows are designed screens that only the demo workspace shows.",
+      "Underneath is the part that makes it sellable: every API route goes through one guard that resolves the workspace, checks the plan, module and role, rate-limits, and takes credits up front with an automatic refund on failure."
+    ],
+    "features": [
+      {
+        "title": "Pipeline and contacts",
+        "desc": "Leads move across stages on a board or table; contacts are derived from the same record, and the dashboard shows live counts for real workspaces."
+      },
+      {
+        "title": "Sourcing agent",
+        "desc": "Finds and verifies a prospect's business email from evidence and shows a readable trace of how it got there — no invented data presented as findings."
+      },
+      {
+        "title": "Contact centre",
+        "desc": "A TeleCMI softphone in the browser. Calls are recorded and transcribed with Gemini, charged once however many times transcription is retried."
+      },
+      {
+        "title": "Meeting notetaker",
+        "desc": "Dispatches a Meeting BaaS bot to Google Meet, Zoom or Teams, ingests the transcript by webhook and writes minutes with Gemini when the call ends."
+      },
+      {
+        "title": "Plans, modules and credits",
+        "desc": "Six plans, per-workspace grants and prices, a platform kill switch, a monthly allowance and a full credit ledger."
+      },
+      {
+        "title": "Two admin surfaces",
+        "desc": "/admin for each workspace (members, roles, invites, usage, audit log) and /platform for the team that runs every workspace."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "6",
+        "label": "Plans with per-workspace grants"
+      },
+      {
+        "value": "3",
+        "label": "AI and telephony services wired in"
+      },
+      {
+        "value": "6/6",
+        "label": "Security findings fixed"
+      }
+    ],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085343/portfolio/films/buziness-os.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_16.93,w_1600,q_auto/v1791085343/portfolio/films/buziness-os.jpg",
+    "challenge": [
+      "Revenue teams at small Indian companies stitch together a CRM, a dialler, a meeting notetaker and a lead database. Every tool has its own login and its own copy of the customer, and nothing carries over when a lead becomes a call becomes a meeting.",
+      "The product also had to be sellable as SaaS from day one: many client companies on one deployment, each paying for different modules, with AI actions that cost real money and have to be metered, limited and refunded fairly."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/buziness-os/case/architecture.jpg",
+      "alt": "Buziness OS system architecture",
+      "caption": "One Next.js app on Railway. Every API route goes through the same guard before it reaches Neon Postgres or a paid AI service.",
+      "steps": [
+        {
+          "title": "Resolve the workspace",
+          "desc": "The guard blocks cross-site writes, resolves the session and workspace, and checks the workspace is active."
+        },
+        {
+          "title": "Check entitlement",
+          "desc": "Modules resolve strongest-first: platform kill switch, platform override, the plan's module list, then the workspace admin's own switch."
+        },
+        {
+          "title": "Check the role",
+          "desc": "Each route declares its access level — public, user, member, write, org admin or super admin — and the guard enforces it."
+        },
+        {
+          "title": "Charge up front",
+          "desc": "Credits are taken with a single conditional UPDATE … WHERE balance ≥ cost, so balances never go negative and concurrent requests can't overspend."
+        },
+        {
+          "title": "Run, log, refund",
+          "desc": "The handler runs; usage and outcome are logged. If it fails, the credits come back automatically."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/buziness-os/case/dashboard.jpg",
+        "caption": "The dashboard in the one-click demo workspace (sample company, sample data)."
+      },
+      {
+        "src": "/assets/img/projects/buziness-os/case/scene-1.jpg",
+        "caption": "Leads on one pipeline, from new to won."
+      },
+      {
+        "src": "/assets/img/projects/buziness-os/case/scene-2.jpg",
+        "caption": "The sourcing agent: evidence-based business-email lookup with a visible trace."
+      },
+      {
+        "src": "/assets/img/projects/buziness-os/case/scene-3.jpg",
+        "caption": "The contact centre: a browser softphone with Gemini transcription."
+      },
+      {
+        "src": "/assets/img/projects/buziness-os/case/scene-4.jpg",
+        "caption": "Workspace admin: plan, credits used, members and audit log."
+      },
+      {
+        "src": "/assets/img/projects/buziness-os/case/scene-5.jpg",
+        "caption": "The one guard every API route goes through."
+      },
+      {
+        "src": "/assets/img/projects/buziness-os/case/scene-6.jpg",
+        "caption": "Under the hood: one app, one guard, Neon Postgres and the AI services."
+      },
+      {
+        "src": "/assets/img/projects/buziness-os/case/loop.jpg",
+        "caption": "The marketing site explains the capture → understand → recommend → act loop."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "One guard, not per-route checks",
+        "desc": "Tenancy, entitlement, roles, rate limits, credits and logging live in a single api() wrapper. A route declares what it needs and never re-implements any of it."
+      },
+      {
+        "title": "Atomic credits with refunds",
+        "desc": "A conditional UPDATE makes overspending impossible under concurrency, failed actions are refunded, and a call's transcription is charged once however often it's retried."
+      },
+      {
+        "title": "Least-privilege database role",
+        "desc": "The app connects as a restricted role; migrations run with a separate privileged URL. A compromised app can't change the schema."
+      },
+      {
+        "title": "Be honest about what's real",
+        "desc": "Modules without a backend show a 'not set up yet' state in real workspaces; only the sample-data demo shows their designed screens."
+      }
+    ],
+    "roadmap": [
+      "Razorpay top-ups for credits (orders → webhook → ledger) and invoices, replacing manual top-ups.",
+      "Email delivery for invites and password resets, plus email verification and TOTP 2FA for platform admins.",
+      "Per-workspace telephony settings instead of one shared TeleCMI account.",
+      "Real backends for campaigns, omnichannel, voice agents and workflows."
+    ]
+  },
+  {
+    "id": 21,
+    "slug": "mithra-whole-foods",
+    "title": "Mithra Whole Foods",
+    "kind": "commerce",
+    "status": "Client build",
+    "accent": "#2E7D32",
+    "category": "Headless Grocery E-Commerce",
+    "year": "2026",
+    "role": "Full-Stack Engineer — storefront, commerce backend & CMS",
+    "image": "/assets/img/projects/mithra-whole-foods/cover.jpg",
+    "cover": "/assets/img/projects/mithra-whole-foods/cover.jpg",
+    "video": "/assets/video/projects/mithra-whole-foods.mp4",
+    "gallery": [
+      "/assets/img/projects/mithra-whole-foods/cover.jpg"
+    ],
+    "link": "",
+    "domain": "mithrawholefoods.com",
+    "tagline": "Traditional foods, sold through a modern headless store",
+    "badge": "Client project • Launching",
+    "glowColor": "rgba(46, 125, 50, 0.22)",
+    "tech": [
+      "Next.js 15",
+      "Medusa v2",
+      "Neon Postgres",
+      "Stripe",
+      "Tailwind CSS",
+      "pnpm + Turborepo",
+      "Vercel",
+      "Railway"
+    ],
+    "summary": "A complete grocery store for millets, cold-pressed oils, ghee and traditional foods — Next.js storefront on a Medusa v2 commerce backend with cart, checkout, Stripe payments, search, wishlist and a custom homepage CMS.",
+    "description": [
+      "Mithra Whole Foods sells traditional, chemical-free foods and needed to move off an ageing template store onto something that feels premium and converts.",
+      "I rebuilt it as a headless store: a Next.js 15 storefront talking to a Medusa v2 backend on PostgreSQL. The full commerce path works end to end — catalogue, optimistic cart, customer accounts, multi-step checkout, Stripe payments, order history, wishlist and an in-house search engine with no external search service.",
+      "A custom homepage CMS module with an admin live-preview page lets the client change banners and featured collections without a developer."
+    ],
+    "features": [
+      {
+        "title": "Optimistic cart",
+        "desc": "The cart updates instantly, then reconciles with the backend and rolls back with a clear message if something is out of stock."
+      },
+      {
+        "title": "Four-step checkout",
+        "desc": "Address, shipping, payment and review, with Stripe payments and order confirmation."
+      },
+      {
+        "title": "In-house search",
+        "desc": "Product search runs inside the Medusa backend — fast, free and no third-party index to keep in sync."
+      },
+      {
+        "title": "Homepage CMS",
+        "desc": "A custom Medusa module plus a live-preview admin page for banners, offers and featured products."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "End-to-end",
+        "label": "Cart → checkout → payment"
+      },
+      {
+        "value": "Headless",
+        "label": "Medusa v2 commerce core"
+      },
+      {
+        "value": "0",
+        "label": "Paid search services"
+      }
+    ],
+    "highlights": [
+      "pnpm + Turborepo monorepo with storefront and commerce backend",
+      "Stripe payments, customer auth and address book",
+      "Production audit, QA report and deployment runbook delivered with the build",
+      "Client's own wordmark traced to SVG and real product photography throughout"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085345/portfolio/films/mithra-whole-foods.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.03,w_1600,q_auto/v1791085345/portfolio/films/mithra-whole-foods.jpg",
+    "challenge": [
+      "Mithra Whole Foods sells chemical-free traditional foods — millets, cold-pressed oils, ghee, jaggery — and it was running on an ageing template store that didn't feel premium, couldn't be extended, and needed a developer for every banner change.",
+      "The rebuild had to keep the full commerce path working end to end, stay cheap to run for a small brand, and hand day-to-day content back to the client."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/mithra-whole-foods/case/architecture.jpg",
+      "alt": "Mithra Whole Foods system architecture",
+      "caption": "A Next.js storefront on Vercel talks to a Medusa v2 backend on Railway, which owns the data in Neon Postgres and takes payments through Stripe.",
+      "steps": [
+        {
+          "title": "Browse",
+          "desc": "Category and product pages render from the Medusa Store API, with real product photography and the client's own wordmark traced to SVG."
+        },
+        {
+          "title": "Search",
+          "desc": "/store/search runs inside the backend and returns product ids — no Meilisearch or Algolia to host, pay for or keep in sync."
+        },
+        {
+          "title": "Add to cart",
+          "desc": "The cart context applies a local change first, reconciles with the backend, and rolls back with a toast if the backend rejects it."
+        },
+        {
+          "title": "Check out",
+          "desc": "Address → shipping → payment → review, with Stripe through Medusa's payment provider and an order confirmation at the end."
+        },
+        {
+          "title": "Edit the homepage",
+          "desc": "A custom homepage module with an admin live-preview page lets the client change banners and featured collections without a deploy."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/home.jpg",
+        "caption": "The storefront homepage."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/scene-1.jpg",
+        "caption": "The catalogue, browsable by category."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/scene-2.jpg",
+        "caption": "In-house search: results for 'rice'."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/scene-3.jpg",
+        "caption": "A product page with add to cart."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/scene-4.jpg",
+        "caption": "The cart, with free-delivery progress and a summary."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/scene-5.jpg",
+        "caption": "The same store on a phone."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/scene-6.jpg",
+        "caption": "Under the hood: storefront, Medusa, Neon and Stripe."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Headless, on an open-source commerce core",
+        "desc": "Medusa v2 provides orders, carts, customers and payments as a backend; the storefront is free to look like the brand instead of a template."
+      },
+      {
+        "title": "Search without a search service",
+        "desc": "Meilisearch was removed in favour of an in-house search endpoint. For a catalogue this size it's fast enough, free, and has nothing to keep in sync."
+      },
+      {
+        "title": "Optimistic, but honest",
+        "desc": "The cart feels instant, but the backend is the source of truth — a rejected change rolls back visibly instead of silently drifting."
+      },
+      {
+        "title": "Measure before migrating",
+        "desc": "A slow store prompted 'should we move to Supabase?'. Measuring showed ~290 ms per query from the backend–database distance; a same-region link is 1–3 ms. The answer was region, not vendor."
+      }
+    ],
+    "roadmap": [
+      "Co-locate the backend and database in one region to remove the ~290 ms per-query penalty.",
+      "Switch on the analytics and observability that are already built, then fix correctness gaps they surface.",
+      "Shipping automation through the Easyship fulfilment module.",
+      "Bring the UI back in line with the defined design system."
+    ]
+  },
+  {
+    "id": 22,
+    "slug": "tecstellar-command-center",
+    "title": "Tecstellar Command Center",
+    "kind": "saas",
+    "status": "Internal tool",
+    "accent": "#2B8CC4",
+    "category": "Operations Console & Contact Centre",
+    "year": "2026",
+    "role": "Lead Engineer — product, frontend & telephony",
+    "image": "/assets/img/projects/tecstellar-command-center/hero.jpg",
+    "cover": "/assets/img/projects/tecstellar-command-center/cover.jpg",
+    "video": "/assets/video/projects/tecstellar-command-center.mp4",
+    "gallery": [
+      "/assets/img/projects/tecstellar-command-center/hero.jpg",
+      "/assets/img/projects/tecstellar-command-center/agent.jpg"
+    ],
+    "link": "",
+    "domain": "tcc.tecstellar.com",
+    "tagline": "One console for every app we ship",
+    "badge": "Internal platform • Tecstellar • sample data",
+    "glowColor": "rgba(43, 140, 196, 0.22)",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Firebase Firestore",
+      "D3",
+      "TeleCMI"
+    ],
+    "summary": "A command centre for a portfolio of consumer apps: agents work call queues, supervisors manage access and escalations, and owners see users, revenue, funnels and SLA health across every app on one screen.",
+    "description": [
+      "Tecstellar runs several consumer apps — RealBroks, IronDrobe and more on the way. Users, payments, tickets and follow-ups were spread across separate dashboards, one per app.",
+      "TCC pulls them into one console with three role-based views. Agents get a focused 3-step call panel driven entirely by keyboard shortcuts; supervisors manage team access, language and state allocation and an escalations inbox; owners get an all-apps dashboard with funnel, leaderboard, churn and an India map built with D3.",
+      "Operational data syncs live across browsers through Firestore, and calls are placed through TeleCMI with explicit safety modes before production dialling is switched on."
+    ],
+    "features": [
+      {
+        "title": "Keyboard-first agent workspace",
+        "desc": "1–5 for status, Q–I for outcome, Enter to save, S to skip, T to raise a ticket — agents never reach for the mouse."
+      },
+      {
+        "title": "Queue-based access",
+        "desc": "Supervisors tick which queues each agent can see, with live coverage gaps and reachable-user counts per language and state."
+      },
+      {
+        "title": "Owner dashboard",
+        "desc": "Users, MRR, dues, funnel, agent leaderboard, churn and SLA health across every app."
+      },
+      {
+        "title": "Geography view",
+        "desc": "A D3 map of India with state boundaries and circles sized by user count."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "3",
+        "label": "Role-based consoles"
+      },
+      {
+        "value": "1",
+        "label": "Screen for every app"
+      },
+      {
+        "value": "Live",
+        "label": "Firestore sync across agents"
+      }
+    ],
+    "highlights": [
+      "Runs on Firestore or fully offline on localStorage — chosen automatically",
+      "Customer data layer split from TCC-owned data so the real app databases can be swapped in later",
+      "Mid-call reroute and escalation wired to a live supervisor queue",
+      "TeleCMI calling with documented dialling safety modes"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085347/portfolio/films/tecstellar-command-center.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_20,w_1600,q_auto/v1791085347/portfolio/films/tecstellar-command-center.jpg",
+    "challenge": [
+      "Tecstellar runs several consumer apps — RealBroks and IronDrobe live, Influnet and Vehigo on the way. Users, payments, tickets and follow-ups lived in separate dashboards, one per app, and the calling team worked from spreadsheets.",
+      "They needed one console where agents call the right customers, supervisors see who's falling behind and owners see the whole portfolio — without waiting for every app's database to be wired in first."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/tecstellar-command-center/case/architecture.jpg",
+      "alt": "Tecstellar Command Center system architecture",
+      "caption": "One React SPA with three role-based consoles. A store provider picks Firestore or localStorage; TeleCMI dials only in an explicitly allowed mode.",
+      "steps": [
+        {
+          "title": "Sign in by role",
+          "desc": "Agents land on today's queue, supervisors on their team, admins on the overview. Per-app permissions decide who can call, see recordings, payments or export."
+        },
+        {
+          "title": "Work the queue",
+          "desc": "A customer card shows why they're in the queue; the outcome form takes 1–5 for status, Q–I for outcome, Enter to save, S to skip and T to raise a ticket."
+        },
+        {
+          "title": "Call without losing context",
+          "desc": "The softphone is mounted for the whole session, so a call keeps going while the agent opens history; an ended call waits in the header until it's logged."
+        },
+        {
+          "title": "Escalate and allocate",
+          "desc": "Mid-call reroutes and escalations land in a live supervisor inbox, and the allocation view shows which languages and states nobody can reach."
+        },
+        {
+          "title": "Audit everything",
+          "desc": "Every sign-in, access change, approval, payment and export is written to a change log with exactly what changed."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/tecstellar-command-center/case/overview.jpg",
+        "caption": "The owner overview: every app's customers, revenue, dues and calls (generated sample data)."
+      },
+      {
+        "src": "/assets/img/projects/tecstellar-command-center/case/scene-1.jpg",
+        "caption": "An agent's Today view: calls, follow-ups due and queues per app."
+      },
+      {
+        "src": "/assets/img/projects/tecstellar-command-center/case/scene-2.jpg",
+        "caption": "Agents pick which app's queue to work."
+      },
+      {
+        "src": "/assets/img/projects/tecstellar-command-center/case/scene-3.jpg",
+        "caption": "Supervisor view: team performance by agent."
+      },
+      {
+        "src": "/assets/img/projects/tecstellar-command-center/case/scene-4.jpg",
+        "caption": "Owner view across every app (sample data)."
+      },
+      {
+        "src": "/assets/img/projects/tecstellar-command-center/case/scene-5.jpg",
+        "caption": "Under the hood: role consoles, store provider, Firestore and TeleCMI."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Split what TCC owns from what the apps own",
+        "desc": "CustomerOverlay is exactly the slice TCC writes (calls, tickets, follow-ups). Customer master data stays the apps'; swapping the sample set for a real fetch touches nothing else."
+      },
+      {
+        "title": "Two backends, chosen automatically",
+        "desc": "With Firebase configured, operational data syncs live across browsers; without it, everything runs in localStorage with zero setup — useful for demos and offline work."
+      },
+      {
+        "title": "Calling is locked until you mean it",
+        "desc": "Sample customers have random numbers, so dialling has three modes: route every call to a test number, dial live, or stay locked with a visible banner."
+      },
+      {
+        "title": "Keyboard over mouse",
+        "desc": "Agents make hundreds of calls a day. Every outcome has a shortcut, so the hands stay on the keyboard between calls."
+      }
+    ],
+    "roadmap": [
+      "Connect customer master data to the real RealBroks and IronDrobe databases.",
+      "Move sign-in to server-side accounts (today it's a demo where only the username is checked).",
+      "Bring Influnet and Vehigo onto the console as they ship.",
+      "Enterprise TeleCMI features from the spec: recordings at scale and per-agent lines."
+    ]
+  },
+  {
+    "id": 25,
+    "slug": "casa-harmony",
+    "title": "Casa Harmony",
+    "kind": "saas",
+    "status": "Client build",
+    "accent": "#9F1239",
+    "category": "Multi-Tenant ERP & Service Desk",
+    "year": "2026",
+    "role": "Full-Stack Engineer — FastAPI, PostgreSQL & Next.js",
+    "image": "/assets/img/projects/casa-harmony/cover.jpg",
+    "cover": "/assets/img/projects/casa-harmony/cover.jpg",
+    "video": "/assets/video/projects/casa-harmony.mp4",
+    "gallery": [
+      "/assets/img/projects/casa-harmony/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Enterprise accounting for homeowner associations",
+    "badge": "Client project • ERP",
+    "glowColor": "rgba(159, 18, 57, 0.22)",
+    "tech": [
+      "FastAPI",
+      "PostgreSQL 16",
+      "SQLAlchemy 2",
+      "Alembic",
+      "Next.js 15",
+      "TypeScript",
+      "Docker"
+    ],
+    "summary": "A secure multi-tenant service desk and ERP for homeowner associations, modelled on Oracle E-Business Suite — configurable chart of accounts, double-entry general ledger, and database-enforced tenant isolation.",
+    "description": [
+      "Homeowner associations need real accounting — dues, receivables, general ledger — plus a service desk, without one association ever seeing another’s data.",
+      "Casa Harmony enforces isolation at the database: every tenant table carries a tenant_id and PostgreSQL row-level security. The chart of accounts follows Oracle’s Key Flexfield model with configurable segments, value sets and cross-validation rules.",
+      "An Accounts Receivable subledger posts balanced double-entry journals to the GL — the pattern future AP, cash and fixed-asset subledgers follow. Security scaffolding covers TOTP MFA, field-level encryption, immutable audit logs, card tokenisation and CCPA data-subject flows."
+    ],
+    "features": [
+      {
+        "title": "Row-level security",
+        "desc": "Tenant isolation enforced by PostgreSQL itself, not just application code."
+      },
+      {
+        "title": "Oracle-style chart of accounts",
+        "desc": "Key Flexfield segments (6 by default, up to 15), qualifiers, value sets and validated code combinations."
+      },
+      {
+        "title": "Double-entry subledgers",
+        "desc": "Accounts Receivable posts balanced journals to the general ledger."
+      },
+      {
+        "title": "Compliance scaffolding",
+        "desc": "TOTP MFA, field-level encryption at rest, audit logging, card tokenisation and CCPA flows."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "RLS",
+        "label": "On every tenant table"
+      },
+      {
+        "value": "6 → 15",
+        "label": "Configurable COA segments"
+      },
+      {
+        "value": "MFA",
+        "label": "TOTP for every admin"
+      }
+    ],
+    "highlights": [
+      "FastAPI + SQLAlchemy 2 + Alembic migrations on PostgreSQL 16",
+      "Superadmin and per-association sysadmin roles",
+      "Compliance control map and TLS guidance documented with the code",
+      "Docker Compose locally, Render blueprint for deployment"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085349/portfolio/films/casa-harmony.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_18.9,w_1600,q_auto/v1791085349/portfolio/films/casa-harmony.jpg",
+    "challenge": [
+      "Homeowner associations collect dues, pay vendors and hold reserve funds that must stay separate by law — but most run on spreadsheets and small-business accounting tools that don't understand funds, approvals or a service desk.",
+      "A property-management firm serving several associations needed one system for all of them, where staff can work across communities and no association can ever see another's books."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/casa-harmony/case/architecture.jpg",
+      "alt": "Casa Harmony system architecture",
+      "caption": "A Next.js front end over a FastAPI backend. Every request binds its tenant into Postgres, where row-level security decides what rows exist.",
+      "steps": [
+        {
+          "title": "Bind the tenant",
+          "desc": "Each transaction runs SELECT set_config('app.current_tenant', …, true) — a SET LOCAL — so every query is filtered by RLS policies, not by remembering a WHERE clause."
+        },
+        {
+          "title": "Raise and route work",
+          "desc": "Residents report issues on the service desk; tickets carry priority, owner and SLA, and turn into purchase orders when a vendor is needed."
+        },
+        {
+          "title": "Procure to pay",
+          "desc": "PO lines carry flexfield distributions; multi-level approval by amount; AP invoices are 2-way matched (invoice ≤ PO) before approval."
+        },
+        {
+          "title": "Create accounting",
+          "desc": "Subledger Accounting drafts GL journal batches — debit expense, credit AP — grouped per fund, so each fund's journal nets to zero."
+        },
+        {
+          "title": "Post and report",
+          "desc": "A GL accountant approves control totals and posts; balances land by period, code combination and fund, and the trial balance exports by fund."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/casa-harmony/case/dashboard.jpg",
+        "caption": "The HOA admin dashboard in the demo (fictional association and residents)."
+      },
+      {
+        "src": "/assets/img/projects/casa-harmony/case/scene-1.jpg",
+        "caption": "The service desk: tickets by category and status."
+      },
+      {
+        "src": "/assets/img/projects/casa-harmony/case/scene-2.jpg",
+        "caption": "Payables: invoices matched against purchase orders before payment."
+      },
+      {
+        "src": "/assets/img/projects/casa-harmony/case/scene-3.jpg",
+        "caption": "Journal entry with an Oracle-style code combination — balanced."
+      },
+      {
+        "src": "/assets/img/projects/casa-harmony/case/scene-4.jpg",
+        "caption": "The board dashboard: operating and reserve funds, kept separate."
+      },
+      {
+        "src": "/assets/img/projects/casa-harmony/case/scene-5.jpg",
+        "caption": "Under the hood: Next.js, FastAPI, row-level security, Postgres."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Isolation in the database",
+        "desc": "tenant_id plus Postgres row-level security on every tenant table. A missed filter in application code returns nothing instead of another association's data."
+      },
+      {
+        "title": "Borrow Oracle's model, not its weight",
+        "desc": "Key Flexfield chart of accounts, GL_CODE_COMBINATIONS and subledger accounting follow Oracle EBS table design, so accountants recognise it and future AP, cash and fixed-asset modules follow one pattern."
+      },
+      {
+        "title": "Funds can't be skipped",
+        "desc": "Distribution resolution rejects any account combination without a Fund value, which makes fund accounting a guarantee rather than a convention."
+      },
+      {
+        "title": "One front end, two data modes",
+        "desc": "The same 45 screens run on an in-browser demo store or the live API, so the client could review the product before the backend shipped."
+      }
+    ],
+    "roadmap": [
+      "Cash management and fixed-asset subledgers on the same Subledger Accounting pattern.",
+      "Go-live checklist: data migration from the client's current books and a deploy runbook on Render / Railway.",
+      "Field-level encryption and CCPA access / portability / erasure flows, moved from scaffolding to production use.",
+      "Scheduled assessments and dunning runs on the job scheduler."
+    ]
+  },
+  {
+    "id": 24,
+    "slug": "wassupos",
+    "title": "WassupOS",
+    "kind": "ai",
+    "status": "Client build",
+    "accent": "#2563EB",
+    "category": "WhatsApp AI CRM — Multi-Tenant SaaS",
+    "year": "2026",
+    "role": "Full-Stack Engineer — platform, auth & voice agent",
+    "image": "/assets/img/projects/wassupos/cover.jpg",
+    "cover": "/assets/img/projects/wassupos/cover.jpg",
+    "video": "/assets/video/projects/wassupos.mp4",
+    "gallery": [
+      "/assets/img/projects/wassupos/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "A WhatsApp CRM with an AI on the front line",
+    "badge": "Client project • SaaS",
+    "glowColor": "rgba(37, 99, 235, 0.22)",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "WhatsApp Cloud API",
+      "AWS Lambda",
+      "Python (Pipecat)"
+    ],
+    "summary": "A multi-tenant WhatsApp CRM: each company gets an inbox, scored leads, broadcasts, campaigns and orders, an AI sales assistant that answers on WhatsApp strictly from the company's own knowledge base, and a Python voice agent for WhatsApp calls.",
+    "description": [
+      "Businesses in India sell on WhatsApp, but their leads and follow-ups live somewhere else. WassupOS brings the CRM into WhatsApp: a live inbox, leads scored hot, warm or scrap, broadcasts and templates, campaigns and orders — one workspace per company.",
+      "Incoming messages are answered by an AI sales assistant through the WhatsApp Cloud API. It answers only from the company's knowledge base, built from its website and PDFs, and says it will check with the team when the knowledge base doesn't cover a question.",
+      "A platform admin onboards companies, switches modules on per tenant (enforced on every API route), and stores integration credentials in an AES-256-GCM vault. A separate Python voice agent answers WhatsApp calls, costed per call before scaling."
+    ],
+    "features": [
+      {
+        "title": "Grounded AI replies",
+        "desc": "The assistant's only source of truth is the tenant's knowledge base — no invented prices, products or industries."
+      },
+      {
+        "title": "Knowledge from websites and PDFs",
+        "desc": "Websites are fetched and stripped; PDFs are read from their text layer, with a model only for image-only scans."
+      },
+      {
+        "title": "Company workspace",
+        "desc": "Inbox, leads with temperature, contacts, broadcasts, templates, campaigns and orders, with realtime updates."
+      },
+      {
+        "title": "Per-tenant modules",
+        "desc": "The platform admin enables modules per company; backend guards enforce them on every route."
+      },
+      {
+        "title": "Voice agent",
+        "desc": "A Pipecat pipeline answers WhatsApp calls over WebRTC, in English and Tamil."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "₹2.31",
+        "label": "Per English voice call, costed"
+      },
+      {
+        "value": "KB-only",
+        "label": "AI answers"
+      },
+      {
+        "value": "Per tenant",
+        "label": "Modules, guarded server-side"
+      }
+    ],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087402/portfolio/films/wassupos.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_18.07,w_1600,q_auto/v1791087402/portfolio/films/wassupos.jpg",
+    "challenge": [
+      "Indian small businesses sell on WhatsApp, but their leads, broadcasts and follow-ups live in notebooks or a CRM nobody opens, and messages that arrive after hours go unanswered.",
+      "The client wanted a SaaS they could sell to many companies: one deployment, each company getting only the modules it pays for, with an AI that answers customers without ever making things up."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/wassupos/case/architecture.jpg",
+      "alt": "WassupOS system architecture",
+      "caption": "The Next.js app is the multi-tenant core. The voice agent is a separate Python service that WhatsApp calls reach directly over WebRTC.",
+      "steps": [
+        {
+          "title": "Onboard a company",
+          "desc": "The platform admin creates a tenant, enables modules and adds integration credentials to an encrypted vault."
+        },
+        {
+          "title": "Build its knowledge",
+          "desc": "The company's website and PDFs become knowledge chunks — text layers read directly, a model only for image-only scans."
+        },
+        {
+          "title": "Answer on WhatsApp",
+          "desc": "A Cloud API webhook loads the tenant's knowledge and the conversation, and the AI replies under a knowledge-base-only rule."
+        },
+        {
+          "title": "Work the lead",
+          "desc": "Conversations land in a live inbox; leads are scored HOT, WARM or SCRAP and can sync to Google Sheets."
+        },
+        {
+          "title": "Pick up the call",
+          "desc": "WhatsApp calls go to a separate Python voice agent: speech-to-text, LLM and text-to-speech over a direct WebRTC session."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/wassupos/case/scene-1.jpg",
+        "caption": "The AI assistant answering from the knowledge base — and checking with the team when it can't (example conversation)."
+      },
+      {
+        "src": "/assets/img/projects/wassupos/case/scene-2.jpg",
+        "caption": "The company workspace's modules."
+      },
+      {
+        "src": "/assets/img/projects/wassupos/case/scene-3.jpg",
+        "caption": "The voice agent's preflight checks."
+      },
+      {
+        "src": "/assets/img/projects/wassupos/case/scene-4.jpg",
+        "caption": "What a voice call actually costs, by stage."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "The knowledge base is the only truth",
+        "desc": "Without it, the model told a paying-guest rooms business's customer it was a scrap trading company. The prompt now forbids any fact the knowledge base doesn't contain."
+      },
+      {
+        "title": "Don't use a model where a parser will do",
+        "desc": "PDF ingestion went through an LLM and timed out (504) on 23-page uploads. Reading the embedded text layer is instant, free and complete; the model is only for scans."
+      },
+      {
+        "title": "Guards on the server, not the menu",
+        "desc": "Module switches are checked in every API route; the UI hides disabled features, but the backend is what refuses them."
+      },
+      {
+        "title": "Cost it before you scale it",
+        "desc": "A per-stage voice cost model showed TTS is 86% of an English call and Tamil doubles LLM tokens — so reply length is a cost lever."
+      }
+    ],
+    "roadmap": [
+      "Connect the voice agent's call outcomes to the CRM's leads.",
+      "Resolve the billing question that decides whether Tamil calls cost 1.2× or 1.6× English.",
+      "Billing integration in the platform admin."
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "amretri-healthcare",
+    "title": "Amretri Healthcare",
+    "category": "Healthcare Platform & AI Automation",
+    "year": "2026",
+    "role": "Lead Full-Stack Architect & AI Engineer",
+    "image": "https://res.cloudinary.com/g5nctap2/image/upload/v1788967840/portfolio/img/ly1buwqapr0oklng5qdd.png",
+    "mobileImage": "/assets/img/projects/amretri/amretri-chatbot-chat.png",
+    "chatbotImage": "/assets/img/projects/amretri/amretri-chatbot-lead.png",
+    "gallery": [
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1788967956/portfolio/img/d4uehvsprosr93u6385f.png",
+      "https://res.cloudinary.com/g5nctap2/image/upload/v1788967966/portfolio/img/axf9unegmezou5d7zwk0.png"
+    ],
+    "link": "https://amretrihealthcare.com/",
+    "domain": "amretrihealthcare.com",
+    "tagline": "An in-browser lead assistant and a Google Sheets backend — no servers to run",
+    "badge": "Client Project • Live in Production",
+    "glowColor": "rgba(13, 148, 136, 0.22)",
+    "tech": [
+      "TanStack Start",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Google Apps Script",
+      "Google Sheets",
+      "WhatsApp deep links",
+      "Vercel"
+    ],
+    "summary": "A 14-page website for a hospital pharmacy operator, with AMRI — a chat assistant that qualifies leads entirely in the visitor's browser — and a backend made of one Google Sheet and one Apps Script instead of a server and database.",
+    "description": [
+      "Amretri Healthcare runs hospital pharmacies, supplies pharmacists and buys medicines in bulk for hospitals across India, and has done since 2009. Their buyers are hospital owners and administrators, and the sales team needs a few hard facts — hospital, city, beds, monthly pharmacy sales — before a call is worth making.",
+      "I designed and built the whole thing: a 14-page TanStack Start site (home, about, six service pages, pharmacist registration, blog, contact and legal pages), AMRI, the chat assistant on the homepage, and a backend that is nothing more than a Google Sheet and one Apps Script web app.",
+      "The constraint shaped every decision: a services company with no engineers on staff. Whatever I shipped had to cost close to nothing to run, and the team had to be able to work it from tools they already use — Google Sheets and WhatsApp."
+    ],
+    "features": [
+      {
+        "title": "AMRI chat assistant",
+        "desc": "Identifies the visitor, answers from a 52-question knowledge base and runs six guided lead flows — all client-side, with no model or API call per message."
+      },
+      {
+        "title": "Google Sheets as the CRM",
+        "desc": "The chat's welcome step and every site form land as rows: one tab per form type, created on first use, with new columns added automatically."
+      },
+      {
+        "title": "A blog with no CMS",
+        "desc": "Posts are rows (title, category, date, read time, author, HTML body). The blog fetches them at runtime, so publishing needs no redeploy; three built-in posts render if the sheet is unreachable."
+      },
+      {
+        "title": "WhatsApp hand-off",
+        "desc": "Finished intakes become a pre-filled wa.me message, and a WhatsApp button floats right above the chat launcher."
+      },
+      {
+        "title": "Safety-aware answers",
+        "desc": "Answers about licences and medico-legal topics automatically carry a note that final regulatory decisions need a qualified professional."
+      },
+      {
+        "title": "SEO groundwork",
+        "desc": "Per-page titles and descriptions, canonical URLs, a sitemap, and schema.org MedicalBusiness and FAQPage data on the homepage."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "0",
+        "label": "App servers or databases to run"
+      },
+      {
+        "value": "52",
+        "label": "Curated answers across 11 service areas"
+      },
+      {
+        "value": "6",
+        "label": "Guided lead-capture flows"
+      },
+      {
+        "value": "1",
+        "label": "Apps Script behind every form and the blog"
+      }
+    ],
+    "highlights": [],
+    "kind": "commerce",
+    "status": "Live",
+    "accent": "#0D9488",
+    "cover": "/assets/img/projects/amretri/cover.jpg",
+    "video": "/assets/video/projects/amretri-healthcare.mp4",
+    "film": "/assets/video/films/amretri-healthcare.mp4",
+    "filmPoster": "/assets/video/films/amretri-healthcare-poster.jpg",
+    "challenge": [
+      "Hospital buyers don't fill in long forms. They ask specific questions — “can you take over my pharmacy?”, “I need two night-shift pharmacists” — and expect an answer straight away.",
+      "The usual fix is a hosted chatbot, a backend, a database and an LLM bill. For a team with nobody to maintain it, that is a monthly cost and a system that slowly breaks.",
+      "So the brief became: answer the common questions instantly, turn intent into a qualified lead, and put every lead where the team already works — without anything to host."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/amretri/case/architecture.jpg",
+      "alt": "AMRI system architecture: the website and chat widget run in the visitor's browser, post JSON to a Google Apps Script web app that writes to a Google Sheet, and hand completed briefs to WhatsApp.",
+      "caption": "Everything left of the Apps Script runs in the visitor's browser. The dashed box is the next phase.",
+      "steps": [
+        {
+          "title": "Identify",
+          "desc": "Before the first message AMRI asks for a name and email. The visitor is remembered in localStorage, and the contact is posted to the sheet as an Inquiries row."
+        },
+        {
+          "title": "Route",
+          "desc": "Every message hits intent rules first. Phrases about takeovers, staffing, purchase rates, setups, licences or a callback start the matching lead flow."
+        },
+        {
+          "title": "Answer",
+          "desc": "Everything else is token-matched against 52 reviewed Q&As in 11 service sections, with a confidence threshold. Below it, AMRI offers the menu or a human instead of guessing."
+        },
+        {
+          "title": "Qualify",
+          "desc": "Each flow asks 3–7 questions one at a time and validates the answer — contacts need 8+ digits or an @, and a bare “yes” is rejected. FAQ questions mid-flow are answered without losing the place."
+        },
+        {
+          "title": "Hand off",
+          "desc": "The completed brief becomes a pre-filled WhatsApp message to the Amretri team — one tap from the visitor."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/amretri/case/chat-flow.jpg",
+        "wide": true,
+        "caption": "AMRI end to end: identify the visitor → answer a free-text question → run the pharmacy-takeover intake → hand the brief to WhatsApp."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/home.jpg",
+        "caption": "Homepage, with AMRI's launcher bottom-right."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/solutions.jpg",
+        "caption": "Six service lines, each with its own page and enquiry form."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/service-page.jpg",
+        "caption": "Service page for hospital pharmacy acquisition and management."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/proposal-form.jpg",
+        "caption": "Its proposal form posts straight to the sheet."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/sheets-backend.jpg",
+        "caption": "Every form → one Apps Script → a tab per form type."
+      },
+      {
+        "src": "/assets/img/projects/amretri/case/blog-from-sheet.jpg",
+        "caption": "The blog reads the Blogs tab as JSON: a row is a post."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Rules before models",
+        "desc": "Buyers ask a narrow set of questions whose answers carry commercial and compliance weight. A rule engine gives the same reviewed answer every time, instantly and for free — and it's the right first layer even once a model is added."
+      },
+      {
+        "title": "A spreadsheet instead of a server",
+        "desc": "One Apps Script replaces the API and the database. doPost routes each form to its own tab and grows columns for new fields, so adding a form needs no backend change. doGet serves the blog."
+      },
+      {
+        "title": "Meet the team where it works",
+        "desc": "Leads arrive as sheet rows and WhatsApp messages, not in a dashboard nobody opens. There was nothing new for the team to learn."
+      },
+      {
+        "title": "Trade-offs, stated plainly",
+        "desc": "Apps Script redirects break CORS for JSON posts, so forms send with mode: 'no-cors' and confirm optimistically. The web-app URL is public by design, so spam filtering in the script is the next hardening step."
+      }
+    ],
+    "roadmap": [
+      "An on-device small language model (WebLLM on WebGPU) to phrase answers and handle questions the rules miss — weights cached in the browser, still no server or API key.",
+      "Semantic search over the knowledge base with in-browser embeddings, replacing token overlap.",
+      "Log completed intake briefs to the sheet as well as WhatsApp, so every qualified lead is on record.",
+      "Spam protection on the Apps Script endpoint (honeypot field and rate limiting)."
     ]
   },
   {
@@ -90,129 +1153,1072 @@
     ],
     "link": "https://www.jaisathya.com/",
     "domain": "jaisathya.com",
-    "tagline": "Founder-Led Multi-Vertical Holding Ecosystem with Live Visual CMS",
+    "tagline": "One site for eight businesses — edited in place by the owner",
     "badge": "Client Project • Live in Production",
     "glowColor": "rgba(217, 119, 6, 0.22)",
     "tech": [
-      "React",
-      "Tailwind CSS",
+      "TanStack Start",
+      "React 19",
       "Vite",
-      "Visual In-Place CMS",
-      "Cloudinary API",
-      "PostgreSQL"
+      "Tailwind CSS 4",
+      "Drizzle ORM",
+      "Neon Postgres",
+      "Cloudinary"
     ],
-    "summary": "Full-scale corporate platform engineered for a multi-vertical US holding company — featuring an innovative in-place Visual CMS that lets non-technical stakeholders edit text, imagery, and layout directly on the live rendered website canvas.",
+    "summary": "The corporate site for JaiSathya Inc., a holding company with eight businesses — restaurants, catering, food distribution, real estate, marketing, DataEQ, Ayuryum and a cricket club — with a visual CMS that lets the owner edit the live page layout directly.",
     "description": [
-      "JaiSathya Inc. is a US-based, founder-led holding company operating eight diverse business verticals across North America — including flagship restaurants (Manam, Kaanchi, Malgudi Cafe), food distribution, real estate assets, wellness meal kits (Ayuryum), brand consulting, DataEQ enterprise governance technology, and The Philadelphians professional cricket club.",
-      "Engineered a bespoke, state-of-the-art Visual CMS from scratch. Unlike traditional CMS dashboards with disconnected forms or rigid section-by-section fields, this custom administrative engine enables the client to edit copy, media assets, and structural blocks directly from the actual live website design with instantaneous live preview and seamless persistence.",
-      "Built a high-performance web architecture supporting multiple multi-brand portals, high-fidelity media pipelines via Cloudinary, and enterprise data governance showcases with sub-second page delivery across all viewports."
+      "JaiSathya Inc. is a founder-led holding company with eight businesses across hospitality, food, real estate, technology and sport, including three restaurant brands — Manam, Kaanchi and Malgudi Cafe.",
+      "I built the site on TanStack Start with a visual CMS from scratch: the owner edits text and images on the real page layout instead of filling in disconnected forms, and publishes when ready.",
+      "Every editable thing is one row in a single documents table with draft and published JSON, and the editor infers its form from the document's shape — so adding a field never needs a migration."
     ],
     "features": [
       {
-        "title": "Direct Visual In-Place CMS",
-        "desc": "Empowers the client to click and edit any text, image, or brand showcase directly on the live visual layout without separate admin forms."
+        "title": "In-place visual editing",
+        "desc": "Editable regions on the actual page layout; click text or an image and change it where it lives."
       },
       {
-        "title": "Multi-Vertical Holding Architecture",
-        "desc": "Unified digital presence orchestrating 8 distinct business units across hospitality, technology, real estate, and sports."
+        "title": "Draft, then publish",
+        "desc": "Saves go to draft_data; visitors see published_data, and publish copies one into the other in a single write."
       },
       {
-        "title": "Optimized Media Pipeline",
-        "desc": "Real-time Cloudinary image transforms, responsive picture sets, and high-DPI asset delivery for stunning visual fidelity."
+        "title": "Media library",
+        "desc": "Cloudinary-backed, with the public_id as the row key and alt text stored once per image, so fixing it fixes every use."
       },
       {
-        "title": "Enterprise Security & Performance",
-        "desc": "Role-based administrative authentication, granular content revision control, and sub-second load times."
+        "title": "Shared documents",
+        "desc": "A brand's summary card is one document shown on both the homepage and its own page."
       }
     ],
     "metrics": [
       {
         "value": "8",
-        "label": "Enterprise Verticals"
+        "label": "Businesses on one site"
       },
       {
-        "value": "100%",
-        "label": "Visual In-Place Editing"
+        "value": "1",
+        "label": "Table for every editable thing"
       },
       {
-        "value": "<1s",
-        "label": "Load Performance"
+        "value": "0",
+        "label": "Migrations to add a field"
+      }
+    ],
+    "highlights": [],
+    "kind": "commerce",
+    "status": "Live",
+    "accent": "#D97706",
+    "cover": "/assets/img/projects/jaisathya/cover.jpg",
+    "video": "/assets/video/projects/jaisathya.mp4",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085353/portfolio/films/jaisathya.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_15.53,w_1600,q_auto/v1791085353/portfolio/films/jaisathya.jpg",
+    "challenge": [
+      "JaiSathya runs eight very different businesses, from restaurants to a professional cricket club, and needed one site that presents them as a group while giving each restaurant brand its own page.",
+      "Content changes constantly — menus, events, holdings — and the owner didn't want a developer in the loop, or a generic CMS whose forms look nothing like the page they're editing."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/jaisathya/case/architecture.jpg",
+      "alt": "JaiSathya Inc. system architecture",
+      "caption": "TanStack Start serves both the public site and the visual admin. Server functions read and write one documents table and the Cloudinary media library.",
+      "steps": [
+        {
+          "title": "Model pages as documents",
+          "desc": "A registry maps each page to its sections and each section to a (collection, slug) document — the only structure the admin needs."
+        },
+        {
+          "title": "Edit in place",
+          "desc": "The visual editor wraps the real components in Editable regions; the generic ObjectEditor builds a form from whatever JSON the document holds."
+        },
+        {
+          "title": "Pick media",
+          "desc": "Images come from a Cloudinary-backed library; alt text lives on the media row, not on each page that uses it."
+        },
+        {
+          "title": "Save a draft",
+          "desc": "Every admin write targets draft_data, so nothing a visitor sees changes until it's published."
+        },
+        {
+          "title": "Publish",
+          "desc": "publishDocuments copies draft_data into published_data — the only write path that touches what visitors see."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/jaisathya/case/hero.jpg",
+        "caption": "jaisathya.com — the group homepage."
+      },
+      {
+        "src": "/assets/img/projects/jaisathya/case/scene-1.jpg",
+        "caption": "The homepage's ecosystem of eight holdings."
+      },
+      {
+        "src": "/assets/img/projects/jaisathya/case/scene-2.jpg",
+        "caption": "Manam's brand page."
+      },
+      {
+        "src": "/assets/img/projects/jaisathya/case/scene-3.jpg",
+        "caption": "How an edit flows: click, pick media, save draft, publish."
+      },
+      {
+        "src": "/assets/img/projects/jaisathya/case/scene-4.jpg",
+        "caption": "DataEQ's holding page."
+      },
+      {
+        "src": "/assets/img/projects/jaisathya/case/scene-5.jpg",
+        "caption": "Under the hood: registry, documents table, Cloudinary."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "One table instead of a table per type",
+        "desc": "Holdings, brands, home sections and cards are all documents with JSON data. The registry supplies structure, so new content types need no schema change."
+      },
+      {
+        "title": "Draft and published side by side",
+        "desc": "Two columns on the same row make publish a single SET, and preview simply reads the other column."
+      },
+      {
+        "title": "The form comes from the data",
+        "desc": "ObjectEditor infers fields from the document's shape, so a new field in the content is editable immediately."
+      },
+      {
+        "title": "Cloudinary ids as keys",
+        "desc": "The media row's primary key is the Cloudinary public_id — never two identifiers for the same asset."
+      }
+    ],
+    "roadmap": [
+      "Side-by-side preview of draft vs published before publishing.",
+      "Per-document revision history.",
+      "Role-based access for brand managers who should only edit their own brand.",
+      "Event and menu content types for the restaurants."
+    ]
+  },
+  {
+    "id": 26,
+    "slug": "email-finder",
+    "title": "Email Finder",
+    "kind": "ai",
+    "status": "Internal tool",
+    "accent": "#4F46E5",
+    "category": "Evidence-Based Contact Discovery Engine",
+    "year": "2026",
+    "role": "Engineer — crawling, inference & verification",
+    "image": "/assets/img/projects/email-finder/cover.jpg",
+    "cover": "/assets/img/projects/email-finder/cover.jpg",
+    "video": "/assets/video/projects/email-finder.mp4",
+    "gallery": [
+      "/assets/img/projects/email-finder/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Finds a work email — and tells you how much to trust it",
+    "badge": "Service • Railway web + worker",
+    "glowColor": "rgba(79, 70, 229, 0.22)",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Background workers",
+      "Vitest"
+    ],
+    "summary": "Give it a name and a company website; it gathers evidence across seven tiers — free ones first — infers the domain’s email pattern, and only reports an address as certain as the evidence allows.",
+    "description": [
+      "Most email finders guess a pattern and hope. This engine gathers evidence and weighs it: DNS and MX records, a relevance-scored site crawl, sitemaps, GitHub commit authors, linked PDFs like staff directories, and the Internet Archive for blocked sites.",
+      "Paid tiers — search queries, a browser transport for JavaScript-heavy or firewalled pages, and mail-server verification — only run when the free tiers cannot settle the question.",
+      "Results keep three claims separate on purpose: published, inferred and verified, because each one fails in a different way. It runs as a web app plus a background worker on Railway."
+    ],
+    "features": [
+      {
+        "title": "Seven evidence tiers",
+        "desc": "Free sources first; paid search, browser and verification only when needed — costs stay predictable."
+      },
+      {
+        "title": "Pattern inference",
+        "desc": "Learns the domain’s email format from any name/address pairs it finds, then ranks a candidate ladder."
+      },
+      {
+        "title": "Honest confidence",
+        "desc": "Published, inferred and verified are reported separately — never more certain than the evidence."
+      },
+      {
+        "title": "Catch-all detection",
+        "desc": "Detects domains that accept every address before trusting a mail-server “yes”."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "7",
+        "label": "Evidence tiers"
+      },
+      {
+        "value": "4",
+        "label": "Free tiers before any spend"
+      },
+      {
+        "value": "3",
+        "label": "Separate claims per result"
       }
     ],
     "highlights": [
-      "Custom-engineered Visual In-Place CMS allowing on-page design editing without section forms",
-      "Multi-brand corporate architecture connecting hospitality, sports, real estate, and tech",
-      "Automated Cloudinary media pipeline and asset optimization",
-      "Seamless editorial typography and responsive UX engineered for desktop, tablet, and mobile"
+      "Web app and worker deployed as separate Railway services",
+      "Worker waits for the database instead of crashing on cold starts",
+      "Drizzle migrations with separate local and production configs",
+      "Unit-tested inference with Vitest"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085355/portfolio/films/email-finder.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.57,w_1600,q_auto/v1791085355/portfolio/films/email-finder.jpg",
+    "challenge": [
+      "Sales teams need a person's work email, and most tools answer by guessing a pattern (first.last@) and labelling it 'verified'. On catch-all domains that label is meaningless, and every bounce hurts the sender's reputation.",
+      "The goal was a finder that spends as little as possible per lookup and is honest about certainty — including saying 'don't mail this person here' when the evidence says so."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/email-finder/case/architecture.jpg",
+      "alt": "Email Finder system architecture",
+      "caption": "A Next.js web app enqueues lookups; a separate worker runs the tiered engine and writes results to Postgres under forced row-level security.",
+      "steps": [
+        {
+          "title": "Resolve the domain",
+          "desc": "DNS and MX first — free, and enough to rule out domains that can't receive mail at all."
+        },
+        {
+          "title": "Gather free evidence",
+          "desc": "A relevance-scored crawl, sitemaps, GitHub commit authors, linked PDFs like staff directories, and the Internet Archive for sites that block crawlers."
+        },
+        {
+          "title": "Infer the pattern",
+          "desc": "Name/address pairs found along the way teach the domain's format; the engine ranks a candidate ladder from it."
+        },
+        {
+          "title": "Spend only if needed",
+          "desc": "Search, a browser transport for WAF-blocked or JS-rendered pages, and verification run only when the free tiers can't settle it."
+        },
+        {
+          "title": "Verify honestly",
+          "desc": "Catch-all detection runs before the ladder; a verified rejection of every candidate returns fail — a useful 'don't mail' rather than a guess."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/email-finder/case/scene-1.jpg",
+        "caption": "A lookup working through the evidence tiers (example person and domain)."
+      },
+      {
+        "src": "/assets/img/projects/email-finder/case/scene-2.jpg",
+        "caption": "The confidence tiers a result can earn."
+      },
+      {
+        "src": "/assets/img/projects/email-finder/case/scene-3.jpg",
+        "caption": "Under the hood: web, queue, worker and Postgres with forced RLS."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Three claims, never merged",
+        "desc": "Published, deliverable and predicted fail differently, so they're reported separately. Only published and deliverable together earns 'confirmed'."
+      },
+      {
+        "title": "Cheapest evidence first",
+        "desc": "Four free tiers run before any paid search, browser or verification call, keeping per-lookup cost predictable."
+      },
+      {
+        "title": "Don't trust the ORM's RLS",
+        "desc": "Querying pg_policies showed drizzle-kit pushing policies with no USING clause — RLS on, but every row visible. The real predicates live in rls-force.sql, re-run after every push."
+      },
+      {
+        "title": "A worker that waits",
+        "desc": "Web and worker deploy as separate Railway services; the worker waits for the database on cold starts instead of crash-looping."
+      }
+    ],
+    "roadmap": [
+      "Wire in a production verification provider so more results can reach 'confirmed'.",
+      "Self-hosted browser transport to keep tier 5 costs flat.",
+      "Per-lookup cost reporting in the dashboard."
+    ]
+  },
+  {
+    "id": 27,
+    "slug": "reframe",
+    "title": "Reframe",
+    "kind": "ai",
+    "status": "Prototype",
+    "accent": "#B45309",
+    "category": "AI Reading Experience",
+    "year": "2026",
+    "role": "Product Engineer & Designer",
+    "image": "/assets/img/projects/reframe/cover.jpg",
+    "cover": "/assets/img/projects/reframe/cover.jpg",
+    "video": "/assets/video/projects/reframe.mp4",
+    "gallery": [
+      "/assets/img/projects/reframe/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Read anything, beautifully — without a word rewritten",
+    "badge": "Own product • Prototype",
+    "glowColor": "rgba(180, 83, 9, 0.22)",
+    "tech": [
+      "Next.js 16",
+      "TypeScript",
+      "Groq (llama-3.3-70b)",
+      "Tailwind CSS",
+      "Apps Script",
+      "Vercel"
+    ],
+    "summary": "Paste an article, PDF or link and get back a lossless, visual reading experience — headings, callouts, definitions and comparisons made explicit — while every word stays the author’s own.",
+    "description": [
+      "AI summaries lose the author's voice and quietly drop detail. Reframe takes the opposite promise: it never rewrites your material, it re-architects it into callouts, definitions, comparisons and steps.",
+      "The source is parsed and split into deterministically addressed units before any model runs. The model — Groq's llama-3.3-70b behind a rotating key pool — only returns block types and unit ids; the server rehydrates every word from the original.",
+      "Without an API key it runs in a clearly flagged demo mode on deterministic heuristics, so it always works and costs nothing to try. Analytics and feedback flow to a Google Sheet through Apps Script."
+    ],
+    "features": [
+      {
+        "title": "Lossless by construction",
+        "desc": "The model has no channel to emit body text — it returns addresses — so paraphrase is structurally impossible rather than merely checked."
+      },
+      {
+        "title": "Coverage guarantee",
+        "desc": "Every source unit must be referenced exactly once. Missing or duplicated content throws and the section falls back to plain text."
+      },
+      {
+        "title": "Quoted fragments",
+        "desc": "Any number or date the model highlights must be a literal substring of its unit, or the block is demoted to prose."
+      },
+      {
+        "title": "Demo mode",
+        "desc": "Works with no key and no cost, clearly labelled in the interface."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "0",
+        "label": "Words rewritten"
+      },
+      {
+        "value": "~15",
+        "label": "Output tokens per block"
+      },
+      {
+        "value": "$0",
+        "label": "Demo mode, no key needed"
+      }
+    ],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087406/portfolio/films/reframe.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_19.07,w_1600,q_auto/v1791087406/portfolio/films/reframe.jpg",
+    "challenge": [
+      "People read long material — papers, docs, articles — and AI summaries are the usual shortcut. But a summary paraphrases, drops detail, and can confidently state things the author never wrote.",
+      "Reframe set out to make long text easier to read without changing a single word of it: find the structure that was always implicit and make it visible."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/reframe/case/architecture.jpg",
+      "alt": "Reframe system architecture",
+      "caption": "The browser holds the library; /api/transform parses, addresses and verifies; the model only ever sees numbered units and returns ids.",
+      "steps": [
+        {
+          "title": "Parse",
+          "desc": "Markup is structure, not content — headings, lists and tables are parsed directly rather than classified by a model."
+        },
+        {
+          "title": "Address",
+          "desc": "Text is split into deterministically addressed units like p0 and l1_0."
+        },
+        {
+          "title": "Classify",
+          "desc": "The model receives numbered units and returns block types, unit ids and short scaffolding words — about 15 output tokens per block."
+        },
+        {
+          "title": "Verify",
+          "desc": "assertCoverage checks every unit is used exactly once; any highlighted value must be a quoted fragment of its unit."
+        },
+        {
+          "title": "Rehydrate",
+          "desc": "The server rebuilds every body field from the source text, and the reader renders the blocks."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/reframe/case/home.jpg",
+        "caption": "Reframe's paste-in screen (running locally in demo mode)."
+      },
+      {
+        "src": "/assets/img/projects/reframe/case/scene-1.jpg",
+        "caption": "Source text re-architected into a callout, a definition and a comparison."
+      },
+      {
+        "src": "/assets/img/projects/reframe/case/scene-2.jpg",
+        "caption": "What the model actually returns: block types and unit ids, never text."
+      },
+      {
+        "src": "/assets/img/projects/reframe/case/scene-3.jpg",
+        "caption": "Under the hood: parse, address, classify, verify."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "Addresses, not text",
+        "desc": "Once the model can only return ids, verbatim stops being something to check and becomes a property of the architecture — and output cost drops sharply."
+      },
+      {
+        "title": "A verifier that can't fail isn't one",
+        "desc": "An early fidelity check reported 100% verbatim while the model rewrote sentences in an unchecked field. Every guarantee now has a test that fails before its fix."
+      },
+      {
+        "title": "Plain-but-complete beats polished-but-lossy",
+        "desc": "Any coverage or fragment violation demotes the block to prose instead of dropping or inventing content."
+      },
+      {
+        "title": "Write the divergence down",
+        "desc": "An ADR described a pipeline that no longer existed. Recording what actually runs — and when it changed — is now part of the process."
+      }
+    ],
+    "roadmap": [
+      "PDF and link ingestion polish for the students-first wedge.",
+      "Cross-device sync once the validation metric gates pass (v0 is localStorage-only).",
+      "Replace Sheets analytics with a real store after the gates pass."
+    ]
+  },
+  {
+    "id": 28,
+    "slug": "black-hole",
+    "title": "Black Hole",
+    "kind": "apps",
+    "status": "Open source",
+    "accent": "#E8590C",
+    "category": "Private Clipboard — macOS & Android",
+    "year": "2026",
+    "role": "Creator — Rust core, desktop & mobile",
+    "image": "/assets/img/projects/black-hole/cover.jpg",
+    "cover": "/assets/img/projects/black-hole/cover.jpg",
+    "video": "/assets/video/projects/black-hole.mp4",
+    "gallery": [
+      "/assets/img/projects/black-hole/cover.jpg"
+    ],
+    "link": "https://github.com/vimalsri318/Shared-ClipBoard",
+    "domain": "github.com/vimalsri318/Shared-ClipBoard",
+    "tagline": "Throw in. Pull out. Anywhere.",
+    "badge": "Open source • MIT",
+    "glowColor": "rgba(232, 89, 12, 0.22)",
+    "tech": [
+      "Rust",
+      "Tauri",
+      "Expo / React Native",
+      "SQLite",
+      "mDNS",
+      "Ed25519"
+    ],
+    "summary": "A private clipboard between your Mac and your phone. Copy on the Mac and it is on your phone a second later — over your own Wi-Fi, with no account, no relay server, and everything expiring on both devices.",
+    "description": [
+      "Moving a link or a screenshot from laptop to phone usually means messaging yourself. Black Hole makes it automatic: copy on the Mac and it appears on the phone, no app to open first.",
+      "Devices pair once with a 6-digit code and a QR scan, then talk directly over the local network — nothing passes through a server and no third party ever sees what you copy.",
+      "Items expire after 30 minutes on both devices at once unless pinned. Text, links and images all move the same way, with notifications on both ends."
+    ],
+    "features": [
+      {
+        "title": "No middleman",
+        "desc": "Direct device-to-device transfer on your own Wi-Fi. No account, no cloud."
+      },
+      {
+        "title": "Expires everywhere",
+        "desc": "A 30-minute default expiry that clears both devices at once; pin what you want to keep."
+      },
+      {
+        "title": "Images too",
+        "desc": "Screenshots and photos move like text, with thumbnails on the shelf."
+      },
+      {
+        "title": "One-time pairing",
+        "desc": "A 6-digit code and QR code on the Mac, one scan on the phone."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "0",
+        "label": "Servers in the path"
+      },
+      {
+        "value": "30 min",
+        "label": "Default expiry"
+      },
+      {
+        "value": "2",
+        "label": "Platforms: macOS + Android"
+      }
+    ],
+    "highlights": [
+      "Shared Rust core with CLI, desktop and mobile front ends",
+      "Respects Android’s background-clipboard limits with a one-tap send",
+      "Desktop app at v0.1.2",
+      "MIT licensed"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087407/portfolio/films/black-hole.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_17.6,w_1600,q_auto/v1791087407/portfolio/films/black-hole.jpg",
+    "challenge": [
+      "Moving a link or screenshot from laptop to phone usually means messaging yourself or using a cloud clipboard that stores everything you copy on someone else's server.",
+      "The goal was the opposite: device to device on your own network, nothing stored anywhere else, and nothing kept longer than you need it — on macOS and Android, despite Android's limits on background clipboard access."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/black-hole/case/architecture.jpg",
+      "alt": "Black Hole system architecture",
+      "caption": "A Rust core shared by the desktop app and CLI; the Android app speaks the same wire protocol, verified against the Rust implementation.",
+      "steps": [
+        {
+          "title": "Create identities",
+          "desc": "Each device generates an Ed25519 key pair; its device id is derived from a BLAKE3 hash of the public key."
+        },
+        {
+          "title": "Pair once",
+          "desc": "The Mac shows a 6-digit code and a QR; the phone joins with it and both remember each other as paired peers."
+        },
+        {
+          "title": "Discover",
+          "desc": "Paired devices find each other on the local network with mDNS — no relay or rendezvous server."
+        },
+        {
+          "title": "Teleport",
+          "desc": "Objects (text, link, image) travel as length-prefixed JSON frames over TCP with BLAKE3 checksums; the receiver files them on its shelf."
+        },
+        {
+          "title": "Expire",
+          "desc": "Every object carries an expiry (30 minutes by default); the TTL reaper clears it on both devices unless it's pinned."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/black-hole/case/scene-1.jpg",
+        "caption": "Real output: pairing two devices with a 6-digit code."
+      },
+      {
+        "src": "/assets/img/projects/black-hole/case/scene-2.jpg",
+        "caption": "Real output: a link delivered, listed, then reaped when it expires."
+      },
+      {
+        "src": "/assets/img/projects/black-hole/case/scene-3.jpg",
+        "caption": "Under the hood: one Rust core, thin shells."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "No server until it's unavoidable",
+        "desc": "Direct device-to-device transfer on the local network; any future relay is planned to only ever see opaque bytes."
+      },
+      {
+        "title": "One core, thin shells",
+        "desc": "Object model, store, identity, discovery and expiry live once in Rust; the Tauri app and CLI are thin layers over it."
+      },
+      {
+        "title": "Prove the port, don't trust it",
+        "desc": "The TypeScript protocol on Android was verified against the real Rust CLI — a real pairing handshake and a real received object over actual TCP — before it was used."
+      },
+      {
+        "title": "Respect the platform",
+        "desc": "Android blocks background clipboard reads, so sending from the phone is one deliberate tap instead of a hack that breaks on the next OS update."
+      }
+    ],
+    "roadmap": [
+      "iOS app on the same protocol.",
+      "QUIC transport and an optional relay for when devices aren't on the same network.",
+      "Files beyond text, links and images, with chunked resumable transfer."
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "streak-doctor",
+    "title": "Streak Doctor",
+    "kind": "apps",
+    "status": "Open source",
+    "accent": "#216E39",
+    "category": "Developer CLI on npm",
+    "year": "2026",
+    "role": "Creator",
+    "image": "/assets/img/projects/streak-doctor/cover.jpg",
+    "cover": "/assets/img/projects/streak-doctor/cover.jpg",
+    "video": "/assets/video/projects/streak-doctor.mp4",
+    "gallery": [
+      "/assets/img/projects/streak-doctor/cover.jpg"
+    ],
+    "link": "https://github.com/vimalsri318/Streak_Monitor_Tool",
+    "domain": "npx streak-doctor",
+    "tagline": "Your GitHub day, live in the terminal — and next, why it didn't count",
+    "badge": "Open source • Published on npm",
+    "glowColor": "rgba(33, 110, 57, 0.22)",
+    "tech": [
+      "TypeScript",
+      "Node.js CLI",
+      "GitHub API",
+      "pnpm workspaces",
+      "Vitest"
+    ],
+    "summary": "An open-source GitHub accountability CLI built around one question streak counters ignore: why didn't that contribution count? Today it reports your live count with a countdown to the end of GitHub's UTC day, lists contributions by repo and draws your year as a heatmap in the terminal; the diagnosis engine is next.",
+    "description": [
+      "Streak tracking is a crowded category. Diagnosis isn't. GitHub silently drops contributions for many reasons — wrong commit email, a fork, a non-default branch, a UTC boundary — and nothing tells you which.",
+      "Phase 1 shipped a real CLI on npm that works against the live GitHub API for anyone: today's count and countdown, contributions by repo, and since v0.4.0 a heatmap of the last year drawn in the terminal.",
+      "The counting rules are documented in the repo's knowledge base, and a diagnosis engine for the first three causes is the next piece of work, gated on real usage: ship, reach ~200 users, and measure who contributes after an at-risk warning."
+    ],
+    "features": [
+      {
+        "title": "Live today count",
+        "desc": "How many contributions have counted and how long is left before GitHub's UTC day ends, in your own time zone."
+      },
+      {
+        "title": "Terminal heatmap",
+        "desc": "streak-doctor heatmap draws the last year's contribution grid in characters."
+      },
+      {
+        "title": "Zero install",
+        "desc": "npx streak-doctor <username> works for anyone; it reuses the gh CLI token if you're logged in."
+      },
+      {
+        "title": "Core + CLI packages",
+        "desc": "Logic lives in a separate core package with no I/O, ready for other front ends."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "v0.4.0",
+        "label": "Published on npm"
+      },
+      {
+        "value": "1",
+        "label": "Command to run"
+      },
+      {
+        "value": "0",
+        "label": "Sign-ups needed"
+      }
+    ],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087409/portfolio/films/streak-doctor.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.83,w_1600,q_auto/v1791087409/portfolio/films/streak-doctor.jpg",
+    "challenge": [
+      "GitHub silently drops contributions for half a dozen reasons — an unlinked commit email, a fork, a non-default branch, a UTC day boundary — and the only symptom is a grey square. Streak trackers count; none of them explain.",
+      "The tool had to be zero-friction: run it once with npx, no install, no sign-up, against the live API."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/streak-doctor/case/architecture.jpg",
+      "alt": "Streak Doctor system architecture",
+      "caption": "The CLI is a thin layer of adapters over a pure core package that knows GitHub's contribution rules and UTC day maths.",
+      "steps": [
+        {
+          "title": "Resolve the user",
+          "desc": "A username argument, or STREAK_DOCTOR_USER; the token comes from gh auth token or GITHUB_TOKEN."
+        },
+        {
+          "title": "Fetch live activity",
+          "desc": "Adapters call the GitHub API for the user's recent contributions and events."
+        },
+        {
+          "title": "Apply the rules (next)",
+          "desc": "The diagnosis engine will check each event against GitHub's documented rules — linked email, default branch, fork, ownership. The rules are written; the engine is next."
+        },
+        {
+          "title": "Mind the day",
+          "desc": "GitHub's day is UTC; the countdown and 'today' are computed for the user's own time zone."
+        },
+        {
+          "title": "Report",
+          "desc": "Human output by default, --json with a versioned schema, and exit codes for scripts."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/streak-doctor/case/scene-1.jpg",
+        "caption": "The six reasons a commit doesn't count — the rules the diagnosis engine is being built on."
+      },
+      {
+        "src": "/assets/img/projects/streak-doctor/case/scene-2.jpg",
+        "caption": "Real output: today's count and the time left in GitHub's day."
+      },
+      {
+        "src": "/assets/img/projects/streak-doctor/case/scene-3.jpg",
+        "caption": "Real output: a year of contributions drawn in the terminal."
+      },
+      {
+        "src": "/assets/img/projects/streak-doctor/case/scene-4.jpg",
+        "caption": "Under the hood: a pure core package and a thin CLI."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "A wedge, not a feature list",
+        "desc": "Streak counting is a crowded category; explaining why a contribution didn't count isn't. Everything in v1 serves that one question."
+      },
+      {
+        "title": "Core without I/O",
+        "desc": "Diagnosis lives in streak-doctor-core with no network or filesystem access, so it's easy to test and ready for other front ends."
+      },
+      {
+        "title": "Write the platform's rules down",
+        "desc": "GitHub's non-obvious counting and timezone rules live in a knowledge base, so fixes don't depend on someone remembering them."
+      },
+      {
+        "title": "Zero friction",
+        "desc": "Published to npm and runnable with npx; it reuses the gh CLI's token when you're already logged in."
+      }
+    ],
+    "roadmap": [
+      "Diagnosis engine v0 for the first three causes: unlinked email, non-default branch, fork.",
+      "A real auth story for the CLI (device flow or PAT) instead of borrowing gh's token.",
+      "Streak arithmetic, then watch / daemon notifications that warn before the day ends.",
+      "Phase gate: ~200 users; continue if 30%+ contribute after an at-risk warning, stop below 10%."
+    ]
+  },
+  {
+    "id": 30,
+    "slug": "slate",
+    "title": "Slate",
+    "kind": "apps",
+    "status": "Prototype",
+    "accent": "#475569",
+    "category": "Voice-First Activity Log",
+    "year": "2026",
+    "role": "Creator — product, AI pipeline & mobile web",
+    "image": "/assets/img/projects/slate/cover.jpg",
+    "cover": "/assets/img/projects/slate/cover.jpg",
+    "video": "/assets/video/projects/slate.mp4",
+    "gallery": [
+      "/assets/img/projects/slate/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "Say what you did. It files itself.",
+    "badge": "Own product • Prototype",
+    "glowColor": "rgba(71, 85, 105, 0.22)",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Groq Whisper",
+      "gpt-oss-120b",
+      "Web Speech API",
+      "Expo"
+    ],
+    "summary": "Hold one button and talk. Slate transcribes the ramble, splits it into separate activities, works out which day each belongs to, closes todos you already wrote down and pulls out what you spent — all in the background.",
+    "description": [
+      "Logging your day is tedious, so nobody does it. Slate turns it into one gesture: hold, talk for as long as you like, let go.",
+      "Transcription runs on Whisper large-v3-turbo and reasoning on an open 120B model, both on Groq’s free tier, with a rotating key pool and a live usage monitor. You are only asked a question when getting it wrong would corrupt the log.",
+      "It ships today as a web app that looks and behaves like the Android app, so it works on a phone over the local network, with a native Expo app in progress."
+    ],
+    "features": [
+      {
+        "title": "One-button capture",
+        "desc": "Hold to talk, release to file — no forms, no categories to pick."
+      },
+      {
+        "title": "Ramble splitting",
+        "desc": "One recording becomes separate activities, each placed on the right day."
+      },
+      {
+        "title": "Todo closing",
+        "desc": "Matches what you did against todos you already wrote down and ticks them off."
+      },
+      {
+        "title": "Spend extraction",
+        "desc": "Pulls amounts you mention into a spending log automatically."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "1",
+        "label": "Button to log a day"
+      },
+      {
+        "value": "₹0",
+        "label": "Model cost on free tiers"
+      },
+      {
+        "value": "Async",
+        "label": "You never wait"
+      }
+    ],
+    "highlights": [
+      "Self-signed HTTPS dev server so the phone microphone works over LAN",
+      "Groq key-pool rotation with live usage tracking",
+      "Research notes on Android capture surfaces and the path to native",
+      "Monetisation and strategy documented alongside the code"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087411/portfolio/films/slate.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.27,w_1600,q_auto/v1791087411/portfolio/films/slate.jpg",
+    "challenge": [
+      "Logging what you did is useful and tedious, so nobody keeps it up. Every tracker wants a form, a category and a date for each entry.",
+      "The bet: if logging were one gesture — hold, talk, let go — people would do it. That means turning an unstructured ramble into clean, correctly dated entries, cheaply enough to run on free model tiers."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/slate/case/architecture.jpg",
+      "alt": "Slate system architecture",
+      "caption": "A capture goes to the cheapest tier that can handle it correctly; validation, dates and the confidence gate always run in code.",
+      "steps": [
+        {
+          "title": "Capture",
+          "desc": "Hold to talk. The phone uses Web Speech or sends audio to Whisper; the dev server issues its own certificate so the mic works over the LAN."
+        },
+        {
+          "title": "Guard",
+          "desc": "Whisper invents text on silence — repetition loops or an echoed prompt — so decoder statistics and a prompt-echo check drop it before it becomes 'activity'."
+        },
+        {
+          "title": "Cache first",
+          "desc": "Clauses are normalised (fillers stripped, tense kept) and matched against learned patterns with {n} slots; fully known captures cost 0 tokens."
+        },
+        {
+          "title": "One structured call",
+          "desc": "Only unknown clauses go to gpt-oss-120b in a single call with low reasoning effort."
+        },
+        {
+          "title": "Validate and file",
+          "desc": "Dedup, date resolution, todo closing and the confidence gate run in code; a question is asked only when a wrong guess would corrupt the log."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/slate/case/scene-1.jpg",
+        "caption": "One ramble split into an activity, a spend and a closed todo."
+      },
+      {
+        "src": "/assets/img/projects/slate/case/scene-2.jpg",
+        "caption": "Measured: an agent loop vs one structured call vs a cached repeat."
+      },
+      {
+        "src": "/assets/img/projects/slate/case/scene-3.jpg",
+        "caption": "Under the hood: capture, guard, cache, one call."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "One call beats an agent loop",
+        "desc": "On the same 95-word capture, a 14-call tool loop spent 49,054 tokens in ~17 s and missed an activity; one structured call covered all 12 in ~1 s for ~1,000 tokens. Bounded extraction has nothing to explore."
+      },
+      {
+        "title": "The cache is the moat",
+        "desc": "Every resolved clause is learned, keyed by a signature with numbers as slots — so repeats are free and the cache becomes personal, which competitors can't copy."
+      },
+      {
+        "title": "Conservative caching",
+        "desc": "A wrong cached entry is silent and repeats, so todos, dated clauses, low-confidence items and clauses that lean on a neighbour are never cached."
+      },
+      {
+        "title": "Nothing logged that wasn't said",
+        "desc": "Logging a Whisper hallucination is worse than logging nothing, so transcripts are gated on the decoder's own statistics before anything is filed."
+      }
+    ],
+    "roadmap": [
+      "Test Whisper properly on the user's own accent and vocabulary — the one risk that gates the native build.",
+      "Ship as a PWA and measure whether people keep talking to it after week three.",
+      "Capture surfaces on Android: the notification bar is shipped; a Quick Settings tile and home-screen widget are written and waiting on a build.",
+      "On-device whisper.cpp for privacy."
+    ]
+  },
+  {
+    "id": 31,
+    "slug": "ardor",
+    "title": "Ardor",
+    "kind": "apps",
+    "status": "In development",
+    "accent": "#9333EA",
+    "category": "Accountability Companion App",
+    "year": "2026",
+    "role": "Founder & Engineer",
+    "image": "/assets/img/projects/ardor/cover.jpg",
+    "cover": "/assets/img/projects/ardor/cover.jpg",
+    "video": "/assets/video/projects/ardor.mp4",
+    "gallery": [
+      "/assets/img/projects/ardor/cover.jpg"
+    ],
+    "link": "",
+    "domain": "",
+    "tagline": "The companion that follows up until you actually do the thing",
+    "badge": "Own product • Mobile",
+    "glowColor": "rgba(147, 51, 234, 0.22)",
+    "tech": [
+      "Expo SDK 56",
+      "React Native 0.85",
+      "TypeScript (strict)",
+      "Jest",
+      "EAS Build",
+      "GitHub Actions"
+    ],
+    "summary": "An accountability app with a companion character, Ardy, that checks in, follows up and grows with you — built on a pure TypeScript engine with more than a thousand tests, plus a marketing site and waitlist.",
+    "description": [
+      "To-do apps remember what you planned; they don’t care whether you did it. Ardor is built around follow-through: Ardy checks in, nudges and celebrates until the task is actually done.",
+      "The scheduling and follow-up engine is pure TypeScript with no platform imports, covered by over 1,000 tests, so the same logic can serve Android, iOS, web and desktop.",
+      "A Next.js pre-launch site runs the waitlist, and a product “brain” documents vision, timeline, architecture, retention and metric gates for every phase."
+    ],
+    "features": [
+      {
+        "title": "Follow-through engine",
+        "desc": "Check-ins and follow-ups that adapt until the task is done, not just reminded."
+      },
+      {
+        "title": "Ardy the companion",
+        "desc": "A character with moods and growth levels that reacts to your progress."
+      },
+      {
+        "title": "Tested core",
+        "desc": "Pure TypeScript engine with 1,000+ tests and no side effects."
+      },
+      {
+        "title": "Waitlist site",
+        "desc": "Next.js and Supabase pre-launch site with a waitlist."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "1,000+",
+        "label": "Engine tests"
+      },
+      {
+        "value": "4",
+        "label": "Target platforms, one engine"
+      },
+      {
+        "value": "Phased",
+        "label": "Metric-gated roadmap"
+      }
+    ],
+    "highlights": [
+      "Expo / React Native app in strict TypeScript",
+      "Notification bridge isolated behind its own service layer",
+      "Architecture decision records for every major choice",
+      "Marketing, retention and metrics playbooks in the product brain"
+    ],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087413/portfolio/films/ardor.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.97,w_1600,q_auto/v1791087413/portfolio/films/ardor.jpg",
+    "challenge": [
+      "To-do apps remember what you planned and leave the follow-through to you. Reminders get swiped away, lists only grow, and the people who most need accountability are the ones who avoid the app.",
+      "Ardor is built around follow-through instead: a companion that reads how you're doing, adapts when and how it nudges, and escalates only when it matters."
+    ],
+    "architecture": {
+      "image": "/assets/img/projects/ardor/case/architecture.jpg",
+      "alt": "Ardor system architecture",
+      "caption": "The Expo app renders and reports events; a pure TypeScript engine decides what to nudge, when and how.",
+      "steps": [
+        {
+          "title": "Detect the state",
+          "desc": "Six emotional states — intention, drift, active avoidance, overwhelm, guilt spiral, flow — evaluated with deterministic rules, first match wins."
+        },
+        {
+          "title": "Rank the work",
+          "desc": "A priority queue scores urgency with hyperbolic discounting and the procrastination equation, weighted by deadline and how often a task was ignored."
+        },
+        {
+          "title": "Time the nudge",
+          "desc": "SM-2 spaced repetition adapted for procrastination, with state multipliers, quiet hours and peak hours."
+        },
+        {
+          "title": "Vary the message",
+          "desc": "The novelty engine rotates tone, channel, template and sound so nudges don't habituate; two ignores escalate to a full-screen alarm."
+        },
+        {
+          "title": "Learn from the outcome",
+          "desc": "A feedback loop adjusts the ease factor — up for fast completions, down for snoozes and ignores — and a verifier discounts suspicious completions."
+        }
+      ]
+    },
+    "screens": [
+      {
+        "src": "/assets/img/projects/ardor/case/scene-1.jpg",
+        "caption": "A check-in that adapts to overwhelm with a smaller first step (illustrative)."
+      },
+      {
+        "src": "/assets/img/projects/ardor/case/scene-2.jpg",
+        "caption": "One pass of the scheduler, from state to verified completion."
+      },
+      {
+        "src": "/assets/img/projects/ardor/case/scene-3.jpg",
+        "caption": "Under the hood: an Expo shell around a pure TypeScript engine."
+      }
+    ],
+    "decisions": [
+      {
+        "title": "The engine has no platform imports",
+        "desc": "All scheduling and follow-up logic is pure TypeScript with no side effects, so it can serve Android, iOS, web and desktop — and be tested exhaustively."
+      },
+      {
+        "title": "Science over streak gimmicks",
+        "desc": "Urgency and timing come from hyperbolic discounting, the procrastination equation and spaced repetition, not fixed reminder intervals."
+      },
+      {
+        "title": "Escalate, but with compassion",
+        "desc": "Repeated ignores escalate to a full-screen check-in, while a guilt spiral triggers a compassion reset instead of more pressure."
+      },
+      {
+        "title": "Rewards you can't farm",
+        "desc": "A completion verifier flags mass-completes and too-fast ticks, so XP reflects real follow-through."
+      }
+    ],
+    "roadmap": [
+      "Launch the waitlist and pre-launch site.",
+      "iOS build and widgets from the same engine.",
+      "Metric-gated phases from the product brain before each expansion."
     ]
   },
   {
     "id": 2,
     "slug": "carspace",
     "title": "Carspace",
-    "category": "E-Commerce & Hybrid Web App",
+    "category": "Marketplace Web App",
     "year": "2024",
-    "role": "Lead Full-Stack Developer & PWA Architect",
+    "role": "Full-Stack Developer",
     "image": "/assets/img/Carspace.png",
     "gallery": [
       "/assets/img/Carspace.png"
     ],
     "link": "https://secondhandcarapp.web.app/",
     "domain": "secondhandcarapp.web.app",
-    "tagline": "Real-Time Second-Hand Automobile Marketplace with Zero-Install PWA",
+    "tagline": "A second-hand car marketplace on React and Firebase",
     "badge": "Full-Stack • Progressive Web App",
     "glowColor": "rgba(59, 130, 246, 0.22)",
     "tech": [
       "React",
-      "Firebase Firestore",
-      "Progressive Web App (PWA)",
       "Tailwind CSS",
-      "Cloud Functions",
-      "Real-Time Indexing"
+      "Cloud Firestore",
+      "Firebase Auth",
+      "Firebase Hosting"
     ],
-    "summary": "High-performance hybrid e-commerce marketplace for certified pre-owned vehicles — engineered with sub-100ms multi-facet inventory search, real-time Firestore database synchronization, and native-feeling offline PWA mobile capabilities.",
+    "summary": "A web app for buying and selling second-hand cars — React and Tailwind CSS on Firebase, with real-time listings in Cloud Firestore and email or Google sign-in.",
     "description": [
-      "Used car marketplaces frequently suffer from sluggish inventory indexing, outdated pricing states, and heavy app download barriers for casual car buyers. Carspace was conceived to eliminate this friction through an instantaneous, app-like web platform connecting certified dealerships with prospective buyers.",
-      "Engineered the full-stack architecture on React and Firebase Cloud Firestore. Implemented client-side indexing and real-time document listeners that push vehicle availability, price adjustments, and inspection status updates across all connected clients in under 100 milliseconds without page refreshes.",
-      "Architected the application as an installable Progressive Web App (PWA) with smart service worker caching strategies, enabling seamless offline browsing of previously viewed car models, smooth touch gestures, and full home-screen installability across iOS and Android."
+      "Buying or selling a used car usually means chasing listings across classifieds, phone calls and messages. Carspace collects them in one marketplace.",
+      "Built with React and Tailwind CSS on Firebase: listings live in Cloud Firestore and update in real time, and users sign in with email or Google through Firebase Authentication. It's hosted on Firebase."
     ],
     "features": [
       {
-        "title": "Sub-100ms Faceted Search",
-        "desc": "Ultra-fast multi-parameter query engine allowing simultaneous instant filtering across make, model, odometer mileage, price bracket, and transmission type."
+        "title": "New and used",
+        "desc": "Separate tabs for new and pre-owned cars."
       },
       {
-        "title": "Real-Time Firestore Inventory Sync",
-        "desc": "Live websocket-backed document updates that automatically reflect newly listed vehicles, sold reservations, and price changes without reloading."
+        "title": "Search and budget filter",
+        "desc": "Search by car name and set a price range with a slider."
       },
       {
-        "title": "Zero-Install PWA Mobile Parity",
-        "desc": "Installable to mobile home screens with service worker offline caching, responsive touch gestures, and native app appearance."
+        "title": "Real-time listings",
+        "desc": "Cloud Firestore pushes listing changes to every open browser."
       },
       {
-        "title": "Dealership & Buyer Inquiry Flow",
-        "desc": "Streamlined in-app direct inquiry pipeline connecting verified buyers to dealership representatives with one-tap WhatsApp and call actions."
+        "title": "Accounts",
+        "desc": "Email or Google sign-in with Firebase Authentication."
       }
     ],
-    "metrics": [
-      {
-        "value": "<100ms",
-        "label": "Search Query Latency"
-      },
-      {
-        "value": "100%",
-        "label": "PWA Mobile Parity"
-      },
-      {
-        "value": "Real-time",
-        "label": "Firestore Live Sync"
-      }
+    "metrics": [],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087415/portfolio/films/carspace.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_13.37,w_1600,q_auto/v1791087415/portfolio/films/carspace.jpg",
+    "challenge": [
+      "Second-hand car listings are scattered across classifieds and word of mouth, and buyers can't easily filter what fits their budget.",
+      "The goal was a simple marketplace where listings stay current without anyone refreshing, on infrastructure a solo developer could run."
     ],
-    "highlights": [
-      "High-speed multi-faceted vehicle filtering with sub-100ms response time",
-      "Real-time cloud database architecture powered by Firebase Firestore",
-      "Installable Progressive Web App with offline caching and native mobile UI",
-      "Streamlined dealership contact routing and vehicle inspection badges"
+    "screens": [
+      {
+        "src": "/assets/img/projects/carspace/case/home.jpg",
+        "caption": "The home page: new / used tabs, search by name and a price-range filter."
+      },
+      {
+        "src": "/assets/img/projects/carspace/case/login.jpg",
+        "caption": "Sign-in with email or Google through Firebase Authentication."
+      }
     ]
   },
   {
@@ -227,7 +2233,7 @@
       "/assets/img/ANALYSIS.png",
       "/assets/img/D-MART.png"
     ],
-    "link": "https://ltqapcfmatgt2.mocha.app/",
+    "link": "",
     "domain": "ltqapcfmatgt2.mocha.app",
     "tagline": "Interactive Big-Data Retail Intelligence & Multi-Store SKU Profitability Modeling",
     "badge": "Data Intelligence • Python & React",
@@ -240,58 +2246,50 @@
       "Automated ETL",
       "Tailwind CSS"
     ],
-    "summary": "An interactive retail analytics and intelligence platform processing massive D-MART store transaction volumes — transforming raw point-of-sale datasets into actionable gross margin forecasts, SKU velocity trends, and regional sales drill-downs.",
+    "summary": "A retail sales analysis case study of D-Mart data — cleaned and aggregated with Python (Pandas, NumPy) and explored through an interactive dashboard of categories and margins.",
     "description": [
-      "Supermarket chains and FMCG retail giants generate millions of point-of-sale records daily, yet store directors and inventory managers often lack real-time visual tools to identify high-margin SKU clusters and regional revenue leakages. D-MART Analysis was created to bridge this data-to-decision gap.",
-      "Engineered high-throughput automated Python ETL pipelines using Pandas and NumPy to cleanse, normalize, and aggregate high-volume raw sales records. Built optimized in-memory query routines that allow instant cross-dimensional analysis across departments, product categories, and promotional price brackets.",
-      "Crafted an executive-ready React dashboard pairing decision-first UX with high-performance interactive charts. Business stakeholders can run multi-variable scenario modeling, compare regional warehouse performance side-by-side, and isolate fast-moving consumer goods with zero analytical friction."
+      "Supermarket chains generate large volumes of point-of-sale data, but store and category managers need a few clear answers: what sells, where margins sit and how categories trend.",
+      "This case study cleans and aggregates D-Mart sales data with Python (Pandas and NumPy) and presents it in an interactive React dashboard for exploring categories and margins."
     ],
     "features": [
       {
-        "title": "Automated Python ETL Pipeline",
-        "desc": "Ingests, deduplicates, and structures hundred-thousand-row retail datasets into normalized relational schemas in seconds."
+        "title": "Python data pipeline",
+        "desc": "Pandas and NumPy to clean, normalise and aggregate the raw sales records."
       },
       {
-        "title": "Multi-Dimensional SKU Velocity Drill-Downs",
-        "desc": "Real-time exploration of sales volume, markdown impact, and seasonal velocity across groceries, FMCG, and apparel."
+        "title": "Category drill-downs",
+        "desc": "Explore sales by department and product category."
       },
       {
-        "title": "Interactive Gross Margin Modeling",
-        "desc": "Visual sensitivity analysis allowing retail executives to simulate margin outcomes based on wholesale supplier discount adjustments."
+        "title": "Margin views",
+        "desc": "Compare categories by margin to see where profit actually comes from."
       },
       {
-        "title": "Executive Decision-First Dashboard",
-        "desc": "Clean, distraction-free visual reporting system highlighting key outlier categories, inventory risks, and top revenue drivers."
+        "title": "Interactive dashboard",
+        "desc": "A React front end for exploring the results."
       }
     ],
-    "metrics": [
-      {
-        "value": "100K+",
-        "label": "Transactions Processed"
-      },
-      {
-        "value": "100%",
-        "label": "Automated ETL Pipeline"
-      },
-      {
-        "value": "Real-time",
-        "label": "Interactive Drill-downs"
-      }
+    "metrics": [],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087416/portfolio/films/dmart-analysis.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_15.97,w_1600,q_auto/v1791087416/portfolio/films/dmart-analysis.jpg",
+    "challenge": [
+      "Retail chains produce huge volumes of point-of-sale data, while managers need a handful of clear answers about categories, margins and trends."
     ],
-    "highlights": [
-      "End-to-end data pipeline processing 100K+ transactional records with zero data loss",
-      "Interactive multi-attribute filtering and scenario modeling in React",
-      "Automated SKU velocity categorizations and supplier margin optimization",
-      "Clean visual presentation tailored for executive and store manager review"
+    "screens": [
+      {
+        "src": "/assets/img/projects/dmart-analysis/case/cover.jpg",
+        "caption": "D-Mart Analysis case study cover."
+      }
     ]
   },
   {
     "id": 3,
     "slug": "d7-sports",
     "title": "D7 Sports",
-    "category": "VR Experience & Spatial Motion Graphics",
+    "category": "Sports Platform & Storefront",
     "year": "2023",
-    "role": "VR Developer & Motion Graphics Engineer",
+    "role": "Front-End Developer",
     "image": "/assets/img/D7.png",
     "gallery": [
       "/assets/img/D7.png",
@@ -299,336 +2297,273 @@
     ],
     "link": "https://drive.google.com/file/d/18_hxmycJTo6qIy9MebsEbzJyGbl6s_Tz/view?usp=sharing",
     "domain": "d7sports.vr",
-    "tagline": "Immersive Virtual Reality Sports Arena with Locked 90 FPS Spatial Immersion",
+    "tagline": "A sports platform with an Apple-inspired cricket-gear store",
     "badge": "VR Experience • Unity 3D & C#",
     "glowColor": "rgba(234, 88, 12, 0.22)",
     "tech": [
-      "Unity 3D",
-      "C#",
-      "Virtual Reality",
-      "Spatial Audio",
-      "Motion Graphics",
-      "Blender 3D"
+      "React",
+      "MongoDB",
+      "CSS"
     ],
-    "summary": "An adrenaline-fueled virtual reality sports simulation engineered in Unity 3D — pairing physics-driven athletic gameplay and dynamic motion graphics with a locked 90 FPS rendering pipeline and 3D spatial audio for nausea-free immersion.",
+    "summary": "A sports management platform built with React and MongoDB, with an Apple-inspired storefront for cricket gear — bats, gloves, balls, shoes, kit bags, pads and helmets — and a bat trade-in offer.",
     "description": [
-      "Virtual reality applications in sports entertainment frequently struggle with latency spikes, motion disorientation, and unnatural physics feedback that break user presence. D7 Sports was developed to deliver an authentic athletic arena experience where movement, ball physics, and spatial acoustics mimic physical stadium dynamics.",
-      "Engineered within Unity 3D using custom C# physics solvers and optimized polygon budgets. Implemented high-efficiency draw-call batching, baked lightmaps, and occlusion culling algorithms that maintain a locked 90 FPS framerate with sub-12ms motion-to-photon latency across VR headsets.",
-      "Integrated 360° HRTF spatial audio positioning and high-impact motion graphics sequences modeled in Blender. Players experience directional crowd roar, realistic ball impact acoustics, and intuitive spatial UI that enhances immersion without cluttering the athlete's visual field."
+      "D7 Sports is a sports management platform with real-time updates, built with React for the front end and MongoDB for data storage.",
+      "Its storefront borrows Apple's store layout: one clean row of product lines — bats, gloves, balls, shoes, kit bags, pads, helmets — with a trade-in offer that turns old bats into credit toward new ones."
     ],
     "features": [
       {
-        "title": "Locked 90 FPS Headset Pipeline",
-        "desc": "Aggressive polygon optimization and GPU draw-call batching guaranteeing butter-smooth rendering and zero simulator sickness."
+        "title": "Product-line row",
+        "desc": "Each category of cricket gear as one scannable row, Apple-store style."
       },
       {
-        "title": "360° HRTF Spatial Acoustics",
-        "desc": "Real-time binaural sound engine accurately mapping stadium echoes, ball impacts, and crowd feedback to user head rotation."
+        "title": "Trade-in offer",
+        "desc": "Credit toward MRF or SS bats when you trade in an old bat."
       },
       {
-        "title": "Physics-Driven Athletic Mechanics",
-        "desc": "Fine-tuned haptic feedback and custom C# ball collision solvers replicating realistic trajectory and kinetic response."
+        "title": "What's new",
+        "desc": "Latest products surfaced on the store page."
       },
       {
-        "title": "Dynamic Motion Graphics & Spatial UI",
-        "desc": "Futuristic spatial scoreboards and visual effect sequences designed in Blender and Unity VFX Graph."
+        "title": "React + MongoDB",
+        "desc": "A React front end on a MongoDB data layer."
       }
     ],
-    "metrics": [
-      {
-        "value": "90 FPS",
-        "label": "Locked Headset Framerate"
-      },
-      {
-        "value": "360°",
-        "label": "Spatial Immersion"
-      },
-      {
-        "value": "<12ms",
-        "label": "Motion-to-Photon Latency"
-      }
+    "metrics": [],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087418/portfolio/films/d7-sports.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_13.93,w_1600,q_auto/v1791087418/portfolio/films/d7-sports.jpg",
+    "challenge": [
+      "Sports stores tend to be cluttered catalogues. D7 Sports aimed for a calmer, product-first store alongside its sports platform."
     ],
-    "highlights": [
-      "High-performance virtual sports arena built in Unity 3D and C#",
-      "Locked 90 FPS performance across standalone and PC VR headsets",
-      "Realistic HRTF 3D spatial audio positioning and sound design",
-      "Intuitive spatial UI and custom motion graphics sequences in Blender"
+    "screens": [
+      {
+        "src": "/assets/img/projects/d7-sports/case/store.jpg",
+        "caption": "The storefront: every product line in one row."
+      },
+      {
+        "src": "/assets/img/projects/d7-sports/case/store2.jpg",
+        "caption": "The trade-in offer and the latest products."
+      }
     ]
   },
   {
     "id": 4,
     "slug": "interior-design-prototype",
     "title": "Interior Design 3D WebGL",
-    "category": "3D Web & Interactive Architectural Space Customizer",
+    "category": "Interactive Design Prototype",
     "year": "2023",
-    "role": "Lead 3D Web Developer & UI/UX Designer",
+    "role": "Front-End Developer & Designer",
     "image": "/assets/img/White and Brown Minimalist Interior Desktop Prototype.gif",
     "gallery": [
       "/assets/img/White and Brown Minimalist Interior Desktop Prototype.gif"
     ],
     "link": "https://vimalsri318.github.io/My_Potfolio/",
     "domain": "interior-3d.web.app",
-    "tagline": "Real-Time In-Browser 3D Architectural Space Customizer with PBR Materials",
+    "tagline": "An interactive, minimalist interior design prototype",
     "badge": "3D Web • Three.js & WebGL",
     "glowColor": "rgba(20, 184, 166, 0.22)",
     "tech": [
-      "Three.js",
-      "WebGL",
-      "JavaScript",
-      "PBR Materials & Textures",
-      "GLSL Shaders",
-      "Interactive 3D UI"
+      "React",
+      "Tailwind CSS",
+      "Interaction design"
     ],
-    "summary": "An in-browser 3D architectural visualization and interior design customizer built with Three.js and WebGL — enabling clients to explore photorealistic living spaces in real-time 3D, customize wood and textile finishes, and inspect daylight simulations with zero plugins required.",
+    "summary": "An interactive desktop prototype for interior design visualisation, with a minimalist white-and-brown aesthetic — built with React and Tailwind CSS.",
     "description": [
-      "Traditional interior design approvals rely on static 2D renders or cumbersome CAD files that fail to convey true spatial proportions and natural lighting variation. This prototype was designed to bring interactive 3D architectural exploration directly into modern web browsers without requiring software installation or specialized hardware.",
-      "Engineered using Three.js and raw WebGL shaders. Implemented physically-based rendering (PBR) workflows with custom roughness, metallic, and ambient occlusion map swaps, allowing users to toggle between premium hardwoods, Italian marbles, and minimalist fabric palettes with instantaneous visual feedback.",
-      "Optimized geometry hierarchies, progressive texture streaming, and mobile touch camera controls to achieve a silky 60 FPS across both desktop workstations and mobile phones, setting a benchmark for lightweight, browser-based spatial e-commerce and architectural walk-throughs."
+      "Interior design concepts are usually shared as static images in a PDF, which makes it hard for a client to feel the space.",
+      "This prototype presents a minimalist living space as an interactive desktop experience, built with React and Tailwind CSS."
     ],
     "features": [
       {
-        "title": "Zero-Plugin WebGL Engine",
-        "desc": "Runs natively in Chrome, Safari, and mobile browsers with sub-second initialization and no external viewer downloads."
+        "title": "Interactive presentation",
+        "desc": "The concept is explored as an interactive desktop prototype rather than a static deck."
       },
       {
-        "title": "Real-Time PBR Material Swapping",
-        "desc": "Dynamically modifies albedo, roughness, and normal maps on furniture and surfaces with zero visual stutter."
+        "title": "Minimalist aesthetic",
+        "desc": "A white-and-brown palette with warm light and quiet surfaces."
       },
       {
-        "title": "Dynamic Daylight & Shadow Simulation",
-        "desc": "Adjustable directional sun angles and soft ambient occlusion showing how natural sunlight transforms interior finishes throughout the day."
-      },
-      {
-        "title": "Smooth Orbit & First-Person Camera",
-        "desc": "Damped orbital navigation and touch gesture support enabling fluid spatial exploration across every angle."
+        "title": "React + Tailwind",
+        "desc": "Built as a web prototype, so it runs in a browser."
       }
     ],
-    "metrics": [
-      {
-        "value": "60 FPS",
-        "label": "In-Browser WebGL"
-      },
-      {
-        "value": "0",
-        "label": "Plugins Required"
-      },
-      {
-        "value": "100%",
-        "label": "Real-Time 3D Customization"
-      }
+    "metrics": [],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087419/portfolio/films/interior-design-prototype.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_8,w_1600,q_auto/v1791087419/portfolio/films/interior-design-prototype.jpg",
+    "challenge": [
+      "Static renders in a PDF don't convey how a space feels. The prototype explores presenting an interior concept interactively instead."
     ],
-    "highlights": [
-      "Photorealistic in-browser 3D rendering pipeline powered by Three.js",
-      "Instant PBR material, wood finish, and fabric palette swapping",
-      "Butter-smooth 60 FPS performance across desktop and mobile devices",
-      "Intuitive touch-friendly 3D orbit controls and camera damping"
+    "screens": [
+      {
+        "src": "/assets/img/projects/interior-design-prototype/case/room.jpg",
+        "caption": "The prototype's minimalist living space."
+      },
+      {
+        "src": "/assets/img/projects/interior-design-prototype/case/room2.jpg",
+        "caption": "Another view from the prototype animation."
+      }
     ]
   },
   {
     "id": 5,
     "slug": "ar-mart",
     "title": "AR Mart",
-    "category": "Spatial Web & Augmented Reality Commerce",
+    "category": "Augmented Reality Commerce",
     "year": "2023",
-    "role": "Lead AR Interaction Designer & Spatial UI Engineer",
+    "role": "Front-End & AR Developer",
     "image": "/assets/img/AR_Mart.png",
     "gallery": [
       "/assets/img/AR_Mart.png"
     ],
     "link": "https://vimalsri318.github.io/My_Potfolio/",
     "domain": "armart.app",
-    "tagline": "Next-Gen Augmented Reality Spatial Commerce with 1:1 Scale In-Room Projection",
+    "tagline": "See products in 3D before you buy them",
     "badge": "Spatial Web • AR & WebXR",
     "glowColor": "rgba(139, 92, 246, 0.22)",
     "tech": [
-      "WebXR",
-      "AR Interaction Design",
-      "Figma",
-      "Spatial UI/UX",
-      "3D Prototyping",
-      "Mobile Sensor APIs"
+      "React",
+      "AR.js",
+      "Augmented reality"
     ],
-    "summary": "A forward-looking augmented reality commerce platform bridging digital catalogs and physical living spaces — projecting 1:1 true-scale home goods, furniture, and appliances into consumer rooms via device camera with instant purchasing pathways.",
+    "summary": "An augmented reality shopping platform that lets users visualise products in 3D before purchase — built with React and AR.js.",
     "description": [
-      "One of the biggest friction points in modern e-commerce is spatial uncertainty: over 40% of furniture and home appliance returns occur because consumers misjudge size, room clearance, or aesthetic compatibility with existing interior decor. AR Mart was engineered to solve this dilemma.",
-      "Designed an end-to-end spatial shopping flow leveraging WebXR and mobile camera sensor integration. Users can preview catalog items in real-time, accurately scaled down to millimeter precision against room floor planes, complete with realistic ground shadows and surface collision detection.",
-      "Crafted an intuitive spatial user interface that balances minimal visual distraction with powerful utility — offering instant dimension readouts, colorway adjustments, and a frictionless single-tap checkout pathway that connects spatial discovery directly to order fulfillment."
+      "Shopping online leaves people guessing about size and fit. AR Mart lets shoppers see products in 3D, in augmented reality, before they buy.",
+      "It's built with React for the shopping experience and AR.js for augmented reality in the browser."
     ],
     "features": [
       {
-        "title": "True 1:1 Scale Spatial Projection",
-        "desc": "High-accuracy plane detection and perspective alignment projecting products at millimeter-true dimensions in physical living spaces."
+        "title": "3D product preview",
+        "desc": "Products shown as 3D models rather than flat photos."
       },
       {
-        "title": "Ambient Lighting & Ground Shadows",
-        "desc": "Real-time shadow occlusion and lighting estimation matching the product's virtual appearance to the physical ambient room conditions."
+        "title": "Augmented reality",
+        "desc": "AR.js places products in the shopper's surroundings through the camera."
       },
       {
-        "title": "In-Room Instant Dimension Overlays",
-        "desc": "Live AR measurement guides overlaying width, height, and depth dimensions directly onto the physical environment for clearance verification."
-      },
-      {
-        "title": "Frictionless Spatial Checkout Flow",
-        "desc": "Non-intrusive floating action dock allowing shoppers to switch colorways, check stock, and finalize checkout without leaving the AR viewport."
+        "title": "In the browser",
+        "desc": "A React web app — nothing to install."
       }
     ],
-    "metrics": [
-      {
-        "value": "1:1",
-        "label": "True Dimension Accuracy"
-      },
-      {
-        "value": "Spatial",
-        "label": "Augmented Reality Flow"
-      },
-      {
-        "value": "-40%",
-        "label": "Projected Return Rate"
-      }
+    "metrics": [],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791098205/portfolio/films/ar-mart.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.13,w_1600,q_auto/v1791098205/portfolio/films/ar-mart.jpg",
+    "challenge": [
+      "Online shoppers can't judge size or look from a photo, which leads to hesitation and returns. AR Mart explores letting them see the product in place first."
     ],
-    "highlights": [
-      "Web-based augmented reality commerce flow with zero app download requirement",
-      "True-to-scale 1:1 product projection and ambient shadow occlusion",
-      "Comprehensive spatial interaction design and prototyping in Figma",
-      "End-to-end purchasing journey connecting AR previews to instant checkout"
+    "screens": [
+      {
+        "src": "/assets/img/projects/ar-mart/case/concept.jpg",
+        "caption": "AR Mart concept art."
+      }
     ]
   },
   {
     "id": 6,
     "slug": "pricepulse",
     "title": "PricePulse",
-    "category": "Full-Stack Web App & Price Intelligence",
+    "category": "Price Comparison Web App",
     "year": "2024",
-    "role": "Lead Full-Stack Developer & Automation Engineer",
+    "role": "Full-Stack Developer",
     "image": "/assets/img/Comapre_website.png",
     "gallery": [
       "/assets/img/Comapre_website.png"
     ],
     "link": "https://vimalsri318.github.io/My_Potfolio/",
     "domain": "pricepulse.io",
-    "tagline": "Automated Multi-Store Price Intelligence & Historical Fluctuation Tracker",
+    "tagline": "One product, every store's price, side by side",
     "badge": "Full-Stack • Web Scraping & Analytics",
     "glowColor": "rgba(14, 165, 233, 0.22)",
     "tech": [
       "React",
-      "Node.js & Express",
-      "Puppeteer",
-      "Chart.js",
-      "RESTful APIs",
-      "Tailwind CSS"
+      "Tailwind CSS",
+      "Data aggregation"
     ],
-    "summary": "An automated price intelligence and multi-store product comparison engine — continuously scraping e-commerce marketplaces to deliver historical price variance tracking, side-by-side merchant comparisons, and algorithmic optimal-buy triggers.",
+    "summary": "A price comparison website that aggregates product data from multiple e-commerce platforms into one view — built with React and styled with Tailwind CSS.",
     "description": [
-      "E-commerce pricing on electronics and high-demand goods fluctuates hourly across major retailers, making it exhausting for consumers and procurement teams to secure genuine bargains without constant manual tracking. PricePulse was built to automate price discovery and predict optimal buying windows.",
-      "Engineered a resilient distributed scraping pipeline using Node.js and headless browser automation via Puppeteer. Implemented intelligent request throttling, user-agent rotation, and DOM parsing routines that systematically collect pricing, stock availability, and merchant ratings across multiple competitive storefronts without triggering anti-bot blocks.",
-      "Developed a fast React interface powered by Chart.js for time-series visualization. Users can paste any product link or search keywords to view historical price trajectory charts, receive lowest-price-ever alerts, and compare shipping and tax totals across stores in a single, decision-first view."
+      "Prices for the same product differ from store to store, and checking each one by hand is slow.",
+      "PricePulse aggregates product data from multiple e-commerce platforms and presents it in one comparison, with a clean React and Tailwind interface."
     ],
     "features": [
       {
-        "title": "Automated Multi-Retailer Scraping Engine",
-        "desc": "Headless Puppeteer workers running scheduled price extraction jobs across major e-commerce storefronts with rate-limit evasion."
+        "title": "Multi-store data",
+        "desc": "Product data gathered from several e-commerce platforms."
       },
       {
-        "title": "Historical Price Trajectory Graphing",
-        "desc": "High-performance Chart.js visual trends plotting 30-day, 90-day, and all-time price variances to expose artificial markups."
+        "title": "Side-by-side comparison",
+        "desc": "One view per product with every store's price."
       },
       {
-        "title": "Smart Optimal-Buy Signal Alerts",
-        "desc": "Algorithmic alert engine that evaluates statistical standard deviations to notify buyers when an item reaches an all-time low."
-      },
-      {
-        "title": "Side-by-Side Merchant Comparison",
-        "desc": "Aggregated matrix breaking down base price, shipping fees, seller ratings, and expected delivery windows in real-time."
+        "title": "Clean interface",
+        "desc": "React and Tailwind CSS for a fast, simple UI."
       }
     ],
-    "metrics": [
-      {
-        "value": "24/7",
-        "label": "Automated Price Monitoring"
-      },
-      {
-        "value": "Multi-Store",
-        "label": "Vendor Comparison"
-      },
-      {
-        "value": "<200ms",
-        "label": "Chart Analytics Render"
-      }
+    "metrics": [],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791098208/portfolio/films/pricepulse.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_15.07,w_1600,q_auto/v1791098208/portfolio/films/pricepulse.jpg",
+    "challenge": [
+      "Shoppers compare prices across several stores by hand. PricePulse brings those prices into one place."
     ],
-    "highlights": [
-      "Continuous multi-vendor price scraping powered by Node.js and Puppeteer",
-      "Interactive historical price trajectory charting with Chart.js and React",
-      "Automated optimal buy-signal calculations and instant price-drop alerts",
-      "Clean, decision-first interface comparing merchant fees and delivery times"
+    "screens": [
+      {
+        "src": "/assets/img/projects/pricepulse/case/concept.jpg",
+        "caption": "PricePulse concept art."
+      }
     ]
   },
   {
     "id": 7,
     "slug": "namwear-tshirt-design",
     "title": "Namwear Apparel",
-    "category": "Brand Identity & Streetwear Merchandise",
+    "category": "Apparel Design & Prototype",
     "year": "2024",
-    "role": "Brand Strategist & Creative Director",
+    "role": "Designer",
     "image": "https://res.cloudinary.com/g5nctap2/image/upload/v1784810065/portfolio/img/en7xzox6tini5wltfzcm.png",
     "gallery": [
       "https://res.cloudinary.com/g5nctap2/image/upload/v1784810065/portfolio/img/en7xzox6tini5wltfzcm.png"
     ],
     "link": "https://www.figma.com/proto/TX6zJj6Lz5934ZjVsanK5M/vs?page-id=0%3A1&node-id=984-372&viewport=-20038%2C-5262%2C0.31&t=zYGrmhAeN2Xhj9fw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1004%3A291&show-proto-sidebar=1",
     "domain": "namwear.com",
-    "tagline": "Contemporary Streetwear Apparel & High-Impact Visual Identity Collection",
+    "tagline": "Oversized tees with a pastel gradient look, prototyped in Figma",
     "badge": "Branding • Creative Direction & Merchandise",
     "glowColor": "rgba(244, 63, 94, 0.22)",
     "tech": [
       "Figma",
-      "Creative Direction",
-      "Apparel Graphic Design",
-      "Brand Identity Systems",
-      "Vector Typography",
-      "Interactive Prototyping"
+      "Interactive prototyping",
+      "Apparel graphics"
     ],
-    "summary": "A complete brand identity and merchandise collection for contemporary streetwear label Namwear — synthesizing bold typography, custom vector illustrations, and cohesive packaging aesthetics into an interactive Figma prototype presentation.",
+    "summary": "A modern T-shirt design for Namwear's Oversized collection, crafted in Figma with a pastel gradient aesthetic and an interactive prototype.",
     "description": [
-      "Emerging streetwear apparel brands require more than isolated graphics; they need an uncompromising visual manifesto that translates seamlessly across textiles, screen-printing separations, digital lookbooks, and packaging design. Namwear was conceptualized to establish an unmistakable urban design signature.",
-      "Engineered comprehensive graphic treatments balancing raw brutalist typography with balanced spatial layouts. Formulated color palettes tested for screen-print color accuracy across heavy 240+ GSM cotton fabrics, embroidery stitch limits, and digital lookbook assets.",
-      "Assembled the entire collection into a high-fidelity interactive Figma presentation prototype. Buyers and manufacturing partners can cycle through colorways, inspect print callouts, and experience the lifestyle editorial flow in real-time."
+      "Namwear's Oversized collection needed a recognisable look across its tees and how they're presented.",
+      "The designs pair bold, oversized type with a pastel gradient palette, and the collection is presented as an interactive Figma prototype."
     ],
     "features": [
       {
-        "title": "Complete Streetwear Apparel Line",
-        "desc": "Holistic collection spanning oversized graphic tees, minimalist chest lockups, and back-print visual statements."
+        "title": "Pastel gradient aesthetic",
+        "desc": "A soft gradient palette carried across the collection."
       },
       {
-        "title": "Vector Typography & Illustration",
-        "desc": "100% scalable vector artwork engineered for multi-color screen printing separations with crisp edge fidelity."
+        "title": "Oversized type",
+        "desc": "Bold OVERSIZED lettering as the collection's signature."
       },
       {
-        "title": "Fabric & Production Technical Packs",
-        "desc": "Precise dimension guides, Pantone color codes, and placement measurements calibrated for apparel production lines."
-      },
-      {
-        "title": "Interactive Figma Prototype Presentation",
-        "desc": "Immersive digital lookbook allowing retailers and stakeholders to experience the brand ecosystem before manufacturing."
+        "title": "Interactive prototype",
+        "desc": "A clickable Figma prototype presenting the collection."
       }
     ],
-    "metrics": [
-      {
-        "value": "100%",
-        "label": "Custom Vector Art"
-      },
-      {
-        "value": "Complete",
-        "label": "Streetwear Collection"
-      },
-      {
-        "value": "Interactive",
-        "label": "Figma Prototype"
-      }
+    "metrics": [],
+    "highlights": [],
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791098209/portfolio/films/namwear-tshirt-design.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.63,w_1600,q_auto/v1791098209/portfolio/films/namwear-tshirt-design.jpg",
+    "challenge": [
+      "A streetwear collection needs a consistent look across products and presentation. Namwear's was designed and prototyped in Figma."
     ],
-    "highlights": [
-      "Full-spectrum streetwear merchandise and graphic design collection",
-      "Unified brand identity system connecting typography, apparel, and packaging",
-      "Production-calibrated vector artwork and screen-printing specifications",
-      "High-fidelity interactive prototype presentation in Figma"
+    "screens": [
+      {
+        "src": "/assets/img/projects/namwear-tshirt-design/case/tee.jpg",
+        "caption": "The Oversized collection in the Figma prototype."
+      }
     ]
   }
 ]

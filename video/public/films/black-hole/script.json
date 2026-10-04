@@ -1,0 +1,329 @@
+{
+  "slug": "black-hole",
+  "title": "Black Hole",
+  "accent": "#E8590C",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "To get a link to your phone, you [message yourself.]",
+      "strike": [
+        "A chat with yourself",
+        "A cloud clipboard that keeps everything"
+      ],
+      "punch": "Black Hole skips [the middleman.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "Moving a link or a screenshot from your laptop to your phone usually means messaging yourself, or trusting a cloud clipboard that keeps everything."
+        },
+        {
+          "id": "hook2",
+          "text": "Black Hole skips the middleman."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Black Hole",
+      "tagline": "A private clipboard between your Mac and your phone. Throw in. Pull out. Anywhere.",
+      "badge": "Open source · MIT",
+      "logo": "films/black-hole/media/logo.png",
+      "media": {
+        "type": "stage",
+        "slug": "black-hole"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "Copy something on your Mac, and it's on your phone a second later, over your own Wi-Fi, with no account and no server."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Pair once",
+      "headline": "A six-digit code, [then they just talk.]",
+      "bullets": [
+        "A code and a QR on the Mac, one scan on the phone",
+        "Each device has an Ed25519 identity",
+        "Found on the local network with mDNS"
+      ],
+      "media": {
+        "type": "terminal",
+        "title": "demo.sh — two devices, one machine (real output)",
+        "lines": [
+          {
+            "text": "blackhole pair host --port 17420 --default",
+            "kind": "cmd"
+          },
+          {
+            "text": "Pairing code: 859486",
+            "kind": "accent"
+          },
+          {
+            "text": "Waiting up to 5 minutes for a connection...",
+            "kind": "dim"
+          },
+          {
+            "text": "blackhole pair join --addr 127.0.0.1:17420 --code 859486",
+            "kind": "cmd"
+          },
+          {
+            "text": "Paired with \"Demo Mac\" — device id dev_44d22283396dc6ae855a  [default]",
+            "kind": "ok"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "pair1",
+          "text": "Devices pair once, with a six-digit code and a QR scan. Each one has its own Ed25519 identity, and they find each other on the local network."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Expires everywhere",
+      "headline": "Thirty minutes, then [gone from both devices.]",
+      "bullets": [
+        "Text, links and images move the same way",
+        "A 30-minute default expiry, pin what you keep",
+        "Copy on the Mac is automatic; sending from the phone is one tap"
+      ],
+      "flip": true,
+      "media": {
+        "type": "terminal",
+        "title": "demo.sh — send, list, expire (real output)",
+        "lines": [
+          {
+            "text": "blackhole send --text \"https://example.com/article\" --ttl 3",
+            "kind": "cmd"
+          },
+          {
+            "text": "Sending Link (27 bytes) to dev_44d22283396dc6ae855a at 127.0.0.1:17420...",
+            "kind": "out"
+          },
+          {
+            "text": "Delivered.",
+            "kind": "ok"
+          },
+          {
+            "text": "blackhole list",
+            "kind": "cmd"
+          },
+          {
+            "text": "01M42F3Q…  Link  0s ago  expires in 1s  https://example.com/article",
+            "kind": "out"
+          },
+          {
+            "text": "blackhole expire && blackhole list",
+            "kind": "cmd"
+          },
+          {
+            "text": "Reaped 1 expired object(s).",
+            "kind": "accent"
+          },
+          {
+            "text": "Black Hole is empty.",
+            "kind": "ok"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "ttl1",
+          "text": "Text, links and images all travel the same way, and everything expires after thirty minutes on both devices at once, unless you pin it."
+        },
+        {
+          "id": "ttl2",
+          "text": "Sending from the phone is one deliberate tap, because Android doesn't let apps read the clipboard in the background."
+        }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "One Rust core. [Every shell is thin.]",
+      "packet": "link · 27 bytes",
+      "nodes": [
+        {
+          "icon": "laptop",
+          "title": "Mac app",
+          "sub": "Tauri shell, clipboard watcher"
+        },
+        {
+          "icon": "cpu",
+          "title": "Rust core",
+          "sub": "SQLite store, identity, TTL reaper"
+        },
+        {
+          "icon": "wifi",
+          "title": "Local network",
+          "sub": "mDNS discovery, framed TCP"
+        },
+        {
+          "icon": "smartphone",
+          "title": "Android app",
+          "sub": "Expo, protocol re-implemented in TS"
+        }
+      ],
+      "stats": [
+        {
+          "big": "0",
+          "small": "servers in the path"
+        },
+        {
+          "big": "30 min",
+          "small": "default expiry"
+        },
+        {
+          "big": "2",
+          "small": "platforms: macOS + Android"
+        }
+      ],
+      "vo": [
+        {
+          "id": "flow1",
+          "text": "A shared Rust core holds the store, identities and expiry. The Mac app is a thin Tauri shell over it."
+        },
+        {
+          "id": "flow2",
+          "text": "The Android app speaks the same wire protocol in TypeScript, and it was proven against the real Rust CLI over actual sockets before it shipped."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Your clipboard. [Your devices. Nobody else.]",
+      "stack": [
+        {
+          "icon": "cpu",
+          "title": "Rust",
+          "sub": "tokio · SQLite · Ed25519"
+        },
+        {
+          "icon": "laptop",
+          "title": "Tauri",
+          "sub": "macOS desktop app"
+        },
+        {
+          "icon": "smartphone",
+          "title": "Expo",
+          "sub": "Android + native modules"
+        },
+        {
+          "icon": "wifi",
+          "title": "Local network",
+          "sub": "no relay, no account"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "Your clipboard, your devices, and nobody else."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Black Hole · system architecture",
+    "headline": "Device to device. [No server in between.]",
+    "columns": [
+      {
+        "label": "macOS",
+        "boxes": [
+          {
+            "id": "mac",
+            "icon": "laptop",
+            "title": "Desktop app",
+            "sub": "Tauri + React shelf, tray, clipboard watcher (v0.1.2)",
+            "tone": "accent"
+          },
+          {
+            "id": "cli",
+            "icon": "terminal",
+            "title": "blackhole CLI",
+            "sub": "init · pair · serve · send · list · expire"
+          }
+        ]
+      },
+      {
+        "label": "shared Rust core",
+        "boxes": [
+          {
+            "id": "core",
+            "icon": "cpu",
+            "title": "blackhole-core",
+            "lines": [
+              "ObjectModel (ULID ids)",
+              "SQLite store",
+              "Ed25519 identity, pairing",
+              "mDNS discovery",
+              "BLAKE3 checksums",
+              "TTL reaper"
+            ],
+            "tone": "dark"
+          }
+        ]
+      },
+      {
+        "label": "Android",
+        "boxes": [
+          {
+            "id": "android",
+            "icon": "smartphone",
+            "title": "Expo app",
+            "sub": "protocol + crypto re-implemented in TS (@noble), verified against the Rust CLI"
+          },
+          {
+            "id": "mods",
+            "icon": "layers",
+            "title": "Native modules",
+            "sub": "floating overlay · share intake"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "mac",
+        "to": "core"
+      },
+      {
+        "from": "cli",
+        "to": "core"
+      },
+      {
+        "from": "core",
+        "to": "android",
+        "label": "length-prefixed JSON over TCP"
+      },
+      {
+        "from": "android",
+        "to": "mods"
+      }
+    ],
+    "footer": [
+      {
+        "icon": "wifi",
+        "text": "Same Wi-Fi, direct connection"
+      },
+      {
+        "icon": "key",
+        "text": "Ed25519 device identities"
+      },
+      {
+        "icon": "timer",
+        "text": "Expires on both devices"
+      },
+      {
+        "icon": "git-branch",
+        "text": "MIT licensed"
+      }
+    ]
+  }
+}

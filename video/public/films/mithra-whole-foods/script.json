@@ -1,0 +1,129 @@
+{
+  "slug": "mithra-whole-foods",
+  "title": "Mithra Whole Foods",
+  "accent": "#2E7D32",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Traditional foods deserve [a modern store.]",
+      "strike": ["An ageing template store", "Banners only a developer could change"],
+      "punch": "So I rebuilt it [headless.]",
+      "vo": [
+        { "id": "hook1", "text": "Mithra Whole Foods sells millets, cold-pressed oils, ghee and traditional foods, and it was running on an ageing template store." },
+        { "id": "hook2", "text": "So I rebuilt it as a headless store." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Mithra Whole Foods",
+      "tagline": "A Next.js storefront on a Medusa v2 commerce backend.",
+      "badge": "Client build · launching",
+      "media": { "type": "image", "src": "films/mithra-whole-foods/media/home.jpg", "frame": "browser", "url": "Mithra Whole Foods — storefront", "srcWidth": 1440 },
+      "vo": [{ "id": "intro1", "text": "The full path, from catalogue to payment, works end to end." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Browse and search",
+      "headline": "Find it in [one search.]",
+      "bullets": ["Categories for millets, oils, ghee and more", "Search runs inside the Medusa backend", "No third-party index to pay for or sync"],
+      "media": [
+        { "type": "image", "src": "films/mithra-whole-foods/media/store.jpg", "frame": "browser", "url": "/store", "srcWidth": 1280, "scroll": 700 },
+        { "type": "image", "src": "films/mithra-whole-foods/media/search.jpg", "frame": "browser", "url": "/search?q=rice", "srcWidth": 1440 }
+      ],
+      "vo": [
+        { "id": "browse1", "text": "Shoppers browse by category, or search." },
+        { "id": "browse2", "text": "And search runs inside the Medusa backend itself, so there's no external search service to pay for or keep in sync." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Cart and checkout",
+      "headline": "An optimistic cart and a [four-step checkout.]",
+      "bullets": ["The cart updates instantly", "Rolls back with a message if the backend says no", "Address, shipping, payment, review — paid with Stripe"],
+      "flip": true,
+      "media": [
+        { "type": "image", "src": "films/mithra-whole-foods/media/pdp.jpg", "frame": "browser", "url": "/products/red-rice", "srcWidth": 1280 },
+        { "type": "image", "src": "films/mithra-whole-foods/media/cart.jpg", "frame": "browser", "url": "/cart", "srcWidth": 1280 }
+      ],
+      "vo": [
+        { "id": "cart1", "text": "Add to cart updates instantly, then reconciles with the backend, and rolls back with a clear message if something can't be added." },
+        { "id": "cart2", "text": "Checkout runs in four steps, address, shipping, payment and review, with Stripe taking the payment." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Built for phones",
+      "headline": "The same store, [in your pocket.]",
+      "bullets": ["Mobile-first layouts", "A homepage CMS the client edits", "Live preview in the admin before publishing"],
+      "media": { "type": "phones", "srcs": ["films/mithra-whole-foods/media/home-m.jpg", "films/mithra-whole-foods/media/shop-m.jpg", "films/mithra-whole-foods/media/menu-m.jpg"] },
+      "vo": [{ "id": "phones1", "text": "It's built for phones first, and a custom homepage module, with a live preview in the admin, lets the client change banners and featured collections without a developer." }]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "Measure first. [Then fix the right thing.]",
+      "packet": "add to cart",
+      "nodes": [
+        { "icon": "monitor", "title": "Next.js 15 storefront", "sub": "On Vercel; optimistic cart context" },
+        { "icon": "boxes", "title": "Medusa v2 backend", "sub": "On Railway; search, CMS, reviews, Easyship" },
+        { "icon": "database", "title": "Neon Postgres", "sub": "Catalogue, carts, customers, orders" },
+        { "icon": "credit-card", "title": "Stripe", "sub": "Medusa's Stripe payment provider" }
+      ],
+      "stats": [
+        { "big": "290 ms", "small": "per query, measured" },
+        { "big": "1–3 ms", "small": "same-region round trip" },
+        { "big": "0", "small": "paid search services" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "Under the hood: a Next.js storefront on Vercel, the Medusa backend on Railway, Neon Postgres, and Stripe." },
+        { "id": "flow2", "text": "When pages felt slow, I measured instead of guessing. Every database query was costing two hundred and ninety milliseconds, because the backend and the database sat on different continents." },
+        { "id": "flow3", "text": "So the fix is the region, not a new database vendor." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Traditional foods. [A modern store.]",
+      "stack": [
+        { "icon": "monitor", "title": "Next.js 15", "sub": "storefront on Vercel" },
+        { "icon": "boxes", "title": "Medusa v2", "sub": "commerce backend on Railway" },
+        { "icon": "database", "title": "Neon Postgres", "sub": "managed Postgres" },
+        { "icon": "credit-card", "title": "Stripe", "sub": "payments" }
+      ],
+      "shot": "films/mithra-whole-foods/media/home.jpg",
+      "vo": [
+        { "id": "outro1", "text": "Traditional foods, in a modern store." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Mithra Whole Foods · system architecture",
+    "headline": "A headless store: [storefront, commerce core, data.]",
+    "group": { "label": "pnpm + Turborepo monorepo", "columns": [0, 1] },
+    "columns": [
+      { "label": "apps/web — Vercel", "boxes": [
+        { "id": "web", "icon": "monitor", "title": "Next.js 15 storefront", "lines": ["catalogue + product pages", "optimistic cart (rollback + toast)", "4-step checkout", "accounts, orders, wishlist"], "tone": "accent" }
+      ] },
+      { "label": "apps/backend — Railway", "boxes": [
+        { "id": "medusa", "icon": "boxes", "title": "Medusa v2", "lines": ["Store + Admin APIs", "/store/search (in-house)", "homepage CMS module", "reviews · briefs · Easyship"], "tone": "dark" },
+        { "id": "admin", "icon": "layout-dashboard", "title": "Admin + live preview", "sub": "the client edits banners and collections" }
+      ] },
+      { "label": "services", "boxes": [
+        { "id": "db", "icon": "database", "title": "Neon Postgres", "sub": "catalogue, carts, customers, orders" },
+        { "id": "stripe", "icon": "credit-card", "title": "Stripe", "sub": "@medusajs/payment-stripe" }
+      ] }
+    ],
+    "edges": [
+      { "from": "web", "to": "medusa", "label": "Store API" },
+      { "from": "admin", "to": "medusa" },
+      { "from": "medusa", "to": "db" },
+      { "from": "medusa", "to": "stripe", "label": "payments" }
+    ],
+    "footer": [
+      { "icon": "search", "text": "Search with no external service" },
+      { "icon": "gauge", "text": "Latency measured: it was the region" },
+      { "icon": "clipboard-check", "text": "Production audit + QA report" },
+      { "icon": "rocket", "text": "Vercel + Railway, Git deploys" }
+    ]
+  }
+}

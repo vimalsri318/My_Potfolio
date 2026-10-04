@@ -1,0 +1,68 @@
+{
+  "overrides": {
+    "tech": [
+      "Rust",
+      "Tauri",
+      "Expo / React Native",
+      "SQLite",
+      "mDNS",
+      "Ed25519"
+    ]
+  },
+  "challenge": [
+    "Moving a link or screenshot from laptop to phone usually means messaging yourself or using a cloud clipboard that stores everything you copy on someone else's server.",
+    "The goal was the opposite: device to device on your own network, nothing stored anywhere else, and nothing kept longer than you need it — on macOS and Android, despite Android's limits on background clipboard access."
+  ],
+  "architectureCaption": "A Rust core shared by the desktop app and CLI; the Android app speaks the same wire protocol, verified against the Rust implementation.",
+  "steps": [
+    {
+      "title": "Create identities",
+      "desc": "Each device generates an Ed25519 key pair; its device id is derived from a BLAKE3 hash of the public key."
+    },
+    {
+      "title": "Pair once",
+      "desc": "The Mac shows a 6-digit code and a QR; the phone joins with it and both remember each other as paired peers."
+    },
+    {
+      "title": "Discover",
+      "desc": "Paired devices find each other on the local network with mDNS — no relay or rendezvous server."
+    },
+    {
+      "title": "Teleport",
+      "desc": "Objects (text, link, image) travel as length-prefixed JSON frames over TCP with BLAKE3 checksums; the receiver files them on its shelf."
+    },
+    {
+      "title": "Expire",
+      "desc": "Every object carries an expiry (30 minutes by default); the TTL reaper clears it on both devices unless it's pinned."
+    }
+  ],
+  "sceneCaptions": [
+    "Real output: pairing two devices with a 6-digit code.",
+    "Real output: a link delivered, listed, then reaped when it expires.",
+    "Under the hood: one Rust core, thin shells."
+  ],
+  "screens": [],
+  "decisions": [
+    {
+      "title": "No server until it's unavoidable",
+      "desc": "Direct device-to-device transfer on the local network; any future relay is planned to only ever see opaque bytes."
+    },
+    {
+      "title": "One core, thin shells",
+      "desc": "Object model, store, identity, discovery and expiry live once in Rust; the Tauri app and CLI are thin layers over it."
+    },
+    {
+      "title": "Prove the port, don't trust it",
+      "desc": "The TypeScript protocol on Android was verified against the real Rust CLI — a real pairing handshake and a real received object over actual TCP — before it was used."
+    },
+    {
+      "title": "Respect the platform",
+      "desc": "Android blocks background clipboard reads, so sending from the phone is one deliberate tap instead of a hack that breaks on the next OS update."
+    }
+  ],
+  "roadmap": [
+    "iOS app on the same protocol.",
+    "QUIC transport and an optional relay for when devices aren't on the same network.",
+    "Files beyond text, links and images, with chunked resumable transfer."
+  ]
+}

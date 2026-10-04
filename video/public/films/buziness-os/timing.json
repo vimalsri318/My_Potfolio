@@ -1,0 +1,33 @@
+{
+  "lines": {
+    "hook1": 224,
+    "hook2": 77,
+    "intro1": 165,
+    "pipe1": 222,
+    "agents1": 220,
+    "agents2": 214,
+    "credits1": 277,
+    "credits2": 224,
+    "flow1": 286,
+    "flow2": 123,
+    "flow3": 129,
+    "outro1": 67,
+    "outro2": 73
+  },
+  "hashes": {
+    "hook1": "b7fa82cd46ae",
+    "hook2": "38a527fbbef1",
+    "intro1": "db4054f5fe31",
+    "pipe1": "8b6cd01a3d06",
+    "agents1": "7382b39b7bd8",
+    "agents2": "cc6ede0c5e41",
+    "credits1": "e0990507b45b",
+    "credits2": "2c76e287d3ff",
+    "flow1": "61f8db6a0ad6",
+    "flow2": "139f2306aa0f",
+    "flow3": "e7f287a5439f",
+    "outro1": "8572e5db4671",
+    "outro2": "e5e49e99b52f"
+  },
+  "voice": "af_heart"
+}

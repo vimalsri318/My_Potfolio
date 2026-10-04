@@ -1,0 +1,68 @@
+{
+  "overrides": {
+    "tech": [
+      "Expo SDK 56",
+      "React Native 0.85",
+      "TypeScript (strict)",
+      "Jest",
+      "EAS Build",
+      "GitHub Actions"
+    ]
+  },
+  "challenge": [
+    "To-do apps remember what you planned and leave the follow-through to you. Reminders get swiped away, lists only grow, and the people who most need accountability are the ones who avoid the app.",
+    "Ardor is built around follow-through instead: a companion that reads how you're doing, adapts when and how it nudges, and escalates only when it matters."
+  ],
+  "architectureCaption": "The Expo app renders and reports events; a pure TypeScript engine decides what to nudge, when and how.",
+  "steps": [
+    {
+      "title": "Detect the state",
+      "desc": "Six emotional states — intention, drift, active avoidance, overwhelm, guilt spiral, flow — evaluated with deterministic rules, first match wins."
+    },
+    {
+      "title": "Rank the work",
+      "desc": "A priority queue scores urgency with hyperbolic discounting and the procrastination equation, weighted by deadline and how often a task was ignored."
+    },
+    {
+      "title": "Time the nudge",
+      "desc": "SM-2 spaced repetition adapted for procrastination, with state multipliers, quiet hours and peak hours."
+    },
+    {
+      "title": "Vary the message",
+      "desc": "The novelty engine rotates tone, channel, template and sound so nudges don't habituate; two ignores escalate to a full-screen alarm."
+    },
+    {
+      "title": "Learn from the outcome",
+      "desc": "A feedback loop adjusts the ease factor — up for fast completions, down for snoozes and ignores — and a verifier discounts suspicious completions."
+    }
+  ],
+  "sceneCaptions": [
+    "A check-in that adapts to overwhelm with a smaller first step (illustrative).",
+    "One pass of the scheduler, from state to verified completion.",
+    "Under the hood: an Expo shell around a pure TypeScript engine."
+  ],
+  "screens": [],
+  "decisions": [
+    {
+      "title": "The engine has no platform imports",
+      "desc": "All scheduling and follow-up logic is pure TypeScript with no side effects, so it can serve Android, iOS, web and desktop — and be tested exhaustively."
+    },
+    {
+      "title": "Science over streak gimmicks",
+      "desc": "Urgency and timing come from hyperbolic discounting, the procrastination equation and spaced repetition, not fixed reminder intervals."
+    },
+    {
+      "title": "Escalate, but with compassion",
+      "desc": "Repeated ignores escalate to a full-screen check-in, while a guilt spiral triggers a compassion reset instead of more pressure."
+    },
+    {
+      "title": "Rewards you can't farm",
+      "desc": "A completion verifier flags mass-completes and too-fast ticks, so XP reflects real follow-through."
+    }
+  ],
+  "roadmap": [
+    "Launch the waitlist and pre-launch site.",
+    "iOS build and widgets from the same engine.",
+    "Metric-gated phases from the product brain before each expansion."
+  ]
+}

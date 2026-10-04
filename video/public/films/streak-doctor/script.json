@@ -1,0 +1,391 @@
+{
+  "slug": "streak-doctor",
+  "title": "Streak Doctor",
+  "accent": "#216E39",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "You pushed today. [The square is grey.]",
+      "strike": [
+        "Wrong commit email",
+        "Committed in a fork",
+        "Not the default branch"
+      ],
+      "punch": "Streak Doctor is built to [tell you why.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "You pushed code today, and your GitHub square is still grey. GitHub never tells you why."
+        },
+        {
+          "id": "hook2",
+          "text": "Streak Doctor is built around that one question."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Streak Doctor",
+      "tagline": "An open-source GitHub accountability CLI, built around why a contribution didn't count.",
+      "badge": "Open source · on npm",
+      "media": {
+        "type": "stage",
+        "slug": "streak-doctor"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "It's an open-source command-line tool, published on npm. One command, no install, no sign-up."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "The wedge",
+      "headline": "Six reasons a commit [doesn't count.]",
+      "bullets": [
+        "Commit email not linked to the account",
+        "A fork, or not the default branch",
+        "A timezone boundary, or just graph lag"
+      ],
+      "media": {
+        "type": "cards",
+        "title": "docs/03-knowledge/github-contribution-rules.md",
+        "items": [
+          {
+            "icon": "mail",
+            "title": "Email not linked",
+            "sub": "the committer email must be on your account",
+            "tag": "1"
+          },
+          {
+            "icon": "git-branch",
+            "title": "Not the default branch",
+            "sub": "feature-branch work doesn't count",
+            "tag": "2"
+          },
+          {
+            "icon": "copy",
+            "title": "Committed in a fork",
+            "sub": "counts only once merged upstream",
+            "tag": "3"
+          },
+          {
+            "icon": "clock",
+            "title": "UTC day boundary",
+            "sub": "it landed on the next day",
+            "tag": "5"
+          },
+          {
+            "icon": "hourglass",
+            "title": "Graph lag",
+            "sub": "it counted — the grid hasn't caught up",
+            "tag": "6"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "rules1",
+          "text": "Streak counters are everywhere. Diagnosis isn't. A commit doesn't count if the email isn't linked, if it's in a fork, or if it isn't on the default branch."
+        },
+        {
+          "id": "rules2",
+          "text": "Or it landed on the next UTC day, or the graph just hasn't caught up. Those rules are written down in the project, and the engine that checks them is what's being built next."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Live against GitHub",
+      "headline": "Today's count, and [how long you have left.]",
+      "bullets": [
+        "Reads your gh CLI token automatically",
+        "Counts down to the end of GitHub's UTC day",
+        "--json output with a versioned schema"
+      ],
+      "flip": true,
+      "media": {
+        "type": "terminal",
+        "title": "zsh — streak-doctor",
+        "lines": [
+          {
+            "text": "npx streak-doctor vimalsri318",
+            "kind": "cmd"
+          },
+          {
+            "text": "vimalsri318 (someone else's public profile)  (GitHub day 2026-10-04 UTC)",
+            "kind": "out"
+          },
+          {
+            "text": "0 of 1 today — not there yet",
+            "kind": "out"
+          },
+          {
+            "text": "20h 38m left — GitHub's day ends 05:30 GMT+5:30",
+            "kind": "out"
+          },
+          {
+            "text": "",
+            "kind": "out"
+          },
+          {
+            "text": "exit 1 — goal not met yet",
+            "kind": "dim"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "today1",
+          "text": "Ask it about today, and it tells you how many contributions have counted, and how long is left before GitHub's day ends, in your own time zone."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Terminal heatmap",
+      "headline": "Your whole year, [in the terminal.]",
+      "bullets": [
+        "The contribution grid, drawn in characters",
+        "No browser, no sign-in",
+        "Real output: 1,909 contributions"
+      ],
+      "media": {
+        "type": "terminal",
+        "title": "zsh — streak-doctor heatmap",
+        "lines": [
+          {
+            "text": "npx streak-doctor heatmap vimalsri318",
+            "kind": "cmd"
+          },
+          {
+            "text": "vimalsri318 (someone else's public profile)  2025-10-05 to 2026-10-04 UTC",
+            "kind": "dim"
+          },
+          {
+            "text": "Oct     Nov       Dec     Jan     Feb     Mar       Apr     May       Jun     Jul     Aug       Sep     Oc",
+            "kind": "out"
+          },
+          {
+            "text": "          .       . . . .   . .               .   . . .             .     .   . . . o . o . . .     . O  ",
+            "kind": "ok"
+          },
+          {
+            "text": "                    . . .   .         .         . . .               . .   .     O . . o . . . o O o o o  ",
+            "kind": "ok"
+          },
+          {
+            "text": ".                 .       .               .     . .             .               . . . . . . . . O . . O  ",
+            "kind": "ok"
+          },
+          {
+            "text": "        .           . .   . .         .   .     .                   .     . . o o . . . . . . . . . . o  ",
+            "kind": "ok"
+          },
+          {
+            "text": "                .   .   .   .             .     . .                 .         O o . o o .   o . . .   .  ",
+            "kind": "ok"
+          },
+          {
+            "text": "                        . . .             .     . .                       . . # . . o O o . . o . # . o  ",
+            "kind": "ok"
+          },
+          {
+            "text": "                        . .               .     . .               . .   .   . . o . . o .   . . . O   .  ",
+            "kind": "ok"
+          },
+          {
+            "text": "1909 contributions in the last year  ·  less   . o O # more",
+            "kind": "out"
+          }
+        ],
+        "size": 14
+      },
+      "vo": [
+        {
+          "id": "heat1",
+          "text": "Version zero point four added a heatmap command, which draws your year's contribution grid right in the terminal."
+        }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "A core package, [a thin CLI.]",
+      "packet": "username",
+      "nodes": [
+        {
+          "icon": "terminal",
+          "title": "streak-doctor",
+          "sub": "CLI: today, list, heatmap, --json"
+        },
+        {
+          "icon": "package",
+          "title": "streak-doctor-core",
+          "sub": "Diagnosis logic, no I/O"
+        },
+        {
+          "icon": "github",
+          "title": "GitHub API",
+          "sub": "Token from gh, or GITHUB_TOKEN"
+        },
+        {
+          "icon": "clock",
+          "title": "UTC day logic",
+          "sub": "GitHub's day, in your timezone"
+        }
+      ],
+      "stats": [
+        {
+          "big": "v0.4.0",
+          "small": "published on npm"
+        },
+        {
+          "big": "1",
+          "small": "command to run"
+        },
+        {
+          "big": "0",
+          "small": "sign-ups needed"
+        }
+      ],
+      "vo": [
+        {
+          "id": "flow1",
+          "text": "It's a pnpm workspace: the diagnosis logic lives in a core package with no input or output, and the CLI is a thin layer on top, so other front ends can reuse it."
+        },
+        {
+          "id": "flow2",
+          "text": "Exit codes say whether the goal was met, so it works in scripts too."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Don't count the streak. [Fix the grey square.]",
+      "stack": [
+        {
+          "icon": "code",
+          "title": "TypeScript",
+          "sub": "Node.js CLI"
+        },
+        {
+          "icon": "package",
+          "title": "pnpm workspaces",
+          "sub": "core + cli"
+        },
+        {
+          "icon": "github",
+          "title": "GitHub API",
+          "sub": "live data"
+        },
+        {
+          "icon": "check",
+          "title": "Vitest",
+          "sub": "tested core"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "Don't count the streak. Fix the grey square."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Streak Doctor · system architecture",
+    "headline": "Logic in the core. [Everything else is an adapter.]",
+    "group": {
+      "label": "pnpm workspace",
+      "columns": [
+        0,
+        1
+      ]
+    },
+    "columns": [
+      {
+        "boxes": [
+          {
+            "id": "cli",
+            "icon": "terminal",
+            "title": "streak-doctor (CLI)",
+            "lines": [
+              "today (default)",
+              "list — by repo",
+              "heatmap — last year",
+              "--json, exit codes 0/1/2"
+            ],
+            "tone": "accent"
+          }
+        ]
+      },
+      {
+        "boxes": [
+          {
+            "id": "core",
+            "icon": "package",
+            "title": "streak-doctor-core",
+            "sub": "pure logic: UTC day maths today; diagnosis rules next — no I/O",
+            "tone": "dark"
+          }
+        ]
+      },
+      {
+        "boxes": [
+          {
+            "id": "gh",
+            "icon": "github",
+            "title": "GitHub API",
+            "sub": "contributions + events, live"
+          },
+          {
+            "id": "tok",
+            "icon": "key",
+            "title": "Token",
+            "sub": "gh auth token, or GITHUB_TOKEN"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "cli",
+        "to": "core"
+      },
+      {
+        "from": "cli",
+        "to": "gh",
+        "label": "adapters"
+      },
+      {
+        "from": "cli",
+        "to": "tok",
+        "label": "auto-read"
+      }
+    ],
+    "footer": [
+      {
+        "icon": "book-open",
+        "text": "GitHub's rules in a knowledge base"
+      },
+      {
+        "icon": "file-text",
+        "text": "Decisions recorded as ADRs"
+      },
+      {
+        "icon": "check",
+        "text": "Tested with Vitest"
+      },
+      {
+        "icon": "package",
+        "text": "npx — no install"
+      }
+    ]
+  }
+}

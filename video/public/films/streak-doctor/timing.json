@@ -1,0 +1,29 @@
+{
+  "lines": {
+    "hook1": 141,
+    "hook2": 76,
+    "intro1": 186,
+    "rules1": 286,
+    "rules2": 301,
+    "today1": 250,
+    "heat1": 193,
+    "flow1": 331,
+    "flow2": 106,
+    "outro1": 67,
+    "outro2": 73
+  },
+  "hashes": {
+    "hook1": "54b9732e9db5",
+    "hook2": "d76ba14aebb4",
+    "intro1": "6d193ac7c9d2",
+    "rules1": "ac69df047f79",
+    "rules2": "234933524779",
+    "today1": "c516cd2f3171",
+    "heat1": "cdf05d2b0653",
+    "flow1": "ed4bb640db38",
+    "flow2": "23576db20c61",
+    "outro1": "5fdc8660f3f5",
+    "outro2": "e5e49e99b52f"
+  },
+  "voice": "af_heart"
+}

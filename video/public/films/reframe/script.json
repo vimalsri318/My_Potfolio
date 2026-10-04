@@ -1,0 +1,118 @@
+{
+  "slug": "reframe",
+  "title": "Reframe",
+  "accent": "#B45309",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "AI summaries [lose the author.]",
+      "strike": ["Paraphrased", "Detail dropped", "A statistic nobody wrote"],
+      "punch": "Reframe [never rewrites a word.]",
+      "vo": [
+        { "id": "hook1", "text": "AI summaries paraphrase, quietly drop detail, and sometimes invent a number the author never wrote." },
+        { "id": "hook2", "text": "Reframe makes the opposite promise. It never rewrites a word." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Reframe",
+      "tagline": "Paste an article, a PDF or a link. Get it back as a clear, visual page.",
+      "badge": "Own product · prototype",
+      "media": { "type": "image", "src": "films/reframe/media/home.jpg", "frame": "browser", "url": "reframe" },
+      "vo": [{ "id": "intro1", "text": "Paste in an article, a PDF or a link, and get it back as a clear, visual page, with every word exactly as the author wrote it." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Re-architect, don't rewrite",
+      "headline": "Callouts, definitions and comparisons, [in the author's words.]",
+      "bullets": ["Key ideas become callouts", "Terms become definitions", "Trade-offs become comparison tables"],
+      "media": { "type": "stage", "slug": "reframe" },
+      "vo": [{ "id": "arch1", "text": "Key ideas become callouts, terms become definitions, and trade-offs become comparison tables, all built from the author's own sentences." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Lossless by construction",
+      "headline": "The model returns [addresses, not text.]",
+      "bullets": ["Source split into numbered units first", "The model picks block types and unit ids", "The server rehydrates every word from the source"],
+      "flip": true,
+      "media": { "type": "terminal", "title": "transform — what the model sees and returns", "lines": [
+        { "text": "units: p0 p1 p2 l1_0 l1_1 l1_2 p3", "kind": "dim" },
+        { "text": "model → { type: \"definition\", term: \"TTL\", units: [\"p2\"] }", "kind": "accent" },
+        { "text": "model → { type: \"comparison\", units: [\"p1\"] }", "kind": "accent" },
+        { "text": "model → { type: \"steps\", units: [\"l1_0\",\"l1_1\",\"l1_2\"] }", "kind": "accent" },
+        { "text": "assertCoverage: every unit referenced exactly once ✓", "kind": "ok" },
+        { "text": "stats.value \"94%\" is a substring of p3 ✓", "kind": "ok" },
+        { "text": "rehydrate body text from source … done", "kind": "out" }
+      ] },
+      "vo": [
+        { "id": "contract1", "text": "Here's how it keeps that promise. The source is split into numbered units, and the model only returns block types and unit ids. It has no channel to write body text at all." },
+        { "id": "contract2", "text": "Every unit must be used exactly once, and any number it highlights must appear in the original, or the block falls back to plain prose." }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "Parse first. [Then] let the model choose.",
+      "packet": "unit ids",
+      "nodes": [
+        { "icon": "file-text", "title": "Parse", "sub": "Markup and structure, no model" },
+        { "icon": "list", "title": "Address", "sub": "Deterministic unit ids: p0, l1_0" },
+        { "icon": "brain", "title": "Classify", "sub": "Groq llama-3.3-70b, ~15 tokens a block" },
+        { "icon": "check", "title": "Rehydrate + verify", "sub": "Coverage and quoted-fragment checks" }
+      ],
+      "stats": [
+        { "big": "0", "small": "words rewritten" },
+        { "big": "~15", "small": "output tokens per block" },
+        { "big": "$0", "small": "demo mode, no key needed" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "Structure is parsed before any model runs, and the model costs about fifteen output tokens a block, because it never copies paragraphs." },
+        { "id": "flow2", "text": "With no API key, it falls back to a clearly labelled demo mode, so it always works and costs nothing to try." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Read anything, beautifully. [Word for word.]",
+      "stack": [
+        { "icon": "monitor", "title": "Next.js 16", "sub": "TypeScript · Vercel" },
+        { "icon": "brain", "title": "Groq", "sub": "llama-3.3-70b, key pool" },
+        { "icon": "check", "title": "Fidelity checks", "sub": "coverage + quoted fragments" },
+        { "icon": "sheet", "title": "Apps Script", "sub": "analytics to a Sheet" }
+      ],
+      "vo": [
+        { "id": "outro1", "text": "Read anything, beautifully, word for word." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Reframe · system architecture",
+    "headline": "The model [never touches] the author's words.",
+    "columns": [
+      { "label": "browser", "boxes": [
+        { "id": "ui", "icon": "monitor", "title": "Next.js app", "sub": "paste, link or PDF in; reader + library out" },
+        { "id": "store", "icon": "hard-drive", "title": "Library in localStorage", "sub": "no backend storage in v0" }
+      ] },
+      { "label": "/api/transform", "boxes": [
+        { "id": "pipe", "icon": "workflow", "title": "Transform pipeline", "lines": ["parse markup → structure", "split into addressed units", "model returns type + unit ids", "assertCoverage (exactly once)", "quoted-fragment check", "rehydrate from source"], "tone": "dark" }
+      ] },
+      { "label": "services", "boxes": [
+        { "id": "groq", "icon": "brain", "title": "Groq", "sub": "llama-3.3-70b via a rotating key pool" },
+        { "id": "demo", "icon": "shield-check", "title": "Demo mode", "sub": "deterministic fallback — no key, no cost", "tone": "ghost" },
+        { "id": "sheet", "icon": "sheet", "title": "Apps Script → Sheet", "sub": "/api/track analytics + feedback" }
+      ] }
+    ],
+    "edges": [
+      { "from": "ui", "to": "pipe", "label": "source" },
+      { "from": "pipe", "to": "groq", "label": "units only" },
+      { "from": "pipe", "to": "demo", "dashed": true, "label": "no key / violation" },
+      { "from": "ui", "to": "sheet", "label": "events" }
+    ],
+    "footer": [
+      { "icon": "lock", "text": "Paraphrase structurally impossible" },
+      { "icon": "check", "text": "Every unit used exactly once" },
+      { "icon": "wallet", "text": "~15 output tokens per block" },
+      { "icon": "file-text", "text": "Decisions logged as ADRs" }
+    ]
+  }
+}

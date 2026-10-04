@@ -1,0 +1,124 @@
+{
+  "slug": "jaisathya",
+  "title": "JaiSathya Inc.",
+  "accent": "#D97706",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Eight businesses. [One website.]",
+      "strike": ["A developer for every text change", "Forms that look nothing like the page"],
+      "punch": "So the client edits [the page itself.]",
+      "vo": [
+        { "id": "hook1", "text": "JaiSathya is a holding company with eight businesses, from restaurants to a cricket club, and every copy change used to need a developer." },
+        { "id": "hook2", "text": "So I built a site where the client edits the page itself." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "JaiSathya Inc.",
+      "tagline": "A multi-brand corporate site with an in-place visual CMS.",
+      "badge": "Live · jaisathya.com",
+      "media": { "type": "image", "src": "films/jaisathya/media/hero.jpg", "frame": "browser", "url": "jaisathya.com" },
+      "vo": [{ "id": "intro1", "text": "It's live at jai sathya dot com, one site for the whole group." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "The ecosystem",
+      "headline": "Every holding and brand, [one register.]",
+      "bullets": ["8 holdings, from food distribution to DataEQ", "Restaurant brands with their own pages", "The same card shown on the homepage and the brand page"],
+      "media": [
+        { "type": "image", "src": "films/jaisathya/media/eco.jpg", "frame": "browser", "url": "jaisathya.com", "scroll": 800 },
+        { "type": "image", "src": "films/jaisathya/media/manam.jpg", "frame": "browser", "url": "jaisathya.com/brands/manam" }
+      ],
+      "vo": [
+        { "id": "eco1", "text": "The homepage lays out all eight holdings, and each restaurant brand gets its own page." },
+        { "id": "eco2", "text": "A brand's summary card is one document, shown on the homepage and on its own page, so editing it once updates both." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "In-place visual CMS",
+      "headline": "Click the words. [Change the words.]",
+      "bullets": ["Edit on the real page layout, not a form", "Images picked from a Cloudinary media library", "Save a draft; publish when it's right"],
+      "flip": true,
+      "media": [
+        { "type": "cards", "title": "admin / visual / home", "items": [
+          { "icon": "mouse-pointer-click", "title": "Click any text or image", "sub": "Editable regions on the live layout" },
+          { "icon": "image", "title": "Pick from the media library", "sub": "Cloudinary public_id + shared alt text" },
+          { "icon": "file-text", "title": "Save to draft_data", "sub": "visitors still see the published version" },
+          { "icon": "rocket", "title": "Publish", "sub": "copies draft → published, in one write" }
+        ] },
+        { "type": "image", "src": "films/jaisathya/media/dataeq.jpg", "frame": "browser", "url": "jaisathya.com/ecosystem/dataeq" }
+      ],
+      "vo": [
+        { "id": "cms1", "text": "In the admin, the client edits text and images directly on the real page layout, and picks images from a Cloudinary media library." },
+        { "id": "cms2", "text": "Edits save as a draft, and visitors only see them when the client publishes." }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "One table for [everything editable.]",
+      "packet": "publish",
+      "nodes": [
+        { "icon": "monitor", "title": "TanStack Start", "sub": "React 19 · Vite · server functions" },
+        { "icon": "layers", "title": "Registry", "sub": "pages → sections → documents" },
+        { "icon": "database", "title": "documents table", "sub": "draft_data + published_data JSON" },
+        { "icon": "image", "title": "Cloudinary", "sub": "media library, transforms, alt text" }
+      ],
+      "stats": [
+        { "big": "8", "small": "holdings on one site" },
+        { "big": "1", "small": "table for every editable thing" },
+        { "big": "0", "small": "migrations to add a field" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "Under the hood, every editable thing is a row in one documents table, with draft and published JSON side by side, on Neon Postgres with Drizzle." },
+        { "id": "flow2", "text": "The editor builds its form from whatever shape the document has, so adding a field never needs a migration." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Eight businesses, [one site the owner can edit.]",
+      "stack": [
+        { "icon": "monitor", "title": "TanStack Start", "sub": "React 19 · Vite" },
+        { "icon": "database", "title": "Drizzle + Neon", "sub": "one documents table" },
+        { "icon": "image", "title": "Cloudinary", "sub": "media pipeline" },
+        { "icon": "pen-tool", "title": "Visual CMS", "sub": "edit in place" }
+      ],
+      "shot": "films/jaisathya/media/hero.jpg",
+      "vo": [
+        { "id": "outro1", "text": "Eight businesses, on one site the owner can edit." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "JaiSathya · system architecture",
+    "headline": "Edit in place, [publish in one write.]",
+    "columns": [
+      { "label": "TanStack Start app", "boxes": [
+        { "id": "site", "icon": "globe", "title": "Public site", "sub": "home, 8 holdings, 3 restaurant brands" },
+        { "id": "admin", "icon": "pen-tool", "title": "Visual admin", "sub": "VisualEditorShell + Editable regions; ObjectEditor infers forms", "tone": "accent" }
+      ] },
+      { "label": "server functions", "boxes": [
+        { "id": "fns", "icon": "server", "title": "Admin server fns", "lines": ["auth (admin sign-in)", "read / save draft_data", "publishDocuments()", "media + contact"], "tone": "dark" }
+      ] },
+      { "label": "data", "boxes": [
+        { "id": "docs", "icon": "database", "title": "Neon Postgres (Drizzle)", "sub": "documents(collection, slug, draft_data, published_data) · media · contact_submissions" },
+        { "id": "cld", "icon": "image", "title": "Cloudinary", "sub": "public_id is the media row's key" }
+      ] }
+    ],
+    "edges": [
+      { "from": "admin", "to": "fns" },
+      { "from": "site", "to": "fns", "label": "published (fallback draft)" },
+      { "from": "fns", "to": "docs" },
+      { "from": "fns", "to": "cld", "label": "upload" }
+    ],
+    "footer": [
+      { "icon": "file-text", "text": "One table, any document shape" },
+      { "icon": "rocket", "text": "Publish = SET published = draft" },
+      { "icon": "image", "text": "Alt text shared per image" },
+      { "icon": "mail", "text": "Contact form stored in Postgres" }
+    ]
+  }
+}

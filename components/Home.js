@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const NAME = 'VIMAL SRINIVASAN'
 
-export default function Home() {
+export default function Home({ showActions = false }) {
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -37,9 +37,21 @@ export default function Home() {
         </div>
       </div>
 
-      <p className="hero__caption">
-        AI developer &amp; architect based in Coimbatore, India.
-      </p>
+      <div className="hero__foot">
+        <p className="hero__caption">
+          AI developer &amp; architect based in Coimbatore, India.
+        </p>
+        {showActions && (
+          <div className="hero__actions">
+            <a href="#contact" className="hero__action hero__action--primary">
+              Start a project <span aria-hidden="true">↗</span>
+            </a>
+            <a href="#projects" className="hero__action">
+              See my work
+            </a>
+          </div>
+        )}
+      </div>
       <span className="hero__badge">AI / ML</span>
     </section>
   )

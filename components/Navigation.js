@@ -3,6 +3,7 @@ import { siteConfig } from '../data/site'
 import { supabasePublic } from '../lib/supabasePublic'
 
 const LINKS = [
+  { label: 'Services', href: '/#services', internal: true },
   { label: 'Research', href: '/research', internal: true },
   { label: 'Courses', href: '/courses', internal: true },
   { label: 'GitHub', href: 'https://github.com/vimalsri318' },
@@ -44,6 +45,7 @@ export default function Navigation({ sections: sectionsProp = null }) {
   const comingSoon = sections ? sections.coming_soon !== false : siteConfig.comingSoon
   const showProjects = !comingSoon && sections?.projects !== false
   const showContact = !comingSoon && sections?.contact !== false
+  const showServices = !comingSoon && sections?.services === true
 
   useEffect(() => {
     if (!open) return
@@ -73,29 +75,35 @@ export default function Navigation({ sections: sectionsProp = null }) {
         <nav className="topbar__links">
           {showProjects && (
             <a href="/#projects" className="topbar__link">
-              Projects
+              Work
             </a>
           )}
-          <a href="/research" className="topbar__link">
+          {showServices && (
+            <a href="/#services" className="topbar__link topbar__link--wide">
+              Services
+            </a>
+          )}
+          <a href="/research" className="topbar__link topbar__link--wide">
             Research
           </a>
           {showContact && (
-            <a href="/#contact" className="topbar__link">
-              Contact
+            <a href="/#contact" className="topbar__hire">
+              Hire me
             </a>
           )}
           {!comingSoon && (
             <button
               type="button"
-              className="topbar__link"
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              className="topbar__link topbar__tray-btn"
               aria-expanded={open}
+              aria-label="More links"
               onClick={e => {
                 e.stopPropagation()
                 setOpen(v => !v)
               }}
             >
-              🔗 Link tree
+              <span className="topbar__tray-label">🔗 Link tree</span>
+              <span className="topbar__tray-icon" aria-hidden="true">☰</span>
             </button>
           )}
         </nav>
@@ -103,7 +111,7 @@ export default function Navigation({ sections: sectionsProp = null }) {
 
       {!comingSoon && (
         <div ref={trayRef} className={`linktray ${open ? 'is-open' : ''}`}>
-          {LINKS.map(link => (
+          {LINKS.filter(link => link.label !== 'Services' || showServices).map(link => (
             <a
               key={link.label}
               href={link.href}

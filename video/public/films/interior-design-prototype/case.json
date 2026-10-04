@@ -1,0 +1,47 @@
+{
+  "overrides": {
+    "category": "Interactive Design Prototype",
+    "role": "Front-End Developer & Designer",
+    "tagline": "An interactive, minimalist interior design prototype",
+    "summary": "An interactive desktop prototype for interior design visualisation, with a minimalist white-and-brown aesthetic — built with React and Tailwind CSS.",
+    "tech": [
+      "React",
+      "Tailwind CSS",
+      "Interaction design"
+    ],
+    "description": [
+      "Interior design concepts are usually shared as static images in a PDF, which makes it hard for a client to feel the space.",
+      "This prototype presents a minimalist living space as an interactive desktop experience, built with React and Tailwind CSS."
+    ],
+    "features": [
+      {
+        "title": "Interactive presentation",
+        "desc": "The concept is explored as an interactive desktop prototype rather than a static deck."
+      },
+      {
+        "title": "Minimalist aesthetic",
+        "desc": "A white-and-brown palette with warm light and quiet surfaces."
+      },
+      {
+        "title": "React + Tailwind",
+        "desc": "Built as a web prototype, so it runs in a browser."
+      }
+    ],
+    "metrics": [],
+    "highlights": []
+  },
+  "challenge": [
+    "Static renders in a PDF don't convey how a space feels. The prototype explores presenting an interior concept interactively instead."
+  ],
+  "screens": [
+    {
+      "src": "media/room.jpg",
+      "caption": "The prototype's minimalist living space."
+    },
+    {
+      "src": "media/room2.jpg",
+      "caption": "Another view from the prototype animation."
+    }
+  ],
+  "useFilmStills": false
+}

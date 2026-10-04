@@ -1,0 +1,119 @@
+{
+  "slug": "casa-harmony",
+  "title": "Casa Harmony",
+  "accent": "#9F1239",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Homeowner associations run on [real money.]",
+      "strike": ["Spreadsheet ledgers", "Shared logins", "One HOA seeing another's data"],
+      "punch": "They need [real accounting.]",
+      "vo": [
+        { "id": "hook1", "text": "Homeowner associations collect dues, pay vendors and hold reserve funds, and most of them do it in spreadsheets." },
+        { "id": "hook2", "text": "They need real accounting, and they need to never see each other's books." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Casa Harmony",
+      "tagline": "A multi-tenant service desk and ERP for HOAs, modelled on Oracle E-Business Suite.",
+      "badge": "Client build · demo data",
+      "media": { "type": "image", "src": "films/casa-harmony/media/dashboard.jpg", "frame": "browser", "url": "casa-harmony / dashboard" },
+      "vo": [{ "id": "intro1", "text": "Casa Harmony is a service desk and an ERP for homeowner associations, modelled on Oracle E-Business Suite." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Service desk",
+      "headline": "From a resident's complaint to [a paid vendor.]",
+      "bullets": ["Tickets by category, priority and SLA", "Work orders raised against a purchase order", "Vendors paid through approved invoices"],
+      "media": [
+        { "type": "image", "src": "films/casa-harmony/media/desk.jpg", "frame": "browser", "url": "casa-harmony / service-desk" },
+        { "type": "image", "src": "films/casa-harmony/media/payables.jpg", "frame": "browser", "url": "casa-harmony / payables" }
+      ],
+      "vo": [
+        { "id": "desk1", "text": "Residents report problems through the service desk, and every ticket has a priority, an owner and a deadline." },
+        { "id": "desk2", "text": "When a ticket needs a contractor, it becomes a purchase order, and the vendor's invoice is matched against it before anyone gets paid." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Real accounting",
+      "headline": "Every journal [balances.] Every fund stands alone.",
+      "bullets": ["Oracle-style chart of accounts, 6 to 15 segments", "Subledgers post double-entry journals to the GL", "Operating and reserve funds each net to zero"],
+      "flip": true,
+      "media": [
+        { "type": "stage", "slug": "casa-harmony" },
+        { "type": "image", "src": "films/casa-harmony/media/board.jpg", "frame": "browser", "url": "casa-harmony / board" }
+      ],
+      "vo": [
+        { "id": "gl1", "text": "The chart of accounts follows Oracle's key flexfield model, and subledgers post balanced double-entry journals to the general ledger." },
+        { "id": "gl2", "text": "Any accounting line without a fund is rejected, so operating and reserve funds each balance on their own, and the board sees exactly where the money is." }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "Isolation the [database] enforces.",
+      "packet": "AP invoice",
+      "nodes": [
+        { "icon": "monitor", "title": "Next.js 15", "sub": "45 screens; mock or live data" },
+        { "icon": "server", "title": "FastAPI", "sub": "SQLAlchemy 2, Alembic, Pydantic v2" },
+        { "icon": "shield-check", "title": "Row-level security", "sub": "tenant_id on every tenant table" },
+        { "icon": "database", "title": "PostgreSQL 16", "sub": "GL balances by period and fund" }
+      ],
+      "stats": [
+        { "big": "RLS", "small": "on every tenant table" },
+        { "big": "6 → 15", "small": "configurable COA segments" },
+        { "big": "TOTP", "small": "MFA for administrators" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "Underneath, it's a FastAPI backend on PostgreSQL sixteen, with a Next.js front end that can run on demo data or the live API." },
+        { "id": "flow2", "text": "Every tenant table carries a tenant id and a row-level security policy, so isolation is enforced by Postgres itself, not just by application code." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Enterprise accounting, [sized for a neighbourhood.]",
+      "stack": [
+        { "icon": "server", "title": "FastAPI", "sub": "SQLAlchemy 2 · Alembic" },
+        { "icon": "database", "title": "PostgreSQL 16", "sub": "row-level security" },
+        { "icon": "monitor", "title": "Next.js 15", "sub": "TypeScript · Tailwind" },
+        { "icon": "lock", "title": "Security", "sub": "TOTP MFA · Fernet encryption" }
+      ],
+      "shot": "films/casa-harmony/media/dashboard.jpg",
+      "vo": [
+        { "id": "outro1", "text": "Enterprise accounting, sized for a neighbourhood." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Casa Harmony · system architecture",
+    "headline": "Oracle EBS patterns, [Postgres-enforced tenancy.]",
+    "columns": [
+      { "label": "Next.js 15 front end", "boxes": [
+        { "id": "staff", "icon": "layout-dashboard", "title": "Staff console", "sub": "service desk, P2P, O2C, GL, board", "tone": "accent" },
+        { "id": "portal", "icon": "house", "title": "Resident portal", "sub": "statements, payments, tickets" }
+      ] },
+      { "label": "FastAPI", "boxes": [
+        { "id": "api", "icon": "server", "title": "API + services", "lines": ["JWT + bcrypt, TOTP MFA", "RBAC per association", "KFF code combinations", "Subledger Accounting", "approval state machine"], "tone": "dark" }
+      ] },
+      { "label": "PostgreSQL 16", "boxes": [
+        { "id": "db", "icon": "database", "title": "Tenant tables + RLS", "sub": "tenant_id on every row; policies set per request" },
+        { "id": "gl", "icon": "scale", "title": "GL_JE_BATCH → GL_BALANCES", "sub": "posted by period, code combination and fund" }
+      ] }
+    ],
+    "edges": [
+      { "from": "staff", "to": "api" },
+      { "from": "portal", "to": "api" },
+      { "from": "api", "to": "db", "label": "SET tenant" },
+      { "from": "api", "to": "gl", "label": "per-fund journals" }
+    ],
+    "footer": [
+      { "icon": "shield-check", "text": "Row-level security per tenant" },
+      { "icon": "scale", "text": "Every fund self-balancing" },
+      { "icon": "lock", "text": "Fernet field encryption" },
+      { "icon": "clipboard-check", "text": "Immutable audit log" }
+    ]
+  }
+}
