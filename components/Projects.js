@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import Reveal from './Reveal'
 import Showreel from './Showreel'
@@ -50,56 +50,59 @@ export default function Projects({ projects = [] }) {
           ))}
         </div>
 
-        <ul className="shop__grid">
+        <ol className="work-list">
           {shown.map((project, i) => (
-            <Reveal key={project.slug} as="li" delay={Math.min(i, 5) * 50} className="shop__cell">
-              <ProjectCard project={project} />
+            <Reveal key={project.slug} as="li" className="work-list__item">
+              <ProjectFeature project={project} index={i} total={shown.length} />
             </Reveal>
           ))}
-        </ul>
+        </ol>
       </div>
     </section>
   )
 }
 
-function ProjectCard({ project }) {
+// One project per row, big: the motion clip (or cover) on one side, what it is
+// and what was built on the other. Rows alternate sides. The clip plays muted
+// while the row is on screen and pauses when it leaves.
+function ProjectFeature({ project, index, total }) {
   const videoRef = useRef(null)
   const [playing, setPlaying] = useState(false)
   const href = `/projects/${project.slug}`
   const cover = project.cover || project.image
+  const metrics = Array.isArray(project.metrics) ? project.metrics.slice(0, 3) : []
+  const tech = Array.isArray(project.tech) ? project.tech.slice(0, 5) : []
 
-  // Desktop hover plays the project's motion clip; touch devices keep the still.
-  const canHover = () =>
-    typeof window !== 'undefined' &&
-    window.matchMedia('(hover: hover)').matches &&
-    !window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-  const onEnter = () => {
+  useEffect(() => {
     const v = videoRef.current
-    if (!v || !project.video || !canHover()) return
-    if (!v.src) v.src = project.video
-    v.play().then(() => setPlaying(true)).catch(() => {})
-  }
-  const onLeave = () => {
-    const v = videoRef.current
-    if (!v) return
-    v.pause()
-    setPlaying(false)
-  }
+    if (!v || !project.video) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!v.src) v.src = project.video
+          v.play().then(() => setPlaying(true)).catch(() => {})
+        } else {
+          v.pause()
+        }
+      },
+      { threshold: 0.35 }
+    )
+    io.observe(v)
+    return () => io.disconnect()
+  }, [project.video])
 
   return (
     <article
-      className="shop-card"
+      className={`work-feature${index % 2 ? ' work-feature--flip' : ''}`}
       style={project.accent ? { '--card-accent': project.accent } : undefined}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
     >
-      <Link href={href} className="shop-card__media" aria-label={`${project.title} case study`}>
-        <img src={cover} alt="" loading="lazy" className="shop-card__img" />
+      <Link href={href} className="work-feature__media" aria-label={`${project.title} case study`}>
+        <img src={cover} alt="" loading="lazy" className="work-feature__img" />
         {project.video && (
           <video
             ref={videoRef}
-            className={`shop-card__video ${playing ? 'is-playing' : ''}`}
+            className={`work-feature__video ${playing ? 'is-playing' : ''}`}
             muted
             loop
             playsInline
@@ -108,41 +111,57 @@ function ProjectCard({ project }) {
           />
         )}
         {project.status && (
-          <span className="shop-card__status">
-            <span className="shop-card__status-dot" aria-hidden="true" />
+          <span className="work-feature__status">
+            <span className="work-feature__status-dot" aria-hidden="true" />
             {project.status}
-          </span>
-        )}
-        {project.film && (
-          <span className="shop-card__film" title="Narrated product film on the case study">
-            <span aria-hidden="true">▶</span> Film
           </span>
         )}
       </Link>
 
-      <div className="shop-card__body">
-        <p className="shop-card__meta">
-          {project.kind ? kindLabel(project.kind) : project.category}
-          <span className="shop-card__meta-year"> · {project.year}</span>
+      <div className="work-feature__body">
+        <p className="work-feature__meta">
+          <span className="work-feature__index">
+            {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+          </span>
+          {project.kind ? kindLabel(project.kind) : project.category} · {project.year}
         </p>
-        <h3 className="shop-card__title">
+        <h3 className="work-feature__title">
           <Link href={href}>{project.title}</Link>
         </h3>
-        {project.tagline && <p className="shop-card__tagline">{project.tagline}</p>}
-        {Array.isArray(project.tech) && project.tech.length > 0 && (
-          <ul className="shop-card__tech">
-            {project.tech.slice(0, 3).map((t) => (
+        {project.tagline && <p className="work-feature__tagline">{project.tagline}</p>}
+        {project.summary && <p className="work-feature__summary">{project.summary}</p>}
+
+        {metrics.length > 0 && (
+          <dl className="work-feature__metrics">
+            {metrics.map((m) => (
+              <div key={m.label}>
+                <dt>{m.value}</dt>
+                <dd>{m.label}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
+        {tech.length > 0 && (
+          <ul className="work-feature__tech">
+            {tech.map((t) => (
               <li key={t}>{t}</li>
             ))}
           </ul>
         )}
-        <div className="shop-card__actions">
-          <Link href={href} className="shop-card__cta">
-            Case study <span aria-hidden="true">→</span>
+
+        <div className="work-feature__actions">
+          <Link href={href} className="work-feature__cta">
+            Read the case study <span aria-hidden="true">→</span>
           </Link>
+          {project.film && (
+            <Link href={`${href}#film`} className="work-feature__film">
+              <span aria-hidden="true">▶</span> Watch the film
+            </Link>
+          )}
           <a
             href={interestHref(`Something like ${project.title}`)}
-            className="shop-card__order"
+            className="work-feature__order"
             onClick={(e) => {
               e.preventDefault()
               requestInterest(`Something like ${project.title}`)

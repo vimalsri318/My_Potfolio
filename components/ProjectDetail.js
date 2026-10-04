@@ -83,7 +83,7 @@ export default function ProjectDetail({ project, nextProject }) {
           {/* Product film — the narrated walkthrough, with sound and controls */}
           {project.film && (
             <Reveal>
-              <section className="project-detail__film">
+              <section id="film" className="project-detail__film">
                 <span className="mono project-detail__label">Product film</span>
                 <div className="project-detail__film-frame">
                   <video

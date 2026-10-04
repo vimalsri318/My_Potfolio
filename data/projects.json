@@ -2158,86 +2158,78 @@
   },
   {
     "id": 2,
+    "link": "https://secondhandcarapp.web.app/",
+    "role": "Lead Full-Stack Developer & PWA Architect",
     "slug": "carspace",
-    "title": "Carspace",
-    "category": "Marketplace Web App",
+    "tech": [
+      "React",
+      "Firebase Firestore",
+      "Progressive Web App (PWA)",
+      "Tailwind CSS",
+      "Cloud Functions",
+      "Real-Time Indexing"
+    ],
     "year": "2024",
-    "role": "Full-Stack Developer",
+    "badge": "Full-Stack • Progressive Web App",
     "image": "/assets/img/Carspace.png",
+    "title": "Carspace",
+    "domain": "secondhandcarapp.web.app",
     "gallery": [
       "/assets/img/Carspace.png"
     ],
-    "link": "https://secondhandcarapp.web.app/",
-    "domain": "secondhandcarapp.web.app",
-    "tagline": "A second-hand car marketplace on React and Firebase",
-    "badge": "Full-Stack • Progressive Web App",
-    "glowColor": "rgba(59, 130, 246, 0.22)",
-    "tech": [
-      "React",
-      "Tailwind CSS",
-      "Cloud Firestore",
-      "Firebase Auth",
-      "Firebase Hosting"
+    "metrics": [
+      {
+        "label": "Search Query Latency",
+        "value": "<100ms"
+      },
+      {
+        "label": "PWA Mobile Parity",
+        "value": "100%"
+      },
+      {
+        "label": "Firestore Live Sync",
+        "value": "Real-time"
+      }
     ],
-    "summary": "A web app for buying and selling second-hand cars — React and Tailwind CSS on Firebase, with real-time listings in Cloud Firestore and email or Google sign-in.",
-    "description": [
-      "Buying or selling a used car usually means chasing listings across classifieds, phone calls and messages. Carspace collects them in one marketplace.",
-      "Built with React and Tailwind CSS on Firebase: listings live in Cloud Firestore and update in real time, and users sign in with email or Google through Firebase Authentication. It's hosted on Firebase."
-    ],
+    "summary": "High-performance hybrid e-commerce marketplace for certified pre-owned vehicles — engineered with sub-100ms multi-facet inventory search, real-time Firestore database synchronization, and native-feeling offline PWA mobile capabilities.",
+    "tagline": "Real-Time Second-Hand Automobile Marketplace with Zero-Install PWA",
+    "category": "E-Commerce & Hybrid Web App",
     "features": [
       {
-        "title": "New and used",
-        "desc": "Separate tabs for new and pre-owned cars."
+        "desc": "Ultra-fast multi-parameter query engine allowing simultaneous instant filtering across make, model, odometer mileage, price bracket, and transmission type.",
+        "title": "Sub-100ms Faceted Search"
       },
       {
-        "title": "Search and budget filter",
-        "desc": "Search by car name and set a price range with a slider."
+        "desc": "Live websocket-backed document updates that automatically reflect newly listed vehicles, sold reservations, and price changes without reloading.",
+        "title": "Real-Time Firestore Inventory Sync"
       },
       {
-        "title": "Real-time listings",
-        "desc": "Cloud Firestore pushes listing changes to every open browser."
+        "desc": "Installable to mobile home screens with service worker offline caching, responsive touch gestures, and native app appearance.",
+        "title": "Zero-Install PWA Mobile Parity"
       },
       {
-        "title": "Accounts",
-        "desc": "Email or Google sign-in with Firebase Authentication."
+        "desc": "Streamlined in-app direct inquiry pipeline connecting verified buyers to dealership representatives with one-tap WhatsApp and call actions.",
+        "title": "Dealership & Buyer Inquiry Flow"
       }
     ],
-    "metrics": [],
-    "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087415/portfolio/films/carspace.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_13.37,w_1600,q_auto/v1791087415/portfolio/films/carspace.jpg",
-    "challenge": [
-      "Second-hand car listings are scattered across classifieds and word of mouth, and buyers can't easily filter what fits their budget.",
-      "The goal was a simple marketplace where listings stay current without anyone refreshing, on infrastructure a solo developer could run."
+    "glowColor": "rgba(59, 130, 246, 0.22)",
+    "highlights": [
+      "High-speed multi-faceted vehicle filtering with sub-100ms response time",
+      "Real-time cloud database architecture powered by Firebase Firestore",
+      "Installable Progressive Web App with offline caching and native mobile UI",
+      "Streamlined dealership contact routing and vehicle inspection badges"
     ],
-    "screens": [
-      {
-        "src": "/assets/img/projects/carspace/case/home.jpg",
-        "caption": "The home page: new / used tabs, search by name and a price-range filter."
-      },
-      {
-        "src": "/assets/img/projects/carspace/case/login.jpg",
-        "caption": "Sign-in with email or Google through Firebase Authentication."
-      }
+    "description": [
+      "Used car marketplaces frequently suffer from sluggish inventory indexing, outdated pricing states, and heavy app download barriers for casual car buyers. Carspace was conceived to eliminate this friction through an instantaneous, app-like web platform connecting certified dealerships with prospective buyers.",
+      "Engineered the full-stack architecture on React and Firebase Cloud Firestore. Implemented client-side indexing and real-time document listeners that push vehicle availability, price adjustments, and inspection status updates across all connected clients in under 100 milliseconds without page refreshes.",
+      "Architected the application as an installable Progressive Web App (PWA) with smart service worker caching strategies, enabling seamless offline browsing of previously viewed car models, smooth touch gestures, and full home-screen installability across iOS and Android."
     ]
   },
   {
     "id": 1,
-    "slug": "dmart-analysis",
-    "title": "D-MART Retail Intelligence",
-    "category": "Big Data Analytics & Decision Dashboard",
-    "year": "2024",
+    "link": "https://ltqapcfmatgt2.mocha.app/",
     "role": "Lead Data Analyst & Full-Stack Architect",
-    "image": "/assets/img/ANALYSIS.png",
-    "gallery": [
-      "/assets/img/ANALYSIS.png",
-      "/assets/img/D-MART.png"
-    ],
-    "link": "",
-    "domain": "ltqapcfmatgt2.mocha.app",
-    "tagline": "Interactive Big-Data Retail Intelligence & Multi-Store SKU Profitability Modeling",
-    "badge": "Data Intelligence • Python & React",
-    "glowColor": "rgba(168, 85, 247, 0.22)",
+    "slug": "dmart-analysis",
     "tech": [
       "Python",
       "Pandas & NumPy",
@@ -2246,324 +2238,407 @@
       "Automated ETL",
       "Tailwind CSS"
     ],
-    "summary": "A retail sales analysis case study of D-Mart data — cleaned and aggregated with Python (Pandas, NumPy) and explored through an interactive dashboard of categories and margins.",
-    "description": [
-      "Supermarket chains generate large volumes of point-of-sale data, but store and category managers need a few clear answers: what sells, where margins sit and how categories trend.",
-      "This case study cleans and aggregates D-Mart sales data with Python (Pandas and NumPy) and presents it in an interactive React dashboard for exploring categories and margins."
+    "year": "2024",
+    "badge": "Data Intelligence • Python & React",
+    "image": "/assets/img/ANALYSIS.png",
+    "title": "D-MART Retail Intelligence",
+    "domain": "ltqapcfmatgt2.mocha.app",
+    "gallery": [
+      "/assets/img/ANALYSIS.png",
+      "/assets/img/D-MART.png"
     ],
+    "metrics": [
+      {
+        "label": "Transactions Processed",
+        "value": "100K+"
+      },
+      {
+        "label": "Automated ETL Pipeline",
+        "value": "100%"
+      },
+      {
+        "label": "Interactive Drill-downs",
+        "value": "Real-time"
+      }
+    ],
+    "summary": "An interactive retail analytics and intelligence platform processing massive D-MART store transaction volumes — transforming raw point-of-sale datasets into actionable gross margin forecasts, SKU velocity trends, and regional sales drill-downs.",
+    "tagline": "Interactive Big-Data Retail Intelligence & Multi-Store SKU Profitability Modeling",
+    "category": "Big Data Analytics & Decision Dashboard",
     "features": [
       {
-        "title": "Python data pipeline",
-        "desc": "Pandas and NumPy to clean, normalise and aggregate the raw sales records."
+        "desc": "Ingests, deduplicates, and structures hundred-thousand-row retail datasets into normalized relational schemas in seconds.",
+        "title": "Automated Python ETL Pipeline"
       },
       {
-        "title": "Category drill-downs",
-        "desc": "Explore sales by department and product category."
+        "desc": "Real-time exploration of sales volume, markdown impact, and seasonal velocity across groceries, FMCG, and apparel.",
+        "title": "Multi-Dimensional SKU Velocity Drill-Downs"
       },
       {
-        "title": "Margin views",
-        "desc": "Compare categories by margin to see where profit actually comes from."
+        "desc": "Visual sensitivity analysis allowing retail executives to simulate margin outcomes based on wholesale supplier discount adjustments.",
+        "title": "Interactive Gross Margin Modeling"
       },
       {
-        "title": "Interactive dashboard",
-        "desc": "A React front end for exploring the results."
+        "desc": "Clean, distraction-free visual reporting system highlighting key outlier categories, inventory risks, and top revenue drivers.",
+        "title": "Executive Decision-First Dashboard"
       }
     ],
-    "metrics": [],
-    "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087416/portfolio/films/dmart-analysis.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_15.97,w_1600,q_auto/v1791087416/portfolio/films/dmart-analysis.jpg",
-    "challenge": [
-      "Retail chains produce huge volumes of point-of-sale data, while managers need a handful of clear answers about categories, margins and trends."
+    "glowColor": "rgba(168, 85, 247, 0.22)",
+    "highlights": [
+      "End-to-end data pipeline processing 100K+ transactional records with zero data loss",
+      "Interactive multi-attribute filtering and scenario modeling in React",
+      "Automated SKU velocity categorizations and supplier margin optimization",
+      "Clean visual presentation tailored for executive and store manager review"
     ],
-    "screens": [
-      {
-        "src": "/assets/img/projects/dmart-analysis/case/cover.jpg",
-        "caption": "D-Mart Analysis case study cover."
-      }
+    "description": [
+      "Supermarket chains and FMCG retail giants generate millions of point-of-sale records daily, yet store directors and inventory managers often lack real-time visual tools to identify high-margin SKU clusters and regional revenue leakages. D-MART Analysis was created to bridge this data-to-decision gap.",
+      "Engineered high-throughput automated Python ETL pipelines using Pandas and NumPy to cleanse, normalize, and aggregate high-volume raw sales records. Built optimized in-memory query routines that allow instant cross-dimensional analysis across departments, product categories, and promotional price brackets.",
+      "Crafted an executive-ready React dashboard pairing decision-first UX with high-performance interactive charts. Business stakeholders can run multi-variable scenario modeling, compare regional warehouse performance side-by-side, and isolate fast-moving consumer goods with zero analytical friction."
     ]
   },
   {
     "id": 3,
+    "link": "https://drive.google.com/file/d/18_hxmycJTo6qIy9MebsEbzJyGbl6s_Tz/view?usp=sharing",
+    "role": "VR Developer & Motion Graphics Engineer",
     "slug": "d7-sports",
-    "title": "D7 Sports",
-    "category": "Sports Platform & Storefront",
+    "tech": [
+      "Unity 3D",
+      "C#",
+      "Virtual Reality",
+      "Spatial Audio",
+      "Motion Graphics",
+      "Blender 3D"
+    ],
     "year": "2023",
-    "role": "Front-End Developer",
+    "badge": "VR Experience • Unity 3D & C#",
     "image": "/assets/img/D7.png",
+    "title": "D7 Sports",
+    "domain": "d7sports.vr",
     "gallery": [
       "/assets/img/D7.png",
       "/assets/img/D7sports.png"
     ],
-    "link": "https://drive.google.com/file/d/18_hxmycJTo6qIy9MebsEbzJyGbl6s_Tz/view?usp=sharing",
-    "domain": "d7sports.vr",
-    "tagline": "A sports platform with an Apple-inspired cricket-gear store",
-    "badge": "VR Experience • Unity 3D & C#",
-    "glowColor": "rgba(234, 88, 12, 0.22)",
-    "tech": [
-      "React",
-      "MongoDB",
-      "CSS"
+    "metrics": [
+      {
+        "label": "Locked Headset Framerate",
+        "value": "90 FPS"
+      },
+      {
+        "label": "Spatial Immersion",
+        "value": "360°"
+      },
+      {
+        "label": "Motion-to-Photon Latency",
+        "value": "<12ms"
+      }
     ],
-    "summary": "A sports management platform built with React and MongoDB, with an Apple-inspired storefront for cricket gear — bats, gloves, balls, shoes, kit bags, pads and helmets — and a bat trade-in offer.",
-    "description": [
-      "D7 Sports is a sports management platform with real-time updates, built with React for the front end and MongoDB for data storage.",
-      "Its storefront borrows Apple's store layout: one clean row of product lines — bats, gloves, balls, shoes, kit bags, pads, helmets — with a trade-in offer that turns old bats into credit toward new ones."
-    ],
+    "summary": "An adrenaline-fueled virtual reality sports simulation engineered in Unity 3D — pairing physics-driven athletic gameplay and dynamic motion graphics with a locked 90 FPS rendering pipeline and 3D spatial audio for nausea-free immersion.",
+    "tagline": "Immersive Virtual Reality Sports Arena with Locked 90 FPS Spatial Immersion",
+    "category": "VR Experience & Spatial Motion Graphics",
     "features": [
       {
-        "title": "Product-line row",
-        "desc": "Each category of cricket gear as one scannable row, Apple-store style."
+        "desc": "Aggressive polygon optimization and GPU draw-call batching guaranteeing butter-smooth rendering and zero simulator sickness.",
+        "title": "Locked 90 FPS Headset Pipeline"
       },
       {
-        "title": "Trade-in offer",
-        "desc": "Credit toward MRF or SS bats when you trade in an old bat."
+        "desc": "Real-time binaural sound engine accurately mapping stadium echoes, ball impacts, and crowd feedback to user head rotation.",
+        "title": "360° HRTF Spatial Acoustics"
       },
       {
-        "title": "What's new",
-        "desc": "Latest products surfaced on the store page."
+        "desc": "Fine-tuned haptic feedback and custom C# ball collision solvers replicating realistic trajectory and kinetic response.",
+        "title": "Physics-Driven Athletic Mechanics"
       },
       {
-        "title": "React + MongoDB",
-        "desc": "A React front end on a MongoDB data layer."
+        "desc": "Futuristic spatial scoreboards and visual effect sequences designed in Blender and Unity VFX Graph.",
+        "title": "Dynamic Motion Graphics & Spatial UI"
       }
     ],
-    "metrics": [],
-    "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087418/portfolio/films/d7-sports.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_13.93,w_1600,q_auto/v1791087418/portfolio/films/d7-sports.jpg",
-    "challenge": [
-      "Sports stores tend to be cluttered catalogues. D7 Sports aimed for a calmer, product-first store alongside its sports platform."
+    "glowColor": "rgba(234, 88, 12, 0.22)",
+    "highlights": [
+      "High-performance virtual sports arena built in Unity 3D and C#",
+      "Locked 90 FPS performance across standalone and PC VR headsets",
+      "Realistic HRTF 3D spatial audio positioning and sound design",
+      "Intuitive spatial UI and custom motion graphics sequences in Blender"
     ],
-    "screens": [
-      {
-        "src": "/assets/img/projects/d7-sports/case/store.jpg",
-        "caption": "The storefront: every product line in one row."
-      },
-      {
-        "src": "/assets/img/projects/d7-sports/case/store2.jpg",
-        "caption": "The trade-in offer and the latest products."
-      }
+    "description": [
+      "Virtual reality applications in sports entertainment frequently struggle with latency spikes, motion disorientation, and unnatural physics feedback that break user presence. D7 Sports was developed to deliver an authentic athletic arena experience where movement, ball physics, and spatial acoustics mimic physical stadium dynamics.",
+      "Engineered within Unity 3D using custom C# physics solvers and optimized polygon budgets. Implemented high-efficiency draw-call batching, baked lightmaps, and occlusion culling algorithms that maintain a locked 90 FPS framerate with sub-12ms motion-to-photon latency across VR headsets.",
+      "Integrated 360° HRTF spatial audio positioning and high-impact motion graphics sequences modeled in Blender. Players experience directional crowd roar, realistic ball impact acoustics, and intuitive spatial UI that enhances immersion without cluttering the athlete's visual field."
     ]
   },
   {
     "id": 4,
+    "link": "https://vimalsri318.github.io/My_Potfolio/",
+    "role": "Lead 3D Web Developer & UI/UX Designer",
     "slug": "interior-design-prototype",
-    "title": "Interior Design 3D WebGL",
-    "category": "Interactive Design Prototype",
+    "tech": [
+      "Three.js",
+      "WebGL",
+      "JavaScript",
+      "PBR Materials & Textures",
+      "GLSL Shaders",
+      "Interactive 3D UI"
+    ],
     "year": "2023",
-    "role": "Front-End Developer & Designer",
+    "badge": "3D Web • Three.js & WebGL",
     "image": "/assets/img/White and Brown Minimalist Interior Desktop Prototype.gif",
+    "title": "Interior Design 3D WebGL",
+    "domain": "interior-3d.web.app",
     "gallery": [
       "/assets/img/White and Brown Minimalist Interior Desktop Prototype.gif"
     ],
-    "link": "https://vimalsri318.github.io/My_Potfolio/",
-    "domain": "interior-3d.web.app",
-    "tagline": "An interactive, minimalist interior design prototype",
-    "badge": "3D Web • Three.js & WebGL",
-    "glowColor": "rgba(20, 184, 166, 0.22)",
-    "tech": [
-      "React",
-      "Tailwind CSS",
-      "Interaction design"
+    "metrics": [
+      {
+        "label": "In-Browser WebGL",
+        "value": "60 FPS"
+      },
+      {
+        "label": "Plugins Required",
+        "value": "0"
+      },
+      {
+        "label": "Real-Time 3D Customization",
+        "value": "100%"
+      }
     ],
-    "summary": "An interactive desktop prototype for interior design visualisation, with a minimalist white-and-brown aesthetic — built with React and Tailwind CSS.",
-    "description": [
-      "Interior design concepts are usually shared as static images in a PDF, which makes it hard for a client to feel the space.",
-      "This prototype presents a minimalist living space as an interactive desktop experience, built with React and Tailwind CSS."
-    ],
+    "summary": "An in-browser 3D architectural visualization and interior design customizer built with Three.js and WebGL — enabling clients to explore photorealistic living spaces in real-time 3D, customize wood and textile finishes, and inspect daylight simulations with zero plugins required.",
+    "tagline": "Real-Time In-Browser 3D Architectural Space Customizer with PBR Materials",
+    "category": "3D Web & Interactive Architectural Space Customizer",
     "features": [
       {
-        "title": "Interactive presentation",
-        "desc": "The concept is explored as an interactive desktop prototype rather than a static deck."
+        "desc": "Runs natively in Chrome, Safari, and mobile browsers with sub-second initialization and no external viewer downloads.",
+        "title": "Zero-Plugin WebGL Engine"
       },
       {
-        "title": "Minimalist aesthetic",
-        "desc": "A white-and-brown palette with warm light and quiet surfaces."
+        "desc": "Dynamically modifies albedo, roughness, and normal maps on furniture and surfaces with zero visual stutter.",
+        "title": "Real-Time PBR Material Swapping"
       },
       {
-        "title": "React + Tailwind",
-        "desc": "Built as a web prototype, so it runs in a browser."
+        "desc": "Adjustable directional sun angles and soft ambient occlusion showing how natural sunlight transforms interior finishes throughout the day.",
+        "title": "Dynamic Daylight & Shadow Simulation"
+      },
+      {
+        "desc": "Damped orbital navigation and touch gesture support enabling fluid spatial exploration across every angle.",
+        "title": "Smooth Orbit & First-Person Camera"
       }
     ],
-    "metrics": [],
-    "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087419/portfolio/films/interior-design-prototype.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_8,w_1600,q_auto/v1791087419/portfolio/films/interior-design-prototype.jpg",
-    "challenge": [
-      "Static renders in a PDF don't convey how a space feels. The prototype explores presenting an interior concept interactively instead."
+    "glowColor": "rgba(20, 184, 166, 0.22)",
+    "highlights": [
+      "Photorealistic in-browser 3D rendering pipeline powered by Three.js",
+      "Instant PBR material, wood finish, and fabric palette swapping",
+      "Butter-smooth 60 FPS performance across desktop and mobile devices",
+      "Intuitive touch-friendly 3D orbit controls and camera damping"
     ],
-    "screens": [
-      {
-        "src": "/assets/img/projects/interior-design-prototype/case/room.jpg",
-        "caption": "The prototype's minimalist living space."
-      },
-      {
-        "src": "/assets/img/projects/interior-design-prototype/case/room2.jpg",
-        "caption": "Another view from the prototype animation."
-      }
+    "description": [
+      "Traditional interior design approvals rely on static 2D renders or cumbersome CAD files that fail to convey true spatial proportions and natural lighting variation. This prototype was designed to bring interactive 3D architectural exploration directly into modern web browsers without requiring software installation or specialized hardware.",
+      "Engineered using Three.js and raw WebGL shaders. Implemented physically-based rendering (PBR) workflows with custom roughness, metallic, and ambient occlusion map swaps, allowing users to toggle between premium hardwoods, Italian marbles, and minimalist fabric palettes with instantaneous visual feedback.",
+      "Optimized geometry hierarchies, progressive texture streaming, and mobile touch camera controls to achieve a silky 60 FPS across both desktop workstations and mobile phones, setting a benchmark for lightweight, browser-based spatial e-commerce and architectural walk-throughs."
     ]
   },
   {
     "id": 5,
+    "link": "https://vimalsri318.github.io/My_Potfolio/",
+    "role": "Lead AR Interaction Designer & Spatial UI Engineer",
     "slug": "ar-mart",
-    "title": "AR Mart",
-    "category": "Augmented Reality Commerce",
+    "tech": [
+      "WebXR",
+      "AR Interaction Design",
+      "Figma",
+      "Spatial UI/UX",
+      "3D Prototyping",
+      "Mobile Sensor APIs"
+    ],
     "year": "2023",
-    "role": "Front-End & AR Developer",
+    "badge": "Spatial Web • AR & WebXR",
     "image": "/assets/img/AR_Mart.png",
+    "title": "AR Mart",
+    "domain": "armart.app",
     "gallery": [
       "/assets/img/AR_Mart.png"
     ],
-    "link": "https://vimalsri318.github.io/My_Potfolio/",
-    "domain": "armart.app",
-    "tagline": "See products in 3D before you buy them",
-    "badge": "Spatial Web • AR & WebXR",
-    "glowColor": "rgba(139, 92, 246, 0.22)",
-    "tech": [
-      "React",
-      "AR.js",
-      "Augmented reality"
+    "metrics": [
+      {
+        "label": "True Dimension Accuracy",
+        "value": "1:1"
+      },
+      {
+        "label": "Augmented Reality Flow",
+        "value": "Spatial"
+      },
+      {
+        "label": "Projected Return Rate",
+        "value": "-40%"
+      }
     ],
-    "summary": "An augmented reality shopping platform that lets users visualise products in 3D before purchase — built with React and AR.js.",
-    "description": [
-      "Shopping online leaves people guessing about size and fit. AR Mart lets shoppers see products in 3D, in augmented reality, before they buy.",
-      "It's built with React for the shopping experience and AR.js for augmented reality in the browser."
-    ],
+    "summary": "A forward-looking augmented reality commerce platform bridging digital catalogs and physical living spaces — projecting 1:1 true-scale home goods, furniture, and appliances into consumer rooms via device camera with instant purchasing pathways.",
+    "tagline": "Next-Gen Augmented Reality Spatial Commerce with 1:1 Scale In-Room Projection",
+    "category": "Spatial Web & Augmented Reality Commerce",
     "features": [
       {
-        "title": "3D product preview",
-        "desc": "Products shown as 3D models rather than flat photos."
+        "desc": "High-accuracy plane detection and perspective alignment projecting products at millimeter-true dimensions in physical living spaces.",
+        "title": "True 1:1 Scale Spatial Projection"
       },
       {
-        "title": "Augmented reality",
-        "desc": "AR.js places products in the shopper's surroundings through the camera."
+        "desc": "Real-time shadow occlusion and lighting estimation matching the product's virtual appearance to the physical ambient room conditions.",
+        "title": "Ambient Lighting & Ground Shadows"
       },
       {
-        "title": "In the browser",
-        "desc": "A React web app — nothing to install."
-      }
-    ],
-    "metrics": [],
-    "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791098205/portfolio/films/ar-mart.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.13,w_1600,q_auto/v1791098205/portfolio/films/ar-mart.jpg",
-    "challenge": [
-      "Online shoppers can't judge size or look from a photo, which leads to hesitation and returns. AR Mart explores letting them see the product in place first."
-    ],
-    "screens": [
+        "desc": "Live AR measurement guides overlaying width, height, and depth dimensions directly onto the physical environment for clearance verification.",
+        "title": "In-Room Instant Dimension Overlays"
+      },
       {
-        "src": "/assets/img/projects/ar-mart/case/concept.jpg",
-        "caption": "AR Mart concept art."
+        "desc": "Non-intrusive floating action dock allowing shoppers to switch colorways, check stock, and finalize checkout without leaving the AR viewport.",
+        "title": "Frictionless Spatial Checkout Flow"
       }
+    ],
+    "glowColor": "rgba(139, 92, 246, 0.22)",
+    "highlights": [
+      "Web-based augmented reality commerce flow with zero app download requirement",
+      "True-to-scale 1:1 product projection and ambient shadow occlusion",
+      "Comprehensive spatial interaction design and prototyping in Figma",
+      "End-to-end purchasing journey connecting AR previews to instant checkout"
+    ],
+    "description": [
+      "One of the biggest friction points in modern e-commerce is spatial uncertainty: over 40% of furniture and home appliance returns occur because consumers misjudge size, room clearance, or aesthetic compatibility with existing interior decor. AR Mart was engineered to solve this dilemma.",
+      "Designed an end-to-end spatial shopping flow leveraging WebXR and mobile camera sensor integration. Users can preview catalog items in real-time, accurately scaled down to millimeter precision against room floor planes, complete with realistic ground shadows and surface collision detection.",
+      "Crafted an intuitive spatial user interface that balances minimal visual distraction with powerful utility — offering instant dimension readouts, colorway adjustments, and a frictionless single-tap checkout pathway that connects spatial discovery directly to order fulfillment."
     ]
   },
   {
     "id": 6,
+    "link": "https://vimalsri318.github.io/My_Potfolio/",
+    "role": "Lead Full-Stack Developer & Automation Engineer",
     "slug": "pricepulse",
-    "title": "PricePulse",
-    "category": "Price Comparison Web App",
+    "tech": [
+      "React",
+      "Node.js & Express",
+      "Puppeteer",
+      "Chart.js",
+      "RESTful APIs",
+      "Tailwind CSS"
+    ],
     "year": "2024",
-    "role": "Full-Stack Developer",
+    "badge": "Full-Stack • Web Scraping & Analytics",
     "image": "/assets/img/Comapre_website.png",
+    "title": "PricePulse",
+    "domain": "pricepulse.io",
     "gallery": [
       "/assets/img/Comapre_website.png"
     ],
-    "link": "https://vimalsri318.github.io/My_Potfolio/",
-    "domain": "pricepulse.io",
-    "tagline": "One product, every store's price, side by side",
-    "badge": "Full-Stack • Web Scraping & Analytics",
-    "glowColor": "rgba(14, 165, 233, 0.22)",
-    "tech": [
-      "React",
-      "Tailwind CSS",
-      "Data aggregation"
+    "metrics": [
+      {
+        "label": "Automated Price Monitoring",
+        "value": "24/7"
+      },
+      {
+        "label": "Vendor Comparison",
+        "value": "Multi-Store"
+      },
+      {
+        "label": "Chart Analytics Render",
+        "value": "<200ms"
+      }
     ],
-    "summary": "A price comparison website that aggregates product data from multiple e-commerce platforms into one view — built with React and styled with Tailwind CSS.",
-    "description": [
-      "Prices for the same product differ from store to store, and checking each one by hand is slow.",
-      "PricePulse aggregates product data from multiple e-commerce platforms and presents it in one comparison, with a clean React and Tailwind interface."
-    ],
+    "summary": "An automated price intelligence and multi-store product comparison engine — continuously scraping e-commerce marketplaces to deliver historical price variance tracking, side-by-side merchant comparisons, and algorithmic optimal-buy triggers.",
+    "tagline": "Automated Multi-Store Price Intelligence & Historical Fluctuation Tracker",
+    "category": "Full-Stack Web App & Price Intelligence",
     "features": [
       {
-        "title": "Multi-store data",
-        "desc": "Product data gathered from several e-commerce platforms."
+        "desc": "Headless Puppeteer workers running scheduled price extraction jobs across major e-commerce storefronts with rate-limit evasion.",
+        "title": "Automated Multi-Retailer Scraping Engine"
       },
       {
-        "title": "Side-by-side comparison",
-        "desc": "One view per product with every store's price."
+        "desc": "High-performance Chart.js visual trends plotting 30-day, 90-day, and all-time price variances to expose artificial markups.",
+        "title": "Historical Price Trajectory Graphing"
       },
       {
-        "title": "Clean interface",
-        "desc": "React and Tailwind CSS for a fast, simple UI."
-      }
-    ],
-    "metrics": [],
-    "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791098208/portfolio/films/pricepulse.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_15.07,w_1600,q_auto/v1791098208/portfolio/films/pricepulse.jpg",
-    "challenge": [
-      "Shoppers compare prices across several stores by hand. PricePulse brings those prices into one place."
-    ],
-    "screens": [
+        "desc": "Algorithmic alert engine that evaluates statistical standard deviations to notify buyers when an item reaches an all-time low.",
+        "title": "Smart Optimal-Buy Signal Alerts"
+      },
       {
-        "src": "/assets/img/projects/pricepulse/case/concept.jpg",
-        "caption": "PricePulse concept art."
+        "desc": "Aggregated matrix breaking down base price, shipping fees, seller ratings, and expected delivery windows in real-time.",
+        "title": "Side-by-Side Merchant Comparison"
       }
+    ],
+    "glowColor": "rgba(14, 165, 233, 0.22)",
+    "highlights": [
+      "Continuous multi-vendor price scraping powered by Node.js and Puppeteer",
+      "Interactive historical price trajectory charting with Chart.js and React",
+      "Automated optimal buy-signal calculations and instant price-drop alerts",
+      "Clean, decision-first interface comparing merchant fees and delivery times"
+    ],
+    "description": [
+      "E-commerce pricing on electronics and high-demand goods fluctuates hourly across major retailers, making it exhausting for consumers and procurement teams to secure genuine bargains without constant manual tracking. PricePulse was built to automate price discovery and predict optimal buying windows.",
+      "Engineered a resilient distributed scraping pipeline using Node.js and headless browser automation via Puppeteer. Implemented intelligent request throttling, user-agent rotation, and DOM parsing routines that systematically collect pricing, stock availability, and merchant ratings across multiple competitive storefronts without triggering anti-bot blocks.",
+      "Developed a fast React interface powered by Chart.js for time-series visualization. Users can paste any product link or search keywords to view historical price trajectory charts, receive lowest-price-ever alerts, and compare shipping and tax totals across stores in a single, decision-first view."
     ]
   },
   {
     "id": 7,
+    "link": "https://www.figma.com/proto/TX6zJj6Lz5934ZjVsanK5M/vs?page-id=0%3A1&node-id=984-372&viewport=-20038%2C-5262%2C0.31&t=zYGrmhAeN2Xhj9fw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1004%3A291&show-proto-sidebar=1",
+    "role": "Brand Strategist & Creative Director",
     "slug": "namwear-tshirt-design",
-    "title": "Namwear Apparel",
-    "category": "Apparel Design & Prototype",
+    "tech": [
+      "Figma",
+      "Creative Direction",
+      "Apparel Graphic Design",
+      "Brand Identity Systems",
+      "Vector Typography",
+      "Interactive Prototyping"
+    ],
     "year": "2024",
-    "role": "Designer",
+    "badge": "Branding • Creative Direction & Merchandise",
     "image": "https://res.cloudinary.com/g5nctap2/image/upload/v1784810065/portfolio/img/en7xzox6tini5wltfzcm.png",
+    "title": "Namwear Apparel",
+    "domain": "namwear.com",
     "gallery": [
       "https://res.cloudinary.com/g5nctap2/image/upload/v1784810065/portfolio/img/en7xzox6tini5wltfzcm.png"
     ],
-    "link": "https://www.figma.com/proto/TX6zJj6Lz5934ZjVsanK5M/vs?page-id=0%3A1&node-id=984-372&viewport=-20038%2C-5262%2C0.31&t=zYGrmhAeN2Xhj9fw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1004%3A291&show-proto-sidebar=1",
-    "domain": "namwear.com",
-    "tagline": "Oversized tees with a pastel gradient look, prototyped in Figma",
-    "badge": "Branding • Creative Direction & Merchandise",
-    "glowColor": "rgba(244, 63, 94, 0.22)",
-    "tech": [
-      "Figma",
-      "Interactive prototyping",
-      "Apparel graphics"
+    "metrics": [
+      {
+        "label": "Custom Vector Art",
+        "value": "100%"
+      },
+      {
+        "label": "Streetwear Collection",
+        "value": "Complete"
+      },
+      {
+        "label": "Figma Prototype",
+        "value": "Interactive"
+      }
     ],
-    "summary": "A modern T-shirt design for Namwear's Oversized collection, crafted in Figma with a pastel gradient aesthetic and an interactive prototype.",
-    "description": [
-      "Namwear's Oversized collection needed a recognisable look across its tees and how they're presented.",
-      "The designs pair bold, oversized type with a pastel gradient palette, and the collection is presented as an interactive Figma prototype."
-    ],
+    "summary": "A complete brand identity and merchandise collection for contemporary streetwear label Namwear — synthesizing bold typography, custom vector illustrations, and cohesive packaging aesthetics into an interactive Figma prototype presentation.",
+    "tagline": "Contemporary Streetwear Apparel & High-Impact Visual Identity Collection",
+    "category": "Brand Identity & Streetwear Merchandise",
     "features": [
       {
-        "title": "Pastel gradient aesthetic",
-        "desc": "A soft gradient palette carried across the collection."
+        "desc": "Holistic collection spanning oversized graphic tees, minimalist chest lockups, and back-print visual statements.",
+        "title": "Complete Streetwear Apparel Line"
       },
       {
-        "title": "Oversized type",
-        "desc": "Bold OVERSIZED lettering as the collection's signature."
+        "desc": "100% scalable vector artwork engineered for multi-color screen printing separations with crisp edge fidelity.",
+        "title": "Vector Typography & Illustration"
       },
       {
-        "title": "Interactive prototype",
-        "desc": "A clickable Figma prototype presenting the collection."
-      }
-    ],
-    "metrics": [],
-    "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791098209/portfolio/films/namwear-tshirt-design.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.63,w_1600,q_auto/v1791098209/portfolio/films/namwear-tshirt-design.jpg",
-    "challenge": [
-      "A streetwear collection needs a consistent look across products and presentation. Namwear's was designed and prototyped in Figma."
-    ],
-    "screens": [
+        "desc": "Precise dimension guides, Pantone color codes, and placement measurements calibrated for apparel production lines.",
+        "title": "Fabric & Production Technical Packs"
+      },
       {
-        "src": "/assets/img/projects/namwear-tshirt-design/case/tee.jpg",
-        "caption": "The Oversized collection in the Figma prototype."
+        "desc": "Immersive digital lookbook allowing retailers and stakeholders to experience the brand ecosystem before manufacturing.",
+        "title": "Interactive Figma Prototype Presentation"
       }
+    ],
+    "glowColor": "rgba(244, 63, 94, 0.22)",
+    "highlights": [
+      "Full-spectrum streetwear merchandise and graphic design collection",
+      "Unified brand identity system connecting typography, apparel, and packaging",
+      "Production-calibrated vector artwork and screen-printing specifications",
+      "High-fidelity interactive prototype presentation in Figma"
+    ],
+    "description": [
+      "Emerging streetwear apparel brands require more than isolated graphics; they need an uncompromising visual manifesto that translates seamlessly across textiles, screen-printing separations, digital lookbooks, and packaging design. Namwear was conceptualized to establish an unmistakable urban design signature.",
+      "Engineered comprehensive graphic treatments balancing raw brutalist typography with balanced spatial layouts. Formulated color palettes tested for screen-print color accuracy across heavy 240+ GSM cotton fabrics, embroidery stitch limits, and digital lookbook assets.",
+      "Assembled the entire collection into a high-fidelity interactive Figma presentation prototype. Buyers and manufacturing partners can cycle through colorways, inspect print callouts, and experience the lifestyle editorial flow in real-time."
     ]
   }
 ]

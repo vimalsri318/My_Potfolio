@@ -13,11 +13,4 @@ export const FILM_SLUGS: string[] = [
   "streak-doctor",
   "slate",
   "ardor",
-  "carspace",
-  "dmart-analysis",
-  "d7-sports",
-  "interior-design-prototype",
-  "ar-mart",
-  "pricepulse",
-  "namwear-tshirt-design",
 ];
