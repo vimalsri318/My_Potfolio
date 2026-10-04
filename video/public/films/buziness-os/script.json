@@ -1,0 +1,144 @@
+{
+  "slug": "buziness-os",
+  "title": "Buziness OS",
+  "accent": "#0F766E",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Revenue teams live in [too many tabs.]",
+      "strike": ["A CRM", "A dialler", "A meeting notetaker", "A lead database"],
+      "punch": "Buziness OS is [one workspace] for all of it.",
+      "vo": [
+        { "id": "hook1", "text": "Most revenue teams run on a CRM, a dialler, a meeting notetaker and a lead database, and none of them talk to each other." },
+        { "id": "hook2", "text": "Buziness OS is one workspace for all of it." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Buziness OS",
+      "tagline": "Sourcing, calling, pipeline and meetings for Indian revenue teams.",
+      "badge": "Live · multi-tenant SaaS",
+      "media": { "type": "image", "src": "films/buziness-os/media/dashboard.jpg", "frame": "browser", "url": "buziness365.up.railway.app/dashboard" },
+      "vo": [{ "id": "intro1", "text": "Each client company gets its own workspace, with its members, plan, modules, credits and data." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Pipeline",
+      "headline": "Every lead, [one pipeline.]",
+      "bullets": ["Board and table views by stage", "Contacts derived from the same record", "Live counts on the dashboard"],
+      "media": [
+        { "type": "image", "src": "films/buziness-os/media/leads.jpg", "frame": "browser", "url": "buziness365.up.railway.app/leads" }
+      ],
+      "vo": [{ "id": "pipe1", "text": "Leads move across one pipeline, and contacts, calls and meetings all hang off the same record, so nothing gets typed twice." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "AI agents that do real work",
+      "headline": "Find the email. [Take the call.] Write the minutes.",
+      "bullets": ["Sourcing agent verifies business emails", "Softphone calls, transcribed by Gemini", "A bot joins meetings and writes the minutes"],
+      "flip": true,
+      "media": [
+        { "type": "image", "src": "films/buziness-os/media/sourcing.jpg", "frame": "browser", "url": "buziness365.up.railway.app/sourcing" },
+        { "type": "image", "src": "films/buziness-os/media/contact.jpg", "frame": "browser", "url": "buziness365.up.railway.app/contact-center" }
+      ],
+      "vo": [
+        { "id": "agents1", "text": "The sourcing agent gathers evidence and verifies a prospect's business email, and shows its trace so you can see how it got there." },
+        { "id": "agents2", "text": "Calls run through a softphone and are transcribed with Gemini, and a meeting bot joins your calls and writes the minutes when they end." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Plans and credits",
+      "headline": "Every AI action is [priced, metered and refunded] on failure.",
+      "bullets": ["Six plans, per-workspace module grants", "Credits debited atomically, never negative", "Workspace admin and a platform console"],
+      "media": [
+        { "type": "image", "src": "films/buziness-os/media/admin.jpg", "frame": "browser", "url": "buziness365.up.railway.app/admin" },
+        { "type": "cards", "title": "api({ access, module, bill })", "items": [
+          { "icon": "shield-check", "title": "Blocks cross-site writes", "sub": "then resolves session and workspace" },
+          { "icon": "layers", "title": "Checks plan and module", "sub": "kill switch → override → plan → admin" },
+          { "icon": "users", "title": "Checks the role", "sub": "member, write, org admin, super admin" },
+          { "icon": "timer", "title": "Rate-limits the workspace", "sub": "per minute" },
+          { "icon": "wallet", "title": "Takes the credits up front", "sub": "refunded if the handler fails" }
+        ] }
+      ],
+      "vo": [
+        { "id": "credits1", "text": "Every paid action has a price in credits. A single conditional update debits the balance, so it can never go negative, and failed actions are refunded." },
+        { "id": "credits2", "text": "And every API route goes through one guard that checks the workspace, the module, the role and the rate limit before anything runs." }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "One Next.js app. [Every request guarded.]",
+      "packet": "dispatch meeting bot",
+      "nodes": [
+        { "icon": "monitor", "title": "Next.js 15 app", "sub": "Marketing site, workspace and consoles" },
+        { "icon": "shield-check", "title": "api() guard", "sub": "Tenant, module, role, rate limit, credits" },
+        { "icon": "database", "title": "Neon Postgres", "sub": "Least-privilege app role; workspaces, ledger, calls" },
+        { "icon": "bot", "title": "AI services", "sub": "Gemini, Meeting BaaS, TeleCMI" }
+      ],
+      "stats": [
+        { "big": "6", "small": "plans with per-workspace grants" },
+        { "big": "12", "small": "workspace modules" },
+        { "big": "6/6", "small": "security findings fixed" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "It's one Next.js app on Railway, with Neon Postgres behind it, and Gemini, Meeting BaaS and TeleCMI doing the AI and telephony work." },
+        { "id": "flow2", "text": "Requests pass the guard first, so a workspace only ever sees its own data." },
+        { "id": "flow3", "text": "An independent security review raised six findings, and all six are fixed." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "One workspace. [Every revenue channel.]",
+      "stack": [
+        { "icon": "monitor", "title": "Next.js 15", "sub": "React 19 · Tailwind 4" },
+        { "icon": "database", "title": "Neon Postgres", "sub": "least-privilege app role" },
+        { "icon": "sparkles", "title": "Gemini", "sub": "minutes, transcripts, suggestions" },
+        { "icon": "phone-call", "title": "TeleCMI + Meeting BaaS", "sub": "calls and meeting bots" }
+      ],
+      "shot": "films/buziness-os/media/hero.jpg",
+      "vo": [
+        { "id": "outro1", "text": "One workspace, for every revenue channel." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Buziness OS · system architecture",
+    "headline": "Every request goes through [one guard.]",
+    "columns": [
+      { "label": "clients", "boxes": [
+        { "id": "site", "icon": "globe", "title": "Marketing site", "sub": "public pages, SEO, legal" },
+        { "id": "ws", "icon": "layout-dashboard", "title": "Workspace", "sub": "leads, sourcing, calls, meetings, ads", "tone": "accent" },
+        { "id": "consoles", "icon": "settings", "title": "Admin consoles", "sub": "/admin per workspace · /platform for the team" }
+      ] },
+      { "label": "Next.js API routes", "boxes": [
+        { "id": "guard", "icon": "shield-check", "title": "api() guard", "lines": ["CSRF on writes", "session → workspace", "plan / module / role", "rate limit per minute", "credits up front, refund on fail", "usage + audit log"], "tone": "dark" }
+      ] },
+      { "label": "data", "boxes": [
+        { "id": "db", "icon": "database", "title": "Neon Postgres", "sub": "workspaces, credit ledger, calls, meetings, pipeline — app role can't run migrations" }
+      ] },
+      { "label": "services", "boxes": [
+        { "id": "gemini", "icon": "sparkles", "title": "Gemini", "sub": "minutes, call summaries, ad suggestions" },
+        { "id": "mbaas", "icon": "video", "title": "Meeting BaaS", "sub": "bots join calls; transcripts via webhook" },
+        { "id": "tele", "icon": "phone-call", "title": "TeleCMI", "sub": "softphone + recordings" },
+        { "id": "ef", "icon": "mail-check", "title": "Email finder", "sub": "evidence-based email lookup" }
+      ] }
+    ],
+    "edges": [
+      { "from": "ws", "to": "guard" },
+      { "from": "consoles", "to": "guard" },
+      { "from": "guard", "to": "db", "label": "scoped to workspace" },
+      { "from": "guard", "to": "gemini" },
+      { "from": "guard", "to": "mbaas", "label": "dispatch" },
+      { "from": "mbaas", "to": "db", "label": "webhook", "dashed": true }
+    ],
+    "footer": [
+      { "icon": "wallet", "text": "Debit: UPDATE … WHERE balance ≥ cost" },
+      { "icon": "layers", "text": "Kill switch → override → plan → admin" },
+      { "icon": "users", "text": "One-click sample-data demo" },
+      { "icon": "rocket", "text": "Deployed on Railway" }
+    ]
+  }
+}

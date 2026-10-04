@@ -1,0 +1,54 @@
+{
+  "overrides": {
+    "category": "Marketplace Web App",
+    "role": "Full-Stack Developer",
+    "tagline": "A second-hand car marketplace on React and Firebase",
+    "summary": "A web app for buying and selling second-hand cars — React and Tailwind CSS on Firebase, with real-time listings in Cloud Firestore and email or Google sign-in.",
+    "tech": [
+      "React",
+      "Tailwind CSS",
+      "Cloud Firestore",
+      "Firebase Auth",
+      "Firebase Hosting"
+    ],
+    "description": [
+      "Buying or selling a used car usually means chasing listings across classifieds, phone calls and messages. Carspace collects them in one marketplace.",
+      "Built with React and Tailwind CSS on Firebase: listings live in Cloud Firestore and update in real time, and users sign in with email or Google through Firebase Authentication. It's hosted on Firebase."
+    ],
+    "features": [
+      {
+        "title": "New and used",
+        "desc": "Separate tabs for new and pre-owned cars."
+      },
+      {
+        "title": "Search and budget filter",
+        "desc": "Search by car name and set a price range with a slider."
+      },
+      {
+        "title": "Real-time listings",
+        "desc": "Cloud Firestore pushes listing changes to every open browser."
+      },
+      {
+        "title": "Accounts",
+        "desc": "Email or Google sign-in with Firebase Authentication."
+      }
+    ],
+    "metrics": [],
+    "highlights": []
+  },
+  "challenge": [
+    "Second-hand car listings are scattered across classifieds and word of mouth, and buyers can't easily filter what fits their budget.",
+    "The goal was a simple marketplace where listings stay current without anyone refreshing, on infrastructure a solo developer could run."
+  ],
+  "screens": [
+    {
+      "src": "media/home.jpg",
+      "caption": "The home page: new / used tabs, search by name and a price-range filter."
+    },
+    {
+      "src": "media/login.jpg",
+      "caption": "Sign-in with email or Google through Firebase Authentication."
+    }
+  ],
+  "useFilmStills": false
+}

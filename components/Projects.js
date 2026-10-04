@@ -113,6 +113,11 @@ function ProjectCard({ project }) {
             {project.status}
           </span>
         )}
+        {project.film && (
+          <span className="shop-card__film" title="Narrated product film on the case study">
+            <span aria-hidden="true">▶</span> Film
+          </span>
+        )}
       </Link>
 
       <div className="shop-card__body">

@@ -1,0 +1,325 @@
+{
+  "slug": "slate",
+  "title": "Slate",
+  "accent": "#475569",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Nobody logs their day, because [logging is a chore.]",
+      "strike": [
+        "Pick a category",
+        "Fill in a form",
+        "Remember the date"
+      ],
+      "punch": "Slate makes it [one button.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "Everyone means to log their day, and nobody does, because every app wants a form, a category and a date."
+        },
+        {
+          "id": "hook2",
+          "text": "Slate makes it one button."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Slate",
+      "tagline": "Say what you did. It files itself.",
+      "badge": "Own product · prototype",
+      "media": {
+        "type": "stage",
+        "slug": "slate"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "Hold the button, talk for as long as you like, and let go. Everything after that happens in the background."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "One ramble in",
+      "headline": "Separate activities, [on the right day.]",
+      "bullets": [
+        "Splits a ramble into activities",
+        "Works out which day each belongs to",
+        "Closes todos you'd already written down"
+      ],
+      "media": {
+        "type": "cards",
+        "title": "“went to the gym at 7, paid 240 for lunch, and finally sent the invoice”",
+        "items": [
+          {
+            "icon": "activity",
+            "title": "Gym",
+            "sub": "Today · 7:00 AM",
+            "tag": "activity"
+          },
+          {
+            "icon": "wallet",
+            "title": "₹240 · Lunch",
+            "sub": "Spend · Food",
+            "tag": "spend"
+          },
+          {
+            "icon": "check",
+            "title": "Send invoice",
+            "sub": "Existing todo closed",
+            "tag": "todo ✓"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "split1",
+          "text": "One recording becomes separate activities, each placed on the right day. Amounts you mention land in a spending log, and todos you'd already written down get ticked off."
+        },
+        {
+          "id": "split2",
+          "text": "You're only asked a question when getting it wrong would corrupt the log."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "The cheapest tier that works",
+      "headline": "One call, not [an agent loop.]",
+      "bullets": [
+        "A multi-turn tool loop: 49,054 tokens, 17 seconds",
+        "One structured call: about 1,000 tokens, 1 second",
+        "A repeat phrase: 0 tokens, from the cache"
+      ],
+      "flip": true,
+      "media": {
+        "type": "cards",
+        "title": "Measured on the same 95-word capture",
+        "items": [
+          {
+            "icon": "repeat",
+            "title": "Multi-turn tool loop",
+            "sub": "14 calls · ~17s · 11/12 activities",
+            "tag": "49,054 tok"
+          },
+          {
+            "icon": "zap",
+            "title": "One structured call",
+            "sub": "~1s · 12/12 activities",
+            "tag": "~1,000 tok"
+          },
+          {
+            "icon": "layers",
+            "title": "Fully cached repeat",
+            "sub": "~1 ms · learned patterns",
+            "tag": "0 tok"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "tier1",
+          "text": "The first version used an agent loop. It took fourteen calls, seventeen seconds and forty-nine thousand tokens, and still missed an activity."
+        },
+        {
+          "id": "tier2",
+          "text": "One structured call does it in a second for about a thousand tokens. And every phrase it learns goes into a personal cache, so saying it again costs nothing."
+        }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "Speech in, [a clean log out.]",
+      "packet": "hold-to-talk",
+      "nodes": [
+        {
+          "icon": "mic",
+          "title": "Capture",
+          "sub": "Web Speech or Groq Whisper"
+        },
+        {
+          "icon": "shield-check",
+          "title": "Hallucination guard",
+          "sub": "Drop text Whisper invents on silence"
+        },
+        {
+          "icon": "layers",
+          "title": "Pattern cache",
+          "sub": "Clauses with {n} slots, learned"
+        },
+        {
+          "icon": "brain",
+          "title": "gpt-oss-120b",
+          "sub": "One structured call on Groq"
+        }
+      ],
+      "stats": [
+        {
+          "big": "0",
+          "small": "tokens for a cached repeat"
+        },
+        {
+          "big": "₹0",
+          "small": "model cost on free tiers"
+        },
+        {
+          "big": "8",
+          "small": "rotating Groq keys"
+        }
+      ],
+      "vo": [
+        {
+          "id": "flow1",
+          "text": "Speech goes through Whisper with a guard against the text it invents on silence, because logging a hallucination is worse than logging nothing."
+        },
+        {
+          "id": "flow2",
+          "text": "Everything runs on Groq's free tier, across a pool of rotating keys with cooldowns and live usage tracking."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Say what you did. [It files itself.]",
+      "stack": [
+        {
+          "icon": "monitor",
+          "title": "Next.js",
+          "sub": "phone-first web app"
+        },
+        {
+          "icon": "mic",
+          "title": "Whisper",
+          "sub": "large-v3-turbo on Groq"
+        },
+        {
+          "icon": "brain",
+          "title": "gpt-oss-120b",
+          "sub": "structured extraction"
+        },
+        {
+          "icon": "smartphone",
+          "title": "Expo",
+          "sub": "native app in progress"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "Say what you did. It files itself."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Slate · system architecture",
+    "headline": "Work happens at [the cheapest tier] that's correct.",
+    "columns": [
+      {
+        "label": "phone browser",
+        "boxes": [
+          {
+            "id": "cap",
+            "icon": "mic",
+            "title": "Hold to talk",
+            "sub": "Web Speech, or audio to Whisper; self-signed HTTPS so the mic works on LAN",
+            "tone": "accent"
+          }
+        ]
+      },
+      {
+        "label": "agent/run.ts",
+        "boxes": [
+          {
+            "id": "t0",
+            "icon": "layers",
+            "title": "Tier 0 · pattern cache",
+            "sub": "every clause known → 0 tokens, ~1 ms"
+          },
+          {
+            "id": "t3",
+            "icon": "brain",
+            "title": "Tier 1 / 3 · one structured call",
+            "sub": "only the unknown clauses go to gpt-oss-120b"
+          },
+          {
+            "id": "tf",
+            "icon": "cog",
+            "title": "Tier F · deterministic",
+            "sub": "model unavailable → rules-based extractor",
+            "tone": "ghost"
+          }
+        ]
+      },
+      {
+        "label": "always in code",
+        "boxes": [
+          {
+            "id": "code",
+            "icon": "shield-check",
+            "title": "Validation",
+            "lines": [
+              "dedupe",
+              "date resolution",
+              "confidence gate",
+              "close matching todos",
+              "spend extraction"
+            ],
+            "tone": "dark"
+          },
+          {
+            "id": "pool",
+            "icon": "key",
+            "title": "Groq key pool",
+            "sub": "8 keys, cooldowns, disable on 401"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "cap",
+        "to": "t0"
+      },
+      {
+        "from": "t0",
+        "to": "t3",
+        "label": "cache miss"
+      },
+      {
+        "from": "t3",
+        "to": "code"
+      },
+      {
+        "from": "t3",
+        "to": "pool",
+        "dashed": true,
+        "label": "keys"
+      }
+    ],
+    "footer": [
+      {
+        "icon": "zap",
+        "text": "1 call ≈ 1,000 tokens, ~1 s"
+      },
+      {
+        "icon": "layers",
+        "text": "Cached repeats cost 0 tokens"
+      },
+      {
+        "icon": "shield-check",
+        "text": "Whisper hallucination guard"
+      },
+      {
+        "icon": "wallet",
+        "text": "Runs on free tiers"
+      }
+    ]
+  }
+}

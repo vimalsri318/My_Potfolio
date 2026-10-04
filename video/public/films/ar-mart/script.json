@@ -1,0 +1,100 @@
+{
+  "slug": "ar-mart",
+  "title": "AR Mart",
+  "accent": "#7C3AED",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Will it fit? [Will it look right?]",
+      "punch": "AR Mart lets you [see it in your room first.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "Buying furniture or shoes online leaves two questions: will it fit, and will it look right?"
+        },
+        {
+          "id": "hook2",
+          "text": "AR Mart lets you see products in 3D before you buy."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "AR Mart",
+      "tagline": "An augmented reality shopping platform.",
+      "badge": "2023 · React + AR.js",
+      "media": {
+        "type": "image",
+        "src": "films/ar-mart/media/concept.jpg",
+        "frame": "plain",
+        "fit": "contain",
+        "bg": "#0c0c11"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "It's an augmented reality shopping platform, built with React and AR.js."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "See it before you buy",
+      "headline": "Products in 3D, [in your space.]",
+      "bullets": [
+        "View products in 3D",
+        "Augmented reality in the browser with AR.js",
+        "A React shopping front end"
+      ],
+      "media": {
+        "type": "image",
+        "src": "films/ar-mart/media/concept.jpg",
+        "frame": "plain",
+        "fit": "contain",
+        "bg": "#0c0c11"
+      },
+      "vo": [
+        {
+          "id": "ar1",
+          "text": "Shoppers look at products in 3D, placed in their own surroundings through augmented reality in the browser."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "See it in 3D. [Then buy it.]",
+      "stack": [
+        {
+          "icon": "monitor",
+          "title": "React",
+          "sub": "shopping front end"
+        },
+        {
+          "icon": "glasses",
+          "title": "AR.js",
+          "sub": "augmented reality"
+        },
+        {
+          "icon": "box",
+          "title": "3D products",
+          "sub": "preview"
+        },
+        {
+          "icon": "shopping-cart",
+          "title": "Commerce",
+          "sub": "buy with confidence"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "See it in 3D. Then buy it."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ]
+}

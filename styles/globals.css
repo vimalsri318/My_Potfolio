@@ -925,6 +925,27 @@ textarea {
   opacity: 1;
 }
 
+.shop-card__film {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(12, 12, 12, 0.78);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.shop-card__film span {
+  font-size: 0.6rem;
+  color: var(--card-accent, #ffffff);
+}
+
 .shop-card__status {
   position: absolute;
   top: 12px;
@@ -1064,6 +1085,12 @@ textarea {
 
   .shop-card__media {
     aspect-ratio: 4 / 3;
+  }
+
+  .shop-card__film {
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
   }
 
   .shop-card__status {

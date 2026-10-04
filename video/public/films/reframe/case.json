@@ -1,0 +1,112 @@
+{
+  "overrides": {
+    "tech": [
+      "Next.js 16",
+      "TypeScript",
+      "Groq (llama-3.3-70b)",
+      "Tailwind CSS",
+      "Apps Script",
+      "Vercel"
+    ],
+    "description": [
+      "AI summaries lose the author's voice and quietly drop detail. Reframe takes the opposite promise: it never rewrites your material, it re-architects it into callouts, definitions, comparisons and steps.",
+      "The source is parsed and split into deterministically addressed units before any model runs. The model — Groq's llama-3.3-70b behind a rotating key pool — only returns block types and unit ids; the server rehydrates every word from the original.",
+      "Without an API key it runs in a clearly flagged demo mode on deterministic heuristics, so it always works and costs nothing to try. Analytics and feedback flow to a Google Sheet through Apps Script."
+    ],
+    "features": [
+      {
+        "title": "Lossless by construction",
+        "desc": "The model has no channel to emit body text — it returns addresses — so paraphrase is structurally impossible rather than merely checked."
+      },
+      {
+        "title": "Coverage guarantee",
+        "desc": "Every source unit must be referenced exactly once. Missing or duplicated content throws and the section falls back to plain text."
+      },
+      {
+        "title": "Quoted fragments",
+        "desc": "Any number or date the model highlights must be a literal substring of its unit, or the block is demoted to prose."
+      },
+      {
+        "title": "Demo mode",
+        "desc": "Works with no key and no cost, clearly labelled in the interface."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "0",
+        "label": "Words rewritten"
+      },
+      {
+        "value": "~15",
+        "label": "Output tokens per block"
+      },
+      {
+        "value": "$0",
+        "label": "Demo mode, no key needed"
+      }
+    ],
+    "highlights": []
+  },
+  "challenge": [
+    "People read long material — papers, docs, articles — and AI summaries are the usual shortcut. But a summary paraphrases, drops detail, and can confidently state things the author never wrote.",
+    "Reframe set out to make long text easier to read without changing a single word of it: find the structure that was always implicit and make it visible."
+  ],
+  "architectureCaption": "The browser holds the library; /api/transform parses, addresses and verifies; the model only ever sees numbered units and returns ids.",
+  "steps": [
+    {
+      "title": "Parse",
+      "desc": "Markup is structure, not content — headings, lists and tables are parsed directly rather than classified by a model."
+    },
+    {
+      "title": "Address",
+      "desc": "Text is split into deterministically addressed units like p0 and l1_0."
+    },
+    {
+      "title": "Classify",
+      "desc": "The model receives numbered units and returns block types, unit ids and short scaffolding words — about 15 output tokens per block."
+    },
+    {
+      "title": "Verify",
+      "desc": "assertCoverage checks every unit is used exactly once; any highlighted value must be a quoted fragment of its unit."
+    },
+    {
+      "title": "Rehydrate",
+      "desc": "The server rebuilds every body field from the source text, and the reader renders the blocks."
+    }
+  ],
+  "sceneCaptions": [
+    "Source text re-architected into a callout, a definition and a comparison.",
+    "What the model actually returns: block types and unit ids, never text.",
+    "Under the hood: parse, address, classify, verify."
+  ],
+  "screens": [
+    {
+      "src": "media/home.jpg",
+      "caption": "Reframe's paste-in screen (running locally in demo mode).",
+      "first": true
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Addresses, not text",
+      "desc": "Once the model can only return ids, verbatim stops being something to check and becomes a property of the architecture — and output cost drops sharply."
+    },
+    {
+      "title": "A verifier that can't fail isn't one",
+      "desc": "An early fidelity check reported 100% verbatim while the model rewrote sentences in an unchecked field. Every guarantee now has a test that fails before its fix."
+    },
+    {
+      "title": "Plain-but-complete beats polished-but-lossy",
+      "desc": "Any coverage or fragment violation demotes the block to prose instead of dropping or inventing content."
+    },
+    {
+      "title": "Write the divergence down",
+      "desc": "An ADR described a pipeline that no longer existed. Recording what actually runs — and when it changed — is now part of the process."
+    }
+  ],
+  "roadmap": [
+    "PDF and link ingestion polish for the students-first wedge.",
+    "Cross-device sync once the validation metric gates pass (v0 is localStorage-only).",
+    "Replace Sheets analytics with a real store after the gates pass."
+  ]
+}

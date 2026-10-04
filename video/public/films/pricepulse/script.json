@@ -1,0 +1,100 @@
+{
+  "slug": "pricepulse",
+  "title": "PricePulse",
+  "accent": "#0284C7",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "The same product. [Five different prices.]",
+      "punch": "PricePulse [compares them for you.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "The same product can have a different price on every store, and checking them all by hand takes forever."
+        },
+        {
+          "id": "hook2",
+          "text": "PricePulse compares them for you."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "PricePulse",
+      "tagline": "A price comparison website across e-commerce platforms.",
+      "badge": "2024 · React + Tailwind",
+      "media": {
+        "type": "image",
+        "src": "films/pricepulse/media/concept.jpg",
+        "frame": "plain",
+        "fit": "contain",
+        "bg": "#0c1022"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "It aggregates product data from multiple e-commerce platforms into one comparison, built with React and Tailwind."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Compare",
+      "headline": "Every store, [side by side.]",
+      "bullets": [
+        "Prices gathered from several stores",
+        "One comparison view per product",
+        "A clean React and Tailwind interface"
+      ],
+      "media": {
+        "type": "image",
+        "src": "films/pricepulse/media/concept.jpg",
+        "frame": "plain",
+        "fit": "contain",
+        "bg": "#0c1022"
+      },
+      "vo": [
+        {
+          "id": "cmp1",
+          "text": "Prices from several stores land in one comparison view, so the best deal is obvious at a glance."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "One product. [Every price.] One place.",
+      "stack": [
+        {
+          "icon": "monitor",
+          "title": "React",
+          "sub": "front end"
+        },
+        {
+          "icon": "palette",
+          "title": "Tailwind CSS",
+          "sub": "UI"
+        },
+        {
+          "icon": "search",
+          "title": "Aggregation",
+          "sub": "multiple stores"
+        },
+        {
+          "icon": "tag",
+          "title": "Comparison",
+          "sub": "best price at a glance"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "One product. Every price. One place."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ]
+}

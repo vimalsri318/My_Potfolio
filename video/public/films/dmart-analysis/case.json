@@ -1,0 +1,40 @@
+{
+  "overrides": {
+    "link": "",
+    "summary": "A retail sales analysis case study of D-Mart data — cleaned and aggregated with Python (Pandas, NumPy) and explored through an interactive dashboard of categories and margins.",
+    "metrics": [],
+    "highlights": [],
+    "description": [
+      "Supermarket chains generate large volumes of point-of-sale data, but store and category managers need a few clear answers: what sells, where margins sit and how categories trend.",
+      "This case study cleans and aggregates D-Mart sales data with Python (Pandas and NumPy) and presents it in an interactive React dashboard for exploring categories and margins."
+    ],
+    "features": [
+      {
+        "title": "Python data pipeline",
+        "desc": "Pandas and NumPy to clean, normalise and aggregate the raw sales records."
+      },
+      {
+        "title": "Category drill-downs",
+        "desc": "Explore sales by department and product category."
+      },
+      {
+        "title": "Margin views",
+        "desc": "Compare categories by margin to see where profit actually comes from."
+      },
+      {
+        "title": "Interactive dashboard",
+        "desc": "A React front end for exploring the results."
+      }
+    ]
+  },
+  "challenge": [
+    "Retail chains produce huge volumes of point-of-sale data, while managers need a handful of clear answers about categories, margins and trends."
+  ],
+  "screens": [
+    {
+      "src": "media/cover.jpg",
+      "caption": "D-Mart Analysis case study cover."
+    }
+  ],
+  "useFilmStills": false
+}

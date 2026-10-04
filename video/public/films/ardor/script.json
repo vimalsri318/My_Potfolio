@@ -1,0 +1,344 @@
+{
+  "slug": "ardor",
+  "title": "Ardor",
+  "accent": "#9333EA",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "To-do apps remember the plan. [Nobody checks you did it.]",
+      "strike": [
+        "A reminder you swipe away",
+        "A list that only grows"
+      ],
+      "punch": "Ardor [follows up.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "To-do apps remember what you planned. You swipe the reminder away, and nobody checks whether you did it."
+        },
+        {
+          "id": "hook2",
+          "text": "Ardor follows up until it's done."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Ardor",
+      "tagline": "An accountability app with a companion that checks in, follows up and grows with you.",
+      "badge": "Own product · in development",
+      "media": {
+        "type": "stage",
+        "slug": "ardor"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "It's a React Native app with a companion that checks in, nudges and celebrates, until the task is actually done."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "It reads the moment",
+      "headline": "Six states, [six different nudges.]",
+      "bullets": [
+        "Intention, drift, avoidance, overwhelm, guilt spiral, flow",
+        "Overwhelm gets a smaller first step, not a louder alarm",
+        "Ignored twice? A full-screen check-in"
+      ],
+      "media": {
+        "type": "chat",
+        "title": "Ardy",
+        "sub": "your companion",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Morning! Today's focus: send the client deck. Still the plan?",
+            "tag": "check-in"
+          },
+          {
+            "from": "me",
+            "text": "ugh, later"
+          },
+          {
+            "from": "them",
+            "text": "Fair. What if we just open the file? Two minutes.",
+            "tag": "overwhelm → smaller step"
+          },
+          {
+            "from": "me",
+            "text": "ok opened it"
+          },
+          {
+            "from": "them",
+            "text": "That's the hard part done. 🔥 Streak: 6 days",
+            "tag": "completion"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "state1",
+          "text": "The engine reads which state you're in: intention, drift, avoidance, overwhelm, a guilt spiral, or flow. And it nudges differently for each."
+        },
+        {
+          "id": "state2",
+          "text": "Overwhelm gets a smaller first step instead of a louder alarm. Ignore it twice, and you get a full-screen check-in with no dismiss button."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "The engine",
+      "headline": "Behavioural science, [in pure TypeScript.]",
+      "bullets": [
+        "Priority from hyperbolic discounting",
+        "Nudge timing from adapted spaced repetition",
+        "Rotating tone and channel against habituation"
+      ],
+      "flip": true,
+      "media": {
+        "type": "cards",
+        "title": "scheduler.ts — one pass",
+        "items": [
+          {
+            "icon": "activity",
+            "title": "State detector",
+            "sub": "6 emotional states, first match wins",
+            "tag": "1"
+          },
+          {
+            "icon": "trending-up",
+            "title": "Priority queue",
+            "sub": "hyperbolic discounting + procrastination equation",
+            "tag": "2"
+          },
+          {
+            "icon": "timer",
+            "title": "Nudge timer",
+            "sub": "SM-2 adapted: ease rises with fast completion",
+            "tag": "3"
+          },
+          {
+            "icon": "repeat",
+            "title": "Novelty engine",
+            "sub": "rotates tone, channel and message",
+            "tag": "4"
+          },
+          {
+            "icon": "badge-check",
+            "title": "Completion verifier",
+            "sub": "flags mass-completes and too-fast ticks",
+            "tag": "5"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "engine1",
+          "text": "Underneath is a pure TypeScript engine. Urgency comes from hyperbolic discounting, timing from spaced repetition adapted for procrastination, and a novelty engine rotates the tone so nudges never become wallpaper."
+        },
+        {
+          "id": "engine2",
+          "text": "It even checks completions, so ticking off five tasks in a minute doesn't earn the same reward as doing them."
+        }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "One engine, [over a thousand tests.]",
+      "packet": "nudge",
+      "nodes": [
+        {
+          "icon": "smartphone",
+          "title": "Expo SDK 56",
+          "sub": "React Native 0.85, strict TypeScript"
+        },
+        {
+          "icon": "cpu",
+          "title": "Pure TS engine",
+          "sub": "No platform imports, no side effects"
+        },
+        {
+          "icon": "bell",
+          "title": "Notification bridge",
+          "sub": "Isolated behind its own service"
+        },
+        {
+          "icon": "rocket",
+          "title": "CI + EAS Build",
+          "sub": "Typecheck and tests on every push"
+        }
+      ],
+      "stats": [
+        {
+          "big": "1,049+",
+          "small": "engine tests"
+        },
+        {
+          "big": "6",
+          "small": "emotional states"
+        },
+        {
+          "big": "4",
+          "small": "target platforms, one engine"
+        }
+      ],
+      "vo": [
+        {
+          "id": "flow1",
+          "text": "The engine has no platform imports at all, so the same logic can serve Android, iOS, web and desktop, and it's covered by more than a thousand tests."
+        },
+        {
+          "id": "flow2",
+          "text": "GitHub Actions typechecks and tests every push, and EAS builds the app from main."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Reminders forget. [Ardy follows up.]",
+      "stack": [
+        {
+          "icon": "smartphone",
+          "title": "Expo + React Native",
+          "sub": "SDK 56"
+        },
+        {
+          "icon": "cpu",
+          "title": "TypeScript engine",
+          "sub": "pure, 1,049+ tests"
+        },
+        {
+          "icon": "bell",
+          "title": "Notifications",
+          "sub": "two escalation levels"
+        },
+        {
+          "icon": "rocket",
+          "title": "EAS + Actions",
+          "sub": "CI/CD"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "Reminders forget. Ardy follows up."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Ardor · system architecture",
+    "headline": "The app is a shell; [the engine decides.]",
+    "columns": [
+      {
+        "label": "Expo app",
+        "boxes": [
+          {
+            "id": "ui",
+            "icon": "smartphone",
+            "title": "Screens",
+            "sub": "home, tasks, stats, onboarding quiz, celebration",
+            "tone": "accent"
+          },
+          {
+            "id": "alarm",
+            "icon": "bell",
+            "title": "Level 1 banner · Level 2 alarm",
+            "sub": "full-screen, no dismiss after 2 ignores"
+          }
+        ]
+      },
+      {
+        "label": "pure TypeScript engine",
+        "boxes": [
+          {
+            "id": "eng",
+            "icon": "cpu",
+            "title": "scheduler.ts",
+            "lines": [
+              "state detector",
+              "priority queue",
+              "nudge timer (SM-2)",
+              "novelty engine",
+              "feedback loop",
+              "completion verifier",
+              "streak + progression"
+            ],
+            "tone": "dark"
+          }
+        ]
+      },
+      {
+        "label": "platform services",
+        "boxes": [
+          {
+            "id": "notif",
+            "icon": "bell",
+            "title": "Notification bridge",
+            "sub": "isolated service layer"
+          },
+          {
+            "id": "store",
+            "icon": "database",
+            "title": "Local store",
+            "sub": "tasks, nudge log, streaks"
+          },
+          {
+            "id": "ci",
+            "icon": "rocket",
+            "title": "CI / EAS Build",
+            "sub": "typecheck + 1,049 tests per push"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "ui",
+        "to": "eng",
+        "label": "task events"
+      },
+      {
+        "from": "eng",
+        "to": "notif",
+        "label": "ScheduledNudge[]"
+      },
+      {
+        "from": "eng",
+        "to": "store"
+      },
+      {
+        "from": "notif",
+        "to": "alarm",
+        "dashed": true,
+        "label": "escalate"
+      }
+    ],
+    "footer": [
+      {
+        "icon": "check",
+        "text": "1,049+ engine tests"
+      },
+      {
+        "icon": "layers",
+        "text": "No platform imports in the engine"
+      },
+      {
+        "icon": "activity",
+        "text": "6 emotional states"
+      },
+      {
+        "icon": "file-text",
+        "text": "ADRs + product brain"
+      }
+    ]
+  }
+}

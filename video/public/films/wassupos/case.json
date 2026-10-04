@@ -1,0 +1,114 @@
+{
+  "challenge": [
+    "Indian small businesses sell on WhatsApp, but their leads, broadcasts and follow-ups live in notebooks or a CRM nobody opens, and messages that arrive after hours go unanswered.",
+    "The client wanted a SaaS they could sell to many companies: one deployment, each company getting only the modules it pays for, with an AI that answers customers without ever making things up."
+  ],
+  "architectureCaption": "The Next.js app is the multi-tenant core. The voice agent is a separate Python service that WhatsApp calls reach directly over WebRTC.",
+  "steps": [
+    {
+      "title": "Onboard a company",
+      "desc": "The platform admin creates a tenant, enables modules and adds integration credentials to an encrypted vault."
+    },
+    {
+      "title": "Build its knowledge",
+      "desc": "The company's website and PDFs become knowledge chunks — text layers read directly, a model only for image-only scans."
+    },
+    {
+      "title": "Answer on WhatsApp",
+      "desc": "A Cloud API webhook loads the tenant's knowledge and the conversation, and the AI replies under a knowledge-base-only rule."
+    },
+    {
+      "title": "Work the lead",
+      "desc": "Conversations land in a live inbox; leads are scored HOT, WARM or SCRAP and can sync to Google Sheets."
+    },
+    {
+      "title": "Pick up the call",
+      "desc": "WhatsApp calls go to a separate Python voice agent: speech-to-text, LLM and text-to-speech over a direct WebRTC session."
+    }
+  ],
+  "sceneCaptions": [
+    "The AI assistant answering from the knowledge base — and checking with the team when it can't (example conversation).",
+    "The company workspace's modules.",
+    "The voice agent's preflight checks.",
+    "What a voice call actually costs, by stage."
+  ],
+  "screens": [],
+  "decisions": [
+    {
+      "title": "The knowledge base is the only truth",
+      "desc": "Without it, the model told a paying-guest rooms business's customer it was a scrap trading company. The prompt now forbids any fact the knowledge base doesn't contain."
+    },
+    {
+      "title": "Don't use a model where a parser will do",
+      "desc": "PDF ingestion went through an LLM and timed out (504) on 23-page uploads. Reading the embedded text layer is instant, free and complete; the model is only for scans."
+    },
+    {
+      "title": "Guards on the server, not the menu",
+      "desc": "Module switches are checked in every API route; the UI hides disabled features, but the backend is what refuses them."
+    },
+    {
+      "title": "Cost it before you scale it",
+      "desc": "A per-stage voice cost model showed TTS is 86% of an English call and Tamil doubles LLM tokens — so reply length is a cost lever."
+    }
+  ],
+  "roadmap": [
+    "Connect the voice agent's call outcomes to the CRM's leads.",
+    "Resolve the billing question that decides whether Tamil calls cost 1.2× or 1.6× English.",
+    "Billing integration in the platform admin."
+  ],
+  "overrides": {
+    "summary": "A multi-tenant WhatsApp CRM: each company gets an inbox, scored leads, broadcasts, campaigns and orders, an AI sales assistant that answers on WhatsApp strictly from the company's own knowledge base, and a Python voice agent for WhatsApp calls.",
+    "tagline": "A WhatsApp CRM with an AI on the front line",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "WhatsApp Cloud API",
+      "AWS Lambda",
+      "Python (Pipecat)"
+    ],
+    "description": [
+      "Businesses in India sell on WhatsApp, but their leads and follow-ups live somewhere else. WassupOS brings the CRM into WhatsApp: a live inbox, leads scored hot, warm or scrap, broadcasts and templates, campaigns and orders — one workspace per company.",
+      "Incoming messages are answered by an AI sales assistant through the WhatsApp Cloud API. It answers only from the company's knowledge base, built from its website and PDFs, and says it will check with the team when the knowledge base doesn't cover a question.",
+      "A platform admin onboards companies, switches modules on per tenant (enforced on every API route), and stores integration credentials in an AES-256-GCM vault. A separate Python voice agent answers WhatsApp calls, costed per call before scaling."
+    ],
+    "features": [
+      {
+        "title": "Grounded AI replies",
+        "desc": "The assistant's only source of truth is the tenant's knowledge base — no invented prices, products or industries."
+      },
+      {
+        "title": "Knowledge from websites and PDFs",
+        "desc": "Websites are fetched and stripped; PDFs are read from their text layer, with a model only for image-only scans."
+      },
+      {
+        "title": "Company workspace",
+        "desc": "Inbox, leads with temperature, contacts, broadcasts, templates, campaigns and orders, with realtime updates."
+      },
+      {
+        "title": "Per-tenant modules",
+        "desc": "The platform admin enables modules per company; backend guards enforce them on every route."
+      },
+      {
+        "title": "Voice agent",
+        "desc": "A Pipecat pipeline answers WhatsApp calls over WebRTC, in English and Tamil."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "₹2.31",
+        "label": "Per English voice call, costed"
+      },
+      {
+        "value": "KB-only",
+        "label": "AI answers"
+      },
+      {
+        "value": "Per tenant",
+        "label": "Modules, guarded server-side"
+      }
+    ],
+    "highlights": []
+  }
+}

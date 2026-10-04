@@ -1,0 +1,37 @@
+{
+  "overrides": { "badge": "Internal platform • Tecstellar • sample data" },
+  "challenge": [
+    "Tecstellar runs several consumer apps — RealBroks and IronDrobe live, Influnet and Vehigo on the way. Users, payments, tickets and follow-ups lived in separate dashboards, one per app, and the calling team worked from spreadsheets.",
+    "They needed one console where agents call the right customers, supervisors see who's falling behind and owners see the whole portfolio — without waiting for every app's database to be wired in first."
+  ],
+  "architectureCaption": "One React SPA with three role-based consoles. A store provider picks Firestore or localStorage; TeleCMI dials only in an explicitly allowed mode.",
+  "steps": [
+    { "title": "Sign in by role", "desc": "Agents land on today's queue, supervisors on their team, admins on the overview. Per-app permissions decide who can call, see recordings, payments or export." },
+    { "title": "Work the queue", "desc": "A customer card shows why they're in the queue; the outcome form takes 1–5 for status, Q–I for outcome, Enter to save, S to skip and T to raise a ticket." },
+    { "title": "Call without losing context", "desc": "The softphone is mounted for the whole session, so a call keeps going while the agent opens history; an ended call waits in the header until it's logged." },
+    { "title": "Escalate and allocate", "desc": "Mid-call reroutes and escalations land in a live supervisor inbox, and the allocation view shows which languages and states nobody can reach." },
+    { "title": "Audit everything", "desc": "Every sign-in, access change, approval, payment and export is written to a change log with exactly what changed." }
+  ],
+  "sceneCaptions": [
+    "An agent's Today view: calls, follow-ups due and queues per app.",
+    "Agents pick which app's queue to work.",
+    "Supervisor view: team performance by agent.",
+    "Owner view across every app (sample data).",
+    "Under the hood: role consoles, store provider, Firestore and TeleCMI."
+  ],
+  "screens": [
+    { "src": "media/overview.jpg", "caption": "The owner overview: every app's customers, revenue, dues and calls (generated sample data).", "first": true }
+  ],
+  "decisions": [
+    { "title": "Split what TCC owns from what the apps own", "desc": "CustomerOverlay is exactly the slice TCC writes (calls, tickets, follow-ups). Customer master data stays the apps'; swapping the sample set for a real fetch touches nothing else." },
+    { "title": "Two backends, chosen automatically", "desc": "With Firebase configured, operational data syncs live across browsers; without it, everything runs in localStorage with zero setup — useful for demos and offline work." },
+    { "title": "Calling is locked until you mean it", "desc": "Sample customers have random numbers, so dialling has three modes: route every call to a test number, dial live, or stay locked with a visible banner." },
+    { "title": "Keyboard over mouse", "desc": "Agents make hundreds of calls a day. Every outcome has a shortcut, so the hands stay on the keyboard between calls." }
+  ],
+  "roadmap": [
+    "Connect customer master data to the real RealBroks and IronDrobe databases.",
+    "Move sign-in to server-side accounts (today it's a demo where only the username is checked).",
+    "Bring Influnet and Vehigo onto the console as they ship.",
+    "Enterprise TeleCMI features from the spec: recordings at scale and per-agent lines."
+  ]
+}

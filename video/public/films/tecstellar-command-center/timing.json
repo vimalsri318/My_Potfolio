@@ -1,0 +1,29 @@
+{
+  "lines": {
+    "hook1": 263,
+    "hook2": 75,
+    "intro1": 220,
+    "agent1": 139,
+    "agent2": 190,
+    "sup1": 308,
+    "owner1": 256,
+    "flow1": 346,
+    "flow2": 224,
+    "outro1": 62,
+    "outro2": 73
+  },
+  "hashes": {
+    "hook1": "bc8a5f01e157",
+    "hook2": "39347adc1e9c",
+    "intro1": "f147d0ef88d2",
+    "agent1": "da0cce89825f",
+    "agent2": "39990a4cbd22",
+    "sup1": "08725d412995",
+    "owner1": "63ff44744b66",
+    "flow1": "19daa3a96c5a",
+    "flow2": "1f7b086b828b",
+    "outro1": "8e0a6829c64e",
+    "outro2": "e5e49e99b52f"
+  },
+  "voice": "af_heart"
+}

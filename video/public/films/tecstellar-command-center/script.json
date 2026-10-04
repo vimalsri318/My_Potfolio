@@ -1,0 +1,128 @@
+{
+  "slug": "tecstellar-command-center",
+  "title": "Tecstellar Command Center",
+  "accent": "#2B8CC4",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Every app had [its own dashboard.]",
+      "strike": ["Users in one place", "Payments in another", "Follow-ups on paper"],
+      "punch": "TCC puts every app on [one screen.]",
+      "vo": [
+        { "id": "hook1", "text": "Tecstellar runs several consumer apps, and every one had its own dashboard. Users in one place, payments in another, and follow-ups nowhere at all." },
+        { "id": "hook2", "text": "The Command Center puts every app on one screen." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Tecstellar Command Center",
+      "tagline": "One console for agents, supervisors and owners, across every app.",
+      "badge": "Internal platform · sample data",
+      "media": { "type": "image", "src": "films/tecstellar-command-center/media/overview.jpg", "frame": "browser", "url": "tcc / overview" },
+      "vo": [{ "id": "intro1", "text": "It's one console in three roles. Agents work the phones, supervisors run the team, and owners see the whole portfolio." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Agents",
+      "headline": "A calling desk that [never needs the mouse.]",
+      "bullets": ["Queues per app, follow-ups due today", "1–5 for status, Q–I for outcome, Enter to save", "A softphone that stays live across pages"],
+      "media": [
+        { "type": "image", "src": "films/tecstellar-command-center/media/agent.jpg", "frame": "browser", "url": "tcc / today" },
+        { "type": "image", "src": "films/tecstellar-command-center/media/pick.jpg", "frame": "browser", "url": "tcc / pick an app" }
+      ],
+      "vo": [
+        { "id": "agent1", "text": "Agents start on today's queue, with follow-ups that are due and the numbers they're chasing." },
+        { "id": "agent2", "text": "The call panel runs on keyboard shortcuts, and the phone line stays live while they open a customer's history." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Supervisors",
+      "headline": "See the team. [Fix the gaps.]",
+      "bullets": ["Calls, connect rate and sentiment by agent", "Escalations land in a live inbox", "Allocation shows states nobody can reach"],
+      "flip": true,
+      "media": { "type": "image", "src": "films/tecstellar-command-center/media/team.jpg", "frame": "browser", "url": "tcc / team" },
+      "vo": [{ "id": "sup1", "text": "Supervisors see every agent's calls, connect rate and sentiment, take escalations from a live inbox, and spot the languages and states nobody on the team can reach." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Owners",
+      "headline": "Every app's [users, revenue and funnel], together.",
+      "bullets": ["Customers, paying users and monthly revenue", "Sign-up to paying funnel", "Service health and a map of India"],
+      "media": [
+        { "type": "image", "src": "films/tecstellar-command-center/media/owner.jpg", "frame": "browser", "url": "tcc / overview" }
+      ],
+      "vo": [{ "id": "owner1", "text": "Owners get one overview across every app: customers, revenue, dues, the funnel from sign-up to paying, and a D3 map of where users are." }]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "Live across browsers. [Safe to dial.]",
+      "packet": "call outcome",
+      "nodes": [
+        { "icon": "monitor", "title": "React + TypeScript", "sub": "Vite SPA, three role-based consoles" },
+        { "icon": "refresh-cw", "title": "Store provider", "sub": "Firestore when configured, else localStorage" },
+        { "icon": "cloud", "title": "Firestore", "sub": "Calls, tickets, escalations sync live" },
+        { "icon": "phone-call", "title": "TeleCMI", "sub": "Test number, live, or locked" }
+      ],
+      "stats": [
+        { "big": "3", "small": "role-based consoles" },
+        { "big": "3", "small": "dialling safety modes" },
+        { "big": "810", "small": "generated sample customers" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "It's a React and TypeScript app. With Firebase configured, calls, tickets and escalations sync live across every browser. Without it, the whole thing runs offline in local storage." },
+        { "id": "flow2", "text": "And because the sample customers have random phone numbers, calling has three safety modes: a test number, live, or locked." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Every app. Every call. [One console.]",
+      "stack": [
+        { "icon": "monitor", "title": "React + TypeScript", "sub": "Vite" },
+        { "icon": "cloud", "title": "Firestore", "sub": "live sync, rules" },
+        { "icon": "map-pin", "title": "D3", "sub": "geography map" },
+        { "icon": "phone-call", "title": "TeleCMI", "sub": "softphone calling" }
+      ],
+      "shot": "films/tecstellar-command-center/media/overview.jpg",
+      "vo": [
+        { "id": "outro1", "text": "Every app, every call, one console." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Tecstellar Command Center · system architecture",
+    "headline": "TCC owns the [operations]; the apps own the customers.",
+    "group": { "label": "React + TypeScript SPA (Vite)", "columns": [0] },
+    "columns": [
+      { "boxes": [
+        { "id": "agent", "icon": "headphones", "title": "Agent console", "sub": "queues, keyboard call panel, softphone", "tone": "accent" },
+        { "id": "sup", "icon": "users", "title": "Supervisor console", "sub": "team, recordings, escalations, allocation" },
+        { "id": "owner", "icon": "layout-dashboard", "title": "Owner console", "sub": "all-apps overview, funnel, D3 map" }
+      ] },
+      { "boxes": [
+        { "id": "store", "icon": "refresh-cw", "title": "Store provider", "lines": ["Firestore if VITE_FIREBASE_* set", "else localStorage (offline)", "CustomerOverlay = TCC-owned fields"], "tone": "dark" }
+      ] },
+      { "boxes": [
+        { "id": "fs", "icon": "cloud", "title": "Firestore", "sub": "logins, call logs, tickets, follow-ups, escalations — live" },
+        { "id": "master", "icon": "database", "title": "App customer data", "sub": "RealBroks, IronDrobe — sample set today, real fetch later", "tone": "ghost" },
+        { "id": "tele", "icon": "phone-call", "title": "TeleCMI", "sub": "test number · live · locked" }
+      ] }
+    ],
+    "edges": [
+      { "from": "agent", "to": "store" },
+      { "from": "sup", "to": "store" },
+      { "from": "owner", "to": "store" },
+      { "from": "store", "to": "fs", "label": "live sync" },
+      { "from": "store", "to": "master", "label": "read-only", "dashed": true },
+      { "from": "agent", "to": "tele", "label": "dial" }
+    ],
+    "footer": [
+      { "icon": "keyboard", "text": "Keyboard-first call panel" },
+      { "icon": "shield-check", "text": "Per-app permissions + change log" },
+      { "icon": "lock", "text": "Dialling locked by default" },
+      { "icon": "wifi", "text": "Works offline on localStorage" }
+    ]
+  }
+}

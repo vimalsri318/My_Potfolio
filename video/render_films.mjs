@@ -60,7 +60,10 @@ for (const slug of slugs) {
       const s = plan.scenes[i];
       const media = Array.isArray(scene.media) ? scene.media : scene.media ? [scene.media] : [null];
       // One still per media item in the scene (each shows a different screen).
-      const points = media.length > 1 ? s.beats.slice(0, media.length).map((b, k) => (k + 1 < media.length ? (b + s.beats[k + 1]) / 2 : (b + s.dur) / 2)) : [s.dur * 0.82];
+      // Media switch at each line's start (as in FeatureScene); with fewer lines than
+      // media, switches are spread evenly through the scene.
+      const at = media.map((_, k) => (k === 0 ? 8 : s.beats[k] ?? Math.round((s.dur * k) / media.length)));
+      const points = media.length > 1 ? at.map((a, k) => (a + (k + 1 < media.length ? at[k + 1] : s.dur)) / 2) : [s.dur * 0.82];
       for (const p of points) {
         n += 1;
         const file = `scene-${n}.jpg`;

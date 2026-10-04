@@ -1,0 +1,69 @@
+{
+  "overrides": {
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Groq Whisper",
+      "gpt-oss-120b",
+      "Web Speech API",
+      "Expo"
+    ]
+  },
+  "challenge": [
+    "Logging what you did is useful and tedious, so nobody keeps it up. Every tracker wants a form, a category and a date for each entry.",
+    "The bet: if logging were one gesture — hold, talk, let go — people would do it. That means turning an unstructured ramble into clean, correctly dated entries, cheaply enough to run on free model tiers."
+  ],
+  "architectureCaption": "A capture goes to the cheapest tier that can handle it correctly; validation, dates and the confidence gate always run in code.",
+  "steps": [
+    {
+      "title": "Capture",
+      "desc": "Hold to talk. The phone uses Web Speech or sends audio to Whisper; the dev server issues its own certificate so the mic works over the LAN."
+    },
+    {
+      "title": "Guard",
+      "desc": "Whisper invents text on silence — repetition loops or an echoed prompt — so decoder statistics and a prompt-echo check drop it before it becomes 'activity'."
+    },
+    {
+      "title": "Cache first",
+      "desc": "Clauses are normalised (fillers stripped, tense kept) and matched against learned patterns with {n} slots; fully known captures cost 0 tokens."
+    },
+    {
+      "title": "One structured call",
+      "desc": "Only unknown clauses go to gpt-oss-120b in a single call with low reasoning effort."
+    },
+    {
+      "title": "Validate and file",
+      "desc": "Dedup, date resolution, todo closing and the confidence gate run in code; a question is asked only when a wrong guess would corrupt the log."
+    }
+  ],
+  "sceneCaptions": [
+    "One ramble split into an activity, a spend and a closed todo.",
+    "Measured: an agent loop vs one structured call vs a cached repeat.",
+    "Under the hood: capture, guard, cache, one call."
+  ],
+  "screens": [],
+  "decisions": [
+    {
+      "title": "One call beats an agent loop",
+      "desc": "On the same 95-word capture, a 14-call tool loop spent 49,054 tokens in ~17 s and missed an activity; one structured call covered all 12 in ~1 s for ~1,000 tokens. Bounded extraction has nothing to explore."
+    },
+    {
+      "title": "The cache is the moat",
+      "desc": "Every resolved clause is learned, keyed by a signature with numbers as slots — so repeats are free and the cache becomes personal, which competitors can't copy."
+    },
+    {
+      "title": "Conservative caching",
+      "desc": "A wrong cached entry is silent and repeats, so todos, dated clauses, low-confidence items and clauses that lean on a neighbour are never cached."
+    },
+    {
+      "title": "Nothing logged that wasn't said",
+      "desc": "Logging a Whisper hallucination is worse than logging nothing, so transcripts are gated on the decoder's own statistics before anything is filed."
+    }
+  ],
+  "roadmap": [
+    "Test Whisper properly on the user's own accent and vocabulary — the one risk that gates the native build.",
+    "Ship as a PWA and measure whether people keep talking to it after week three.",
+    "Capture surfaces on Android: the notification bar is shipped; a Quick Settings tile and home-screen widget are written and waiting on a build.",
+    "On-device whisper.cpp for privacy."
+  ]
+}

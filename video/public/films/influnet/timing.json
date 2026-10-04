@@ -1,0 +1,33 @@
+{
+  "lines": {
+    "hook1": 239,
+    "hook2": 77,
+    "intro1": 135,
+    "verify1": 112,
+    "verify2": 186,
+    "link1": 262,
+    "pipe1": 134,
+    "pipe2": 179,
+    "flow1": 256,
+    "flow2": 250,
+    "flow3": 116,
+    "outro1": 101,
+    "outro2": 73
+  },
+  "hashes": {
+    "hook1": "c41c74fe649d",
+    "hook2": "a332b1f6923b",
+    "intro1": "becc56fcafda",
+    "verify1": "5d5be06a928e",
+    "verify2": "530e61d8ddcb",
+    "link1": "8082512b8259",
+    "pipe1": "342c9d5846b5",
+    "pipe2": "3cc145976abb",
+    "flow1": "8b0236e16eda",
+    "flow2": "bf123bbe6547",
+    "flow3": "e3182985f78e",
+    "outro1": "6e053f73c832",
+    "outro2": "e5e49e99b52f"
+  },
+  "voice": "af_heart"
+}

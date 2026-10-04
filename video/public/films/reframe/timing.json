@@ -1,0 +1,27 @@
+{
+  "lines": {
+    "hook1": 185,
+    "hook2": 104,
+    "intro1": 241,
+    "arch1": 265,
+    "contract1": 306,
+    "contract2": 229,
+    "flow1": 244,
+    "flow2": 205,
+    "outro1": 64,
+    "outro2": 73
+  },
+  "hashes": {
+    "hook1": "8f06e998782f",
+    "hook2": "d3215f2c0967",
+    "intro1": "46f3b0ab5058",
+    "arch1": "785ff8128d0e",
+    "contract1": "374bff268908",
+    "contract2": "5efcd11b35b1",
+    "flow1": "5fd229e7ed32",
+    "flow2": "1fb53398c42a",
+    "outro1": "61fbdd9fd7af",
+    "outro2": "e5e49e99b52f"
+  },
+  "voice": "af_heart"
+}

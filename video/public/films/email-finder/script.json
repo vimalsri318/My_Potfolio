@@ -1,0 +1,125 @@
+{
+  "slug": "email-finder",
+  "title": "Email Finder",
+  "accent": "#4F46E5",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Most email finders [guess.]",
+      "strike": ["first.last@ — probably", "'Verified' on a catch-all domain"],
+      "punch": "This one [shows its evidence.]",
+      "vo": [
+        { "id": "hook1", "text": "Most email finders guess a pattern, call it verified, and hope it doesn't bounce." },
+        { "id": "hook2", "text": "This one gathers evidence, and never claims more than it found." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Email Finder",
+      "tagline": "A name and a company website in. A work email out — with how much to trust it.",
+      "badge": "Service · web + worker",
+      "media": { "type": "stage", "slug": "email-finder" },
+      "vo": [{ "id": "intro1", "text": "Give it a name and a company website, and it works out the person's email, and how sure it can be." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Seven evidence tiers",
+      "headline": "Free evidence first. [Pay only if you must.]",
+      "bullets": ["DNS, site crawl, sitemaps, GitHub authors", "Linked PDFs and the Internet Archive", "Search, a browser and mail verification only when needed"],
+      "media": { "type": "terminal", "title": "lookup — Alex Rivera @ acme.com (example)", "lines": [
+        { "text": "find \"Alex Rivera\" acme.com", "kind": "cmd" },
+        { "text": "T0 domain + MX ............ ok   free", "kind": "ok" },
+        { "text": "T1 crawl · sitemap · GitHub  2 name/address pairs   free", "kind": "ok" },
+        { "text": "T2 linked PDFs ............ staff directory   free", "kind": "ok" },
+        { "text": "T3 Internet Archive ....... skipped (site reachable)", "kind": "dim" },
+        { "text": "pattern: first.last@  (corroborated ×2)", "kind": "accent" },
+        { "text": "T6 catch-all? no → ladder: alex.rivera@ accepted", "kind": "ok" },
+        { "text": "result: alex.rivera@acme.com   high", "kind": "accent" }
+      ] },
+      "vo": [
+        { "id": "tiers1", "text": "It works through seven tiers of evidence. DNS, a relevance-scored crawl, sitemaps, GitHub commit authors, linked PDFs and the Internet Archive are all free, and they run first." },
+        { "id": "tiers2", "text": "Search, a browser for blocked pages, and mail-server verification cost money, so they only run when the free tiers can't settle it." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Honest confidence",
+      "headline": "Published, deliverable and predicted are [three different claims.]",
+      "bullets": ["Published: found on a page", "Deliverable: a mail server accepted it", "Predicted: a pattern produced it"],
+      "flip": true,
+      "media": { "type": "cards", "title": "confidence tiers", "items": [
+        { "icon": "badge-check", "title": "confirmed", "sub": "published and accepted by the mail server", "tag": "top" },
+        { "icon": "check", "title": "high", "sub": "verified deliverable, or a well-corroborated pattern" },
+        { "icon": "scale", "title": "medium · low", "sub": "pattern from limited evidence · statistical prior" },
+        { "icon": "shield", "title": "withheld", "sub": "on the suppression list (stored as SHA-256)" },
+        { "icon": "x", "title": "fail", "sub": "every candidate verifiably rejected — don't mail" }
+      ] },
+      "vo": [
+        { "id": "conf1", "text": "Results keep three claims apart, because they fail in different ways. Published means it was found on a page. Deliverable means a mail server accepted it. Predicted means a pattern produced it." },
+        { "id": "conf2", "text": "Only published and deliverable together earns confirmed, and catch-all domains are detected first, because a yes from them means nothing." }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "A web app, a worker, and [RLS that actually works.]",
+      "packet": "CSV row",
+      "nodes": [
+        { "icon": "monitor", "title": "Next.js web", "sub": "Dashboard, single and batch lookups" },
+        { "icon": "list-checks", "title": "Job queue", "sub": "One job per CSV row" },
+        { "icon": "cog", "title": "Worker", "sub": "Drains the queue; waits for the DB" },
+        { "icon": "database", "title": "Postgres + RLS", "sub": "Drizzle; policies forced by SQL" }
+      ],
+      "stats": [
+        { "big": "7", "small": "evidence tiers" },
+        { "big": "4", "small": "free tiers before any spend" },
+        { "big": "3", "small": "separate claims per result" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "It runs as a Next.js web app and a separate worker on Railway. A batch upload becomes one job per row, and the worker drains them." },
+        { "id": "flow2", "text": "I found that Drizzle was creating row-level security policies with no condition at all, which quietly made every row visible, so the real policies now live in SQL that runs after every push." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Evidence first. [Never a guess.]",
+      "stack": [
+        { "icon": "monitor", "title": "Next.js", "sub": "TypeScript" },
+        { "icon": "database", "title": "Drizzle + Postgres", "sub": "forced RLS" },
+        { "icon": "cog", "title": "Worker", "sub": "batch jobs" },
+        { "icon": "check", "title": "Vitest", "sub": "inference tests" }
+      ],
+      "vo": [
+        { "id": "outro1", "text": "Evidence first. Never a guess." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Email Finder · system architecture",
+    "headline": "Seven tiers, [cheapest first.]",
+    "columns": [
+      { "label": "Railway: web", "boxes": [
+        { "id": "web", "icon": "monitor", "title": "Next.js dashboard", "sub": "auth, single lookups, CSV batch upload", "tone": "accent" }
+      ] },
+      { "label": "Railway: worker", "boxes": [
+        { "id": "worker", "icon": "cog", "title": "Finder engine", "lines": ["T0 DNS + MX", "T1 crawl · sitemap · GitHub", "T2 linked PDFs", "T3 Internet Archive", "T4 search (paid)", "T5 browser transport", "T6 catch-all → verify ladder"], "tone": "dark" }
+      ] },
+      { "label": "data + paid services", "boxes": [
+        { "id": "db", "icon": "database", "title": "Postgres (Drizzle)", "sub": "jobs, results, hashed suppressions — RLS forced by rls-force.sql" },
+        { "id": "paid", "icon": "search", "title": "Search · browser · verifier", "sub": "only when free tiers can't settle it", "tone": "ghost" }
+      ] }
+    ],
+    "edges": [
+      { "from": "web", "to": "worker", "label": "one job per row" },
+      { "from": "worker", "to": "db" },
+      { "from": "worker", "to": "paid", "dashed": true, "label": "only if needed" }
+    ],
+    "footer": [
+      { "icon": "wallet", "text": "4 free tiers before any spend" },
+      { "icon": "scale", "text": "Published ≠ deliverable ≠ predicted" },
+      { "icon": "shield-check", "text": "Catch-all detected before verifying" },
+      { "icon": "lock", "text": "Suppressions stored as SHA-256" }
+    ]
+  }
+}

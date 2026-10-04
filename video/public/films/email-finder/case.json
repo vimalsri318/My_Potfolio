@@ -1,0 +1,58 @@
+{
+  "challenge": [
+    "Sales teams need a person's work email, and most tools answer by guessing a pattern (first.last@) and labelling it 'verified'. On catch-all domains that label is meaningless, and every bounce hurts the sender's reputation.",
+    "The goal was a finder that spends as little as possible per lookup and is honest about certainty — including saying 'don't mail this person here' when the evidence says so."
+  ],
+  "architectureCaption": "A Next.js web app enqueues lookups; a separate worker runs the tiered engine and writes results to Postgres under forced row-level security.",
+  "steps": [
+    {
+      "title": "Resolve the domain",
+      "desc": "DNS and MX first — free, and enough to rule out domains that can't receive mail at all."
+    },
+    {
+      "title": "Gather free evidence",
+      "desc": "A relevance-scored crawl, sitemaps, GitHub commit authors, linked PDFs like staff directories, and the Internet Archive for sites that block crawlers."
+    },
+    {
+      "title": "Infer the pattern",
+      "desc": "Name/address pairs found along the way teach the domain's format; the engine ranks a candidate ladder from it."
+    },
+    {
+      "title": "Spend only if needed",
+      "desc": "Search, a browser transport for WAF-blocked or JS-rendered pages, and verification run only when the free tiers can't settle it."
+    },
+    {
+      "title": "Verify honestly",
+      "desc": "Catch-all detection runs before the ladder; a verified rejection of every candidate returns fail — a useful 'don't mail' rather than a guess."
+    }
+  ],
+  "sceneCaptions": [
+    "A lookup working through the evidence tiers (example person and domain).",
+    "The confidence tiers a result can earn.",
+    "Under the hood: web, queue, worker and Postgres with forced RLS."
+  ],
+  "screens": [],
+  "decisions": [
+    {
+      "title": "Three claims, never merged",
+      "desc": "Published, deliverable and predicted fail differently, so they're reported separately. Only published and deliverable together earns 'confirmed'."
+    },
+    {
+      "title": "Cheapest evidence first",
+      "desc": "Four free tiers run before any paid search, browser or verification call, keeping per-lookup cost predictable."
+    },
+    {
+      "title": "Don't trust the ORM's RLS",
+      "desc": "Querying pg_policies showed drizzle-kit pushing policies with no USING clause — RLS on, but every row visible. The real predicates live in rls-force.sql, re-run after every push."
+    },
+    {
+      "title": "A worker that waits",
+      "desc": "Web and worker deploy as separate Railway services; the worker waits for the database on cold starts instead of crash-looping."
+    }
+  ],
+  "roadmap": [
+    "Wire in a production verification provider so more results can reach 'confirmed'.",
+    "Self-hosted browser transport to keep tier 5 costs flat.",
+    "Per-lookup cost reporting in the dashboard."
+  ]
+}

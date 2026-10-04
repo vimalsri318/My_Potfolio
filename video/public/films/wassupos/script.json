@@ -1,0 +1,405 @@
+{
+  "slug": "wassupos",
+  "title": "WassupOS",
+  "accent": "#2563EB",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Indian businesses sell on [WhatsApp.]",
+      "strike": [
+        "Leads in a notebook",
+        "The CRM in another tab",
+        "Calls nobody answers after hours"
+      ],
+      "punch": "WassupOS brings the CRM [into WhatsApp.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "Businesses in India sell on WhatsApp, but their leads, campaigns and follow-ups live somewhere else."
+        },
+        {
+          "id": "hook2",
+          "text": "WassupOS is the foundation for a CRM that lives inside WhatsApp."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "WassupOS",
+      "tagline": "A multi-tenant WhatsApp CRM where an AI answers your leads.",
+      "badge": "Client build · SaaS",
+      "media": {
+        "type": "stage",
+        "slug": "wassupos"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "Every company gets an inbox, leads, broadcasts and campaigns, and an AI that answers customers on WhatsApp."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "AI sales assistant",
+      "headline": "An AI that only says [what the business knows.]",
+      "bullets": [
+        "Replies on WhatsApp through the Cloud API",
+        "Grounded only in the company's knowledge base",
+        "Not covered? It checks with the team"
+      ],
+      "media": {
+        "type": "chat",
+        "title": "Green Nest PG",
+        "sub": "WhatsApp · AI assistant (example)",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Hi, do you have single rooms near the tech park?"
+          },
+          {
+            "from": "me",
+            "text": "Yes! Single rooms are ₹9,500/month with meals. Would you like to visit this week?",
+            "tag": "AI · from knowledge base"
+          },
+          {
+            "from": "them",
+            "text": "Do you allow pets?"
+          },
+          {
+            "from": "me",
+            "text": "Let me check that with the team and get back to you. Which day suits you for a visit?",
+            "tag": "AI · not in knowledge base"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "ai1",
+          "text": "Incoming WhatsApp messages are answered by an AI sales assistant, grounded only in the company's own knowledge base, built from its website and PDFs."
+        },
+        {
+          "id": "ai2",
+          "text": "That rule exists because, without it, the model once told a customer of a paying-guest rooms business that it was a scrap trading company. Now, if the knowledge base doesn't cover it, the AI checks with the team."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "One workspace per company",
+      "headline": "Inbox, leads and broadcasts, [switched on per company.]",
+      "bullets": [
+        "Leads scored hot, warm or scrap",
+        "Broadcasts and templates within Meta's limits",
+        "Modules enabled per company, enforced on every API route"
+      ],
+      "flip": true,
+      "media": {
+        "type": "cards",
+        "title": "company workspace",
+        "items": [
+          {
+            "icon": "inbox",
+            "title": "Inbox",
+            "sub": "every WhatsApp conversation, live",
+            "tag": "realtime"
+          },
+          {
+            "icon": "users",
+            "title": "Leads",
+            "sub": "temperature: HOT · WARM · SCRAP",
+            "tag": "scored"
+          },
+          {
+            "icon": "send",
+            "title": "Broadcasts + templates",
+            "sub": "within Meta's delivery limits",
+            "tag": "Cloud API"
+          },
+          {
+            "icon": "sheet",
+            "title": "Google Sheets sync",
+            "sub": "leads mirrored to a sheet",
+            "tag": "auto"
+          },
+          {
+            "icon": "settings",
+            "title": "Platform admin",
+            "sub": "modules switched on per company",
+            "tag": "guarded"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "ws1",
+          "text": "Each company works from one workspace: a live inbox, leads scored hot, warm or scrap, broadcasts and templates, campaigns and orders."
+        },
+        {
+          "id": "ws2",
+          "text": "The platform team switches modules on per company, and every API route enforces it, not just the menu."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Voice agent",
+      "headline": "An AI that [answers WhatsApp calls.]",
+      "bullets": [
+        "The customer taps Call on your business number",
+        "Audio goes straight to the agent over WebRTC",
+        "Speech-to-text, LLM and text-to-speech in Pipecat"
+      ],
+      "media": {
+        "type": "terminal",
+        "title": "voice-agent — python preflight.py",
+        "lines": [
+          {
+            "text": "python preflight.py",
+            "kind": "cmd"
+          },
+          {
+            "text": "✓ LLM   groq — reachable",
+            "kind": "ok"
+          },
+          {
+            "text": "✓ STT   whisper (en) · sarvam saaras:v3 codemix (ta)",
+            "kind": "ok"
+          },
+          {
+            "text": "✓ TTS   sarvam — ta-IN",
+            "kind": "ok"
+          },
+          {
+            "text": "✓ WhatsApp  webhook verified · calling API",
+            "kind": "ok"
+          },
+          {
+            "text": "! calling permission: confirm in Developer App",
+            "kind": "dim"
+          },
+          {
+            "text": "python bot.py",
+            "kind": "cmd"
+          },
+          {
+            "text": "pipeline: WebRTC in → STT → LLM → TTS → WebRTC out",
+            "kind": "accent"
+          }
+        ]
+      },
+      "vo": [
+        {
+          "id": "voice1",
+          "text": "A separate Python service answers inbound WhatsApp calls. Meta only carries the call setup, and the audio flows straight to the agent over WebRTC."
+        },
+        {
+          "id": "voice2",
+          "text": "It runs speech-to-text, a language model and text-to-speech, in English today, and in Tamil with a code-mixed model."
+        }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Costed before it was built",
+      "headline": "What a call [actually costs.]",
+      "packet": "inbound call",
+      "nodes": [
+        {
+          "icon": "phone-call",
+          "title": "WhatsApp call",
+          "sub": "Inbound calls are free from Meta"
+        },
+        {
+          "icon": "mic",
+          "title": "Speech-to-text",
+          "sub": "Groq Whisper · Sarvam for Tamil"
+        },
+        {
+          "icon": "brain",
+          "title": "LLM",
+          "sub": "Groq; Tamil doubles the tokens"
+        },
+        {
+          "icon": "audio-lines",
+          "title": "Text-to-speech",
+          "sub": "Sarvam — 86% of the bill"
+        }
+      ],
+      "stats": [
+        {
+          "big": "₹2.31",
+          "small": "per English call"
+        },
+        {
+          "big": "₹2.80–3.75",
+          "small": "per Tamil call"
+        },
+        {
+          "big": "86%",
+          "small": "of the bill is speech"
+        }
+      ],
+      "vo": [
+        {
+          "id": "flow1",
+          "text": "Before scaling it, I costed every call. An English call comes to about two rupees thirty, a Tamil call between two eighty and three seventy-five."
+        },
+        {
+          "id": "flow2",
+          "text": "Speech synthesis is eighty-six percent of the bill, so short replies are a cost control, not just a latency one."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "A WhatsApp-first CRM, [with an AI on the front line.]",
+      "stack": [
+        {
+          "icon": "monitor",
+          "title": "Next.js",
+          "sub": "App Router · TypeScript"
+        },
+        {
+          "icon": "database",
+          "title": "Prisma + Postgres",
+          "sub": "tenants, features, audit"
+        },
+        {
+          "icon": "sparkles",
+          "title": "React Three Fiber",
+          "sub": "scroll-synced 3D landing"
+        },
+        {
+          "icon": "mic",
+          "title": "Pipecat voice agent",
+          "sub": "Python · WebRTC"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "A WhatsApp-first CRM, with an AI on the front line."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "WassupOS · system architecture",
+    "headline": "WhatsApp in, [grounded answers out.]",
+    "columns": [
+      {
+        "label": "Meta",
+        "boxes": [
+          {
+            "id": "wa",
+            "icon": "message-circle",
+            "title": "WhatsApp Cloud API",
+            "sub": "messages + templates; calls via Calling API"
+          }
+        ]
+      },
+      {
+        "label": "Next.js app (AWS Lambda)",
+        "boxes": [
+          {
+            "id": "hook",
+            "icon": "webhook",
+            "title": "Webhook + AI agent",
+            "lines": [
+              "load tenant + knowledge chunks",
+              "LLM reply, KB-only rule",
+              "send via Cloud API",
+              "usage + realtime event"
+            ],
+            "tone": "dark"
+          },
+          {
+            "id": "ws",
+            "icon": "layout-dashboard",
+            "title": "Company workspace",
+            "sub": "inbox, leads, broadcasts, campaigns, orders",
+            "tone": "accent"
+          },
+          {
+            "id": "admin",
+            "icon": "settings",
+            "title": "Platform admin",
+            "sub": "tenants, modules, integrations, knowledge base"
+          }
+        ]
+      },
+      {
+        "label": "data + services",
+        "boxes": [
+          {
+            "id": "db",
+            "icon": "database",
+            "title": "Prisma + PostgreSQL",
+            "sub": "tenants, conversations, leads, knowledge chunks, audit"
+          },
+          {
+            "id": "vault",
+            "icon": "lock",
+            "title": "Integration vault",
+            "sub": "AES-256-GCM encrypted credentials"
+          },
+          {
+            "id": "voice",
+            "icon": "mic",
+            "title": "Python voice agent",
+            "sub": "Pipecat STT → LLM → TTS over WebRTC"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "wa",
+        "to": "hook",
+        "label": "webhook"
+      },
+      {
+        "from": "hook",
+        "to": "db"
+      },
+      {
+        "from": "ws",
+        "to": "db"
+      },
+      {
+        "from": "hook",
+        "to": "vault",
+        "dashed": true,
+        "label": "provider keys"
+      },
+      {
+        "from": "wa",
+        "to": "voice",
+        "label": "call offer"
+      }
+    ],
+    "footer": [
+      {
+        "icon": "book-open",
+        "text": "Answers only from the knowledge base"
+      },
+      {
+        "icon": "file-text",
+        "text": "PDFs read from their text layer"
+      },
+      {
+        "icon": "shield-check",
+        "text": "Modules guarded per route"
+      },
+      {
+        "icon": "wallet",
+        "text": "₹2.31 per English voice call"
+      }
+    ]
+  }
+}

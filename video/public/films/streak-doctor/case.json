@@ -1,0 +1,88 @@
+{
+  "challenge": [
+    "GitHub silently drops contributions for half a dozen reasons — an unlinked commit email, a fork, a non-default branch, a UTC day boundary — and the only symptom is a grey square. Streak trackers count; none of them explain.",
+    "The tool had to be zero-friction: run it once with npx, no install, no sign-up, against the live API."
+  ],
+  "architectureCaption": "The CLI is a thin layer of adapters over a pure core package that knows GitHub's contribution rules and UTC day maths.",
+  "steps": [
+    {
+      "title": "Resolve the user",
+      "desc": "A username argument, or STREAK_DOCTOR_USER; the token comes from gh auth token or GITHUB_TOKEN."
+    },
+    {
+      "title": "Fetch live activity",
+      "desc": "Adapters call the GitHub API for the user's recent contributions and events."
+    },
+    {
+      "title": "Apply the rules (next)",
+      "desc": "The diagnosis engine will check each event against GitHub's documented rules — linked email, default branch, fork, ownership. The rules are written; the engine is next."
+    },
+    {
+      "title": "Mind the day",
+      "desc": "GitHub's day is UTC; the countdown and 'today' are computed for the user's own time zone."
+    },
+    {
+      "title": "Report",
+      "desc": "Human output by default, --json with a versioned schema, and exit codes for scripts."
+    }
+  ],
+  "sceneCaptions": [
+    "The six reasons a commit doesn't count — the rules the diagnosis engine is being built on.",
+    "Real output: today's count and the time left in GitHub's day.",
+    "Real output: a year of contributions drawn in the terminal.",
+    "Under the hood: a pure core package and a thin CLI."
+  ],
+  "screens": [],
+  "decisions": [
+    {
+      "title": "A wedge, not a feature list",
+      "desc": "Streak counting is a crowded category; explaining why a contribution didn't count isn't. Everything in v1 serves that one question."
+    },
+    {
+      "title": "Core without I/O",
+      "desc": "Diagnosis lives in streak-doctor-core with no network or filesystem access, so it's easy to test and ready for other front ends."
+    },
+    {
+      "title": "Write the platform's rules down",
+      "desc": "GitHub's non-obvious counting and timezone rules live in a knowledge base, so fixes don't depend on someone remembering them."
+    },
+    {
+      "title": "Zero friction",
+      "desc": "Published to npm and runnable with npx; it reuses the gh CLI's token when you're already logged in."
+    }
+  ],
+  "roadmap": [
+    "Diagnosis engine v0 for the first three causes: unlinked email, non-default branch, fork.",
+    "A real auth story for the CLI (device flow or PAT) instead of borrowing gh's token.",
+    "Streak arithmetic, then watch / daemon notifications that warn before the day ends.",
+    "Phase gate: ~200 users; continue if 30%+ contribute after an at-risk warning, stop below 10%."
+  ],
+  "overrides": {
+    "summary": "An open-source GitHub accountability CLI built around one question streak counters ignore: why didn't that contribution count? Today it reports your live count with a countdown to the end of GitHub's UTC day, lists contributions by repo and draws your year as a heatmap in the terminal; the diagnosis engine is next.",
+    "description": [
+      "Streak tracking is a crowded category. Diagnosis isn't. GitHub silently drops contributions for many reasons — wrong commit email, a fork, a non-default branch, a UTC boundary — and nothing tells you which.",
+      "Phase 1 shipped a real CLI on npm that works against the live GitHub API for anyone: today's count and countdown, contributions by repo, and since v0.4.0 a heatmap of the last year drawn in the terminal.",
+      "The counting rules are documented in the repo's knowledge base, and a diagnosis engine for the first three causes is the next piece of work, gated on real usage: ship, reach ~200 users, and measure who contributes after an at-risk warning."
+    ],
+    "features": [
+      {
+        "title": "Live today count",
+        "desc": "How many contributions have counted and how long is left before GitHub's UTC day ends, in your own time zone."
+      },
+      {
+        "title": "Terminal heatmap",
+        "desc": "streak-doctor heatmap draws the last year's contribution grid in characters."
+      },
+      {
+        "title": "Zero install",
+        "desc": "npx streak-doctor <username> works for anyone; it reuses the gh CLI token if you're logged in."
+      },
+      {
+        "title": "Core + CLI packages",
+        "desc": "Logic lives in a separate core package with no I/O, ready for other front ends."
+      }
+    ],
+    "highlights": [],
+    "tagline": "Your GitHub day, live in the terminal — and next, why it didn't count"
+  }
+}

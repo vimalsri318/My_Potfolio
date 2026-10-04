@@ -1,0 +1,139 @@
+{
+  "slug": "influnet",
+  "title": "Influnet",
+  "accent": "#E5197D",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Most brand deals still happen in [Instagram DMs.]",
+      "strike": ["Replies in days", "Faked follower counts", "Terms nobody wrote down"],
+      "punch": "Influnet puts every collab [on the record.]",
+      "vo": [
+        { "id": "hook1", "text": "Most brand deals still happen in Instagram DMs. Replies take days, follower counts get faked, and nobody writes the terms down." },
+        { "id": "hook2", "text": "Influnet puts every collaboration on the record." }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "Influnet",
+      "tagline": "Find real creators. Run every collab to the finish.",
+      "badge": "Live · web + iOS & Android",
+      "media": { "type": "image", "src": "films/influnet/media/biz-hero.jpg", "frame": "browser", "url": "influnet.io/business" },
+      "vo": [{ "id": "intro1", "text": "It's an influencer marketing platform, live on the web and in a native mobile app." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "Verified creators",
+      "headline": "Shortlist creators who [proved it's them.]",
+      "bullets": ["Creators verify they own their accounts", "Unverified profiles are clearly labelled", "Search by niche, save to a shortlist"],
+      "media": [
+        { "type": "image", "src": "films/influnet/media/biz-shortlist.jpg", "frame": "browser", "url": "influnet.io/business" },
+        { "type": "image", "src": "films/influnet/media/cr-four.jpg", "frame": "browser", "url": "influnet.io/creators", "scroll": 300 }
+      ],
+      "vo": [
+        { "id": "verify1", "text": "Creators prove they own their accounts before a brand can shortlist them." },
+        { "id": "verify2", "text": "Unverified profiles carry a clear label, so both sides know who they're dealing with before anyone replies." }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "One link in bio",
+      "headline": "Every brand deal, [one link.]",
+      "bullets": ["A shareable creator profile", "Requests land instantly", "Same product on iOS and Android"],
+      "flip": true,
+      "media": { "type": "phones", "srcs": ["films/influnet/media/chooser-m.jpg", "films/influnet/media/app-m.jpg", "films/influnet/media/biz-m.jpg"] },
+      "vo": [{ "id": "link1", "text": "A creator puts one Influnet link in their bio. A brand taps it, and a collaboration request lands instantly, on the web or in the app." }]
+    },
+    {
+      "kind": "feature",
+      "kicker": "12-stage pipeline",
+      "headline": "From hello to [paid], every step on the record.",
+      "bullets": ["Discussion, deposit, planning, shooting", "Review, revisions, final approval", "Payments released stage by stage"],
+      "media": [
+        { "type": "image", "src": "films/influnet/media/cr-flow.jpg", "frame": "browser", "url": "influnet.io/creators", "scroll": 250 },
+        { "type": "cards", "title": "dashboard / projects", "items": [
+          { "icon": "message-circle", "title": "Discussion", "sub": "Terms and deliverables, in writing", "tag": "02" },
+          { "icon": "wallet", "title": "Deposit", "sub": "Advance paid through Razorpay", "tag": "03" },
+          { "icon": "video", "title": "Shooting → Editing", "sub": "The creator's side of the board", "tag": "06–07" },
+          { "icon": "badge-check", "title": "Review → Approved", "sub": "The brand signs off", "tag": "08–10" },
+          { "icon": "circle-dollar-sign", "title": "Final payment", "sub": "Released against the agreed work", "tag": "11" }
+        ] }
+      ],
+      "vo": [
+        { "id": "pipe1", "text": "Every collab moves through twelve stages, from the first message to the final payment." },
+        { "id": "pipe2", "text": "Most stages only move when both sides sign off, and payments are released stage by stage through Razorpay." }
+      ]
+    },
+    {
+      "kind": "flow",
+      "kicker": "Under the hood",
+      "headline": "One monorepo. [Three apps.] One backend.",
+      "packet": "collab request",
+      "nodes": [
+        { "icon": "monitor", "title": "Next.js 16 web app", "sub": "Pages and API routes in one app" },
+        { "icon": "smartphone", "title": "Expo mobile app", "sub": "iOS and Android from one codebase" },
+        { "icon": "database", "title": "Supabase", "sub": "Postgres, auth and row-level security" },
+        { "icon": "message-square", "title": "Stream Chat", "sub": "Real-time chat with history" },
+        { "icon": "credit-card", "title": "Razorpay", "sub": "Signed webhooks mark payments paid" }
+      ],
+      "stats": [
+        { "big": "12", "small": "stage collab pipeline" },
+        { "big": "3", "small": "apps in one monorepo" },
+        { "big": "870+", "small": "commits shipped" }
+      ],
+      "vo": [
+        { "id": "flow1", "text": "Under the hood, it's a Turborepo monorepo: a Next.js web app, a marketing site and an Expo mobile app, all on one Supabase backend." },
+        { "id": "flow2", "text": "Row-level security guards the data, chat runs on Stream, and only a signature-verified Razorpay webhook can mark a payment as paid." },
+        { "id": "flow3", "text": "Twelve stages, three apps, and more than eight hundred and seventy commits." }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Real creators. Clear terms. [Payments that move with the work.]",
+      "stack": [
+        { "icon": "monitor", "title": "Next.js 16", "sub": "web app + API routes" },
+        { "icon": "smartphone", "title": "Expo", "sub": "iOS and Android" },
+        { "icon": "database", "title": "Supabase", "sub": "Postgres + RLS" },
+        { "icon": "credit-card", "title": "Stream + Razorpay", "sub": "chat and payments" }
+      ],
+      "shot": "films/influnet/media/biz-hero.jpg",
+      "vo": [
+        { "id": "outro1", "text": "Real creators, clear terms, and payments that move with the work." },
+        { "id": "outro2", "text": "Read the full case study, and see how it was built." }
+      ]
+    }
+  ],
+  "diagram": {
+    "kicker": "Influnet · system architecture",
+    "headline": "Three apps, [one Supabase backend.]",
+    "group": { "label": "Turborepo monorepo", "columns": [0] },
+    "columns": [
+      { "boxes": [
+        { "id": "web", "icon": "monitor", "title": "Web app", "sub": "Next.js 16 App Router — pages + API routes", "tone": "accent" },
+        { "id": "landing", "icon": "globe", "title": "Marketing site", "sub": "influnet.io landing pages" },
+        { "id": "mobile", "icon": "smartphone", "title": "Mobile app", "sub": "Expo / React Native — iOS + Android" }
+      ] },
+      { "boxes": [
+        { "id": "supa", "icon": "database", "title": "Supabase", "lines": ["Postgres + row-level security", "Auth (phone OTP edge fn)", "Realtime + Storage", "numbered SQL migrations"], "tone": "dark" }
+      ] },
+      { "boxes": [
+        { "id": "stream", "icon": "message-square", "title": "Stream Chat", "sub": "real-time chat, persisted history" },
+        { "id": "razor", "icon": "credit-card", "title": "Razorpay", "sub": "orders + HMAC-verified webhook" },
+        { "id": "mail", "icon": "mail", "title": "Resend", "sub": "transactional email" }
+      ] }
+    ],
+    "edges": [
+      { "from": "web", "to": "supa", "label": "REST + RLS" },
+      { "from": "mobile", "to": "supa", "label": "same API" },
+      { "from": "web", "to": "stream", "label": "chat tokens" },
+      { "from": "web", "to": "razor", "label": "stage payments" },
+      { "from": "razor", "to": "supa", "label": "webhook → paid", "dashed": true }
+    ],
+    "footer": [
+      { "icon": "shield-check", "text": "RLS on every table" },
+      { "icon": "workflow", "text": "12-stage collab pipeline" },
+      { "icon": "check", "text": "Playwright E2E suites" },
+      { "icon": "rocket", "text": "CI: typecheck · lint · test · build" }
+    ]
+  }
+}

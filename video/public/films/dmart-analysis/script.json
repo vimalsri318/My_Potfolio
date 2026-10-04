@@ -1,0 +1,100 @@
+{
+  "slug": "dmart-analysis",
+  "title": "D-Mart Retail Analysis",
+  "accent": "#16A34A",
+  "scenes": [
+    {
+      "kind": "hook",
+      "headline": "Retail data is huge. [Decisions need it small.]",
+      "punch": "A D-Mart sales analysis, [made readable.]",
+      "vo": [
+        {
+          "id": "hook1",
+          "text": "A supermarket chain generates mountains of sales data, but managers need a few clear answers."
+        },
+        {
+          "id": "hook2",
+          "text": "This D-Mart analysis turns that data into something readable."
+        }
+      ]
+    },
+    {
+      "kind": "intro",
+      "title": "D-Mart Retail Analysis",
+      "tagline": "A retail sales analysis case study.",
+      "badge": "2024 · Python + dashboard",
+      "media": {
+        "type": "image",
+        "src": "films/dmart-analysis/media/cover.jpg",
+        "frame": "plain",
+        "fit": "contain",
+        "bg": "#eef6ee"
+      },
+      "vo": [
+        {
+          "id": "intro1",
+          "text": "It analyses retail sales data with Python and presents it as an interactive dashboard."
+        }
+      ]
+    },
+    {
+      "kind": "feature",
+      "kicker": "From data to decisions",
+      "headline": "Clean the data. [Find the patterns.]",
+      "bullets": [
+        "Python with Pandas and NumPy",
+        "Category and margin views",
+        "An interactive React dashboard"
+      ],
+      "media": {
+        "type": "image",
+        "src": "films/dmart-analysis/media/cover.jpg",
+        "frame": "plain",
+        "fit": "contain",
+        "bg": "#eef6ee"
+      },
+      "vo": [
+        {
+          "id": "da1",
+          "text": "Python with Pandas and NumPy cleans and aggregates the data, and a React dashboard lets you explore categories and margins."
+        }
+      ]
+    },
+    {
+      "kind": "outro",
+      "headline": "Retail data, [made readable.]",
+      "stack": [
+        {
+          "icon": "code",
+          "title": "Python",
+          "sub": "Pandas · NumPy"
+        },
+        {
+          "icon": "chart-column",
+          "title": "Dashboard",
+          "sub": "React"
+        },
+        {
+          "icon": "shopping-cart",
+          "title": "Retail",
+          "sub": "D-Mart sales"
+        },
+        {
+          "icon": "trending-up",
+          "title": "Insights",
+          "sub": "categories + margins"
+        }
+      ],
+      "vo": [
+        {
+          "id": "outro1",
+          "text": "Retail data, made readable."
+        },
+        {
+          "id": "outro2",
+          "text": "Read the full case study, and see how it was built."
+        }
+      ]
+    }
+  ]
+}
