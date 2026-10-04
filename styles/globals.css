@@ -721,9 +721,9 @@ textarea {
 }
 
 /*=============== MARKETPLACE — WORK CATALOGUE ===============
-  Every project is a listing: cover (hover plays its motion clip),
-  status, what it is, and two actions — read the case study or
-  "build me one like this", which pre-fills the contact form.     */
+  Every project is a large row: its motion clip or cover on one side,
+  what it is and what was built on the other, alternating sides, with
+  the case study, the film and "build me one like this" as actions. */
 .shop,
 .offers {
   padding-block: clamp(72px, 10vw, 128px);
@@ -864,43 +864,52 @@ textarea {
   font-variant-numeric: tabular-nums;
 }
 
-/* ── Grid + cards ── */
-.shop__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.shop__cell {
-  display: flex;
-}
-
-.shop-card {
+/* ── Feature rows: one project per row, media and story side by side,
+   alternating sides. Stacks on narrow screens. ── */
+.work-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: clamp(28px, 4vw, 48px);
+}
+
+.work-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(24px, 3.5vw, 56px);
+  align-items: center;
+  padding: clamp(14px, 1.6vw, 20px);
   background: var(--white);
   border: 1px solid rgba(12, 12, 12, 0.06);
-  border-radius: 22px;
-  overflow: hidden;
-  transition: transform 0.45s var(--ease-snap), box-shadow 0.45s var(--ease-snap);
+  border-radius: clamp(20px, 2.4vw, 30px);
+  transition: box-shadow 0.45s var(--ease-snap), transform 0.45s var(--ease-snap);
 }
 
-.shop-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 54px rgba(12, 12, 12, 0.1);
+.work-feature:hover {
+  box-shadow: 0 30px 70px rgba(12, 12, 12, 0.09);
 }
 
-.shop-card__media {
+.work-feature--flip {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+}
+
+.work-feature--flip .work-feature__media {
+  order: 2;
+}
+
+.work-feature__media {
   position: relative;
   display: block;
   aspect-ratio: 16 / 10;
+  border-radius: clamp(14px, 1.8vw, 22px);
   overflow: hidden;
   background: color-mix(in srgb, var(--card-accent, #888) 12%, var(--paper));
 }
 
-.shop-card__img,
-.shop-card__video {
+.work-feature__img,
+.work-feature__video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -908,227 +917,258 @@ textarea {
   object-fit: cover;
 }
 
-.shop-card__img {
-  transition: transform 0.7s var(--ease-snap);
+.work-feature__img {
+  transition: transform 0.8s var(--ease-snap);
 }
 
-.shop-card:hover .shop-card__img {
-  transform: scale(1.03);
+.work-feature:hover .work-feature__img {
+  transform: scale(1.025);
 }
 
-.shop-card__video {
+.work-feature__video {
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.5s ease;
 }
 
-.shop-card__video.is-playing {
+.work-feature__video.is-playing {
   opacity: 1;
 }
 
-.shop-card__film {
+.work-feature__status {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 11px;
-  border-radius: 999px;
-  background: rgba(12, 12, 12, 0.78);
-  backdrop-filter: blur(8px);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.shop-card__film span {
-  font-size: 0.6rem;
-  color: var(--card-accent, #ffffff);
-}
-
-.shop-card__status {
-  position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 14px;
+  left: 14px;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 6px 11px;
+  padding: 6px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--ink);
 }
 
-.shop-card__status-dot {
+.work-feature__status-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--card-accent, var(--ink));
 }
 
-.shop-card__body {
-  flex: 1;
+.work-feature__body {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 20px 22px 20px;
+  gap: 12px;
+  padding: clamp(4px, 1vw, 12px) clamp(4px, 1.2vw, 16px);
 }
 
-.shop-card__meta {
+.work-feature--flip .work-feature__body {
+  padding-left: clamp(4px, 1.6vw, 24px);
+}
+
+.work-feature__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
 
-.shop-card__title {
+.work-feature__index {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--card-accent, var(--ink)) 12%, var(--white));
+  color: var(--card-accent, var(--ink));
+}
+
+.work-feature__title {
   font-family: var(--font-batangas);
   font-weight: 700;
-  font-size: 1.55rem;
-  line-height: 1.02;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1;
   color: var(--ink);
 }
 
-.shop-card__tagline {
-  font-size: 0.95rem;
-  line-height: 1.45;
+.work-feature__tagline {
+  font-size: clamp(1.02rem, 1.4vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.work-feature__summary {
+  font-size: 0.96rem;
+  line-height: 1.6;
   color: var(--ink-soft);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.shop-card__tech {
+.work-feature__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.work-feature__metrics div {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f5f5f2;
+}
+
+.work-feature__metrics dt {
+  font-family: var(--font-batangas);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.work-feature__metrics dd {
+  margin-top: 4px;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.work-feature__tech {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 2px;
 }
 
-.shop-card__tech li {
-  padding: 4px 9px;
+.work-feature__tech li {
+  padding: 5px 10px;
   border-radius: 999px;
-  background: #f3f3f0;
-  font-size: 0.72rem;
+  border: 1px solid var(--line);
+  font-size: 0.74rem;
   font-weight: 600;
   color: var(--ink-soft);
 }
 
-.shop-card__actions {
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
+.work-feature__actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
+  margin-top: 8px;
 }
 
-.shop-card__cta {
+.work-feature__cta,
+.work-feature__film,
+.work-feature__order {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 999px;
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--ink);
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.shop-card__cta span {
+.work-feature__cta {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.work-feature__cta span {
   display: inline-block;
   transition: transform 0.3s var(--ease-snap);
 }
 
-.shop-card__cta:hover span {
+.work-feature__cta:hover span {
   transform: translateX(3px);
 }
 
-.shop-card__order {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--brand) 9%, var(--white));
-  color: var(--brand-ink);
-  font-size: 0.8rem;
-  font-weight: 700;
-  white-space: nowrap;
-  transition: background-color 0.2s ease, color 0.2s ease;
+.work-feature__film {
+  border: 1px solid var(--line);
+  color: var(--ink);
 }
 
-.shop-card__order:hover {
+.work-feature__film span {
+  font-size: 0.7rem;
+  color: var(--card-accent, var(--ink));
+}
+
+.work-feature__film:hover {
+  border-color: var(--ink);
+}
+
+.work-feature__order {
+  background: color-mix(in srgb, var(--brand) 9%, var(--white));
+  color: var(--brand-ink);
+}
+
+.work-feature__order:hover {
   background: var(--brand);
   color: var(--white);
 }
 
-@media (max-width: 1024px) {
-  .shop__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 900px) {
+  .work-feature,
+  .work-feature--flip {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .work-feature--flip .work-feature__media {
+    order: 0;
+  }
+
+  .work-feature--flip .work-feature__body {
+    padding-left: clamp(4px, 1.2vw, 16px);
   }
 }
 
-/* Phones: a dense two-up shelf instead of tall single cards. The whole
-   card links to the case study, where the "build one like this" panel lives. */
 @media (max-width: 640px) {
   .shop__filters {
     margin-inline: -16px;
     padding-inline: 16px;
   }
 
-  .shop__grid {
+  .work-feature {
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .work-feature__status {
+    top: 10px;
+    left: 10px;
+    font-size: 0.66rem;
+    padding: 5px 9px;
+  }
+
+  .work-feature__body {
     gap: 10px;
+    padding: 4px 6px 8px;
   }
 
-  .shop-card {
-    border-radius: 16px;
+  .work-feature__metrics {
+    gap: 6px;
   }
 
-  .shop-card__media {
-    aspect-ratio: 4 / 3;
+  .work-feature__metrics div {
+    padding: 10px;
   }
 
-  .shop-card__film {
-    top: 8px;
-    right: 8px;
-    padding: 4px 8px;
+  .work-feature__metrics dt {
+    font-size: 1.1rem;
   }
 
-  .shop-card__status {
-    top: 8px;
-    left: 8px;
-    padding: 4px 8px;
-    gap: 5px;
-    font-size: 0.62rem;
-  }
-
-  .shop-card__status-dot {
-    width: 6px;
-    height: 6px;
-  }
-
-  .shop-card__body {
-    gap: 4px;
-    padding: 10px 12px 12px;
-  }
-
-  .shop-card__meta {
-    font-size: 0.56rem;
-    letter-spacing: 0.04em;
-  }
-
-  .shop-card__meta-year,
-  .shop-card__tech,
-  .shop-card__actions {
-    display: none;
-  }
-
-  .shop-card__title {
-    font-size: 1.08rem;
-  }
-
-  .shop-card__tagline {
-    font-size: 0.78rem;
-    line-height: 1.35;
+  .work-feature__actions > * {
+    flex: 1 1 auto;
+    justify-content: center;
   }
 }
 
