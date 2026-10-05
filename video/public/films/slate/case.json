@@ -7,6 +7,24 @@
       "gpt-oss-120b",
       "Web Speech API",
       "Expo"
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "note": "Web prototype that works on your phone"
+      },
+      {
+        "key": "android",
+        "note": "Android app (Expo) — in development"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "groq",
+      "expo",
+      "reactnative",
+      "sqlite"
     ]
   },
   "challenge": [

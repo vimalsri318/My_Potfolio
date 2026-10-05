@@ -7,6 +7,18 @@
       "SQLite",
       "mDNS",
       "Ed25519"
+    ],
+    "platforms": [
+      "mac",
+      "android",
+      "cli"
+    ],
+    "stack": [
+      "rust",
+      "tauri",
+      "expo",
+      "reactnative",
+      "sqlite"
     ]
   },
   "challenge": [

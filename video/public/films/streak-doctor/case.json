@@ -83,6 +83,24 @@
       }
     ],
     "highlights": [],
-    "tagline": "Your GitHub day, live in the terminal — and next, why it didn't count"
+    "tagline": "Your GitHub day, live in the terminal — and next, why it didn't count",
+    "platforms": [
+      "npm",
+      "cli"
+    ],
+    "stack": [
+      "typescript",
+      "nodejs",
+      "githubapi",
+      "pnpm",
+      "vitest",
+      "npm"
+    ],
+    "links": [
+      {
+        "href": "https://www.npmjs.com/package/streak-doctor",
+        "label": "View on npm"
+      }
+    ]
   }
 }

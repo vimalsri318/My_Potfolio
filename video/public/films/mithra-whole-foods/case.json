@@ -9,7 +9,27 @@
       "pnpm + Turborepo",
       "Vercel",
       "Railway"
-    ]
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "label": "Online store"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "medusa",
+      "tailwind",
+      "neon",
+      "stripe",
+      "cloudinary",
+      "sentry",
+      "turborepo",
+      "pnpm",
+      "railway",
+      "docker"
+    ],
+    "link": "https://mithra-wholefoods.up.railway.app/us"
   },
   "challenge": [
     "Mithra Whole Foods sells chemical-free traditional foods — millets, cold-pressed oils, ghee, jaggery — and it was running on an ageing template store that didn't feel premium, couldn't be extended, and needed a developer for every banner change.",

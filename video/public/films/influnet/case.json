@@ -5,33 +5,84 @@
   ],
   "architectureCaption": "Three apps in one Turborepo monorepo share a single Supabase backend. Chat and payments run on Stream and Razorpay.",
   "steps": [
-    { "title": "Prove it's you", "desc": "Creators verify they own their social accounts. Unverified profiles show a neutral 'ownership not verified' label, and a business sees a warning before sending a request." },
-    { "title": "Request", "desc": "A brand finds a creator through search or their link-in-bio profile and sends a collaboration request, which lands as an in-app notification." },
-    { "title": "Agree in writing", "desc": "Accepting a request opens a project and a Stream chat. Terms, deliverables and budget are discussed and recorded inside the project." },
-    { "title": "Work the pipeline", "desc": "The project moves through 12 stages — deposit, planning, shooting, editing, review, revisions, approval — with a 'whose turn' owner on each stage." },
-    { "title": "Get paid", "desc": "Advance and final payments go through Razorpay. Only the signature-verified webhook can mark a payment as paid; the client never self-reports it." }
+    {
+      "title": "Prove it's you",
+      "desc": "Creators verify they own their social accounts. Unverified profiles show a neutral 'ownership not verified' label, and a business sees a warning before sending a request."
+    },
+    {
+      "title": "Request",
+      "desc": "A brand finds a creator through search or their link-in-bio profile and sends a collaboration request, which lands as an in-app notification."
+    },
+    {
+      "title": "Agree in writing",
+      "desc": "Accepting a request opens a project and a Stream chat. Terms, deliverables and budget are discussed and recorded inside the project."
+    },
+    {
+      "title": "Work the pipeline",
+      "desc": "The project moves through 12 stages — deposit, planning, shooting, editing, review, revisions, approval — with a 'whose turn' owner on each stage."
+    },
+    {
+      "title": "Get paid",
+      "desc": "Advance and final payments go through Razorpay. Only the signature-verified webhook can mark a payment as paid; the client never self-reports it."
+    }
   ],
   "sceneCaptions": [
     "Business landing page: shortlist creators who have proved they own their accounts.",
     "Creator landing page: four questions answered before you reply to a brand.",
-    "The same product on the web and in the iOS / Android app.",
+    "The same product on a phone: the mobile web.",
     "How a collab moves from request to final payment.",
     "Stage by stage: discussion, deposit, shooting, review, payment.",
     "Under the hood: three apps, one Supabase backend."
   ],
   "screens": [
-    { "src": "media/chooser.jpg", "caption": "influnet.io asks one question first: creator or business?", "first": true }
+    {
+      "src": "media/chooser.jpg",
+      "caption": "influnet.io asks one question first: creator or business?",
+      "first": true
+    }
   ],
   "decisions": [
-    { "title": "Keep the stack, buy at the service level", "desc": "No marketplace framework. Next.js and Supabase stay the core, and chat, payments and email are bought as services (Stream, Razorpay, Resend) instead of being rebuilt." },
-    { "title": "One app, scaled horizontally", "desc": "The web app and its API routes deploy as one unit. When background work grows, the plan is to split out a worker — not to split frontend from backend." },
-    { "title": "The database enforces the rules", "desc": "Row-level security decides who can read and write each table, and a documented PII lockdown keeps private fields out of public profiles. A bug in the UI can't leak data on its own." },
-    { "title": "Payments the client can't fake", "desc": "Razorpay orders are created on the server and a signature-verified webhook is the only writer of 'paid'. Stage gates check that record, not anything the browser says." }
+    {
+      "title": "Keep the stack, buy at the service level",
+      "desc": "No marketplace framework. Next.js and Supabase stay the core, and chat, payments and email are bought as services (Stream, Razorpay, Resend) instead of being rebuilt."
+    },
+    {
+      "title": "One app, scaled horizontally",
+      "desc": "The web app and its API routes deploy as one unit. When background work grows, the plan is to split out a worker — not to split frontend from backend."
+    },
+    {
+      "title": "The database enforces the rules",
+      "desc": "Row-level security decides who can read and write each table, and a documented PII lockdown keeps private fields out of public profiles. A bug in the UI can't leak data on its own."
+    },
+    {
+      "title": "Payments the client can't fake",
+      "desc": "Razorpay orders are created on the server and a signature-verified webhook is the only writer of 'paid'. Stage gates check that record, not anything the browser says."
+    }
   ],
   "roadmap": [
     "Reviews and ratings on completed projects, written once per side and enforced by row-level security.",
     "A completed-work showcase on each creator's public profile, feeding rating and completed count into discovery.",
     "Per-project progress bars and a 'whose turn' label on both dashboards.",
     "Admin-controlled runtime settings, agreed in principle and deferred until they're needed."
-  ]
+  ],
+  "overrides": {
+    "platforms": [
+      "web",
+      "ios",
+      "android"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "expo",
+      "reactnative",
+      "supabase",
+      "streamchat",
+      "razorpay",
+      "resend",
+      "turborepo",
+      "azure",
+      "cloudflare"
+    ]
+  }
 }

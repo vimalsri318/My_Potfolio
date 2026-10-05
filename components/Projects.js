@@ -4,6 +4,8 @@ import Reveal from './Reveal'
 import Showreel from './Showreel'
 import { KINDS, kindLabel } from '../data/catalogue'
 import { interestHref, requestInterest } from '../lib/interest'
+import { linkLabel } from '../data/stack'
+import { PlatformChips, StackLogos } from './ui/stack'
 
 // The Work section, laid out as a catalogue: every project is a listing a
 // client can open as a case study or order "one like this" from.
@@ -129,7 +131,7 @@ function ProjectFeature({ project, index, total }) {
           <Link href={href}>{project.title}</Link>
         </h3>
         {project.tagline && <p className="work-feature__tagline">{project.tagline}</p>}
-        {project.summary && <p className="work-feature__summary">{project.summary}</p>}
+        <PlatformChips platforms={project.platforms} />
 
         {metrics.length > 0 && (
           <dl className="work-feature__metrics">
@@ -142,18 +144,27 @@ function ProjectFeature({ project, index, total }) {
           </dl>
         )}
 
-        {tech.length > 0 && (
-          <ul className="work-feature__tech">
-            {tech.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
+        {Array.isArray(project.stack) && project.stack.length > 0 ? (
+          <StackLogos stack={project.stack} />
+        ) : (
+          tech.length > 0 && (
+            <ul className="work-feature__tech">
+              {tech.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          )
         )}
 
         <div className="work-feature__actions">
           <Link href={href} className="work-feature__cta">
             Read the case study <span aria-hidden="true">→</span>
           </Link>
+          {project.link && (
+            <a href={project.link} target="_blank" rel="noreferrer" className="work-feature__film work-feature__live">
+              {linkLabel(project.link, project.title)} <span aria-hidden="true">↗</span>
+            </a>
+          )}
           {project.film && (
             <Link href={`${href}#film`} className="work-feature__film">
               <span aria-hidden="true">▶</span> Watch the film

@@ -7,6 +7,19 @@
       "Jest",
       "EAS Build",
       "GitHub Actions"
+    ],
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "stack": [
+      "expo",
+      "reactnative",
+      "typescript",
+      "sqlite",
+      "jest",
+      "eas",
+      "githubactions"
     ]
   },
   "challenge": [

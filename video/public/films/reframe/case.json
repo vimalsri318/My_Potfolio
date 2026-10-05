@@ -45,7 +45,18 @@
         "label": "Demo mode, no key needed"
       }
     ],
-    "highlights": []
+    "highlights": [],
+    "platforms": [
+      "web"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "tailwind",
+      "groq",
+      "appsscript",
+      "vercel"
+    ]
   },
   "challenge": [
     "People read long material — papers, docs, articles — and AI summaries are the usual shortcut. But a summary paraphrases, drops detail, and can confidently state things the author never wrote.",

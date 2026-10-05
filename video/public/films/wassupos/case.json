@@ -109,6 +109,21 @@
         "label": "Modules, guarded server-side"
       }
     ],
-    "highlights": []
+    "highlights": [],
+    "platforms": [
+      "web",
+      "whatsapp"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "prisma",
+      "supabase",
+      "whatsappapi",
+      "python",
+      "pipecat",
+      "awslambda",
+      "railway"
+    ]
   }
 }

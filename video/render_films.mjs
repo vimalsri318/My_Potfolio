@@ -3,10 +3,10 @@
 //   out/films/<slug>.mp4                         master (CRF 18, for social)
 //   out/films/<slug>-web.mp4                     web copy (CRF 26, faststart) → uploaded by scripts/upload_films.cjs
 //   ../public/assets/img/projects/<slug>/case/architecture.jpg   diagram still
-//   ../public/assets/img/projects/<slug>/case/scene-<n>.jpg      one still per feature/flow scene
-//   out/films/manifest.json                      {slug: {seconds, poster, screens:[{src, caption}]}}
+//   ../public/assets/img/projects/<slug>/case/*.jpg               gallery: real screenshots + panel-<n>.jpg designed screens
+//   out/films/manifest.json                      {slug: {seconds, poster, gallery:[{src, kind, caption, cap}]}}
 //
-// Usage: node render_films.mjs [slug ...] [--only=film|diagram|screens]
+// Usage: node render_films.mjs [slug ...] [--only=film|diagram|gallery]
 import { bundle } from "@remotion/bundler";
 import { renderMedia, renderStill, selectComposition } from "@remotion/renderer";
 import { execFileSync } from "node:child_process";
@@ -52,26 +52,51 @@ for (const slug of slugs) {
     await renderStill({ composition: d, serveUrl, output: path.join(caseDir, "architecture.jpg"), frame: 0, imageFormat: "jpeg", jpegQuality: 88, scale: 1.25, inputProps: { slug } });
   }
 
-  if (want("screens")) {
-    entry.screens = [];
+  if (want("gallery")) {
+    // The case-study gallery: what the product looks like, not frames of the
+    // film. Real screenshots go in as they are (tall scroll captures trimmed to
+    // their first 16:10 screen), phone captures stay phone-shaped, and designed
+    // media (terminal, chat, cards, the project's stage) are rendered on their
+    // own, full frame. `cap` points at case.json sceneCaptions (one per media
+    // item of the feature/flow scenes, in order).
+    for (const f of fs.readdirSync(caseDir)) if (/^(scene|panel)-\d+\.jpg$/.test(f)) fs.rmSync(path.join(caseDir, f));
+    entry.gallery = [];
+    delete entry.screens;
+    const seen = new Set();
+    const copy = (src, kind, caption, cap) => {
+      const file = path.basename(src);
+      if (seen.has(file)) return;
+      seen.add(file);
+      const from = path.resolve("public", src);
+      const to = path.join(caseDir, file);
+      if (kind === "desktop") {
+        // Keep the first screen of a tall capture (16:10 at its width).
+        execFileSync("python3", ["-c", "import sys;from PIL import Image;i=Image.open(sys.argv[1]).convert('RGB');h=min(i.height,round(i.width/1.6));i.crop((0,0,i.width,h)).save(sys.argv[2],quality=86)", from, to]);
+      } else fs.copyFileSync(from, to);
+      entry.gallery.push({ src: `/assets/img/projects/${slug}/case/${file}`, kind, caption, cap });
+    };
+    let cap = -1;
     let n = 0;
     for (const [i, scene] of script.scenes.entries()) {
-      if (scene.kind !== "feature" && scene.kind !== "flow") continue;
-      const s = plan.scenes[i];
-      const media = Array.isArray(scene.media) ? scene.media : scene.media ? [scene.media] : [null];
-      // One still per media item in the scene (each shows a different screen).
-      // Media switch at each line's start (as in FeatureScene); with fewer lines than
-      // media, switches are spread evenly through the scene.
-      const at = media.map((_, k) => (k === 0 ? 8 : s.beats[k] ?? Math.round((s.dur * k) / media.length)));
-      const points = media.length > 1 ? at.map((a, k) => (a + (k + 1 < media.length ? at[k + 1] : s.dur)) / 2) : [s.dur * 0.82];
-      for (const p of points) {
-        n += 1;
-        const file = `scene-${n}.jpg`;
-        await renderStill({ composition: film, serveUrl, output: path.join(caseDir, file), frame: Math.round(s.start + p), imageFormat: "jpeg", jpegQuality: 84, scale: 0.84, inputProps: { slug } });
-        entry.screens.push({ src: `/assets/img/projects/${slug}/case/${file}`, caption: `${strip(scene.headline)}` });
+      if (!["intro", "feature", "flow"].includes(scene.kind)) continue;
+      const media = Array.isArray(scene.media) ? scene.media : scene.media ? [scene.media] : [];
+      for (const [k, m] of media.entries()) {
+        if (scene.kind !== "intro") cap += 1;
+        const caption = strip(scene.kind === "intro" ? scene.tagline : scene.headline);
+        const c = scene.kind === "intro" ? null : cap;
+        if (m.type === "image" && (m.frame ?? "browser") === "browser") copy(m.src, "desktop", caption, c);
+        else if (m.type === "image" && m.frame === "phone") copy(m.src, "phone", caption, c);
+        else if (m.type === "phones") m.srcs.forEach((src) => copy(src, "phone", caption, c));
+        else if (m.type !== "image") {
+          n += 1;
+          const file = `panel-${n}.jpg`;
+          const panel = await selectComposition({ serveUrl, id: "Panel", inputProps: { slug, scene: i, item: k } });
+          await renderStill({ composition: panel, serveUrl, output: path.join(caseDir, file), frame: 200, imageFormat: "jpeg", jpegQuality: 86, inputProps: { slug, scene: i, item: k } });
+          entry.gallery.push({ src: `/assets/img/projects/${slug}/case/${file}`, kind: "desktop", caption, cap: c });
+        }
       }
     }
   }
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
-  console.log(`${slug}: ${entry.seconds}s film, ${entry.screens?.length ?? 0} screens (${((Date.now() - t0) / 1000).toFixed(0)}s)`);
+  console.log(`${slug}: ${entry.seconds}s film, ${entry.gallery?.length ?? 0} gallery images (${((Date.now() - t0) / 1000).toFixed(0)}s)`);
 }
