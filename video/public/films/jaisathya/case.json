@@ -1,7 +1,15 @@
 {
   "overrides": {
     "tagline": "One site for eight businesses — edited in place by the owner",
-    "tech": ["TanStack Start", "React 19", "Vite", "Tailwind CSS 4", "Drizzle ORM", "Neon Postgres", "Cloudinary"],
+    "tech": [
+      "TanStack Start",
+      "React 19",
+      "Vite",
+      "Tailwind CSS 4",
+      "Drizzle ORM",
+      "Neon Postgres",
+      "Cloudinary"
+    ],
     "summary": "The corporate site for JaiSathya Inc., a holding company with eight businesses — restaurants, catering, food distribution, real estate, marketing, DataEQ, Ayuryum and a cricket club — with a visual CMS that lets the owner edit the live page layout directly.",
     "description": [
       "JaiSathya Inc. is a founder-led holding company with eight businesses across hospitality, food, real estate, technology and sport, including three restaurant brands — Manam, Kaanchi and Malgudi Cafe.",
@@ -9,17 +17,56 @@
       "Every editable thing is one row in a single documents table with draft and published JSON, and the editor infers its form from the document's shape — so adding a field never needs a migration."
     ],
     "features": [
-      { "title": "In-place visual editing", "desc": "Editable regions on the actual page layout; click text or an image and change it where it lives." },
-      { "title": "Draft, then publish", "desc": "Saves go to draft_data; visitors see published_data, and publish copies one into the other in a single write." },
-      { "title": "Media library", "desc": "Cloudinary-backed, with the public_id as the row key and alt text stored once per image, so fixing it fixes every use." },
-      { "title": "Shared documents", "desc": "A brand's summary card is one document shown on both the homepage and its own page." }
+      {
+        "title": "In-place visual editing",
+        "desc": "Editable regions on the actual page layout; click text or an image and change it where it lives."
+      },
+      {
+        "title": "Draft, then publish",
+        "desc": "Saves go to draft_data; visitors see published_data, and publish copies one into the other in a single write."
+      },
+      {
+        "title": "Media library",
+        "desc": "Cloudinary-backed, with the public_id as the row key and alt text stored once per image, so fixing it fixes every use."
+      },
+      {
+        "title": "Shared documents",
+        "desc": "A brand's summary card is one document shown on both the homepage and its own page."
+      }
     ],
     "metrics": [
-      { "value": "8", "label": "Businesses on one site" },
-      { "value": "1", "label": "Table for every editable thing" },
-      { "value": "0", "label": "Migrations to add a field" }
+      {
+        "value": "8",
+        "label": "Businesses on one site"
+      },
+      {
+        "value": "1",
+        "label": "Table for every editable thing"
+      },
+      {
+        "value": "0",
+        "label": "Migrations to add a field"
+      }
     ],
-    "highlights": []
+    "highlights": [],
+    "platforms": [
+      {
+        "key": "web",
+        "label": "Website",
+        "note": "Responsive website, editable in place"
+      }
+    ],
+    "stack": [
+      "tanstack",
+      "react",
+      "vite",
+      "tailwind",
+      "drizzle",
+      "neon",
+      "cloudinary",
+      "vercel",
+      "godaddy"
+    ]
   },
   "challenge": [
     "JaiSathya runs eight very different businesses, from restaurants to a professional cricket club, and needed one site that presents them as a group while giving each restaurant brand its own page.",
@@ -27,11 +74,26 @@
   ],
   "architectureCaption": "TanStack Start serves both the public site and the visual admin. Server functions read and write one documents table and the Cloudinary media library.",
   "steps": [
-    { "title": "Model pages as documents", "desc": "A registry maps each page to its sections and each section to a (collection, slug) document — the only structure the admin needs." },
-    { "title": "Edit in place", "desc": "The visual editor wraps the real components in Editable regions; the generic ObjectEditor builds a form from whatever JSON the document holds." },
-    { "title": "Pick media", "desc": "Images come from a Cloudinary-backed library; alt text lives on the media row, not on each page that uses it." },
-    { "title": "Save a draft", "desc": "Every admin write targets draft_data, so nothing a visitor sees changes until it's published." },
-    { "title": "Publish", "desc": "publishDocuments copies draft_data into published_data — the only write path that touches what visitors see." }
+    {
+      "title": "Model pages as documents",
+      "desc": "A registry maps each page to its sections and each section to a (collection, slug) document — the only structure the admin needs."
+    },
+    {
+      "title": "Edit in place",
+      "desc": "The visual editor wraps the real components in Editable regions; the generic ObjectEditor builds a form from whatever JSON the document holds."
+    },
+    {
+      "title": "Pick media",
+      "desc": "Images come from a Cloudinary-backed library; alt text lives on the media row, not on each page that uses it."
+    },
+    {
+      "title": "Save a draft",
+      "desc": "Every admin write targets draft_data, so nothing a visitor sees changes until it's published."
+    },
+    {
+      "title": "Publish",
+      "desc": "publishDocuments copies draft_data into published_data — the only write path that touches what visitors see."
+    }
   ],
   "sceneCaptions": [
     "The homepage's ecosystem of eight holdings.",
@@ -41,13 +103,29 @@
     "Under the hood: registry, documents table, Cloudinary."
   ],
   "screens": [
-    { "src": "media/hero.jpg", "caption": "jaisathya.com — the group homepage.", "first": true }
+    {
+      "src": "media/hero.jpg",
+      "caption": "jaisathya.com — the group homepage.",
+      "first": true
+    }
   ],
   "decisions": [
-    { "title": "One table instead of a table per type", "desc": "Holdings, brands, home sections and cards are all documents with JSON data. The registry supplies structure, so new content types need no schema change." },
-    { "title": "Draft and published side by side", "desc": "Two columns on the same row make publish a single SET, and preview simply reads the other column." },
-    { "title": "The form comes from the data", "desc": "ObjectEditor infers fields from the document's shape, so a new field in the content is editable immediately." },
-    { "title": "Cloudinary ids as keys", "desc": "The media row's primary key is the Cloudinary public_id — never two identifiers for the same asset." }
+    {
+      "title": "One table instead of a table per type",
+      "desc": "Holdings, brands, home sections and cards are all documents with JSON data. The registry supplies structure, so new content types need no schema change."
+    },
+    {
+      "title": "Draft and published side by side",
+      "desc": "Two columns on the same row make publish a single SET, and preview simply reads the other column."
+    },
+    {
+      "title": "The form comes from the data",
+      "desc": "ObjectEditor infers fields from the document's shape, so a new field in the content is editable immediately."
+    },
+    {
+      "title": "Cloudinary ids as keys",
+      "desc": "The media row's primary key is the Cloudinary public_id — never two identifiers for the same asset."
+    }
   ],
   "roadmap": [
     "Side-by-side preview of draft vs published before publishing.",

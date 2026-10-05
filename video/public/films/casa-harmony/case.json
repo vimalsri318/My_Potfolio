@@ -1,16 +1,53 @@
 {
-  "overrides": { "tech": ["FastAPI", "PostgreSQL 16", "SQLAlchemy 2", "Alembic", "Next.js 15", "TypeScript", "Docker"] },
+  "overrides": {
+    "tech": [
+      "FastAPI",
+      "PostgreSQL 16",
+      "SQLAlchemy 2",
+      "Alembic",
+      "Next.js 15",
+      "TypeScript",
+      "Docker"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "python",
+      "fastapi",
+      "sqlalchemy",
+      "postgres",
+      "docker"
+    ]
+  },
   "challenge": [
     "Homeowner associations collect dues, pay vendors and hold reserve funds that must stay separate by law — but most run on spreadsheets and small-business accounting tools that don't understand funds, approvals or a service desk.",
     "A property-management firm serving several associations needed one system for all of them, where staff can work across communities and no association can ever see another's books."
   ],
   "architectureCaption": "A Next.js front end over a FastAPI backend. Every request binds its tenant into Postgres, where row-level security decides what rows exist.",
   "steps": [
-    { "title": "Bind the tenant", "desc": "Each transaction runs SELECT set_config('app.current_tenant', …, true) — a SET LOCAL — so every query is filtered by RLS policies, not by remembering a WHERE clause." },
-    { "title": "Raise and route work", "desc": "Residents report issues on the service desk; tickets carry priority, owner and SLA, and turn into purchase orders when a vendor is needed." },
-    { "title": "Procure to pay", "desc": "PO lines carry flexfield distributions; multi-level approval by amount; AP invoices are 2-way matched (invoice ≤ PO) before approval." },
-    { "title": "Create accounting", "desc": "Subledger Accounting drafts GL journal batches — debit expense, credit AP — grouped per fund, so each fund's journal nets to zero." },
-    { "title": "Post and report", "desc": "A GL accountant approves control totals and posts; balances land by period, code combination and fund, and the trial balance exports by fund." }
+    {
+      "title": "Bind the tenant",
+      "desc": "Each transaction runs SELECT set_config('app.current_tenant', …, true) — a SET LOCAL — so every query is filtered by RLS policies, not by remembering a WHERE clause."
+    },
+    {
+      "title": "Raise and route work",
+      "desc": "Residents report issues on the service desk; tickets carry priority, owner and SLA, and turn into purchase orders when a vendor is needed."
+    },
+    {
+      "title": "Procure to pay",
+      "desc": "PO lines carry flexfield distributions; multi-level approval by amount; AP invoices are 2-way matched (invoice ≤ PO) before approval."
+    },
+    {
+      "title": "Create accounting",
+      "desc": "Subledger Accounting drafts GL journal batches — debit expense, credit AP — grouped per fund, so each fund's journal nets to zero."
+    },
+    {
+      "title": "Post and report",
+      "desc": "A GL accountant approves control totals and posts; balances land by period, code combination and fund, and the trial balance exports by fund."
+    }
   ],
   "sceneCaptions": [
     "The service desk: tickets by category and status.",
@@ -20,13 +57,29 @@
     "Under the hood: Next.js, FastAPI, row-level security, Postgres."
   ],
   "screens": [
-    { "src": "media/dashboard.jpg", "caption": "The HOA admin dashboard in the demo (fictional association and residents).", "first": true }
+    {
+      "src": "media/dashboard.jpg",
+      "caption": "The HOA admin dashboard in the demo (fictional association and residents).",
+      "first": true
+    }
   ],
   "decisions": [
-    { "title": "Isolation in the database", "desc": "tenant_id plus Postgres row-level security on every tenant table. A missed filter in application code returns nothing instead of another association's data." },
-    { "title": "Borrow Oracle's model, not its weight", "desc": "Key Flexfield chart of accounts, GL_CODE_COMBINATIONS and subledger accounting follow Oracle EBS table design, so accountants recognise it and future AP, cash and fixed-asset modules follow one pattern." },
-    { "title": "Funds can't be skipped", "desc": "Distribution resolution rejects any account combination without a Fund value, which makes fund accounting a guarantee rather than a convention." },
-    { "title": "One front end, two data modes", "desc": "The same 45 screens run on an in-browser demo store or the live API, so the client could review the product before the backend shipped." }
+    {
+      "title": "Isolation in the database",
+      "desc": "tenant_id plus Postgres row-level security on every tenant table. A missed filter in application code returns nothing instead of another association's data."
+    },
+    {
+      "title": "Borrow Oracle's model, not its weight",
+      "desc": "Key Flexfield chart of accounts, GL_CODE_COMBINATIONS and subledger accounting follow Oracle EBS table design, so accountants recognise it and future AP, cash and fixed-asset modules follow one pattern."
+    },
+    {
+      "title": "Funds can't be skipped",
+      "desc": "Distribution resolution rejects any account combination without a Fund value, which makes fund accounting a guarantee rather than a convention."
+    },
+    {
+      "title": "One front end, two data modes",
+      "desc": "The same 45 screens run on an in-browser demo store or the live API, so the client could review the product before the backend shipped."
+    }
   ],
   "roadmap": [
     "Cash management and fixed-asset subledgers on the same Subledger Accounting pattern.",

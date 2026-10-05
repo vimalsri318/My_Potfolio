@@ -7,6 +7,7 @@ import { ArchitectureDiagram } from "./amretri/ArchitectureDiagram";
 import { calcFilm, Film } from "./films/Film";
 import { calcDiagram, Diagram, DH, DW } from "./films/Diagram";
 import { FILM_SLUGS } from "./films/list";
+import { calcPanel, Panel, PH, PW } from "./films/Panel";
 
 const Clip: React.FC<{ slug: string }> = ({ slug }) => {
   const p = PROJECTS.find((x) => x.slug === slug)!;
@@ -29,6 +30,7 @@ export const RemotionRoot: React.FC = () => (
         <Composition key={slug} id={`Diagram-${slug}`} component={Diagram} calculateMetadata={calcDiagram} durationInFrames={1} fps={30} width={DW} height={DH} defaultProps={{ slug }} />
       ))}
     </Folder>
+    <Composition id="Panel" component={Panel} calculateMetadata={calcPanel} durationInFrames={240} fps={30} width={PW} height={PH} defaultProps={{ slug: "email-finder", scene: 2, item: 0 }} />
     <Folder name="Clips">
       {PROJECTS.map((p) => (
         <Composition key={p.slug} id={`Clip-${p.slug}`} component={Clip} durationInFrames={CLIP_FRAMES} fps={30} width={STAGE_W} height={STAGE_H} defaultProps={{ slug: p.slug }} />

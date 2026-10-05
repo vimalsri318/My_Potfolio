@@ -54,5 +54,21 @@
     "Wire in a production verification provider so more results can reach 'confirmed'.",
     "Self-hosted browser transport to keep tier 5 costs flat.",
     "Per-lookup cost reporting in the dashboard."
-  ]
+  ],
+  "overrides": {
+    "platforms": [
+      {
+        "key": "web",
+        "note": "Internal web app"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "drizzle",
+      "postgres",
+      "vitest",
+      "railway"
+    ]
+  }
 }

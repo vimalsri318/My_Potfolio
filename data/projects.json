@@ -109,32 +109,49 @@
     },
     "screens": [
       {
+        "kind": "desktop",
         "src": "/assets/img/projects/influnet/case/chooser.jpg",
         "caption": "influnet.io asks one question first: creator or business?"
       },
       {
-        "src": "/assets/img/projects/influnet/case/scene-1.jpg",
+        "src": "/assets/img/projects/influnet/case/biz-hero.jpg",
+        "kind": "desktop",
+        "caption": "Find real creators. Run every collab to the finish."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/biz-shortlist.jpg",
+        "kind": "desktop",
         "caption": "Business landing page: shortlist creators who have proved they own their accounts."
       },
       {
-        "src": "/assets/img/projects/influnet/case/scene-2.jpg",
+        "src": "/assets/img/projects/influnet/case/cr-four.jpg",
+        "kind": "desktop",
         "caption": "Creator landing page: four questions answered before you reply to a brand."
       },
       {
-        "src": "/assets/img/projects/influnet/case/scene-3.jpg",
-        "caption": "The same product on the web and in the iOS / Android app."
+        "src": "/assets/img/projects/influnet/case/chooser-m.jpg",
+        "kind": "phone",
+        "caption": "The same product on a phone: the mobile web."
       },
       {
-        "src": "/assets/img/projects/influnet/case/scene-4.jpg",
+        "src": "/assets/img/projects/influnet/case/app-m.jpg",
+        "kind": "phone",
+        "caption": "The same product on a phone: the mobile web."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/biz-m.jpg",
+        "kind": "phone",
+        "caption": "The same product on a phone: the mobile web."
+      },
+      {
+        "src": "/assets/img/projects/influnet/case/cr-flow.jpg",
+        "kind": "desktop",
         "caption": "How a collab moves from request to final payment."
       },
       {
-        "src": "/assets/img/projects/influnet/case/scene-5.jpg",
+        "src": "/assets/img/projects/influnet/case/panel-1.jpg",
+        "kind": "desktop",
         "caption": "Stage by stage: discussion, deposit, shooting, review, payment."
-      },
-      {
-        "src": "/assets/img/projects/influnet/case/scene-6.jpg",
-        "caption": "Under the hood: three apps, one Supabase backend."
       }
     ],
     "decisions": [
@@ -160,6 +177,24 @@
       "A completed-work showcase on each creator's public profile, feeding rating and completed count into discovery.",
       "Per-project progress bars and a 'whose turn' label on both dashboards.",
       "Admin-controlled runtime settings, agreed in principle and deferred until they're needed."
+    ],
+    "platforms": [
+      "web",
+      "ios",
+      "android"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "expo",
+      "reactnative",
+      "supabase",
+      "streamchat",
+      "razorpay",
+      "resend",
+      "turborepo",
+      "azure",
+      "cloudflare"
     ]
   },
   {
@@ -277,33 +312,36 @@
     "screens": [
       {
         "src": "/assets/img/projects/buziness-os/case/dashboard.jpg",
+        "kind": "desktop",
         "caption": "The dashboard in the one-click demo workspace (sample company, sample data)."
       },
       {
-        "src": "/assets/img/projects/buziness-os/case/scene-1.jpg",
+        "src": "/assets/img/projects/buziness-os/case/leads.jpg",
+        "kind": "desktop",
         "caption": "Leads on one pipeline, from new to won."
       },
       {
-        "src": "/assets/img/projects/buziness-os/case/scene-2.jpg",
+        "src": "/assets/img/projects/buziness-os/case/sourcing.jpg",
+        "kind": "desktop",
         "caption": "The sourcing agent: evidence-based business-email lookup with a visible trace."
       },
       {
-        "src": "/assets/img/projects/buziness-os/case/scene-3.jpg",
+        "src": "/assets/img/projects/buziness-os/case/contact.jpg",
+        "kind": "desktop",
         "caption": "The contact centre: a browser softphone with Gemini transcription."
       },
       {
-        "src": "/assets/img/projects/buziness-os/case/scene-4.jpg",
+        "src": "/assets/img/projects/buziness-os/case/admin.jpg",
+        "kind": "desktop",
         "caption": "Workspace admin: plan, credits used, members and audit log."
       },
       {
-        "src": "/assets/img/projects/buziness-os/case/scene-5.jpg",
+        "src": "/assets/img/projects/buziness-os/case/panel-1.jpg",
+        "kind": "desktop",
         "caption": "The one guard every API route goes through."
       },
       {
-        "src": "/assets/img/projects/buziness-os/case/scene-6.jpg",
-        "caption": "Under the hood: one app, one guard, Neon Postgres and the AI services."
-      },
-      {
+        "kind": "desktop",
         "src": "/assets/img/projects/buziness-os/case/loop.jpg",
         "caption": "The marketing site explains the capture → understand → recommend → act loop."
       }
@@ -331,6 +369,20 @@
       "Email delivery for invites and password resets, plus email verification and TOTP 2FA for platform admins.",
       "Per-workspace telephony settings instead of one shared TeleCMI account.",
       "Real backends for campaigns, omnichannel, voice agents and workflows."
+    ],
+    "platforms": [
+      "web"
+    ],
+    "stack": [
+      "nextjs",
+      "react",
+      "tailwind",
+      "neon",
+      "drizzle",
+      "gemini",
+      "telecmi",
+      "meetingbaas",
+      "railway"
     ]
   },
   {
@@ -349,7 +401,7 @@
     "gallery": [
       "/assets/img/projects/mithra-whole-foods/cover.jpg"
     ],
-    "link": "",
+    "link": "https://mithra-wholefoods.up.railway.app/us",
     "domain": "mithrawholefoods.com",
     "tagline": "Traditional foods, sold through a modern headless store",
     "badge": "Client project • Launching",
@@ -444,35 +496,48 @@
     "screens": [
       {
         "src": "/assets/img/projects/mithra-whole-foods/case/home.jpg",
+        "kind": "desktop",
         "caption": "The storefront homepage."
       },
       {
-        "src": "/assets/img/projects/mithra-whole-foods/case/scene-1.jpg",
+        "src": "/assets/img/projects/mithra-whole-foods/case/home-scroll.jpg",
+        "kind": "desktop",
         "caption": "The new homepage: hero slides, aisles, top picks and festival bands."
       },
       {
-        "src": "/assets/img/projects/mithra-whole-foods/case/scene-2.jpg",
+        "src": "/assets/img/projects/mithra-whole-foods/case/seed.jpg",
+        "kind": "desktop",
         "caption": "Seed to bottle: the wood-pressed oil story on the homepage."
       },
       {
-        "src": "/assets/img/projects/mithra-whole-foods/case/scene-3.jpg",
+        "src": "/assets/img/projects/mithra-whole-foods/case/search.jpg",
+        "kind": "desktop",
         "caption": "In-house search: results for 'millet'."
       },
       {
-        "src": "/assets/img/projects/mithra-whole-foods/case/scene-4.jpg",
+        "src": "/assets/img/projects/mithra-whole-foods/case/pdp.jpg",
+        "kind": "desktop",
         "caption": "A product page with add to cart."
       },
       {
-        "src": "/assets/img/projects/mithra-whole-foods/case/scene-5.jpg",
+        "src": "/assets/img/projects/mithra-whole-foods/case/picks.jpg",
+        "kind": "desktop",
         "caption": "Top picks, with sizes and add to cart on the card."
       },
       {
-        "src": "/assets/img/projects/mithra-whole-foods/case/scene-6.jpg",
+        "src": "/assets/img/projects/mithra-whole-foods/case/home-m.jpg",
+        "kind": "phone",
         "caption": "The same store on a phone."
       },
       {
-        "src": "/assets/img/projects/mithra-whole-foods/case/scene-7.jpg",
-        "caption": "Under the hood: storefront, Medusa, Neon and Stripe."
+        "src": "/assets/img/projects/mithra-whole-foods/case/diwali-m.jpg",
+        "kind": "phone",
+        "caption": "The same store on a phone."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/podi-m.jpg",
+        "kind": "phone",
+        "caption": "The same store on a phone."
       }
     ],
     "decisions": [
@@ -497,6 +562,25 @@
       "Co-locate the backend and database in one region to remove the ~290 ms per-query penalty.",
       "Switch on the analytics and observability that are already built, then fix correctness gaps they surface.",
       "Shipping automation through the Easyship fulfilment module."
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "label": "Online store"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "medusa",
+      "tailwind",
+      "neon",
+      "stripe",
+      "cloudinary",
+      "sentry",
+      "turborepo",
+      "pnpm",
+      "railway",
+      "docker"
     ]
   },
   {
@@ -609,27 +693,28 @@
     "screens": [
       {
         "src": "/assets/img/projects/tecstellar-command-center/case/overview.jpg",
+        "kind": "desktop",
         "caption": "The owner overview: every app's customers, revenue, dues and calls (generated sample data)."
       },
       {
-        "src": "/assets/img/projects/tecstellar-command-center/case/scene-1.jpg",
+        "src": "/assets/img/projects/tecstellar-command-center/case/agent.jpg",
+        "kind": "desktop",
         "caption": "An agent's Today view: calls, follow-ups due and queues per app."
       },
       {
-        "src": "/assets/img/projects/tecstellar-command-center/case/scene-2.jpg",
+        "src": "/assets/img/projects/tecstellar-command-center/case/pick.jpg",
+        "kind": "desktop",
         "caption": "Agents pick which app's queue to work."
       },
       {
-        "src": "/assets/img/projects/tecstellar-command-center/case/scene-3.jpg",
+        "src": "/assets/img/projects/tecstellar-command-center/case/team.jpg",
+        "kind": "desktop",
         "caption": "Supervisor view: team performance by agent."
       },
       {
-        "src": "/assets/img/projects/tecstellar-command-center/case/scene-4.jpg",
+        "src": "/assets/img/projects/tecstellar-command-center/case/owner.jpg",
+        "kind": "desktop",
         "caption": "Owner view across every app (sample data)."
-      },
-      {
-        "src": "/assets/img/projects/tecstellar-command-center/case/scene-5.jpg",
-        "caption": "Under the hood: role consoles, store provider, Firestore and TeleCMI."
       }
     ],
     "decisions": [
@@ -655,6 +740,22 @@
       "Move sign-in to server-side accounts (today it's a demo where only the username is checked).",
       "Bring Influnet and Vehigo onto the console as they ship.",
       "Enterprise TeleCMI features from the spec: recordings at scale and per-agent lines."
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "note": "Internal web app for the Tecstellar team"
+      }
+    ],
+    "stack": [
+      "react",
+      "typescript",
+      "vite",
+      "d3",
+      "firebase",
+      "telecmi",
+      "firebasehosting",
+      "bigrock"
     ]
   },
   {
@@ -767,27 +868,28 @@
     "screens": [
       {
         "src": "/assets/img/projects/casa-harmony/case/dashboard.jpg",
+        "kind": "desktop",
         "caption": "The HOA admin dashboard in the demo (fictional association and residents)."
       },
       {
-        "src": "/assets/img/projects/casa-harmony/case/scene-1.jpg",
+        "src": "/assets/img/projects/casa-harmony/case/desk.jpg",
+        "kind": "desktop",
         "caption": "The service desk: tickets by category and status."
       },
       {
-        "src": "/assets/img/projects/casa-harmony/case/scene-2.jpg",
+        "src": "/assets/img/projects/casa-harmony/case/payables.jpg",
+        "kind": "desktop",
         "caption": "Payables: invoices matched against purchase orders before payment."
       },
       {
-        "src": "/assets/img/projects/casa-harmony/case/scene-3.jpg",
+        "src": "/assets/img/projects/casa-harmony/case/panel-1.jpg",
+        "kind": "desktop",
         "caption": "Journal entry with an Oracle-style code combination — balanced."
       },
       {
-        "src": "/assets/img/projects/casa-harmony/case/scene-4.jpg",
+        "src": "/assets/img/projects/casa-harmony/case/board.jpg",
+        "kind": "desktop",
         "caption": "The board dashboard: operating and reserve funds, kept separate."
-      },
-      {
-        "src": "/assets/img/projects/casa-harmony/case/scene-5.jpg",
-        "caption": "Under the hood: Next.js, FastAPI, row-level security, Postgres."
       }
     ],
     "decisions": [
@@ -813,6 +915,18 @@
       "Go-live checklist: data migration from the client's current books and a deploy runbook on Render / Railway.",
       "Field-level encryption and CCPA access / portability / erasure flows, moved from scaffolding to production use.",
       "Scheduled assessments and dunning runs on the job scheduler."
+    ],
+    "platforms": [
+      "web"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "python",
+      "fastapi",
+      "sqlalchemy",
+      "postgres",
+      "docker"
     ]
   },
   {
@@ -923,20 +1037,24 @@
     },
     "screens": [
       {
-        "src": "/assets/img/projects/wassupos/case/scene-1.jpg",
+        "src": "/assets/img/projects/wassupos/case/panel-1.jpg",
+        "kind": "desktop",
+        "caption": "A multi-tenant WhatsApp CRM where an AI answers your leads."
+      },
+      {
+        "src": "/assets/img/projects/wassupos/case/panel-2.jpg",
+        "kind": "desktop",
         "caption": "The AI assistant answering from the knowledge base — and checking with the team when it can't (example conversation)."
       },
       {
-        "src": "/assets/img/projects/wassupos/case/scene-2.jpg",
+        "src": "/assets/img/projects/wassupos/case/panel-3.jpg",
+        "kind": "desktop",
         "caption": "The company workspace's modules."
       },
       {
-        "src": "/assets/img/projects/wassupos/case/scene-3.jpg",
+        "src": "/assets/img/projects/wassupos/case/panel-4.jpg",
+        "kind": "desktop",
         "caption": "The voice agent's preflight checks."
-      },
-      {
-        "src": "/assets/img/projects/wassupos/case/scene-4.jpg",
-        "caption": "What a voice call actually costs, by stage."
       }
     ],
     "decisions": [
@@ -961,6 +1079,21 @@
       "Connect the voice agent's call outcomes to the CRM's leads.",
       "Resolve the billing question that decides whether Tamil calls cost 1.2× or 1.6× English.",
       "Billing integration in the platform admin."
+    ],
+    "platforms": [
+      "web",
+      "whatsapp"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "prisma",
+      "supabase",
+      "whatsappapi",
+      "python",
+      "pipecat",
+      "awslambda",
+      "railway"
     ]
   },
   {
@@ -990,7 +1123,7 @@
       "Google Apps Script",
       "Google Sheets",
       "WhatsApp deep links",
-      "Vercel"
+      "Hostinger"
     ],
     "summary": "A 14-page website for a hospital pharmacy operator, with AMRI — a chat assistant that qualifies leads entirely in the visitor's browser — and a backend made of one Google Sheet and one Apps Script instead of a server and database.",
     "description": [
@@ -1136,6 +1269,23 @@
       "Semantic search over the knowledge base with in-browser embeddings, replacing token overlap.",
       "Log completed intake briefs to the sheet as well as WhatsApp, so every qualified lead is on record.",
       "Spam protection on the Apps Script endpoint (honeypot field and rate limiting)."
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "label": "Website",
+        "note": "Responsive website with an AI assistant"
+      }
+    ],
+    "stack": [
+      "tanstack",
+      "react",
+      "typescript",
+      "tailwind",
+      "appsscript",
+      "googlesheets",
+      "whatsappapi",
+      "hostinger"
     ]
   },
   {
@@ -1248,27 +1398,28 @@
     "screens": [
       {
         "src": "/assets/img/projects/jaisathya/case/hero.jpg",
+        "kind": "desktop",
         "caption": "jaisathya.com — the group homepage."
       },
       {
-        "src": "/assets/img/projects/jaisathya/case/scene-1.jpg",
+        "src": "/assets/img/projects/jaisathya/case/eco.jpg",
+        "kind": "desktop",
         "caption": "The homepage's ecosystem of eight holdings."
       },
       {
-        "src": "/assets/img/projects/jaisathya/case/scene-2.jpg",
+        "src": "/assets/img/projects/jaisathya/case/manam.jpg",
+        "kind": "desktop",
         "caption": "Manam's brand page."
       },
       {
-        "src": "/assets/img/projects/jaisathya/case/scene-3.jpg",
+        "src": "/assets/img/projects/jaisathya/case/panel-1.jpg",
+        "kind": "desktop",
         "caption": "How an edit flows: click, pick media, save draft, publish."
       },
       {
-        "src": "/assets/img/projects/jaisathya/case/scene-4.jpg",
+        "src": "/assets/img/projects/jaisathya/case/dataeq.jpg",
+        "kind": "desktop",
         "caption": "DataEQ's holding page."
-      },
-      {
-        "src": "/assets/img/projects/jaisathya/case/scene-5.jpg",
-        "caption": "Under the hood: registry, documents table, Cloudinary."
       }
     ],
     "decisions": [
@@ -1294,6 +1445,24 @@
       "Per-document revision history.",
       "Role-based access for brand managers who should only edit their own brand.",
       "Event and menu content types for the restaurants."
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "label": "Website",
+        "note": "Responsive website, editable in place"
+      }
+    ],
+    "stack": [
+      "tanstack",
+      "react",
+      "vite",
+      "tailwind",
+      "drizzle",
+      "neon",
+      "cloudinary",
+      "vercel",
+      "godaddy"
     ]
   },
   {
@@ -1404,16 +1573,19 @@
     },
     "screens": [
       {
-        "src": "/assets/img/projects/email-finder/case/scene-1.jpg",
+        "src": "/assets/img/projects/email-finder/case/panel-1.jpg",
+        "kind": "desktop",
+        "caption": "A name and a company website in. A work email out — with how much to trust it."
+      },
+      {
+        "src": "/assets/img/projects/email-finder/case/panel-2.jpg",
+        "kind": "desktop",
         "caption": "A lookup working through the evidence tiers (example person and domain)."
       },
       {
-        "src": "/assets/img/projects/email-finder/case/scene-2.jpg",
+        "src": "/assets/img/projects/email-finder/case/panel-3.jpg",
+        "kind": "desktop",
         "caption": "The confidence tiers a result can earn."
-      },
-      {
-        "src": "/assets/img/projects/email-finder/case/scene-3.jpg",
-        "caption": "Under the hood: web, queue, worker and Postgres with forced RLS."
       }
     ],
     "decisions": [
@@ -1438,6 +1610,20 @@
       "Wire in a production verification provider so more results can reach 'confirmed'.",
       "Self-hosted browser transport to keep tier 5 costs flat.",
       "Per-lookup cost reporting in the dashboard."
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "note": "Internal web app"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "drizzle",
+      "postgres",
+      "vitest",
+      "railway"
     ]
   },
   {
@@ -1544,19 +1730,18 @@
     "screens": [
       {
         "src": "/assets/img/projects/reframe/case/home.jpg",
+        "kind": "desktop",
         "caption": "Reframe's paste-in screen (running locally in demo mode)."
       },
       {
-        "src": "/assets/img/projects/reframe/case/scene-1.jpg",
+        "src": "/assets/img/projects/reframe/case/panel-1.jpg",
+        "kind": "desktop",
         "caption": "Source text re-architected into a callout, a definition and a comparison."
       },
       {
-        "src": "/assets/img/projects/reframe/case/scene-2.jpg",
+        "src": "/assets/img/projects/reframe/case/panel-2.jpg",
+        "kind": "desktop",
         "caption": "What the model actually returns: block types and unit ids, never text."
-      },
-      {
-        "src": "/assets/img/projects/reframe/case/scene-3.jpg",
-        "caption": "Under the hood: parse, address, classify, verify."
       }
     ],
     "decisions": [
@@ -1581,6 +1766,17 @@
       "PDF and link ingestion polish for the students-first wedge.",
       "Cross-device sync once the validation metric gates pass (v0 is localStorage-only).",
       "Replace Sheets analytics with a real store after the gates pass."
+    ],
+    "platforms": [
+      "web"
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "tailwind",
+      "groq",
+      "appsscript",
+      "vercel"
     ]
   },
   {
@@ -1691,16 +1887,19 @@
     },
     "screens": [
       {
-        "src": "/assets/img/projects/black-hole/case/scene-1.jpg",
+        "src": "/assets/img/projects/black-hole/case/panel-1.jpg",
+        "kind": "desktop",
+        "caption": "A private clipboard between your Mac and your phone. Throw in. Pull out. Anywhere."
+      },
+      {
+        "src": "/assets/img/projects/black-hole/case/panel-2.jpg",
+        "kind": "desktop",
         "caption": "Real output: pairing two devices with a 6-digit code."
       },
       {
-        "src": "/assets/img/projects/black-hole/case/scene-2.jpg",
+        "src": "/assets/img/projects/black-hole/case/panel-3.jpg",
+        "kind": "desktop",
         "caption": "Real output: a link delivered, listed, then reaped when it expires."
-      },
-      {
-        "src": "/assets/img/projects/black-hole/case/scene-3.jpg",
-        "caption": "Under the hood: one Rust core, thin shells."
       }
     ],
     "decisions": [
@@ -1725,6 +1924,18 @@
       "iOS app on the same protocol.",
       "QUIC transport and an optional relay for when devices aren't on the same network.",
       "Files beyond text, links and images, with chunked resumable transfer."
+    ],
+    "platforms": [
+      "mac",
+      "android",
+      "cli"
+    ],
+    "stack": [
+      "rust",
+      "tauri",
+      "expo",
+      "reactnative",
+      "sqlite"
     ]
   },
   {
@@ -1829,20 +2040,24 @@
     },
     "screens": [
       {
-        "src": "/assets/img/projects/streak-doctor/case/scene-1.jpg",
+        "src": "/assets/img/projects/streak-doctor/case/panel-1.jpg",
+        "kind": "desktop",
+        "caption": "An open-source GitHub accountability CLI, built around why a contribution didn't count."
+      },
+      {
+        "src": "/assets/img/projects/streak-doctor/case/panel-2.jpg",
+        "kind": "desktop",
         "caption": "The six reasons a commit doesn't count — the rules the diagnosis engine is being built on."
       },
       {
-        "src": "/assets/img/projects/streak-doctor/case/scene-2.jpg",
+        "src": "/assets/img/projects/streak-doctor/case/panel-3.jpg",
+        "kind": "desktop",
         "caption": "Real output: today's count and the time left in GitHub's day."
       },
       {
-        "src": "/assets/img/projects/streak-doctor/case/scene-3.jpg",
+        "src": "/assets/img/projects/streak-doctor/case/panel-4.jpg",
+        "kind": "desktop",
         "caption": "Real output: a year of contributions drawn in the terminal."
-      },
-      {
-        "src": "/assets/img/projects/streak-doctor/case/scene-4.jpg",
-        "caption": "Under the hood: a pure core package and a thin CLI."
       }
     ],
     "decisions": [
@@ -1868,6 +2083,24 @@
       "A real auth story for the CLI (device flow or PAT) instead of borrowing gh's token.",
       "Streak arithmetic, then watch / daemon notifications that warn before the day ends.",
       "Phase gate: ~200 users; continue if 30%+ contribute after an at-risk warning, stop below 10%."
+    ],
+    "platforms": [
+      "npm",
+      "cli"
+    ],
+    "stack": [
+      "typescript",
+      "nodejs",
+      "githubapi",
+      "pnpm",
+      "vitest",
+      "npm"
+    ],
+    "links": [
+      {
+        "href": "https://www.npmjs.com/package/streak-doctor",
+        "label": "View on npm"
+      }
     ]
   },
   {
@@ -1978,16 +2211,19 @@
     },
     "screens": [
       {
-        "src": "/assets/img/projects/slate/case/scene-1.jpg",
+        "src": "/assets/img/projects/slate/case/panel-1.jpg",
+        "kind": "desktop",
+        "caption": "Say what you did. It files itself."
+      },
+      {
+        "src": "/assets/img/projects/slate/case/panel-2.jpg",
+        "kind": "desktop",
         "caption": "One ramble split into an activity, a spend and a closed todo."
       },
       {
-        "src": "/assets/img/projects/slate/case/scene-2.jpg",
+        "src": "/assets/img/projects/slate/case/panel-3.jpg",
+        "kind": "desktop",
         "caption": "Measured: an agent loop vs one structured call vs a cached repeat."
-      },
-      {
-        "src": "/assets/img/projects/slate/case/scene-3.jpg",
-        "caption": "Under the hood: capture, guard, cache, one call."
       }
     ],
     "decisions": [
@@ -2013,6 +2249,24 @@
       "Ship as a PWA and measure whether people keep talking to it after week three.",
       "Capture surfaces on Android: the notification bar is shipped; a Quick Settings tile and home-screen widget are written and waiting on a build.",
       "On-device whisper.cpp for privacy."
+    ],
+    "platforms": [
+      {
+        "key": "web",
+        "note": "Web prototype that works on your phone"
+      },
+      {
+        "key": "android",
+        "note": "Android app (Expo) — in development"
+      }
+    ],
+    "stack": [
+      "nextjs",
+      "typescript",
+      "groq",
+      "expo",
+      "reactnative",
+      "sqlite"
     ]
   },
   {
@@ -2123,16 +2377,19 @@
     },
     "screens": [
       {
-        "src": "/assets/img/projects/ardor/case/scene-1.jpg",
+        "src": "/assets/img/projects/ardor/case/panel-1.jpg",
+        "kind": "desktop",
+        "caption": "An accountability app with a companion that checks in, follows up and grows with you."
+      },
+      {
+        "src": "/assets/img/projects/ardor/case/panel-2.jpg",
+        "kind": "desktop",
         "caption": "A check-in that adapts to overwhelm with a smaller first step (illustrative)."
       },
       {
-        "src": "/assets/img/projects/ardor/case/scene-2.jpg",
+        "src": "/assets/img/projects/ardor/case/panel-3.jpg",
+        "kind": "desktop",
         "caption": "One pass of the scheduler, from state to verified completion."
-      },
-      {
-        "src": "/assets/img/projects/ardor/case/scene-3.jpg",
-        "caption": "Under the hood: an Expo shell around a pure TypeScript engine."
       }
     ],
     "decisions": [
@@ -2157,6 +2414,19 @@
       "Launch the waitlist and pre-launch site.",
       "iOS build and widgets from the same engine.",
       "Metric-gated phases from the product brain before each expansion."
+    ],
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "stack": [
+      "expo",
+      "reactnative",
+      "typescript",
+      "sqlite",
+      "jest",
+      "eas",
+      "githubactions"
     ]
   },
   {

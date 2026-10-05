@@ -8,6 +8,9 @@ import LikeButton from './LikeButton'
 import { useTrackView } from '../hooks/useTrackView'
 import { kindLabel } from '../data/catalogue'
 import { interestHref } from '../lib/interest'
+import { linkLabel } from '../data/stack'
+import { PlatformChips, StackGroups, StackLogos } from './ui/stack'
+import ScreenGallery from './ui/ScreenGallery'
 
 // One page layout for every project — pass a project (and the next one)
 // as props and it renders the full case study.
@@ -45,6 +48,14 @@ export default function ProjectDetail({ project, nextProject }) {
               <p className="project-detail__tagline">{project.tagline}</p>
             )}
             <p className="project-detail__summary">{project.summary}</p>
+            <div className="project-detail__built">
+              <PlatformChips platforms={project.platforms} />
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noreferrer" className="project-detail__visit">
+                  {linkLabel(project.link, project.title)} <span aria-hidden="true">↗</span>
+                </a>
+              )}
+            </div>
           </header>
 
           {/* Hero image */}
@@ -107,7 +118,11 @@ export default function ProjectDetail({ project, nextProject }) {
             </div>
             <div className="project-detail__cell">
               <span className="mono project-detail__label">Tech</span>
-              <p>{Array.isArray(project.tech) ? project.tech.join(' — ') : project.tech}</p>
+              {Array.isArray(project.stack) && project.stack.length > 0 ? (
+                <StackLogos stack={project.stack} max={12} className="stack-logos--cell" />
+              ) : (
+                <p>{Array.isArray(project.tech) ? project.tech.join(' — ') : project.tech}</p>
+              )}
             </div>
             <div className="project-detail__cell">
               <span className="mono project-detail__label">Year</span>
@@ -118,12 +133,20 @@ export default function ProjectDetail({ project, nextProject }) {
               {project.link ? (
                 <p>
                   <a href={project.link} target="_blank" rel="noreferrer" className="project-detail__live">
-                    Visit project ↗
+                    {linkLabel(project.link, project.title)} ↗
                   </a>
                 </p>
               ) : (
                 <p>Private build — demo on request</p>
               )}
+              {Array.isArray(project.links) &&
+                project.links.map((l) => (
+                  <p key={l.href}>
+                    <a href={l.href} target="_blank" rel="noreferrer" className="project-detail__live">
+                      {l.label || linkLabel(l.href)} ↗
+                    </a>
+                  </p>
+                ))}
             </div>
           </div>
 
@@ -152,6 +175,14 @@ export default function ProjectDetail({ project, nextProject }) {
                   <p key={i}>{paragraph}</p>
                 ))}
               </div>
+            </section>
+          )}
+
+          {/* Tech stack — logos grouped by what they do; names on hover */}
+          {Array.isArray(project.stack) && project.stack.length > 0 && (
+            <section className="project-detail__section project-detail__section--wide">
+              <span className="mono project-detail__label">Tech stack</span>
+              <StackGroups stack={project.stack} />
             </section>
           )}
 
@@ -184,20 +215,11 @@ export default function ProjectDetail({ project, nextProject }) {
             </section>
           )}
 
-          {/* Inside the product — captioned screens */}
+          {/* Inside the product — real screens, desktop and phone, with a lightbox */}
           {Array.isArray(project.screens) && project.screens.length > 0 && (
             <section className="project-detail__section project-detail__section--wide">
               <span className="mono project-detail__label">Inside the product</span>
-              <div className="project-detail__screens">
-                {project.screens.map((screen, i) => (
-                  <figure key={i} className={`project-detail__figure${screen.wide ? ' project-detail__figure--wide' : ''}`}>
-                    <a href={screen.src} target="_blank" rel="noreferrer">
-                      <img src={screen.src} alt={screen.alt || screen.caption || `${project.title} — ${i + 1}`} loading="lazy" />
-                    </a>
-                    {screen.caption && <figcaption>{screen.caption}</figcaption>}
-                  </figure>
-                ))}
-              </div>
+              <ScreenGallery screens={project.screens} title={project.title} />
             </section>
           )}
 

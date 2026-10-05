@@ -36,8 +36,14 @@ for (const slug of slugs) {
     }
     return s
   })
-  const stills = (m.screens || []).map((s, i) => ({ ...s, caption: (c.sceneCaptions || [])[i] ?? s.caption }))
-  const filmStills = c.useFilmStills === false ? [] : stills.filter((_, i) => !(c.skipStills || []).includes(i + 1))
+  // Gallery from render_films.mjs (real screenshots + designed panels), with
+  // case.json's sceneCaptions where it has one. Older manifests only had film
+  // stills under `screens`; those stay supported.
+  const kindOf = (src) => (/-m\.(jpg|png)$/.test(src) ? 'phone' : 'desktop')
+  const gallery = m.gallery
+    ? m.gallery.map(({ cap, ...g }) => ({ ...g, caption: (cap != null && (c.sceneCaptions || [])[cap]) || g.caption }))
+    : (m.screens || []).map((s, i) => ({ ...s, caption: (c.sceneCaptions || [])[i] ?? s.caption }))
+  const filmStills = c.useFilmStills === false ? [] : gallery.filter((_, i) => !(c.skipStills || []).includes(i + 1))
 
   Object.assign(p, c.overrides || {})
   if (m.film) { p.film = m.film; p.filmPoster = m.filmPoster }
@@ -50,7 +56,15 @@ for (const slug of slugs) {
       steps: c.steps,
     }
   }
-  p.screens = [...real.filter((s) => s.first), ...filmStills, ...real.filter((s) => !s.first)].map(({ first, ...s }) => s)
+  const inGallery = new Set(filmStills.map((g) => path.basename(g.src)))
+  const extra = real.filter((s) => !inGallery.has(path.basename(s.src))).map((s) => ({ kind: kindOf(s.src), ...s }))
+  // The intro shot leads; a real screen marked `first` replaces its caption.
+  const firsts = real.filter((s) => s.first)
+  for (const f of firsts) {
+    const g = filmStills.find((x) => path.basename(x.src) === path.basename(f.src))
+    if (g) g.caption = f.caption
+  }
+  p.screens = [...extra.filter((s) => s.first), ...filmStills, ...extra.filter((s) => !s.first)].map(({ first, ...s }) => s)
   if (c.decisions) p.decisions = c.decisions
   if (c.roadmap) p.roadmap = c.roadmap
   console.log(`✓ ${slug}: ${p.screens.length} screens${p.film ? ', film' : ''}${p.architecture?.image ? ', diagram' : ''}`)

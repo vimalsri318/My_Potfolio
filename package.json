@@ -25,6 +25,7 @@
     "dotenv": "^17.4.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
-    "pg": "^8.22.0"
+    "pg": "^8.22.0",
+    "simple-icons": "^16.34.0"
   }
 }
