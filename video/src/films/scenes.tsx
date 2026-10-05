@@ -245,6 +245,7 @@ export const OutroScene: React.FC<SceneProps<Extract<Scene, { kind: "outro" }>>>
   const introMedia = (script.scenes.find((x) => x.kind === "intro") as Extract<Scene, { kind: "intro" }> | undefined)?.media;
   const shot = scene.shot ?? (!hasStage(script.slug) && introMedia?.type === "image" ? introMedia.src : undefined);
   const bw = 1180;
+  const sw = Math.round((bw * 0.625 - 42) * 1.6);
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{ background: `linear-gradient(135deg, ${NIGHT} 0%, ${rgba(a, 0.55)} 140%)`, backgroundColor: NIGHT }} />
@@ -280,9 +281,11 @@ export const OutroScene: React.FC<SceneProps<Extract<Scene, { kind: "outro" }>>>
             </div>
           )}
           {shot && (
-            <div style={{ position: "absolute", left: (W - bw) / 2, top: lerp(page, 1080, 300), opacity: page }}>
-              <BrowserChrome url={url} width={bw} height={42 + bw * 0.625}>
-                <Img src={staticFile(shot)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", scale: String(interpolate(frame, [ctaAt, dur], [1.02, 1.08], clamp)) }} />
+            // Same footprint as the stage above, with a 16:10 content area so
+            // the whole screen shows: no zoom, nothing past the bottom edge.
+            <div style={{ position: "absolute", left: (W - sw) / 2, top: lerp(page, 1080, 300), opacity: page }}>
+              <BrowserChrome url={url} width={sw} height={42 + sw / 1.6}>
+                <Img src={staticFile(shot)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
               </BrowserChrome>
             </div>
           )}

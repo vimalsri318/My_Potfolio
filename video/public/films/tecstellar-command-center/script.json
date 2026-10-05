@@ -84,7 +84,6 @@
         { "icon": "map-pin", "title": "D3", "sub": "geography map" },
         { "icon": "phone-call", "title": "TeleCMI", "sub": "softphone calling" }
       ],
-      "shot": "films/tecstellar-command-center/media/overview.jpg",
       "vo": [
         { "id": "outro1", "text": "Every app, every call, one console." },
         { "id": "outro2", "text": "Read the full case study, and see how it was built." }

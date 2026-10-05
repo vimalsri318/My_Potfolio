@@ -3,31 +3,35 @@
     "hook1": 221,
     "hook2": 54,
     "intro1": 91,
-    "browse1": 65,
+    "browse1": 56,
     "browse2": 206,
     "cart1": 216,
     "cart2": 162,
-    "phones1": 284,
-    "flow1": 200,
+    "phones1": 245,
+    "flow1": 199,
     "flow2": 334,
     "flow3": 88,
     "outro1": 62,
-    "outro2": 73
+    "outro2": 73,
+    "store1": 253,
+    "store2": 212
   },
   "hashes": {
     "hook1": "f2aa26618e59",
     "hook2": "6234f3993f22",
     "intro1": "cb2403b25b1a",
-    "browse1": "b4a7d2fab3c2",
+    "browse1": "acf689736578",
     "browse2": "05c0c18d8502",
     "cart1": "a6dcfebf13aa",
     "cart2": "29ab01931d93",
-    "phones1": "7b8dce85a8c5",
-    "flow1": "2bb8f6f63841",
+    "phones1": "ed92310a7f7e",
+    "flow1": "c52b99123ae9",
     "flow2": "970976e1397a",
     "flow3": "2dd77c7c90f8",
     "outro1": "b07d4afd5b24",
-    "outro2": "e5e49e99b52f"
+    "outro2": "e5e49e99b52f",
+    "store1": "511061fe54c5",
+    "store2": "f0cab344fe62"
   },
   "voice": "af_heart"
 }
