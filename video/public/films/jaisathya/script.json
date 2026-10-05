@@ -85,7 +85,6 @@
         { "icon": "image", "title": "Cloudinary", "sub": "media pipeline" },
         { "icon": "pen-tool", "title": "Visual CMS", "sub": "edit in place" }
       ],
-      "shot": "films/jaisathya/media/hero.jpg",
       "vo": [
         { "id": "outro1", "text": "Eight businesses, on one site the owner can edit." },
         { "id": "outro2", "text": "Read the full case study, and see how it was built." }

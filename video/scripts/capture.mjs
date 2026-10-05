@@ -29,7 +29,7 @@ const profile = fs.mkdtempSync(path.join(os.tmpdir(), "cap-"));
 const chrome = spawn("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", ["--headless=new", `--remote-debugging-port=${port}`, "--hide-scrollbars", "--mute-audio", `--user-data-dir=${profile}`, "about:blank"], { stdio: "ignore" });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let targets;
-for (let k = 0; k < 40 && !targets; k++) {
+for (let k = 0; k < 160 && !targets; k++) {
   try {
     targets = await (await fetch(`http://127.0.0.1:${port}/json`)).json();
   } catch {

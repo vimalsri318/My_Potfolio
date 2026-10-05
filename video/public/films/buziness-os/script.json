@@ -97,7 +97,6 @@
         { "icon": "sparkles", "title": "Gemini", "sub": "minutes, transcripts, suggestions" },
         { "icon": "phone-call", "title": "TeleCMI + Meeting BaaS", "sub": "calls and meeting bots" }
       ],
-      "shot": "films/buziness-os/media/hero.jpg",
       "vo": [
         { "id": "outro1", "text": "One workspace, for every revenue channel." },
         { "id": "outro2", "text": "Read the full case study, and see how it was built." }

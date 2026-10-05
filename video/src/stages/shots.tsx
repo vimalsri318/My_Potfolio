@@ -1,10 +1,16 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { C, ease, F, lerp } from "../theme";
-import { BrowserWindow, PhoneFrame, Shot, StageBg, useEnter } from "../ui";
+import { BrowserWindow, fit, PhoneFrame, Shot, StageBg, useEnter } from "../ui";
 
 // Stages built from real screenshots of the live products. Every stage is
 // laid out on a 1280×800 canvas.
+
+// The site's opening screen, whole: the browser's content area is exactly
+// 16:10, the shape of a 1440×900 capture, so nothing is cropped, and the
+// phone sits inside the stage instead of running off its edge.
+const WEB_W = 1000;
+const WEB_H = 44 + WEB_W / 1.6;
 
 const WebAndPhone: React.FC<{
   accent: string;
@@ -12,32 +18,31 @@ const WebAndPhone: React.FC<{
   web: string;
   phone?: string;
   dark?: boolean;
-  pan?: number;
-}> = ({ accent, url, web, phone, dark, pan = 0 }) => {
+}> = ({ accent, url, web, phone, dark }) => {
   const frame = useCurrentFrame();
   const win = useEnter(0);
   const p = ease(frame, 14, 44);
   return (
     <AbsoluteFill>
       <StageBg accent={accent} dark={dark} />
-      <div style={{ position: "absolute", left: 96, top: 92, ...win }}>
-        <BrowserWindow url={url} width={1040} height={760} dark={dark}>
-          <Shot src={web} pan={pan} />
+      <div style={{ ...fit(WEB_W, WEB_H, phone ? -64 : 0), ...win }}>
+        <BrowserWindow url={url} width={WEB_W} height={WEB_H} dark={dark}>
+          <Shot src={web} />
         </BrowserWindow>
       </div>
       {phone && (
         <div
           style={{
             position: "absolute",
-            right: 70,
-            top: 210,
+            right: 52,
+            bottom: 44,
             opacity: p,
             translate: `${lerp(p, 80, 0)}px ${lerp(p, 30, 0)}px`,
             rotate: `${lerp(p, 6, 0)}deg`,
           }}
         >
-          <PhoneFrame width={236}>
-            <Shot src={phone} pan={160} from={20} />
+          <PhoneFrame width={212}>
+            <Shot src={phone} />
           </PhoneFrame>
         </div>
       )}
@@ -53,12 +58,16 @@ export const BuzinessStage = () => (
   <WebAndPhone accent="#0F766E" url="buziness365.up.railway.app" web="shots/buziness.jpg" phone="shots/buziness-m.jpg" />
 );
 
+export const MithraStage = () => (
+  <WebAndPhone accent="#2E7D32" url="mithra-wholefoods.up.railway.app" web="shots/mithra.jpg" phone="shots/mithra-m.jpg" />
+);
+
 export const AmretriStage = () => (
-  <WebAndPhone accent="#0D9488" url="amretrihealthcare.com" web="shots/amretri.jpg" />
+  <WebAndPhone accent="#0D9488" url="amretrihealthcare.com" web="shots/amretri.jpg" phone="shots/amretri-m.jpg" />
 );
 
 export const JaiSathyaStage = () => (
-  <WebAndPhone accent="#D97706" url="jaisathya.com" web="shots/jaisathya.jpg" />
+  <WebAndPhone accent="#D97706" url="jaisathya.com" web="shots/jaisathya.jpg" phone="shots/jaisathya-m.jpg" />
 );
 
 // TCC: the owner dashboard plus the keyboard shortcuts agents work with.
@@ -74,16 +83,16 @@ export const TccStage = () => {
   return (
     <AbsoluteFill>
       <StageBg accent="#2B8CC4" />
-      <div style={{ position: "absolute", left: 96, top: 92, ...win }}>
-        <BrowserWindow url="tcc.tecstellar.com" width={1040} height={760}>
+      <div style={{ ...fit(WEB_W, WEB_H, -40), ...win }}>
+        <BrowserWindow url="tcc.tecstellar.com" width={WEB_W} height={WEB_H}>
           <Shot src="shots/tcc-owner.jpg" />
         </BrowserWindow>
       </div>
       <div
         style={{
           position: "absolute",
-          right: 60,
-          top: 150,
+          right: 44,
+          top: 170,
           display: "flex",
           flexDirection: "column",
           gap: 14,

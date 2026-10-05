@@ -96,7 +96,6 @@
         { "icon": "database", "title": "Supabase", "sub": "Postgres + RLS" },
         { "icon": "credit-card", "title": "Stream + Razorpay", "sub": "chat and payments" }
       ],
-      "shot": "films/influnet/media/biz-hero.jpg",
       "vo": [
         { "id": "outro1", "text": "Real creators, clear terms, and payments that move with the work." },
         { "id": "outro2", "text": "Read the full case study, and see how it was built." }

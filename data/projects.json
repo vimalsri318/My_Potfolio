@@ -74,8 +74,8 @@
       "End-to-end Playwright suites covering requests, chat, freemium limits and access guards",
       "Phone OTP sign-in through a Supabase edge function"
     ],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791081798/portfolio/films/influnet.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_16.43,w_1600,q_auto/v1791081798/portfolio/films/influnet.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166456/portfolio/films/influnet.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_16.43,w_1600,q_auto/v1791166456/portfolio/films/influnet.jpg",
     "challenge": [
       "Creators and brands mostly meet in Instagram DMs and email threads. Replies take hours or days, follower counts are easy to fake, and the terms of a deal live in someone's chat history — so collaborations stall or fall apart halfway.",
       "Brands needed to know who they were actually talking to before they replied. Creators needed one place for every deal, and both sides needed a shared record of what was agreed and what had been paid."
@@ -241,8 +241,8 @@
       }
     ],
     "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085343/portfolio/films/buziness-os.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_16.93,w_1600,q_auto/v1791085343/portfolio/films/buziness-os.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166458/portfolio/films/buziness-os.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_16.93,w_1600,q_auto/v1791166458/portfolio/films/buziness-os.jpg",
     "challenge": [
       "Revenue teams at small Indian companies stitch together a CRM, a dialler, a meeting notetaker and a lead database. Every tool has its own login and its own copy of the customer, and nothing carries over when a lead becomes a call becomes a meeting.",
       "The product also had to be sellable as SaaS from day one: many client companies on one deployment, each paying for different modules, with AI actions that cost real money and have to be metered, limited and refunded fairly."
@@ -408,8 +408,8 @@
       "Production audit, QA report and deployment runbook delivered with the build",
       "Client's own wordmark traced to SVG and real product photography throughout"
     ],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085345/portfolio/films/mithra-whole-foods.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.03,w_1600,q_auto/v1791085345/portfolio/films/mithra-whole-foods.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166462/portfolio/films/mithra-whole-foods.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.03,w_1600,q_auto/v1791166462/portfolio/films/mithra-whole-foods.jpg",
     "challenge": [
       "Mithra Whole Foods sells chemical-free traditional foods — millets, cold-pressed oils, ghee, jaggery — and it was running on an ageing template store that didn't feel premium, couldn't be extended, and needed a developer for every banner change.",
       "The rebuild had to keep the full commerce path working end to end, stay cheap to run for a small brand, and hand day-to-day content back to the client."
@@ -417,11 +417,11 @@
     "architecture": {
       "image": "/assets/img/projects/mithra-whole-foods/case/architecture.jpg",
       "alt": "Mithra Whole Foods system architecture",
-      "caption": "A Next.js storefront on Vercel talks to a Medusa v2 backend on Railway, which owns the data in Neon Postgres and takes payments through Stripe.",
+      "caption": "A Next.js storefront and a Medusa v2 backend, both on Railway; the backend owns the data in Neon Postgres and takes payments through Stripe.",
       "steps": [
         {
           "title": "Browse",
-          "desc": "Category and product pages render from the Medusa Store API, with real product photography and the client's own wordmark traced to SVG."
+          "desc": "A product-led homepage (hero slides built around the real packs, aisles, top picks with size chips, festival bands) and category and product pages that render from the Medusa Store API."
         },
         {
           "title": "Search",
@@ -437,7 +437,7 @@
         },
         {
           "title": "Edit the homepage",
-          "desc": "A custom homepage module with an admin live-preview page lets the client change banners and featured collections without a deploy."
+          "desc": "A custom homepage module with an admin live-preview page lets the client change the offer cards and the dated welcome-popup cards without a deploy."
         }
       ]
     },
@@ -448,26 +448,30 @@
       },
       {
         "src": "/assets/img/projects/mithra-whole-foods/case/scene-1.jpg",
-        "caption": "The catalogue, browsable by category."
+        "caption": "The new homepage: hero slides, aisles, top picks and festival bands."
       },
       {
         "src": "/assets/img/projects/mithra-whole-foods/case/scene-2.jpg",
-        "caption": "In-house search: results for 'rice'."
+        "caption": "Seed to bottle: the wood-pressed oil story on the homepage."
       },
       {
         "src": "/assets/img/projects/mithra-whole-foods/case/scene-3.jpg",
-        "caption": "A product page with add to cart."
+        "caption": "In-house search: results for 'millet'."
       },
       {
         "src": "/assets/img/projects/mithra-whole-foods/case/scene-4.jpg",
-        "caption": "The cart, with free-delivery progress and a summary."
+        "caption": "A product page with add to cart."
       },
       {
         "src": "/assets/img/projects/mithra-whole-foods/case/scene-5.jpg",
-        "caption": "The same store on a phone."
+        "caption": "Top picks, with sizes and add to cart on the card."
       },
       {
         "src": "/assets/img/projects/mithra-whole-foods/case/scene-6.jpg",
+        "caption": "The same store on a phone."
+      },
+      {
+        "src": "/assets/img/projects/mithra-whole-foods/case/scene-7.jpg",
         "caption": "Under the hood: storefront, Medusa, Neon and Stripe."
       }
     ],
@@ -492,8 +496,7 @@
     "roadmap": [
       "Co-locate the backend and database in one region to remove the ~290 ms per-query penalty.",
       "Switch on the analytics and observability that are already built, then fix correctness gaps they surface.",
-      "Shipping automation through the Easyship fulfilment module.",
-      "Bring the UI back in line with the defined design system."
+      "Shipping automation through the Easyship fulfilment module."
     ]
   },
   {
@@ -570,8 +573,8 @@
       "Mid-call reroute and escalation wired to a live supervisor queue",
       "TeleCMI calling with documented dialling safety modes"
     ],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085347/portfolio/films/tecstellar-command-center.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_20,w_1600,q_auto/v1791085347/portfolio/films/tecstellar-command-center.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166464/portfolio/films/tecstellar-command-center.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_20,w_1600,q_auto/v1791166464/portfolio/films/tecstellar-command-center.jpg",
     "challenge": [
       "Tecstellar runs several consumer apps — RealBroks and IronDrobe live, Influnet and Vehigo on the way. Users, payments, tickets and follow-ups lived in separate dashboards, one per app, and the calling team worked from spreadsheets.",
       "They needed one console where agents call the right customers, supervisors see who's falling behind and owners see the whole portfolio — without waiting for every app's database to be wired in first."
@@ -728,8 +731,8 @@
       "Compliance control map and TLS guidance documented with the code",
       "Docker Compose locally, Render blueprint for deployment"
     ],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085349/portfolio/films/casa-harmony.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_18.9,w_1600,q_auto/v1791085349/portfolio/films/casa-harmony.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166466/portfolio/films/casa-harmony.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_18.9,w_1600,q_auto/v1791166466/portfolio/films/casa-harmony.jpg",
     "challenge": [
       "Homeowner associations collect dues, pay vendors and hold reserve funds that must stay separate by law — but most run on spreadsheets and small-business accounting tools that don't understand funds, approvals or a service desk.",
       "A property-management firm serving several associations needed one system for all of them, where staff can work across communities and no association can ever see another's books."
@@ -885,8 +888,8 @@
       }
     ],
     "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087402/portfolio/films/wassupos.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_18.07,w_1600,q_auto/v1791087402/portfolio/films/wassupos.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166467/portfolio/films/wassupos.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_18.07,w_1600,q_auto/v1791166467/portfolio/films/wassupos.jpg",
     "challenge": [
       "Indian small businesses sell on WhatsApp, but their leads, broadcasts and follow-ups live in notebooks or a CRM nobody opens, and messages that arrive after hours go unanswered.",
       "The client wanted a SaaS they could sell to many companies: one deployment, each company getting only the modules it pays for, with an AI that answers customers without ever making things up."
@@ -1209,8 +1212,8 @@
     "accent": "#D97706",
     "cover": "/assets/img/projects/jaisathya/cover.jpg",
     "video": "/assets/video/projects/jaisathya.mp4",
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085353/portfolio/films/jaisathya.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_15.53,w_1600,q_auto/v1791085353/portfolio/films/jaisathya.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166469/portfolio/films/jaisathya.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_15.53,w_1600,q_auto/v1791166469/portfolio/films/jaisathya.jpg",
     "challenge": [
       "JaiSathya runs eight very different businesses, from restaurants to a professional cricket club, and needed one site that presents them as a group while giving each restaurant brand its own page.",
       "Content changes constantly — menus, events, holdings — and the owner didn't want a developer in the loop, or a generic CMS whose forms look nothing like the page they're editing."
@@ -1366,8 +1369,8 @@
       "Drizzle migrations with separate local and production configs",
       "Unit-tested inference with Vitest"
     ],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791085355/portfolio/films/email-finder.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.57,w_1600,q_auto/v1791085355/portfolio/films/email-finder.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166471/portfolio/films/email-finder.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.57,w_1600,q_auto/v1791166471/portfolio/films/email-finder.jpg",
     "challenge": [
       "Sales teams need a person's work email, and most tools answer by guessing a pattern (first.last@) and labelling it 'verified'. On catch-all domains that label is meaningless, and every bounce hurts the sender's reputation.",
       "The goal was a finder that spends as little as possible per lookup and is honest about certainty — including saying 'don't mail this person here' when the evidence says so."
@@ -1505,8 +1508,8 @@
       }
     ],
     "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087406/portfolio/films/reframe.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_19.07,w_1600,q_auto/v1791087406/portfolio/films/reframe.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166472/portfolio/films/reframe.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_19.07,w_1600,q_auto/v1791166472/portfolio/films/reframe.jpg",
     "challenge": [
       "People read long material — papers, docs, articles — and AI summaries are the usual shortcut. But a summary paraphrases, drops detail, and can confidently state things the author never wrote.",
       "Reframe set out to make long text easier to read without changing a single word of it: find the structure that was always implicit and make it visible."
@@ -1791,8 +1794,8 @@
       }
     ],
     "highlights": [],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087409/portfolio/films/streak-doctor.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.83,w_1600,q_auto/v1791087409/portfolio/films/streak-doctor.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166476/portfolio/films/streak-doctor.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.83,w_1600,q_auto/v1791166476/portfolio/films/streak-doctor.jpg",
     "challenge": [
       "GitHub silently drops contributions for half a dozen reasons — an unlinked commit email, a fork, a non-default branch, a UTC day boundary — and the only symptom is a grey square. Streak trackers count; none of them explain.",
       "The tool had to be zero-friction: run it once with npx, no install, no sign-up, against the live API."
@@ -1940,8 +1943,8 @@
       "Research notes on Android capture surfaces and the path to native",
       "Monetisation and strategy documented alongside the code"
     ],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087411/portfolio/films/slate.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.27,w_1600,q_auto/v1791087411/portfolio/films/slate.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166477/portfolio/films/slate.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.27,w_1600,q_auto/v1791166477/portfolio/films/slate.jpg",
     "challenge": [
       "Logging what you did is useful and tedious, so nobody keeps it up. Every tracker wants a form, a category and a date for each entry.",
       "The bet: if logging were one gesture — hold, talk, let go — people would do it. That means turning an unstructured ramble into clean, correctly dated entries, cheaply enough to run on free model tiers."
@@ -2085,8 +2088,8 @@
       "Architecture decision records for every major choice",
       "Marketing, retention and metrics playbooks in the product brain"
     ],
-    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791087413/portfolio/films/ardor.mp4",
-    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.97,w_1600,q_auto/v1791087413/portfolio/films/ardor.jpg",
+    "film": "https://res.cloudinary.com/g5nctap2/video/upload/v1791166479/portfolio/films/ardor.mp4",
+    "filmPoster": "https://res.cloudinary.com/g5nctap2/video/upload/so_14.97,w_1600,q_auto/v1791166479/portfolio/films/ardor.jpg",
     "challenge": [
       "To-do apps remember what you planned and leave the follow-through to you. Reminders get swiped away, lists only grow, and the people who most need accountability are the ones who avoid the app.",
       "Ardor is built around follow-through instead: a companion that reads how you're doing, adapts when and how it nudges, and escalates only when it matters."
