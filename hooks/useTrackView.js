@@ -46,14 +46,28 @@ export function useTrackView(slug) {
     // ── Scroll depth ──────────────────────────────────────────────────
     // "Did anyone read past the hero?" is a different question from "did the
     // page load", and it's the more useful one.
-    const measureScroll = () => {
-      const doc = document.documentElement
-      const scrollable = doc.scrollHeight - window.innerHeight
-      const pct = scrollable <= 0 ? 100 : Math.round(((window.scrollY || 0) / scrollable) * 100)
-      s.maxScroll = Math.min(100, Math.max(s.maxScroll, pct))
+    // `scrollHeight` is a forced layout read, so it is measured on resize —
+    // not on every scroll event, which made analytics a source of scroll jank.
+    let scrollable = 0
+    const measureHeight = () => {
+      scrollable = document.documentElement.scrollHeight - window.innerHeight
     }
+    let queued = false
+    const measureScroll = () => {
+      if (queued) return
+      queued = true
+      requestAnimationFrame(() => {
+        const pct = scrollable <= 0 ? 100 : Math.round(((window.scrollY || 0) / scrollable) * 100)
+        s.maxScroll = Math.min(100, Math.max(s.maxScroll, pct))
+        queued = false
+      })
+    }
+    measureHeight()
     measureScroll()
     window.addEventListener('scroll', measureScroll, { passive: true })
+    window.addEventListener('resize', measureHeight, { passive: true })
+    // Lazy images and revealed sections change the page height as you go.
+    const heightTimer = setInterval(measureHeight, 2000)
 
     // ── Engagement on exit ────────────────────────────────────────────
     // `visibilitychange` fires reliably on mobile, where `beforeunload` often
@@ -75,6 +89,8 @@ export function useTrackView(slug) {
 
     return () => {
       window.removeEventListener('scroll', measureScroll)
+      window.removeEventListener('resize', measureHeight)
+      clearInterval(heightTimer)
       document.removeEventListener('visibilitychange', onHide)
       window.removeEventListener('pagehide', flush)
       flush() // client-side route change away from this page

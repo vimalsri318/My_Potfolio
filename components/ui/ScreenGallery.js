@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 // Case-study screens: every desktop screen in the same 16:10 tile, every
 // phone screen in the same phone tile, so nothing is huge or tiny. Click a
@@ -6,10 +6,18 @@ import { useCallback, useEffect, useState } from 'react'
 const kindOf = (s) => s.kind || (/-m\.(jpg|png|webp)$/.test(s.src) ? 'phone' : 'desktop')
 
 export default function ScreenGallery({ screens, title }) {
-  const list = screens.map((s, i) => ({ ...s, kind: kindOf(s), i }))
-  const desktop = list.filter((s) => s.kind === 'desktop')
-  const phone = list.filter((s) => s.kind === 'phone')
-  const order = [...desktop, ...phone]
+  // Derived once per `screens`: re-deriving (and re-running indexOf per tile)
+  // on every open/close re-render was needless work in the viewer.
+  const { desktop, phone, order } = useMemo(() => {
+    const list = screens.map((s, i) => ({ ...s, kind: kindOf(s), i }))
+    const d = list.filter((s) => s.kind === 'desktop')
+    const p = list.filter((s) => s.kind === 'phone')
+    const o = [...d, ...p]
+    o.forEach((s, at) => {
+      s.at = at
+    })
+    return { desktop: d, phone: p, order: o }
+  }, [screens])
   const [open, setOpen] = useState(-1)
 
   const close = useCallback(() => setOpen(-1), [])
@@ -32,11 +40,11 @@ export default function ScreenGallery({ screens, title }) {
   }, [open, close, step])
 
   const tile = (s) => {
-    const at = order.indexOf(s)
+    const at = s.at
     return (
       <figure key={s.src} className={`screen-tile screen-tile--${s.kind}`}>
         <button type="button" className="screen-tile__frame" onClick={() => setOpen(at)} aria-label={`Open: ${s.caption || `${title} screen ${at + 1}`}`}>
-          <img src={s.src} alt={s.alt || s.caption || `${title} — screen ${at + 1}`} loading="lazy" />
+          <img src={s.src} alt={s.alt || s.caption || `${title} — screen ${at + 1}`} loading="lazy" decoding="async" />
         </button>
         {s.caption && <figcaption>{s.caption}</figcaption>}
       </figure>
