@@ -546,6 +546,273 @@ textarea {
   text-transform: uppercase;
 }
 
+/*=============== HERO — FLOATING STACK LOGOS ===============*/
+/* Scattered through the hero's whitespace, never lined up in a row: down
+   the gutters either side of the portrait on desktop, through the band
+   between the nav and the headline on mobile. The component supplies each
+   badge's position as --x/--y (desktop) and --mx/--my (mobile), and tags
+   the ones near an edge with .is-right / .is-right-m so they anchor from
+   the right instead of overflowing.
+
+   Two elements per badge on purpose: the slot is placed and drifts, the
+   badge inside it handles the hover lift — so the two transforms never
+   overwrite each other. Both are transform/opacity only, no layout work. */
+.stack-float {
+  position: absolute;
+  inset: 0;
+  z-index: 3; /* above the portrait, so the badges always read */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none; /* the hero stays clickable between badges */
+}
+
+.stack-float__slot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  animation: stack-drift 7.5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.62s);
+  will-change: transform;
+}
+
+/* Edge badges hang off the right edge so a wide label can't push the
+   layout sideways. */
+.stack-float__slot.is-right {
+  left: auto;
+  right: calc(100% - var(--x));
+}
+
+/* Neighbours drift on different paths, so the group never bobs in unison. */
+.stack-float__slot:nth-child(even) {
+  animation-name: stack-drift-alt;
+  animation-duration: 8.6s;
+}
+
+.stack-float__item {
+  position: relative;
+  display: grid;
+  place-items: center;
+  /* --s nudges each badge's size a little, so the group never looks
+     stamped out of one mould. */
+  width: calc(clamp(48px, 5.2vw, 68px) * var(--s, 1));
+  height: calc(clamp(48px, 5.2vw, 68px) * var(--s, 1));
+  border-radius: clamp(15px, 1.6vw, 20px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 30px rgba(12, 12, 12, 0.09);
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+  cursor: help;
+  outline: none;
+  transition: transform 0.28s var(--ease-snap), box-shadow 0.28s ease, border-color 0.2s ease;
+}
+
+.stack-float__item > svg {
+  width: 56%;
+  height: 56%;
+}
+
+.stack-float__item:hover,
+.stack-float__item:focus-visible,
+.stack-float__item[data-open='true'] {
+  transform: translateY(-5px) scale(1.09);
+  border-color: var(--ink);
+  box-shadow: 0 18px 40px rgba(12, 12, 12, 0.16);
+}
+
+/* The name. Shown on hover and on keyboard focus; on a touch screen,
+   where there is no hover, the component opens it on tap instead. */
+.stack-float__name {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s var(--ease-snap);
+}
+
+.is-right .stack-float__name {
+  left: auto;
+  right: 0;
+  transform: translateY(-4px);
+}
+
+/* Badges low in the hero show their name above, so it can't be clipped
+   by the hero's own overflow. */
+.is-low .stack-float__name {
+  top: auto;
+  bottom: calc(100% + 8px);
+}
+
+.stack-float__item:hover .stack-float__name,
+.stack-float__item:focus-visible .stack-float__name,
+.stack-float__item[data-open='true'] .stack-float__name {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.is-right .stack-float__item:hover .stack-float__name,
+.is-right .stack-float__item:focus-visible .stack-float__name,
+.is-right .stack-float__item[data-open='true'] .stack-float__name {
+  transform: translateY(0);
+}
+
+@keyframes stack-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -13px, 0);
+  }
+}
+
+@keyframes stack-drift-alt {
+  0%,
+  100% {
+    transform: translate3d(0, -9px, 0);
+  }
+  50% {
+    transform: translate3d(3px, 7px, 0);
+  }
+}
+
+/* Phone: the badges stop scattering and become one clean ring, turning
+   slowly in the empty band between the nav and the headline. The ring is
+   the <ul> itself: it is sized from the viewport, centred, and rotated
+   (--ring = its diameter, capped by width and by height so it never runs
+   into the nav above or the headline below). Each badge sits at its own
+   angle --a on the circle and counter-rotates at the same speed, so the
+   ring turns but the logos stay upright. Desktop is untouched. */
+@media (max-width: 640px) {
+  .stack-float {
+    --ring: min(78vw, 30svh);
+    --badge: clamp(34px, calc(var(--ring) * 0.17), 46px);
+    --radius: calc((var(--ring) - var(--badge)) / 2);
+    inset: auto;
+    left: 50%;
+    top: 27svh;
+    width: var(--ring);
+    height: var(--ring);
+    margin: calc(var(--ring) / -2) 0 0 calc(var(--ring) / -2);
+    animation: stack-ring 70s linear infinite;
+  }
+
+  /* The orbit itself: a faint dashed circle through the badge centres, and
+     a smaller dotted one inside it, so the ring reads as a pattern rather
+     than as loose icons. */
+  .stack-float::before,
+  .stack-float::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .stack-float::before {
+    inset: calc(var(--badge) / 2);
+    border: 1px dashed rgba(12, 12, 12, 0.16);
+  }
+
+  .stack-float::after {
+    inset: calc(var(--badge) / 2 + var(--radius) * 0.46);
+    border: 1px dotted rgba(12, 12, 12, 0.14);
+  }
+
+  .stack-float__slot,
+  .stack-float__slot:nth-child(even),
+  .stack-float__slot.is-right {
+    left: calc(50% + var(--radius) * sin(var(--a)));
+    top: calc(50% - var(--radius) * cos(var(--a)));
+    right: auto;
+    transform: translate(-50%, -50%);
+    /* upright again: the opposite of the ring's own turn */
+    animation: stack-ring-counter 70s linear infinite;
+  }
+
+  /* The badge being read sits above its neighbours, so its name is never
+     hidden behind the next logo round the ring. */
+  .stack-float__slot:hover,
+  .stack-float__slot:focus-within,
+  .stack-float__slot:has(.stack-float__item[data-open='true']) {
+    z-index: 5;
+  }
+
+  /* Hold the ring still while someone is reading a badge's name. */
+  .stack-float:hover,
+  .stack-float:hover .stack-float__slot,
+  .stack-float:has(.stack-float__item:focus-visible),
+  .stack-float:has(.stack-float__item:focus-visible) .stack-float__slot,
+  .stack-float:has(.stack-float__item[data-open='true']),
+  .stack-float:has(.stack-float__item[data-open='true']) .stack-float__slot {
+    animation-play-state: paused;
+  }
+
+  /* Too many badges for a ring this size, so a few are desktop-only. */
+  .stack-float__slot.is-desk-only {
+    display: none;
+  }
+
+  .stack-float__item {
+    width: var(--badge);
+    height: var(--badge);
+    border-radius: calc(var(--badge) * 0.32);
+  }
+
+  .stack-float__name,
+  .is-right .stack-float__name,
+  .is-low .stack-float__name {
+    top: calc(100% + 8px);
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -4px);
+    font-size: 0.64rem;
+  }
+
+  .stack-float__item:hover .stack-float__name,
+  .stack-float__item:focus-visible .stack-float__name,
+  .stack-float__item[data-open='true'] .stack-float__name,
+  .is-right .stack-float__item:hover .stack-float__name,
+  .is-right .stack-float__item:focus-visible .stack-float__name,
+  .is-right .stack-float__item[data-open='true'] .stack-float__name {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes stack-ring {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes stack-ring-counter {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+/* Very short viewports: the hero has no room to spare. */
+@media (max-height: 560px) {
+  .stack-float {
+    display: none;
+  }
+}
+
 /*=============== TICKER BAND ===============*/
 .ticker {
   background: var(--ink);
@@ -1916,6 +2183,11 @@ textarea {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
+  }
+  .stack-float,
+  .stack-float__slot {
+    animation: none !important;
   }
 }
 

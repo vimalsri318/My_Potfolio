@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { FloatingStack } from './ui/stack'
 
 const NAME = 'VIMAL SRINIVASAN'
 
@@ -8,6 +9,9 @@ export default function Home({ showActions = false }) {
 
   return (
     <section className="hero" id="home">
+
+      {/* The empty top band: logos of what I build with, drifting */}
+      <FloatingStack />
 
       {/* Layer 1: filled text — always behind portrait, NEVER changes */}
       <div className="hero__marquee hero__marquee--filled" aria-hidden="true">
@@ -22,6 +26,8 @@ export default function Home({ showActions = false }) {
         src="/assets/img/home-perfil-web.png"
         alt="Vimal Srinivasan"
         className="hero__portrait"
+        decoding="async"
+        fetchpriority="high"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       />
