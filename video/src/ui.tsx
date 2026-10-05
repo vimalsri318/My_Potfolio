@@ -36,6 +36,20 @@ export const useEnter = (delay = 0) => {
   return { opacity: t, translate: `0px ${lerp(t, 70, 0)}px`, scale: String(push) };
 };
 
+// Places a w×h product frame so all of it — window chrome to bottom edge —
+// sits inside the 1280×800 stage, even at the end of the push-in. Covers and
+// the Work rows show the whole opening screen, never a cropped one.
+export const fit = (w: number, h: number, dx = 0): React.CSSProperties => {
+  const s = Math.min(1, (1280 - 128) / w, (800 - 104) / h);
+  return {
+    position: "absolute",
+    left: Math.round((1280 - w) / 2 + dx),
+    top: Math.round((800 - h) / 2 - 8),
+    transform: s < 1 ? `scale(${s})` : undefined,
+    transformOrigin: "50% 50%",
+  };
+};
+
 export const BrowserWindow: React.FC<{
   url?: string;
   width: number;

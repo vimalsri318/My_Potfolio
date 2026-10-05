@@ -1,6 +1,6 @@
 import React from "react";
-import { AmretriStage, BuzinessStage, InflunetStage, JaiSathyaStage, TccStage } from "./stages/shots";
-import { CasaStage, EmailFinderStage, MithraStage, WassupStage } from "./stages/platforms";
+import { AmretriStage, BuzinessStage, InflunetStage, JaiSathyaStage, MithraStage, TccStage } from "./stages/shots";
+import { CasaStage, EmailFinderStage, WassupStage } from "./stages/platforms";
 import { ArdorStage, BlackHoleStage, ReframeStage, SlateStage, StreakDoctorStage } from "./stages/apps";
 
 // Mirrors the catalogue entries in data/projects.json (slug, title, accent,

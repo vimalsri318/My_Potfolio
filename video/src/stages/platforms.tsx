@@ -1,7 +1,7 @@
 import React from "react";
-import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { alpha, C, ease, F, lerp } from "../theme";
-import { BrowserWindow, StageBg, useEnter } from "../ui";
+import { BrowserWindow, fit, StageBg, useEnter } from "../ui";
 
 // Designed stages for products without a public screen to capture. Each one
 // animates the single idea the product is built around. Canvas: 1280×800.
@@ -16,135 +16,12 @@ const Frame: React.FC<{ accent: string; url?: string; dark?: boolean; children: 
   return (
     <AbsoluteFill>
       <StageBg accent={accent} dark={dark} />
-      <div style={{ position: "absolute", left: 96, top: 92, ...win }}>
+      <div style={{ ...fit(1088, 760), ...win }}>
         <BrowserWindow url={url} width={1088} height={760} dark={dark}>
           {children}
         </BrowserWindow>
       </div>
     </AbsoluteFill>
-  );
-};
-
-// ── Mithra Whole Foods: storefront, add to cart ─────────────────────
-const MITHRA = "#2E7D32";
-const products = [
-  { img: "brand/mithra-ghee-100ml-trio.jpg", name: "A2 Cow Ghee", size: "100 ml × 3" },
-  { img: "brand/mithra-sesame-oil-duo.jpg", name: "Cold Pressed Sesame Oil", size: "1 L × 2" },
-  { img: "brand/mithra-palm-sugar.jpg", name: "Palm Sugar", size: "500 g" },
-  { img: "brand/mithra-popped-ragi.jpg", name: "Popped Ragi", size: "250 g" },
-];
-
-export const MithraStage = () => {
-  const frame = useCurrentFrame();
-  const added = frame >= 78;
-  const cart = frame >= 78 ? (frame >= 108 ? 2 : 1) : 0;
-  const bump = ease(frame, 78, 90) - ease(frame, 90, 102);
-  return (
-    <Frame accent={MITHRA} url="mithrawholefoods.com">
-      <div style={{ background: "#FAF8F3", height: "100%", padding: "22px 34px", fontFamily: F.body }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <Img src={staticFile("brand/mithra-wordmark.svg")} style={{ height: 52 }} />
-          <div
-            style={{
-              flex: 1,
-              height: 46,
-              borderRadius: 12,
-              background: C.white,
-              border: "1px solid rgba(12,12,12,0.1)",
-              display: "flex",
-              alignItems: "center",
-              padding: "0 18px",
-              color: "#8a877d",
-              fontSize: 17,
-            }}
-          >
-            Search millets, oils, ghee…
-          </div>
-          <div style={{ position: "relative", fontSize: 30 }}>
-            🛒
-            <span
-              style={{
-                position: "absolute",
-                top: -8,
-                right: -12,
-                minWidth: 24,
-                height: 24,
-                borderRadius: 99,
-                background: MITHRA,
-                color: C.white,
-                fontSize: 14,
-                fontWeight: 700,
-                display: "grid",
-                placeItems: "center",
-                scale: String(1 + bump * 0.4),
-              }}
-            >
-              {cart}
-            </span>
-          </div>
-        </div>
-        <div style={{ display: "flex", gap: 10, margin: "22px 0 24px" }}>
-          {["Millets", "Cold Pressed Oils", "Ghee", "Health Mixes", "Natural Sweeteners"].map((c, i) => (
-            <span
-              key={c}
-              style={{
-                padding: "9px 16px",
-                borderRadius: 99,
-                fontSize: 15,
-                fontWeight: 600,
-                background: i === 2 ? MITHRA : C.white,
-                color: i === 2 ? C.white : "#1F1F1F",
-                border: "1px solid rgba(12,12,12,0.08)",
-              }}
-            >
-              {c}
-            </span>
-          ))}
-        </div>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: 30, fontWeight: 700, color: "#1F4D1F", marginBottom: 16 }}>
-          Today’s best sellers
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }}>
-          {products.map((p, i) => {
-            const t = ease(frame, 10 + i * 7, 36 + i * 7);
-            const isTarget = i === 1;
-            return (
-              <div
-                key={p.name}
-                style={{
-                  opacity: t,
-                  translate: `0px ${lerp(t, 26, 0)}px`,
-                  background: C.white,
-                  borderRadius: 18,
-                  padding: 12,
-                  boxShadow: isTarget && frame > 60 ? `0 18px 40px ${alpha(MITHRA, 0.25)}` : "0 6px 18px rgba(12,12,12,0.06)",
-                }}
-              >
-                <Img
-                  src={staticFile(p.img)}
-                  style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: 12 }}
-                />
-                <div style={{ fontWeight: 700, fontSize: 17, marginTop: 12, color: "#1F1F1F" }}>{p.name}</div>
-                <div style={{ fontSize: 14, color: "#8D6E63", margin: "2px 0 12px" }}>{p.size}</div>
-                <div
-                  style={{
-                    textAlign: "center",
-                    padding: "10px 0",
-                    borderRadius: 10,
-                    fontWeight: 700,
-                    fontSize: 15,
-                    background: isTarget && added ? "#1F4D1F" : MITHRA,
-                    color: C.white,
-                  }}
-                >
-                  {isTarget && added ? "Added ✓" : "Add to cart"}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </Frame>
   );
 };
 

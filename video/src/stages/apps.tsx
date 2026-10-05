@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { alpha, C, ease, F, lerp } from "../theme";
-import { BrowserWindow, PhoneFrame, StageBg, useEnter } from "../ui";
+import { BrowserWindow, fit, PhoneFrame, StageBg, useEnter } from "../ui";
 
 // Designed stages for own products, CLIs and mobile apps. Canvas: 1280×800.
 
@@ -18,7 +18,7 @@ export const ReframeStage = () => {
   return (
     <AbsoluteFill>
       <StageBg accent={RF} />
-      <div style={{ position: "absolute", left: 96, top: 92, ...win }}>
+      <div style={{ ...fit(1088, 760), ...win }}>
         <BrowserWindow url="reframe" width={1088} height={760}>
           <div style={{ display: "flex", height: "100%", fontFamily: F.body, color: C.ink }}>
             <div style={{ width: 360, background: "#f6f5f2", padding: "30px 28px", borderRight: "1px solid rgba(12,12,12,0.08)" }}>
@@ -216,7 +216,7 @@ export const StreakDoctorStage = () => {
   return (
     <AbsoluteFill>
       <StageBg accent="#216E39" />
-      <div style={{ position: "absolute", left: 96, top: 92, ...win }}>
+      <div style={{ ...fit(1088, 760), ...win }}>
         <BrowserWindow width={1088} height={760} dark url="zsh — streak-doctor">
           <div style={{ background: "#0d1117", height: "100%", padding: "28px 34px", fontFamily: F.mono, fontSize: 21, color: "#e6edf3", lineHeight: 1.6 }}>
             <div>
@@ -264,8 +264,8 @@ export const SlateStage = () => {
   return (
     <AbsoluteFill>
       <StageBg accent={SL} />
-      <div style={{ position: "absolute", left: 170, top: 40, ...ph }}>
-        <PhoneFrame width={340} screen="#f8fafc">
+      <div style={{ position: "absolute", left: 170, top: 62, ...ph }}>
+        <PhoneFrame width={322} screen="#f8fafc">
           <div style={{ padding: "70px 26px 26px", height: "100%", display: "flex", flexDirection: "column", fontFamily: F.body }}>
             <div style={{ fontWeight: 800, fontSize: 30, color: C.ink }}>Slate</div>
             <div style={{ fontSize: 15, color: C.inkSoft }}>Say what you did.</div>
@@ -354,8 +354,8 @@ export const ArdorStage = () => {
   return (
     <AbsoluteFill>
       <StageBg accent={AR} />
-      <div style={{ position: "absolute", left: 470, top: 40, ...ph }}>
-        <PhoneFrame width={340} screen="#faf7ff">
+      <div style={{ position: "absolute", left: 470, top: 62, ...ph }}>
+        <PhoneFrame width={322} screen="#faf7ff">
           <div style={{ padding: "70px 24px 24px", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", fontFamily: F.body }}>
             <Img
               src={staticFile(done ? "brand/ardy-excited.png" : "brand/ardy-thinking.png")}
