@@ -19,7 +19,6 @@ export default function CoursesPage() {
           name="description"
           content="Courses and digital products by Vimal Srinivasan — learn AI development, RAG chatbots and full-stack engineering."
         />
-        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>
 
       <Navigation />

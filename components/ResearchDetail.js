@@ -169,7 +169,6 @@ export default function ResearchDetail({ entry, nextEntry }) {
         <meta property="og:title" content={entry.title} />
         <meta property="og:description" content={entry.summary} />
         {entry.cover && <meta property="og:image" content={entry.cover} />}
-        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>
 
       <Navigation />

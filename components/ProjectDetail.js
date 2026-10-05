@@ -28,7 +28,6 @@ export default function ProjectDetail({ project, nextProject }) {
       <Head>
         <title>{`${project.title} — Vimal Srinivasan`}</title>
         <meta name="description" content={project.summary} />
-        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>
 
       <Navigation />
