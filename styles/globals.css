@@ -160,6 +160,10 @@ textarea {
 }
 
 /*=============== FIXED CHROME (top pill + copyright) ===============*/
+/* Glass pill: the hero's grid and the logos drift *through* it rather than
+   stopping at it. Frosted with a blur + saturation boost, a lit top edge
+   and a soft shadow underneath so it still floats off the page.
+   -webkit- prefix included for Safari, which needs it to this day. */
 .topbar {
   position: fixed;
   top: 16px;
@@ -171,10 +175,31 @@ textarea {
   justify-content: space-between;
   gap: 16px;
   padding: 14px 22px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 2px 14px rgba(12, 12, 12, 0.05);
+  /* Opaque enough that ink-on-glass still reads when a dark section
+     scrolls underneath — the blur and the saturation boost do the work. */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.88),
+    rgba(255, 255, 255, 0.72)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 -1px 0 rgba(12, 12, 12, 0.04) inset, 0 10px 30px rgba(12, 12, 12, 0.08),
+    0 2px 6px rgba(12, 12, 12, 0.04);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* No backdrop-filter (older browsers): fall back to near-solid paper, so
+   the links never sit on an unreadable background. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .topbar,
+  .linktray {
+    background: rgba(255, 255, 255, 0.94);
+    border-color: var(--line);
+  }
 }
 
 .topbar__brand {
@@ -309,13 +334,21 @@ textarea {
   right: 16px;
   z-index: 99;
   min-width: 240px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 14px;
+  /* Same glass as the bar it drops out of. */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.82),
+    rgba(255, 255, 255, 0.6)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
   padding: 10px;
   display: grid;
   gap: 4px;
-  box-shadow: 0 14px 44px rgba(12, 12, 12, 0.14);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 14px 44px rgba(12, 12, 12, 0.14);
   transform-origin: top right;
   opacity: 0;
   transform: translateY(-8px) scale(0.96);
