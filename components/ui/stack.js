@@ -1,8 +1,14 @@
+import { useMemo, useState } from 'react'
 import ICONS from '../../data/stack-icons.json'
-import { GROUPS, STACK, platformOf } from '../../data/stack'
+import { GROUPS, STACK, platformOf, resolveStack } from '../../data/stack'
 
 // Brand logos and platform chips. Every logo carries its name: as the
 // tooltip on hover/focus, and as the accessible label.
+//
+// Every entry point takes `stack` (keys from data/stack.js) *and* `tech`
+// (the free-text list older projects and published Supabase rows carry)
+// and resolves both through resolveStack — so a project shows logos even
+// when it has never been given a `stack` array.
 
 function Glyph({ icon, color, mono, size = 18 }) {
   const data = icon && ICONS[icon]
@@ -48,12 +54,18 @@ export function PlatformChips({ platforms, className = '' }) {
   )
 }
 
-// A compact row of logos (the Work rows): names appear on hover.
-export function StackLogos({ stack, max = 7, className = '' }) {
-  const list = (stack || []).map((k) => [k, STACK[k]]).filter(([, t]) => t)
-  if (!list.length) return null
-  const shown = list.slice(0, max)
-  const rest = list.length - shown.length
+// A compact row of logos (the Work rows): names appear on hover. Anything
+// without a logo (skills like "Creative Direction") stays a text chip.
+export function StackLogos({ stack, tech, max = 7, className = '' }) {
+  const { items, extra } = useMemo(() => resolveStack(stack, tech), [stack, tech])
+  if (!items.length && !extra.length) return null
+  const shown = items.slice(0, max)
+  const hiddenLogos = items.slice(max)
+  // Logos first; words only fill what's left of the row, the rest roll
+  // into the "+N" tooltip.
+  const words = extra.slice(0, Math.max(0, max - shown.length))
+  const rest = hiddenLogos.length + (extra.length - words.length)
+  const restNames = [...hiddenLogos.map(([, t]) => t.name), ...extra.slice(words.length)]
   return (
     <ul className={`stack-logos ${className}`} aria-label="Built with">
       {shown.map(([k, t]) => (
@@ -61,8 +73,13 @@ export function StackLogos({ stack, max = 7, className = '' }) {
           <Glyph icon={t.icon} color={t.color} mono={t.mono} />
         </li>
       ))}
+      {words.map((w) => (
+        <li key={w} className="stack-logo stack-logo--word">
+          {w}
+        </li>
+      ))}
       {rest > 0 && (
-        <li className="stack-logo stack-logo--more" data-tip={list.slice(max).map(([, t]) => t.name).join(', ')} tabIndex={0}>
+        <li className="stack-logo stack-logo--more" data-tip={restNames.join(', ')} tabIndex={0}>
           +{rest}
         </li>
       )}
@@ -72,9 +89,9 @@ export function StackLogos({ stack, max = 7, className = '' }) {
 
 // The case study's full stack, grouped under plain-word headings; each
 // piece is its logo, named on hover/focus.
-export function StackGroups({ stack }) {
-  const items = (stack || []).map((k) => [k, STACK[k]]).filter(([, t]) => t)
-  if (!items.length) return null
+export function StackGroups({ stack, tech }) {
+  const { items, extra } = useMemo(() => resolveStack(stack, tech), [stack, tech])
+  if (!items.length && !extra.length) return null
   return (
     <div className="stack-groups">
       {GROUPS.map(([g, label]) => {
@@ -93,6 +110,18 @@ export function StackGroups({ stack }) {
           </div>
         )
       })}
+      {extra.length > 0 && (
+        <div className="stack-group">
+          <span className="mono stack-group__label">Also</span>
+          <ul className="stack-group__words">
+            {extra.map((w) => (
+              <li key={w} className="stack-logo stack-logo--word">
+                {w}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   )
 }

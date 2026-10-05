@@ -19,6 +19,10 @@ export default function ProjectDetail({ project, nextProject }) {
 
   if (!project) return null
 
+  const techList = Array.isArray(project.tech) ? project.tech : project.tech ? [project.tech] : []
+  const hasStack = Array.isArray(project.stack) && project.stack.length > 0
+  const hasTech = techList.length > 0
+
   return (
     <>
       <Head>
@@ -72,7 +76,7 @@ export default function ProjectDetail({ project, nextProject }) {
                   aria-label={`${project.title} in motion`}
                 />
               ) : (
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={project.title} decoding="async" />
               )}
             </div>
           </Reveal>
@@ -118,11 +122,7 @@ export default function ProjectDetail({ project, nextProject }) {
             </div>
             <div className="project-detail__cell">
               <span className="mono project-detail__label">Tech</span>
-              {Array.isArray(project.stack) && project.stack.length > 0 ? (
-                <StackLogos stack={project.stack} max={12} className="stack-logos--cell" />
-              ) : (
-                <p>{Array.isArray(project.tech) ? project.tech.join(' — ') : project.tech}</p>
-              )}
+              <StackLogos stack={project.stack} tech={techList} max={12} className="stack-logos--cell" />
             </div>
             <div className="project-detail__cell">
               <span className="mono project-detail__label">Year</span>
@@ -178,11 +178,12 @@ export default function ProjectDetail({ project, nextProject }) {
             </section>
           )}
 
-          {/* Tech stack — logos grouped by what they do; names on hover */}
-          {Array.isArray(project.stack) && project.stack.length > 0 && (
+          {/* Tech stack — logos grouped by what they do; names on hover.
+              Resolves from `stack` keys, or the plain-text `tech` list. */}
+          {(hasStack || hasTech) && (
             <section className="project-detail__section project-detail__section--wide">
               <span className="mono project-detail__label">Tech stack</span>
-              <StackGroups stack={project.stack} />
+              <StackGroups stack={project.stack} tech={techList} />
             </section>
           )}
 
@@ -196,7 +197,7 @@ export default function ProjectDetail({ project, nextProject }) {
               {project.architecture.image && (
                 <figure className="project-detail__figure">
                   <a href={project.architecture.image} target="_blank" rel="noreferrer">
-                    <img src={project.architecture.image} alt={project.architecture.alt || `${project.title} architecture`} loading="lazy" />
+                    <img src={project.architecture.image} alt={project.architecture.alt || `${project.title} architecture`} loading="lazy" decoding="async" />
                   </a>
                   {project.architecture.caption && <figcaption>{project.architecture.caption}</figcaption>}
                 </figure>
@@ -289,7 +290,7 @@ export default function ProjectDetail({ project, nextProject }) {
               <span className="mono project-detail__label">Gallery</span>
               <div className="project-detail__gallery">
                 {project.gallery.map((src, i) => (
-                  <img key={i} src={src} alt={`${project.title} — ${i + 1}`} loading="lazy" />
+                  <img key={i} src={src} alt={`${project.title} — ${i + 1}`} loading="lazy" decoding="async" />
                 ))}
               </div>
             </section>

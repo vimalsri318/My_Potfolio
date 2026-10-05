@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import Reveal from './Reveal'
 import Showreel from './Showreel'
@@ -67,18 +67,19 @@ export default function Projects({ projects = [] }) {
 // One project per row, big: the motion clip (or cover) on one side, what it is
 // and what was built on the other. Rows alternate sides. The clip plays muted
 // while the row is on screen and pauses when it leaves.
-function ProjectFeature({ project, index, total }) {
+const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
   const videoRef = useRef(null)
   const [playing, setPlaying] = useState(false)
   const href = `/projects/${project.slug}`
   const cover = project.cover || project.image
   const metrics = Array.isArray(project.metrics) ? project.metrics.slice(0, 3) : []
-  const tech = Array.isArray(project.tech) ? project.tech.slice(0, 5) : []
+  const tech = Array.isArray(project.tech) ? project.tech.slice(0, 8) : []
 
   useEffect(() => {
     const v = videoRef.current
     if (!v || !project.video) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (navigator.connection?.saveData) return
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -86,9 +87,12 @@ function ProjectFeature({ project, index, total }) {
           v.play().then(() => setPlaying(true)).catch(() => {})
         } else {
           v.pause()
+          // Only one row's clip decodes at a time: half-visible rows give
+          // their frame back instead of all of them staying live.
+          setPlaying(false)
         }
       },
-      { threshold: 0.35 }
+      { threshold: 0.55 }
     )
     io.observe(v)
     return () => io.disconnect()
@@ -100,7 +104,7 @@ function ProjectFeature({ project, index, total }) {
       style={project.accent ? { '--card-accent': project.accent } : undefined}
     >
       <Link href={href} className="work-feature__media" aria-label={`${project.title} case study`}>
-        <img src={cover} alt="" loading="lazy" className="work-feature__img" />
+        <img src={cover} alt="" loading="lazy" decoding="async" className="work-feature__img" />
         {project.video && (
           <video
             ref={videoRef}
@@ -144,17 +148,9 @@ function ProjectFeature({ project, index, total }) {
           </dl>
         )}
 
-        {Array.isArray(project.stack) && project.stack.length > 0 ? (
-          <StackLogos stack={project.stack} />
-        ) : (
-          tech.length > 0 && (
-            <ul className="work-feature__tech">
-              {tech.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          )
-        )}
+        {/* Logos, resolved from `stack` keys or (for older projects and
+            published rows without one) the plain-text `tech` list. */}
+        <StackLogos stack={project.stack} tech={tech} />
 
         <div className="work-feature__actions">
           <Link href={href} className="work-feature__cta">
@@ -184,4 +180,4 @@ function ProjectFeature({ project, index, total }) {
       </div>
     </article>
   )
-}
+})

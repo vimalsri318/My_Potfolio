@@ -3627,6 +3627,24 @@ textarea {
   color: var(--ink-soft);
 }
 
+/* Things with no logo — "Creative Direction", "Web Speech API" — keep
+   their words rather than disappearing from the list. */
+.stack-logo--word {
+  width: auto;
+  height: 28px;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.stack-group ul.stack-group__words {
+  align-items: center;
+  gap: 6px;
+}
+
 .stack-mono {
   display: grid;
   place-items: center;
@@ -3838,11 +3856,13 @@ textarea {
 .screen-viewer__nav--prev {
   left: clamp(8px, 2vw, 24px);
   top: 50%;
+  transform: translateY(-50%);
 }
 
 .screen-viewer__nav--next {
   right: clamp(8px, 2vw, 24px);
   top: 50%;
+  transform: translateY(-50%);
 }
 
 .screen-viewer__close {
