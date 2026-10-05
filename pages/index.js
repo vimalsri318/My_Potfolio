@@ -41,7 +41,6 @@ export default function Portfolio({ projects, comingSoon, sections = {}, testimo
           name="description"
           content="Vimal Srinivasan — AI developer & architect based in Coimbatore. AI/ML products, production RAG chatbots and end-to-end full-stack systems."
         />
-        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>
 
       <Navigation sections={sections} />

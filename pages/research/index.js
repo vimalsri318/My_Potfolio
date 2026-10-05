@@ -31,7 +31,6 @@ export default function ResearchPage({ entries }) {
           name="description"
           content="Research notes and learnings by Vimal Srinivasan — AI, RAG, machine learning and full-stack engineering, written up to share and study."
         />
-        <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
       </Head>
 
       <Navigation />

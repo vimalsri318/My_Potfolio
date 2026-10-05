@@ -52,9 +52,10 @@ export const STACK = {
   drizzle: { name: 'Drizzle ORM', group: 'backend', icon: 'drizzle' },
   googlesheets: { name: 'Google Sheets', group: 'backend', icon: 'googlesheets' },
   appsscript: { name: 'Google Apps Script', group: 'backend', icon: 'googleappsscript' },
-  awslambda: { name: 'AWS Lambda', group: 'backend', icon: null, color: '#FF9900', mono: 'λ' },
+  awslambda: { name: 'AWS Lambda', group: 'backend', icon: 'awslambda' },
   gemini: { name: 'Google Gemini', group: 'ai', icon: 'googlegemini' },
   groq: { name: 'Groq', group: 'ai', icon: null, color: '#F55036', mono: 'G' },
+  sarvam: { name: 'Sarvam AI', group: 'ai', icon: 'sarvam' },
   pipecat: { name: 'Pipecat', group: 'ai', icon: 'pipecat' },
   stripe: { name: 'Stripe', group: 'services', icon: 'stripe' },
   razorpay: { name: 'Razorpay', group: 'services', icon: 'razorpay' },
@@ -66,7 +67,7 @@ export const STACK = {
   telecmi: { name: 'TeleCMI (calling)', group: 'services', icon: null, color: '#1F6FEB', mono: 'T' },
   meetingbaas: { name: 'Meeting BaaS', group: 'services', icon: null, color: '#5B5BD6', mono: 'M' },
   githubapi: { name: 'GitHub API', group: 'services', icon: 'github' },
-  azure: { name: 'Azure Static Web Apps', group: 'infra', icon: null, color: '#0078D4', mono: 'Az' },
+  azure: { name: 'Azure Static Web Apps', group: 'infra', icon: 'microsoftazure' },
   vercel: { name: 'Vercel', group: 'infra', icon: 'vercel' },
   railway: { name: 'Railway', group: 'infra', icon: 'railway' },
   firebasehosting: { name: 'Firebase Hosting', group: 'infra', icon: 'firebase' },
@@ -82,6 +83,241 @@ export const STACK = {
   jest: { name: 'Jest', group: 'tooling', icon: 'jest' },
   eas: { name: 'EAS Build', group: 'tooling', icon: 'expo' },
   githubactions: { name: 'GitHub Actions', group: 'tooling', icon: 'githubactions' },
+  // Entries below exist so the plain-text `tech` lists older projects carry
+  // ("Three.js", "Unity 3D", "Pandas & NumPy", …) also resolve to a logo.
+  javascript: { name: 'JavaScript', group: 'app', icon: 'javascript' },
+  threejs: { name: 'Three.js', group: 'app', icon: 'threedotjs' },
+  webgl: { name: 'WebGL', group: 'app', icon: 'webgl' },
+  chartjs: { name: 'Chart.js', group: 'app', icon: 'chartdotjs' },
+  express: { name: 'Express', group: 'backend', icon: 'express' },
+  pandas: { name: 'pandas', group: 'backend', icon: 'pandas' },
+  numpy: { name: 'NumPy', group: 'backend', icon: 'numpy' },
+  puppeteer: { name: 'Puppeteer', group: 'tooling', icon: 'puppeteer' },
+  figma: { name: 'Figma', group: 'tooling', icon: 'figma' },
+  blender: { name: 'Blender', group: 'tooling', icon: 'blender' },
+  unity: { name: 'Unity', group: 'app', icon: 'unity' },
+  csharp: { name: 'C#', group: 'app', icon: 'csharp' },
+  alembic: { name: 'Alembic (migrations)', group: 'backend', icon: null, color: '#6C7A89', mono: 'Al' },
+  webxr: { name: 'WebXR', group: 'app', icon: null, color: '#4B5EFC', mono: 'XR' },
+  gptoss: { name: 'gpt-oss (open-weight LLM)', group: 'ai', icon: 'openai' },
+  openai: { name: 'OpenAI', group: 'ai', icon: 'openai' },
+  // Platform marks, so a tech list that just says "iOS" or "Android"
+  // still gets the real logo.
+  ios: { name: 'iOS', group: 'app', icon: 'apple' },
+  apple: { name: 'Apple', group: 'app', icon: 'apple' },
+  android: { name: 'Android', group: 'app', icon: 'android' },
+  swift: { name: 'Swift', group: 'app', icon: 'swift' },
+  kotlin: { name: 'Kotlin', group: 'app', icon: 'kotlin' },
+  flutter: { name: 'Flutter', group: 'app', icon: 'flutter' },
+  webrtc: { name: 'WebRTC', group: 'services', icon: 'webrtc' },
+  langchain: { name: 'LangChain', group: 'ai', icon: 'langchain' },
+  huggingface: { name: 'Hugging Face', group: 'ai', icon: 'huggingface' },
+  anthropic: { name: 'Anthropic Claude', group: 'ai', icon: 'anthropic' },
+  ollama: { name: 'Ollama', group: 'ai', icon: 'ollama' },
+  pytorch: { name: 'PyTorch', group: 'ai', icon: 'pytorch' },
+  tensorflow: { name: 'TensorFlow', group: 'ai', icon: 'tensorflow' },
+  sklearn: { name: 'scikit-learn', group: 'ai', icon: 'scikitlearn' },
+  mongodb: { name: 'MongoDB', group: 'backend', icon: 'mongodb' },
+  redis: { name: 'Redis', group: 'backend', icon: 'redis' },
+  googlecloud: { name: 'Google Cloud', group: 'infra', icon: 'googlecloud' },
+  netlify: { name: 'Netlify', group: 'infra', icon: 'netlify' },
+  unreal: { name: 'Unreal Engine', group: 'app', icon: 'unrealengine' },
+}
+
+// ── Names → keys ─────────────────────────────────────────────────────
+// Projects are the source of truth and not all of them carry a `stack`
+// array of keys: the older ones (and every *published* row in Supabase
+// until the new drafts are published) only have `tech`, a list of free
+// text like "Next.js 16" or "Pandas & NumPy". Everything that renders a
+// stack runs its list through `resolveStack` first, so logos show either
+// way and nothing depends on a re-publish.
+
+// Written-out names that don't normalise onto a key or a STACK name.
+const ALIASES = {
+  gemini: 'gemini',
+  googlegemini: 'gemini',
+  firebasefirestore: 'firebase',
+  firestore: 'firebase',
+  cloudfunctions: 'firebase',
+  appsscript: 'appsscript',
+  googleappsscript: 'appsscript',
+  postgres: 'postgres',
+  postgresql: 'postgres',
+  neon: 'neon',
+  neonpostgres: 'neon',
+  tailwind: 'tailwind',
+  tailwindcss: 'tailwind',
+  nextjs: 'nextjs',
+  next: 'nextjs',
+  nodejs: 'nodejs',
+  node: 'nodejs',
+  reactnative: 'reactnative',
+  tanstack: 'tanstack',
+  tanstackstart: 'tanstack',
+  easbuild: 'eas',
+  expoapplicationservices: 'eas',
+  whatsappcloudapi: 'whatsappapi',
+  whatsappapi: 'whatsappapi',
+  whatsappdeeplinks: 'whatsappapi',
+  streamchat: 'streamchat',
+  meetingbaas: 'meetingbaas',
+  telecmi: 'telecmi',
+  githubapi: 'githubapi',
+  github: 'githubapi',
+  githubactions: 'githubactions',
+  awslambda: 'awslambda',
+  lambda: 'awslambda',
+  drizzle: 'drizzle',
+  drizzleorm: 'drizzle',
+  sqlalchemy: 'sqlalchemy',
+  medusa: 'medusa',
+  threejs: 'threejs',
+  glsl: 'webgl',
+  glslshaders: 'webgl',
+  webgl: 'webgl',
+  webxr: 'webxr',
+  unity: 'unity',
+  unity3d: 'unity',
+  blender: 'blender',
+  blender3d: 'blender',
+  chartjs: 'chartjs',
+  pandas: 'pandas',
+  numpy: 'numpy',
+  csharp: 'csharp',
+  cs: 'csharp',
+  gptoss: 'gptoss',
+  sarvam: 'sarvam',
+  sarvamai: 'sarvam',
+  groqwhisper: 'groq',
+  groq: 'groq',
+  pipecat: 'pipecat',
+  python: 'python',
+  npmregistry: 'npm',
+  npm: 'npm',
+  cloudinary: 'cloudinary',
+  hostinger: 'hostinger',
+  godaddy: 'godaddy',
+  bigrock: 'bigrock',
+  azure: 'azure',
+  azurestaticwebapps: 'azure',
+  firebasehosting: 'firebasehosting',
+  pnpmworkspaces: 'pnpm',
+  pnpm: 'pnpm',
+  turborepo: 'turborepo',
+  microsoftazure: 'azure',
+  azurestatic: 'azure',
+  openai: 'openai',
+  openaiapi: 'openai',
+  gpt: 'openai',
+  gpt4: 'openai',
+  gpt4o: 'openai',
+  chatgpt: 'openai',
+  whisper: 'openai',
+  dalle: 'openai',
+  claude: 'anthropic',
+  anthropic: 'anthropic',
+  langchain: 'langchain',
+  huggingface: 'huggingface',
+  ollama: 'ollama',
+  pytorch: 'pytorch',
+  torch: 'pytorch',
+  tensorflow: 'tensorflow',
+  keras: 'tensorflow',
+  sklearn: 'sklearn',
+  scikitlearn: 'sklearn',
+  mongodb: 'mongodb',
+  mongo: 'mongodb',
+  redis: 'redis',
+  googlecloud: 'googlecloud',
+  gcp: 'googlecloud',
+  netlify: 'netlify',
+  ios: 'ios',
+  iphone: 'ios',
+  apple: 'apple',
+  android: 'android',
+  swift: 'swift',
+  swiftui: 'swift',
+  kotlin: 'kotlin',
+  flutter: 'flutter',
+  dart: 'flutter',
+  webrtc: 'webrtc',
+  unrealengine: 'unreal',
+  unreal: 'unreal',
+}
+
+// Keys and written names, normalised: 'Next.js' and 'nextjs' both land on
+// the `nextjs` entry.
+const squash = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, '')
+const NAME_INDEX = (() => {
+  const index = {}
+  for (const [key, def] of Object.entries(STACK)) {
+    index[squash(key)] = key
+    index[squash(def.name)] = index[squash(def.name)] || key
+    // "Cloudinary (media storage)" → also match plain "cloudinary"
+    const bare = def.name.replace(/\s*\([^)]*\)\s*/g, ' ').trim()
+    if (bare) index[squash(bare)] = index[squash(bare)] || key
+  }
+  return index
+})()
+
+// Drop parentheticals and version noise: "Next.js 16" → "next js",
+// "Expo SDK 56" → "expo", "TypeScript (strict)" → "typescript".
+const VERSION_NOISE = /^(v?\d[\w.]*|sdk|latest|strict|beta|alpha|rc)$/
+function clean(part) {
+  return String(part)
+    .replace(/\([^)]*\)/g, ' ')
+    .toLowerCase()
+    .split(/[\s_-]+/)
+    .filter((w) => w && !VERSION_NOISE.test(w))
+    .join(' ')
+    .trim()
+}
+
+function lookup(part) {
+  const words = clean(part).split(' ').filter(Boolean)
+  // Longest prefix wins: "groq whisper" → groq, "node js cli" → nodejs.
+  for (let n = words.length; n > 0; n -= 1) {
+    const k = squash(words.slice(0, n).join(''))
+    if (!k) continue
+    if (ALIASES[k] && STACK[ALIASES[k]]) return ALIASES[k]
+    if (STACK[k]) return k
+    if (NAME_INDEX[k]) return NAME_INDEX[k]
+  }
+  return null
+}
+
+// Turn a project's `stack` (keys) and/or `tech` (free text) into logos.
+// Returns { items: [[key, def]], extra: ['Creative Direction', …] } — the
+// extras are the human skills/concepts that have no logo and stay as text.
+export function resolveStack(...lists) {
+  const items = []
+  const extra = []
+  const seen = new Set()
+  const seenExtra = new Set()
+  for (const list of lists) {
+    if (!Array.isArray(list)) continue
+    for (const raw of list) {
+      if (!raw) continue
+      const label = typeof raw === 'string' ? raw : raw.name || raw.key
+      if (!label) continue
+      // "Node.js & Express", "Expo / React Native", "pnpm + Turborepo"
+      const parts = String(label).split(/\s*(?:&|\+|\/|,| and )\s*/i).filter(Boolean)
+      const hits = parts.map(lookup)
+      if (hits.some(Boolean)) {
+        hits.forEach((key) => {
+          if (key && !seen.has(key)) {
+            seen.add(key)
+            items.push([key, STACK[key]])
+          }
+        })
+      } else if (!seenExtra.has(label)) {
+        seenExtra.add(label)
+        extra.push(label)
+      }
+    }
+    if (items.length || extra.length) break // first list that resolves wins
+  }
+  return { items, extra }
 }
 
 export const platformOf = (p) => {

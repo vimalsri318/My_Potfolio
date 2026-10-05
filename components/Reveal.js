@@ -10,15 +10,20 @@ export default function Reveal({ children, delay = 0, className = '', as: Tag = 
     const el = ref.current
     if (!el) return
 
+    // One-shot: reveal once and stop observing. Re-hiding on scroll-out made
+    // sections flash and re-run their transition every time they passed the
+    // viewport edge — the "animation glitch" you could feel while scrolling.
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('is-visible')
-        } else {
-          el.classList.remove('is-visible')
-        }
+        if (!entry.isIntersecting) return
+        el.classList.add('is-visible')
+        // Drop the compositing hint once the transition has run.
+        const done = () => el.classList.add('is-settled')
+        el.addEventListener('transitionend', done, { once: true })
+        setTimeout(done, 1000)
+        observer.disconnect()
       },
-      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
     )
 
     observer.observe(el)
