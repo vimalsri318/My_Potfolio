@@ -451,11 +451,20 @@ textarea {
   position: relative;
   z-index: 2;
   width: 108vh;
+  /* The photo ends in a straight edge. Fade its last stretch into the
+     paper so it reads as the portrait dissolving, not as a cut-off crop. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, rgba(0, 0, 0, 0.55) 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 76%, rgba(0, 0, 0, 0.55) 90%, transparent 100%);
 }
 
 @media (max-width: 720px) {
   .hero__portrait {
     width: 112vh;
+    /* Sits lower on a phone (its head was pressed into the logo band) and
+       fades out earlier, since more of the frame is cropped away. */
+    margin-bottom: clamp(-72px, -9vh, -36px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 64%, rgba(0, 0, 0, 0.5) 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 64%, rgba(0, 0, 0, 0.5) 85%, transparent 100%);
   }
 }
 
@@ -510,8 +519,38 @@ textarea {
 }
 
 @media (max-width: 640px) {
+  /* The portrait is bottom-aligned, so this padding lifts it clear of the
+     caption + buttons instead of letting them sit on top of the image. */
+  .hero {
+    padding-bottom: clamp(128px, 21vh, 180px);
+  }
+
   .hero__foot {
-    bottom: 18px;
+    bottom: clamp(16px, 3vh, 26px);
+    right: clamp(18px, 4vw, 40px);
+  }
+
+  .hero__caption {
+    max-width: 100%;
+  }
+
+  /* Soft paper fade behind the caption: belt-and-braces against any
+     overlap on short viewports where the portrait still reaches down. */
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(150px, 26vh, 215px);
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      var(--paper) 45%,
+      color-mix(in srgb, var(--paper) 72%, transparent) 74%,
+      transparent
+    );
   }
 
   .hero__action {
