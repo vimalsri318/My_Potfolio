@@ -494,6 +494,7 @@ textarea {
   position: relative;
   z-index: 2;
   width: 108vh;
+  height: auto; /* keep the photo's own aspect ratio */
   /* The photo ends in a straight edge. Fade its last stretch into the
      paper so it reads as the portrait dissolving, not as a cut-off crop. */
   -webkit-mask-image: linear-gradient(to bottom, #000 76%, rgba(0, 0, 0, 0.55) 90%, transparent 100%);
