@@ -18,7 +18,7 @@ import { getVisibility } from '../lib/visibility'
 // Full records (case-study scenes, blocks, long copy) stay on the detail pages.
 const CARD_FIELDS = [
   'slug', 'title', 'tagline', 'category', 'kind', 'year', 'status', 'accent',
-  'cover', 'image', 'video', 'film', 'link', 'platforms', 'stack', 'tech', 'metrics',
+  'film', 'link', 'platforms', 'stack', 'tech', 'metrics',
 ]
 const toCard = (p) =>
   Object.fromEntries(CARD_FIELDS.filter((k) => p[k] !== undefined).map((k) => [k, p[k]]))
