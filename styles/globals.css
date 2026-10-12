@@ -411,6 +411,16 @@ textarea {
   background-size: 32px 32px;
 }
 
+/* Fully covered by the page: stop every animation and drop the compositor
+   hints, so a hidden layer costs nothing while the visitor scrolls. */
+.hero.is-covered .hero__marquee-track,
+.hero.is-covered .stack-float,
+.hero.is-covered .stack-float__slot,
+.hero.is-covered .stack-float__item {
+  animation-play-state: paused;
+  will-change: auto;
+}
+
 /* everything after the hero rides on top of it */
 .page-body {
   position: relative;
@@ -673,7 +683,6 @@ textarea {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--line);
   box-shadow: 0 12px 30px rgba(12, 12, 12, 0.09);
-  backdrop-filter: blur(6px);
   pointer-events: auto;
   cursor: help;
   outline: none;

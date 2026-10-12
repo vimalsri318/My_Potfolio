@@ -1,14 +1,45 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FloatingStack } from './ui/stack'
 
 const NAME = 'VIMAL SRINIVASAN'
 
 export default function Home({ showActions = false }) {
   const [hovered, setHovered] = useState(false)
+  const heroRef = useRef(null)
+
+  // The hero is pinned and the page slides over it. Once it is fully covered
+  // nobody can see its marquee or badges, so freeze them instead of letting
+  // the browser keep painting (and re-blurring the nav over) a hidden layer.
+  useEffect(() => {
+    const el = heroRef.current
+    if (!el) return
+    let covered = false
+    let ticking = false
+    const update = () => {
+      ticking = false
+      const next = window.scrollY > el.offsetHeight
+      if (next !== covered) {
+        covered = next
+        el.classList.toggle('is-covered', covered)
+      }
+    }
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
 
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="home" ref={heroRef}>
 
       {/* The empty top band: logos of what I build with, drifting */}
       <FloatingStack />
