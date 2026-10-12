@@ -5,6 +5,7 @@ import { KINDS, kindLabel } from '../data/catalogue'
 import { interestHref, requestInterest } from '../lib/interest'
 import { linkLabel } from '../data/stack'
 import { PlatformChips, StackLogos } from './ui/stack'
+import DeviceMock from './ui/DeviceMock'
 
 // The Work section, laid out as a catalogue: every project is a listing a
 // client can open as a case study or order "one like this" from.
@@ -61,8 +62,9 @@ export default function Projects({ projects = [] }) {
   )
 }
 
-// One project per row, text only: no images or video on the landing page, so
-// it stays light. The cover, clip and screens load on the case-study page.
+// One project per row: a single screenshot in a device frame (laptop for web,
+// plus a phone when it has phone screens) beside what it is. No video here;
+// the clips and full gallery load on the case-study page.
 const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
   const href = `/projects/${project.slug}`
   const metrics = Array.isArray(project.metrics) ? project.metrics.slice(0, 3) : []
@@ -70,9 +72,16 @@ const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
 
   return (
     <article
-      className="work-feature"
+      className={`work-feature${index % 2 ? ' work-feature--flip' : ''}`}
       style={project.accent ? { '--card-accent': project.accent } : undefined}
     >
+      <Link href={href} className="work-feature__media" aria-label={`${project.title} case study`}>
+        <DeviceMock mock={project.mock} platforms={project.platforms} title={project.title} />
+        <span className="work-feature__hint" aria-hidden="true">
+          Click to read more <span>→</span>
+        </span>
+      </Link>
+
       <div className="work-feature__body">
         <p className="work-feature__meta">
           <span className="work-feature__index">
