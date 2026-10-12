@@ -14,9 +14,20 @@ import { useTrackView } from '../hooks/useTrackView'
 import { getProjects, getTestimonials } from '../lib/contentStore'
 import { getVisibility } from '../lib/visibility'
 
+// The home page only renders cards and offer links, so send those fields.
+// Full records (case-study scenes, blocks, long copy) stay on the detail pages.
+const CARD_FIELDS = [
+  'slug', 'title', 'tagline', 'category', 'kind', 'year', 'status', 'accent',
+  'cover', 'image', 'video', 'film', 'link', 'platforms', 'stack', 'tech', 'metrics',
+]
+const toCard = (p) =>
+  Object.fromEntries(CARD_FIELDS.filter((k) => p[k] !== undefined).map((k) => [k, p[k]]))
+
 export async function getStaticProps() {
   const { sections, hiddenProjects } = await getVisibility()
-  const projects = (await getProjects()).filter((p) => !hiddenProjects.includes(p.slug))
+  const projects = (await getProjects())
+    .filter((p) => !hiddenProjects.includes(p.slug))
+    .map(toCard)
   const testimonials = await getTestimonials()
   return {
     props: {
