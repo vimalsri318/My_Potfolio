@@ -80,6 +80,20 @@ const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
     if (!v || !project.video) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     if (navigator.connection?.saveData) return
+    // Start fetching a screen ahead, so the clip is already buffered when
+    // the row arrives instead of the cover sitting there while it loads.
+    const fetchAhead = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        if (!v.src) {
+          v.src = project.video
+          v.preload = 'auto'
+        }
+        fetchAhead.disconnect()
+      },
+      { rootMargin: '100% 0px' }
+    )
+    fetchAhead.observe(v)
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -95,7 +109,10 @@ const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
       { threshold: 0.55 }
     )
     io.observe(v)
-    return () => io.disconnect()
+    return () => {
+      fetchAhead.disconnect()
+      io.disconnect()
+    }
   }, [project.video])
 
   return (

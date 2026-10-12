@@ -1231,6 +1231,16 @@ textarea {
   gap: clamp(28px, 4vw, 48px);
 }
 
+.work-list__item,
+#experience,
+#testimonials,
+#contact {
+  /* Skip layout and paint for blocks far off screen; they render as they
+     approach. The size hint keeps the scrollbar from jumping. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
+}
+
 .work-feature {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
