@@ -54,7 +54,11 @@ export default function Home({ showActions = false }) {
 
       {/* Portrait — hover triggers outlined layer */}
       <img
-        src="/assets/img/home-perfil-web.png"
+        src="/assets/img/home-perfil-web-1500.webp"
+        srcSet="/assets/img/home-perfil-web-900.webp 900w, /assets/img/home-perfil-web-1500.webp 1500w"
+        sizes="(max-width: 720px) 112vh, 108vh"
+        width="1800"
+        height="1450"
         alt="Vimal Srinivasan"
         className="hero__portrait"
         decoding="async"
