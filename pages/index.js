@@ -13,10 +13,46 @@ import ComingSoon from '../components/ComingSoon'
 import { useTrackView } from '../hooks/useTrackView'
 import { getProjects, getTestimonials } from '../lib/contentStore'
 import { getVisibility } from '../lib/visibility'
+import fs from 'fs'
+import path from 'path'
+import { pickScreens, thumbPaths } from '../lib/mock.mjs'
+import snapshot from '../data/projects.json'
+
+// The home page only renders cards and offer links, so send those fields.
+// Full records (case-study scenes, blocks, long copy) stay on the detail pages.
+const CARD_FIELDS = [
+  'slug', 'title', 'tagline', 'category', 'kind', 'year', 'status', 'accent',
+  'film', 'link', 'platforms', 'stack', 'tech', 'metrics',
+]
+const onDisk = (src) => src && fs.existsSync(path.join(process.cwd(), 'public', src))
+
+// The one desktop screen (and phone screen, if any) shown in the device
+// mock-up: the small thumbnail when it exists, else the original image.
+// Published rows can carry fewer screen details than the committed snapshot
+// (no phone shots, no kinds), so the snapshot's choice wins when there is one;
+// it is also what the thumbnails were generated from.
+function mockFor(p) {
+  const live = pickScreens(p)
+  const snap = snapshot.find((x) => x.slug === p.slug)
+  const base = snap ? pickScreens(snap) : {}
+  const pick = { desktop: base.desktop || live.desktop, phone: base.phone || live.phone }
+  const t = thumbPaths(pick)
+  return {
+    desktop: onDisk(t.desktop) ? t.desktop : pick.desktop,
+    phone: onDisk(t.phone) ? t.phone : pick.phone,
+  }
+}
+
+const toCard = (p) => ({
+  ...Object.fromEntries(CARD_FIELDS.filter((k) => p[k] !== undefined).map((k) => [k, p[k]])),
+  mock: mockFor(p),
+})
 
 export async function getStaticProps() {
   const { sections, hiddenProjects } = await getVisibility()
-  const projects = (await getProjects()).filter((p) => !hiddenProjects.includes(p.slug))
+  const projects = (await getProjects())
+    .filter((p) => !hiddenProjects.includes(p.slug))
+    .map(toCard)
   const testimonials = await getTestimonials()
   return {
     props: {

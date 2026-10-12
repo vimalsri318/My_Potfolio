@@ -1,11 +1,11 @@
-import { memo, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, useMemo, useState } from 'react'
 import Link from 'next/link'
 import Reveal from './Reveal'
-import Showreel from './Showreel'
 import { KINDS, kindLabel } from '../data/catalogue'
 import { interestHref, requestInterest } from '../lib/interest'
 import { linkLabel } from '../data/stack'
 import { PlatformChips, StackLogos } from './ui/stack'
+import DeviceMock from './ui/DeviceMock'
 
 // The Work section, laid out as a catalogue: every project is a listing a
 // client can open as a case study or order "one like this" from.
@@ -36,8 +36,6 @@ export default function Projects({ projects = [] }) {
           </p>
         </header>
 
-        <Showreel />
-
         <div className="shop__filters" role="group" aria-label="Filter projects">
           {filters.map((f) => (
             <button
@@ -64,39 +62,13 @@ export default function Projects({ projects = [] }) {
   )
 }
 
-// One project per row, big: the motion clip (or cover) on one side, what it is
-// and what was built on the other. Rows alternate sides. The clip plays muted
-// while the row is on screen and pauses when it leaves.
+// One project per row: a single screenshot in a device frame (laptop for web,
+// plus a phone when it has phone screens) beside what it is. No video here;
+// the clips and full gallery load on the case-study page.
 const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
-  const videoRef = useRef(null)
-  const [playing, setPlaying] = useState(false)
   const href = `/projects/${project.slug}`
-  const cover = project.cover || project.image
   const metrics = Array.isArray(project.metrics) ? project.metrics.slice(0, 3) : []
   const tech = Array.isArray(project.tech) ? project.tech.slice(0, 8) : []
-
-  useEffect(() => {
-    const v = videoRef.current
-    if (!v || !project.video) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    if (navigator.connection?.saveData) return
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (!v.src) v.src = project.video
-          v.play().then(() => setPlaying(true)).catch(() => {})
-        } else {
-          v.pause()
-          // Only one row's clip decodes at a time: half-visible rows give
-          // their frame back instead of all of them staying live.
-          setPlaying(false)
-        }
-      },
-      { threshold: 0.55 }
-    )
-    io.observe(v)
-    return () => io.disconnect()
-  }, [project.video])
 
   return (
     <article
@@ -104,24 +76,10 @@ const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
       style={project.accent ? { '--card-accent': project.accent } : undefined}
     >
       <Link href={href} className="work-feature__media" aria-label={`${project.title} case study`}>
-        <img src={cover} alt="" loading="lazy" decoding="async" className="work-feature__img" />
-        {project.video && (
-          <video
-            ref={videoRef}
-            className={`work-feature__video ${playing ? 'is-playing' : ''}`}
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden="true"
-          />
-        )}
-        {project.status && (
-          <span className="work-feature__status">
-            <span className="work-feature__status-dot" aria-hidden="true" />
-            {project.status}
-          </span>
-        )}
+        <DeviceMock mock={project.mock} platforms={project.platforms} title={project.title} />
+        <span className="work-feature__hint" aria-hidden="true">
+          Click to read more <span>→</span>
+        </span>
       </Link>
 
       <div className="work-feature__body">
@@ -130,6 +88,12 @@ const ProjectFeature = memo(function ProjectFeature({ project, index, total }) {
             {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
           </span>
           {project.kind ? kindLabel(project.kind) : project.category} · {project.year}
+          {project.status && (
+            <span className="work-feature__status">
+              <span className="work-feature__status-dot" aria-hidden="true" />
+              {project.status}
+            </span>
+          )}
         </p>
         <h3 className="work-feature__title">
           <Link href={href}>{project.title}</Link>
