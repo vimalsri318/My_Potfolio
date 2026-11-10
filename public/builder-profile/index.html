@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Vimal Srinivasan · Builder Profile</title>
-<meta name="description" content="How one developer builds with AI agents. 341 sessions, 2,688 prompts, 118 of 126 days.">
+<meta name="description" content="How I build with AI agents: 341 sessions, 2,688 prompts and 118 of 126 days, analysed by Claude.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Silkscreen&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@ sup.fn a{color:inherit}
 .intro.leaving{opacity:0;transform:scale(1.03);pointer-events:none}
 .intro .art{width:min(520px,92vw);margin-bottom:34px}
 .intro .by{font:400 13px var(--pixel);letter-spacing:.05em;color:var(--orange);margin:0 0 16px}
-.intro h2{font-size:clamp(30px,4.6vw,52px);line-height:1.08;letter-spacing:-.01em;max-width:820px;font-weight:600}
+.intro h2{font-size:clamp(30px,4.6vw,52px);line-height:1.08;letter-spacing:-.01em;max-width:860px;font-weight:600;text-wrap:balance}
 .intro h2 span{color:#86868B}
 .intro p.note{max-width:620px;margin:20px auto 0;font-size:clamp(16px,1.6vw,19px);line-height:1.5;color:#A1A1A6}
 .intro p.note b{color:var(--on-black);font-weight:600}
@@ -292,13 +292,13 @@ body.public .private{display:none !important}
 <body>
 
 <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle" hidden>
-  <svg class="px art" id="artIntro" role="img" aria-label="A person at the left and an AI agent at the right, joined by a terminal window with a blinking cursor."></svg>
-  <p class="by">A report written by Claude</p>
-  <h2 id="introTitle">Four months of building with an AI agent. <span>Reviewed by the agent.</span></h2>
-  <p class="note">Claude, Anthropic's coding agent, read <b>every session it worked on with Vimal Srinivasan</b>, along with the code and git history behind them. This page is its honest account of <b>how he builds</b>: what he is strong at, the habits behind it, and the tools he builds with.</p>
+  <svg class="px art" id="artIntro" role="img" aria-label="Me on the left and Claude on the right, joined by a terminal window with a blinking cursor."></svg>
+  <p class="by">My sessions, analysed by Claude</p>
+  <h2 id="introTitle">I spent four months building with an AI agent. <span>Then I asked it to review me.</span></h2>
+  <p class="note">I asked Claude, Anthropic's coding agent, to read <b>every session we worked on together</b>, along with the code and git history behind them. This page is what it gave me: <b>how I build</b>, what I'm strong at, the habits behind it, and the tools I use.</p>
   <div class="facts"><span>341 sessions</span><span>2,688 prompts</span><span>≈30 projects</span><span>Jul – Nov 2026</span></div>
   <div class="go"><button class="pill fill" id="enter" style="background:var(--orange);color:#000">View the report</button></div>
-  <p class="fine">Counts come from the session record. An informed opinion, not a certification.</p>
+  <p class="fine">Numbers counted from my session history. Claude's analysis, not a certification.</p>
 </div>
 
 <header class="gnav"><div class="in">
@@ -315,10 +315,10 @@ body.public .private{display:none !important}
   <div class="wrap">
     <div class="eyebrow">Builder profile · Jul–Nov 2026</div>
     <h1 class="name">Vimal <em>Srinivasan</em></h1>
-    <p class="h-sub">Builds with AI agents.</p>
-    <p class="what">What Claude learned about <b>how he builds</b>, from <b>341 sessions</b> of working together: his skills, his habits and his stack.</p>
+    <p class="h-sub">I build with AI agents.</p>
+    <p class="what">Claude analysed <b>341 of my sessions</b> and gave me this: <b>how I build</b>, my skills, my habits and my stack.</p>
     <div class="btns"><a class="pill fill" href="#skills">See the skills</a><a class="pill line" href="#method">How it was measured</a></div>
-    <p class="note">An AI review of a real working record. Not a certification.<sup class="fn"><a href="#fn4">4</a></sup></p>
+    <p class="note">Claude's analysis of my real working record. Not a certification.<sup class="fn"><a href="#fn4">4</a></sup></p>
   </div>
   <div class="hero-art"><svg class="px" id="artLaptop" role="img" aria-label="Pixel laptop whose screen shows one square per day from 8 July to 10 November 2026. 118 of 126 days are lit; the brightest is 8 September with 74 prompts."></svg></div>
   <div class="hero-cap">
@@ -332,12 +332,12 @@ body.public .private{display:none !important}
 <section class="sec g center">
   <div class="wrap">
     <h2 class="h-sec">341 sessions.</h2>
-    <p class="h-sub muted">One developer. One agent. Four months.</p>
-    <div class="phone-art"><svg class="px" id="artPhone" role="img" aria-label="Pixel phone showing a prompt, the agent's reply, and 25 small squares for the 25 actions an average prompt sets off."></svg></div>
+    <p class="h-sub muted">Me, one AI agent, four months.</p>
+    <div class="phone-art"><svg class="px" id="artPhone" role="img" aria-label="Pixel phone showing my prompt, the agent's reply, and 25 small squares for the 25 actions an average prompt sets off."></svg></div>
     <div class="stats" style="text-align:left">
-      <div class="stat"><div class="l">Prompts</div><div class="n">2,688</div><div class="c">Written or dictated. Median 64 words.</div></div>
-      <div class="stat"><div class="l">Agent actions</div><div class="n">68.5K</div><div class="c">About 25 for every prompt.</div></div>
-      <div class="stat"><div class="l">Screenshots</div><div class="n">754</div><div class="c">Shown to the agent as evidence.</div></div>
+      <div class="stat"><div class="l">Prompts</div><div class="n">2,688</div><div class="c">I wrote or dictated. Median 64 words.</div></div>
+      <div class="stat"><div class="l">Agent actions</div><div class="n">68.5K</div><div class="c">About 25 for every prompt I sent.</div></div>
+      <div class="stat"><div class="l">Screenshots</div><div class="n">754</div><div class="c">I showed the agent as evidence.</div></div>
       <div class="stat"><div class="l">Projects</div><div class="n">≈30</div><div class="c">Web, iOS, Android, backend, AI.</div></div>
     </div>
   </div>
@@ -346,7 +346,7 @@ body.public .private{display:none !important}
 <!-- VERDICT -->
 <section class="sec">
   <div class="wrap">
-    <p class="lead"><b>Ships whole products with agents.</b> From idea to staged release. <b>Designs AI systems for speed and cost.</b> Voice agents, pipelines, agent teams. <b>Holds a high bar for design.</b> Motion, type and detail, sent back until it feels right.</p>
+    <p class="lead"><b>I ship whole products with agents.</b> From idea to staged release. <b>I design AI systems for speed and cost.</b> Voice agents, pipelines, agent teams. <b>I hold a high bar for design.</b> Motion, type and detail, sent back until they feel right.</p>
   </div>
 </section>
 
@@ -354,61 +354,61 @@ body.public .private{display:none !important}
 <section id="habits">
   <div class="wrap center" style="padding:24px 22px 64px">
     <h2 class="h-sec">Beyond vibe coding.</h2>
-    <p class="h-sub muted">Vibe coding accepts whatever runs. These habits don't.</p>
+    <p class="h-sub muted">Vibe coding accepts whatever runs. I don't.</p>
   </div>
   <div class="tiles">
     <div class="tile dark">
       <div class="num">4 ROLES · 1 GATE</div>
       <h3 class="h-tile">Agents, with rules.</h3>
-      <p class="h-tsub">Four agent roles. One human approval.</p>
+      <p class="h-tsub">I run four agent roles. Nothing ships without my OK.</p>
       
-      <div class="art"><svg class="px" id="artTeam" role="img" aria-label="A person above a padlock, connected to four robots labelled COO, CTO, PM and IC."></svg></div>
+      <div class="art"><svg class="px" id="artTeam" role="img" aria-label="Me above a padlock, connected to four robots labelled COO, CTO, PM and IC."></svg></div>
     </div>
     <div class="tile">
       <div class="num">12 CI WORKFLOWS</div>
-      <h3 class="h-tile">Ships in stages.</h3>
+      <h3 class="h-tile">I ship in stages.</h3>
       <p class="h-tsub">Dev. Staging. Production.</p>
       
       <div class="art"><svg class="px" id="artStages" role="img" aria-label="Three servers labelled dev, staging and prod, linked by arrows, with a check mark over prod."></svg></div>
     </div>
     <div class="tile">
       <div class="num">22 READINESS AUDITS</div>
-      <h3 class="h-tile">Audits before launch.</h3>
+      <h3 class="h-tile">I audit before launch.</h3>
       <p class="h-tsub">Kept as dated documents.</p>
       
       <div class="art"><svg class="px" id="artAudit" role="img" aria-label="A clipboard checklist with four items ticked and one still open."></svg></div>
     </div>
     <div class="tile dark">
       <div class="num">14% OF PROMPTS</div>
-      <h3 class="h-tile">Thinks before code.</h3>
-      <p class="h-tsub">Plan first. Then build.</p>
+      <h3 class="h-tile">I plan before code.</h3>
+      <p class="h-tsub">Plan first. Then the agent builds.</p>
       
       <div class="art"><svg class="px" id="artPlan" role="img" aria-label="A light bulb above a three-step plan."></svg></div>
     </div>
     <div class="tile dark">
       <div class="num">23 FILES · 18 PROJECTS</div>
       <h3 class="h-tile">Rules in writing.</h3>
-      <p class="h-tsub">Every session starts from written context.</p>
+      <p class="h-tsub">Every session starts from rules I wrote.</p>
       
       <div class="art"><svg class="px" id="artRules" role="img" aria-label="A stack of instruction files with a badge reading 23."></svg></div>
     </div>
     <div class="tile">
       <div class="num">754 SCREENSHOTS</div>
       <h3 class="h-tile">Proof on screen.</h3>
-      <p class="h-tsub">Real phones. Real tests.</p>
+      <p class="h-tsub">I test on real phones, with screenshots.</p>
       
       <div class="art"><svg class="px" id="artProof" role="img" aria-label="A screenshot frame with orange crop corners, a phone beside it and a cursor."></svg></div>
     </div>
     <div class="tile">
       <div class="num">9% OF PROMPTS</div>
       <h3 class="h-tile">Speed and cost, by design.</h3>
-      <p class="h-tsub">Prepared replies for predictable voice turns.</p>
+      <p class="h-tsub">I designed prepared replies for predictable voice turns.</p>
       
       <div class="art"><svg class="px" id="artSpeed" role="img" aria-label="A stopwatch beside a lightning bolt."></svg></div>
     </div>
     <div class="tile org">
       <div class="num">118 OF 126 DAYS</div>
-      <h3 class="h-tile">Shows up daily.</h3>
+      <h3 class="h-tile">I show up daily.</h3>
       <p class="h-tsub">Four months. Almost no days off.</p>
       <div class="art"><svg class="px" id="artFlag" role="img" aria-label="A pixel flame beside the number 118 of 126."></svg></div>
     </div>
@@ -418,7 +418,7 @@ body.public .private{display:none !important}
 <!-- SKILLS -->
 <section class="sec g" id="skills">
   <div class="wrap">
-    <div class="sec-head"><h2 class="h-sec">Twelve skills.</h2><span class="more">Each one backed by the session record.<sup class="fn"><a href="#fn1">1</a></sup></span></div>
+    <div class="sec-head"><h2 class="h-sec">My twelve skills.</h2><span class="more">Each one backed by my session history.<sup class="fn"><a href="#fn1">1</a></sup></span></div>
     <div class="filters" role="group" aria-label="Filter skills by area">
       <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="a">Architecture</button><button aria-pressed="false" data-f="b">Build</button><button aria-pressed="false" data-f="s">Ship</button><button aria-pressed="false" data-f="p">Product and AI</button>
     </div>
@@ -426,51 +426,51 @@ body.public .private{display:none !important}
 
       <article class="card" data-l="p"><span class="ey lead-l">Product</span><h3>Product and delivery</h3><p class="one">Scope, tiers, client-ready releases.</p>
         <div class="lvl"><span class="stat-px">22 READINESS AUDITS</span><button class="plus" aria-expanded="false" aria-label="More about product and delivery">+</button></div>
-        <div class="more"><b>In the record</b>Turns client correction lists into scoped releases, defines free and paid tiers, writes test steps a client can follow. 28% of prompts carry user or client context.</div></article>
+        <div class="more"><b>In the record</b>I turn client correction lists into scoped releases, define free and paid tiers, and write test steps a client can follow. 28% of my prompts carry user or client context.</div></article>
 
       <article class="card" data-l="p"><span class="ey lead-l">AI</span><h3>AI and agent engineering</h3><p class="one">Voice agents, pipelines, agent teams.</p>
         <div class="lvl"><span class="stat-px">4-ROLE AGENT TEAM</span><button class="plus" aria-expanded="false" aria-label="More about AI and agent engineering">+</button></div>
-        <div class="more"><b>In the record</b>Real-time voice agents over WhatsApp and phone, LLM content pipelines, call classification, a personal agent with memory and schedules, custom sub-agents, skills and MCP connectors.</div></article>
+        <div class="more"><b>In the record</b>I've built real-time voice agents over WhatsApp and phone, LLM content pipelines, call classification, a personal agent with memory and schedules, plus custom sub-agents, skills and MCP connectors.</div></article>
 
       <article class="card" data-l="p"><span class="ey lead-l">Design</span><h3>Interface design</h3><p class="one">Motion, type and detail, done right.</p>
         <div class="lvl"><span class="stat-px">1 IN 5 PROMPTS ON DESIGN</span><button class="plus" aria-expanded="false" aria-label="More about interface design">+</button></div>
-        <div class="more"><b>In the record</b>Sends back output that looks generic, brings references, pushes on motion, type, spacing and dark mode, builds 3D and isometric visuals. One prompt in five is design direction.</div></article>
+        <div class="more"><b>In the record</b>I send back output that looks generic, bring references, push on motion, type, spacing and dark mode, and build 3D and isometric visuals. One prompt in five is design direction.</div></article>
 
       <article class="card" data-l="a"><span class="ey lead-l">Architecture</span><h3>System architecture</h3><p class="one">Monorepos, multi-tenant, split services.</p>
         <div class="lvl"><span class="stat-px">4 SHARED PACKAGES</span><button class="plus" aria-expanded="false" aria-label="More about system architecture">+</button></div>
-        <div class="more"><b>In the record</b>Shared type, API and design-token packages across web and mobile; a multi-tenant ERP backend; separate scraping, meeting and email services; hosting compared before committing.</div></article>
+        <div class="more"><b>In the record</b>I share type, API and design-token packages across web and mobile, built a multi-tenant ERP backend, split scraping, meeting and email into separate services, and compare hosting before committing.</div></article>
 
       <article class="card" data-l="b"><span class="ey lead-l">Build</span><h3>Web frontend</h3><p class="one">React, Next.js, motion, 3D.</p>
         <div class="lvl"><span class="stat-px">REACT 19 · NEXT.JS 16</span><button class="plus" aria-expanded="false" aria-label="More about web frontend">+</button></div>
-        <div class="more"><b>In the record</b>React 18 and 19, Next.js 14 to 16, TanStack Start, Vite, Tailwind, Radix and shadcn, three.js, GSAP, Framer Motion, Remotion. Nearly two thirds of 9,900 file edits are TypeScript.</div></article>
+        <div class="more"><b>In the record</b>I work in React 18 and 19, Next.js 14 to 16, TanStack Start, Vite, Tailwind, Radix and shadcn, three.js, GSAP, Framer Motion and Remotion. Nearly two thirds of my 9,900 file edits are TypeScript.</div></article>
 
       <article class="card" data-l="b"><span class="ey lead-l">Build</span><h3>Mobile: iOS and Android</h3><p class="one">Expo, native builds, OTA, store checks.</p>
         <div class="lvl"><span class="stat-px">7 EXPO APPS</span><button class="plus" aria-expanded="false" aria-label="More about mobile">+</button></div>
-        <div class="more"><b>In the record</b>React Native with Expo in seven projects: native and cloud builds, over-the-air updates, signing, store checks, on-device SQLite, push notifications, and a simulator crash traced to missing native libraries.</div></article>
+        <div class="more"><b>In the record</b>I've shipped React Native with Expo in seven projects: native and cloud builds, over-the-air updates, signing, store checks, on-device SQLite and push notifications. I traced a simulator crash to missing native libraries.</div></article>
 
       <article class="card" data-l="b"><span class="ey lead-l">Build</span><h3>Backend and APIs</h3><p class="one">Node and Python. Auth to payments.</p>
         <div class="lvl"><span class="stat-px">NODE + PYTHON</span><button class="plus" aria-expanded="false" aria-label="More about backend and APIs">+</button></div>
-        <div class="more"><b>In the record</b>Next.js routes, Express and Medusa v2; FastAPI, SQLAlchemy and Celery. OTP sign-up, role-based admin, webhooks, push, payments, shipping, email and telephony, with questions about concurrency.</div></article>
+        <div class="more"><b>In the record</b>I build on Next.js routes, Express and Medusa v2, and on FastAPI, SQLAlchemy and Celery: OTP sign-up, role-based admin, webhooks, push, payments, shipping, email and telephony. I plan for concurrency, like parallel calls to one number.</div></article>
 
       <article class="card" data-l="s"><span class="ey lead-l">Ship</span><h3>DevOps and release</h3><p class="one">Five clouds. Branches that protect clients.</p>
         <div class="lvl"><span class="stat-px">12 CI WORKFLOWS</span><button class="plus" aria-expanded="false" aria-label="More about DevOps and release">+</button></div>
-        <div class="more"><b>In the record</b>A third of all prompts concern branches, pull requests or deploys. Vercel, Railway, Netlify, Render, Cloudflare, Docker, GitHub Actions, health checks, error tracking, DNS and email.</div></article>
+        <div class="more"><b>In the record</b>A third of my prompts are about branches, pull requests or deploys. I ship on Vercel, Railway, Netlify, Render and Cloudflare, with Docker, GitHub Actions, health checks, error tracking, DNS and email.</div></article>
 
       <article class="card" data-l="a"><span class="ey lead-l">Architecture</span><h3>Database</h3><p class="one">Postgres. 197 migrations. Row-level security.</p>
         <div class="lvl"><span class="stat-px">197 MIGRATIONS</span><button class="plus" aria-expanded="false" aria-label="More about database">+</button></div>
-        <div class="more"><b>In the record</b>Supabase and Neon with Drizzle, Prisma and Alembic; SQLite on device. The largest product has 197 ordered migrations, 128 index statements and row-level security in 53 of them, applied to separate dev and production databases.</div></article>
+        <div class="more"><b>In the record</b>I work with Postgres on Supabase and Neon, using Drizzle, Prisma and Alembic, and SQLite on device. My largest product has 197 ordered migrations, 128 index statements and row-level security in 53 of them, applied to separate dev and production databases.</div></article>
 
       <article class="card" data-l="s"><span class="ey lead-l">Ship</span><h3>Testing and quality</h3><p class="one">Proof on every change. CI that runs it.</p>
         <div class="lvl"><span class="stat-px">74 TEST FILES</span><button class="plus" aria-expanded="false" aria-label="More about testing">+</button></div>
-        <div class="more"><b>In the record</b>A strong habit of asking for verification, end-to-end audit reports, 74 test files in the largest product and CI that runs them.</div></article>
+        <div class="more"><b>In the record</b>I ask for proof on every change: end-to-end audit reports, 74 test files in my largest product, and CI that runs them.</div></article>
 
       <article class="card" data-l="a"><span class="ey lead-l">Architecture</span><h3>Security</h3><p class="one">Row-level security, OTP, code scanning.</p>
         <div class="lvl"><span class="stat-px">RLS IN 53 MIGRATIONS</span><button class="plus" aria-expanded="false" aria-label="More about security">+</button></div>
-        <div class="more"><b>In the record</b>Security audits, row-level security and tenant isolation, OTP and two-factor flows, rate limiting and automated code scanning, with findings acted on.</div></article>
+        <div class="more"><b>In the record</b>I run security audits and act on the findings: row-level security and tenant isolation, OTP and two-factor flows, rate limiting and automated code scanning.</div></article>
 
       <article class="card" data-l="b"><span class="ey lead-l">Build</span><h3>Systems and desktop</h3><p class="one">Rust core library and a Tauri desktop app.</p>
         <div class="lvl"><span class="stat-px">RUST + TAURI</span><button class="plus" aria-expanded="false" aria-label="More about systems and desktop">+</button></div>
-        <div class="more"><b>In the record</b>A cross-device utility with a Rust core library, a command-line tool, a Tauri desktop app and an Expo client, tested on real devices.</div></article>
+        <div class="more"><b>In the record</b>I built a cross-device utility with a Rust core library, a command-line tool, a Tauri desktop app and an Expo client, tested on real devices.</div></article>
     </div>
   </div>
 </section>
@@ -478,13 +478,13 @@ body.public .private{display:none !important}
 <!-- PROMPTING -->
 <section class="sec g" id="prompting" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head"><h2 class="h-sec">How he prompts.</h2><span class="more">Measured over 2,688 prompts.<sup class="fn"><a href="#fn1">1</a></sup></span></div>
-    <p class="lead" style="margin-bottom:40px"><b>Rich context. Long hand-offs.</b> Most prompts are dictated, explain the why, set clear limits, and let the agent run.<sup class="fn"><a href="#fn2">2</a></sup></p>
+    <div class="sec-head"><h2 class="h-sec">How I prompt.</h2><span class="more">Measured over my 2,688 prompts.<sup class="fn"><a href="#fn1">1</a></sup></span></div>
+    <p class="lead" style="margin-bottom:40px"><b>Rich context. Long hand-offs.</b> I dictate most prompts, explain the why, set clear limits, and let the agent run.<sup class="fn"><a href="#fn2">2</a></sup></p>
     <div class="big">
       <div class="acc" id="acc">
-        <div class="acc-item on"><button aria-expanded="true" data-p="0">When he works</button><div class="body">Two peaks, India time: 8–9 am and 7–8 pm. Either side of the working day.</div></div>
-        <div class="acc-item"><button aria-expanded="false" data-p="1">How long prompts run</button><div class="body">Median 64 words. Session openers run 161. Long, spoken, full of context.</div></div>
-        <div class="acc-item"><button aria-expanded="false" data-p="2">What they contain</button><div class="body">Limits and release talk lead. One prompt in three is about shipping.</div></div>
+        <div class="acc-item on"><button aria-expanded="true" data-p="0">When I work</button><div class="body">My two peaks, India time: 8–9 am and 7–8 pm. Either side of my working day.</div></div>
+        <div class="acc-item"><button aria-expanded="false" data-p="1">How long my prompts run</button><div class="body">Median 64 words. My session openers run 161. Long, spoken, full of context.</div></div>
+        <div class="acc-item"><button aria-expanded="false" data-p="2">What my prompts contain</button><div class="body">Limits and release talk lead. One prompt in three is about shipping.</div></div>
       </div>
       <div class="viz" id="viz">
         <div class="on"><svg class="px" id="vizHours" role="img" aria-label="Prompts by hour. Peaks at 8 to 9 am, about 185 each, and 7 to 8 pm, 243 and 230. Quietest 1 to 3 am."></svg><p class="cap">One square ≈ 20 prompts. Hover a column for the count.</p></div>
@@ -494,13 +494,13 @@ body.public .private{display:none !important}
       </div>
     </div>
 
-    <div class="sec-head" style="margin:96px 0 32px"><h2 class="h-sec">What works.</h2></div>
+    <div class="sec-head" style="margin:96px 0 32px"><h2 class="h-sec">What works for me.</h2></div>
     <div class="why">
-      <div class="w pos"><h4>Rich openers.</h4><p>Sessions start with the situation, the goal and the reason.</p></div>
-      <div class="w pos"><h4>Clear limits.</h4><p>Nearly four in ten prompts say what must not change.</p></div>
-      <div class="w pos"><h4>Evidence attached.</h4><p>Screenshots, terminal logs and live links come with the ask.</p></div>
-      <div class="w pos"><h4>Big hand-offs.</h4><p>85 sessions ran past 300 agent actions each.</p></div>
-      <div class="w pos"><h4>Asks for opinions.</h4><p>And says plainly when a result is generic.</p></div>
+      <div class="w pos"><h4>Rich openers.</h4><p>I open each session with the situation, the goal and the reason.</p></div>
+      <div class="w pos"><h4>Clear limits.</h4><p>Nearly four in ten of my prompts say what must not change.</p></div>
+      <div class="w pos"><h4>Evidence attached.</h4><p>I attach screenshots, terminal logs and live links.</p></div>
+      <div class="w pos"><h4>Big hand-offs.</h4><p>85 of my sessions ran past 300 agent actions each.</p></div>
+      <div class="w pos"><h4>I ask for opinions.</h4><p>And say plainly when a result is generic.</p></div>
     </div>
   </div>
 </section>
@@ -508,7 +508,7 @@ body.public .private{display:none !important}
 <!-- STACK -->
 <section class="sec" id="stack">
   <div class="wrap">
-    <div class="sec-head"><h2 class="h-sec">Tech specs.</h2><span class="more">From dependency files and edits. Not self-reported.</span></div>
+    <div class="sec-head"><h2 class="h-sec">My tech specs.</h2><span class="more">Read from my dependency files and edits.</span></div>
     <div class="specs">
       <div class="row"><h4>Languages</h4><p>TypeScript, JavaScript, Python, SQL, Rust, HTML and CSS.</p></div>
       <div class="row"><h4>Web</h4><p>React 18 and 19, Next.js 14–16, TanStack Start, Vite, Tailwind CSS, Radix, shadcn, three.js, GSAP, Framer Motion, Remotion, Recharts, D3.</p></div>
@@ -525,14 +525,14 @@ body.public .private{display:none !important}
 <section class="sec dark" id="next">
   <div class="wrap">
     <h2 class="h-sec center">Proven.</h2>
-    <p class="h-sub center" style="color:var(--on-black2)">What four months of sessions show.</p>
+    <p class="h-sub center" style="color:var(--on-black2)">What my four months of sessions show.</p>
     <div class="cols">
       <div><ul class="chk">
-        <li><svg class="px ck" data-k="on"></svg><span><b>Breadth.</b> Web, mobile, backend, data, release and AI, across many projects.</span></li>
-        <li><svg class="px ck" data-k="on"></svg><span><b>Consistency.</b> Active on 118 of 126 days.</span></li>
-        <li><svg class="px ck" data-k="on"></svg><span><b>Judgment.</b> What to build, in what order, and when to stop the agent.</span></li>
-        <li><svg class="px ck" data-k="on"></svg><span><b>Agent operations.</b> Several agents under written rules and human gates.</span></li>
-        <li><svg class="px ck" data-k="on"></svg><span><b>Taste.</b> A clear standard for how finished work should feel.</span></li>
+        <li><svg class="px ck" data-k="on"></svg><span><b>Breadth.</b> I work across web, mobile, backend, data, release and AI.</span></li>
+        <li><svg class="px ck" data-k="on"></svg><span><b>Consistency.</b> I was active on 118 of 126 days.</span></li>
+        <li><svg class="px ck" data-k="on"></svg><span><b>Judgment.</b> I decide what to build, in what order, and when to stop the agent.</span></li>
+        <li><svg class="px ck" data-k="on"></svg><span><b>Agent operations.</b> I run several agents under written rules and my approval.</span></li>
+        <li><svg class="px ck" data-k="on"></svg><span><b>Taste.</b> I hold a clear standard for how finished work should feel.</span></li>
       </ul></div>
     </div>
   </div>
@@ -543,10 +543,10 @@ body.public .private{display:none !important}
 <footer class="foot" id="method">
   <div class="wrap">
     <ol>
-      <li id="fn1">Counted by script from 422 Claude Code session transcripts, 8 July to 10 November 2026. 341 sessions are human-driven; 57 automated scheduled-task prompts were excluded. Times are India Standard Time.</li>
+      <li id="fn1">Claude counted these by script from my 422 Claude Code session transcripts, 8 July to 10 November 2026. 341 sessions are human-driven; 57 automated scheduled-task prompts were excluded. Times are India Standard Time.</li>
       <li id="fn2">Themes were matched by keyword, so shares are approximate. About 120 prompts were read in full to check them.</li>
-      <li id="fn3">Stack and skill details come from dependency files, CI configuration, migrations and the files edited in each project.</li>
-      <li id="fn4">Written by Claude, Anthropic's coding agent, reviewing its own collaboration history with one person on 10 November 2026. An informed opinion backed by counts, not an independent credential.</li>
+      <li id="fn3">Stack and skill details come from dependency files, CI configuration, migrations and the files edited in each of my projects.</li>
+      <li id="fn4">Analysis by Claude, Anthropic's coding agent, from its own history of working with me, on 10 November 2026. An informed opinion backed by counts, not an independent credential.</li>
     </ol>
     <div class="bottom"><span>Builder profile · Vimal Srinivasan</span><span>Illustrations drawn in code. No stock images.</span></div>
   </div>
@@ -662,7 +662,7 @@ body.public .private{display:none !important}
     p.rr(24,5,12,3,'k',1);                              // island
     // user bubble (prompt)
     p.rr(22,16,26,14,'o',2); [19,22,25].forEach(function(y,i){ p.r(25,y,i===2?12:20,1,'q'); });
-    p.t(46,35,'YOU',3,'g','end');
+    p.t(46,35,'ME',3,'g','end');
     // agent bubble
     p.rr(12,40,30,16,'m',2); [43,46,49,52].forEach(function(y,i){ p.r(15,y,[22,18,24,12][i],1,'l'); });
     p.t(12,61,'AGENT',3,'g');
