@@ -10,4 +10,8 @@ module.exports = {
       { source: '/:file(favicon.*|apple-touch-icon.png)', headers: [{ key: 'Cache-Control', value: longCache }] },
     ]
   },
+  // Static page in public/builder-profile/index.html, served at a clean URL.
+  async rewrites() {
+    return [{ source: '/builder-profile', destination: '/builder-profile/index.html' }]
+  },
 }
